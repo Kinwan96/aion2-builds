@@ -282,7 +282,7 @@ const SPRR={1:WK+'aHR0cHM6Ly9tZWRpYS53aWtpbHkuZ2cvZDllZjllMmItY2RiZi00M2NiLWE0Mj
  4:WK+'aHR0cHM6Ly9tZWRpYS53aWtpbHkuZ2cvZDllZjllMmItY2RiZi00M2NiLWE0MjMtMjk0N2U2OWQ1MzhkLzIwMjYtMDktMzAvNzA4ZWViMzMtYjFmZi00ZmQ3LTkxYjAtODM2MGU2ZGYxMjBiLXV0X2Z3aW5kb3dfZGFldmFuaW9uX25vZGVfdW5pcXVlX3Nwcml0ZS5wbmc',
  0:WK+'aHR0cHM6Ly9tZWRpYS53aWtpbHkuZ2cvZDllZjllMmItY2RiZi00M2NiLWE0MjMtMjk0N2U2OWQ1MzhkLzIwMjYtMDktMzAvZDg0ZDY2YmMtMjRlMC00ODYyLWFkY2YtMzNmNzJmMDVhYjM5LXV0X2Z3aW5kb3dfZGFldmFuaW9uX25vZGVfc3RhcnRfc3ByaXRlLnBuZw'};
 
-const SPR={};[0,1,2,3,4].forEach(k=>SPR[k]=`img/board/${k}.png'),url('${SPRR[k]}`);
+const SPR={};[0,1,2,3,4].forEach(k=>SPR[k]=`${SPRR[k]}'),url('img/board/${k}.png`);
 /* ---------- UI strings ---------- */
 const U={
  title:['Class Builds','Builds por clase'],simple:['Simple','Simple'],adv:['Advanced','Avanzado'],engine:['Core engine','Motor de la clase'],
