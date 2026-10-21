@@ -1,0 +1,2368 @@
+{
+ "id": "spiritmaster",
+ "name": {
+  "en": "Spiritmaster",
+  "es": "Espiritualista"
+ },
+ "classIcon": "UT_Class_Elementalist_Large",
+ "color": "#a26bff",
+ "role": {
+  "en": "Ranged magic DPS + pets",
+  "es": "DPS mágico a distancia + mascotas"
+ },
+ "weapon": {
+  "en": "Orb + Guard",
+  "es": "Orbe + Guardia"
+ },
+ "difficulty": 3,
+ "summary": {
+  "en": "Summons elemental spirits that fight with you and power your spells. Each spirit skill gives an element; 4 elements unlock Elemental Fusion.",
+  "es": "Invoca Espíritus elementales que pelean contigo y potencian tus hechizos. Cada habilidad de Espíritu da un elemento; con 4 desbloqueas Fusión elemental."
+ },
+ "engine": {
+  "en": "Buffs → Ancient Spirit → Fire Spirit → Elemental Fusion; spam Combustion between",
+  "es": "Buffs → Espíritu ancestral → Espíritu de fuego → Fusión elemental; Combustión entre medio"
+ },
+ "skills": [
+  {
+   "n": "Combustion",
+   "ne": "Combustión",
+   "nk": "화염 전소",
+   "ic": "ICON_EL_SKILL_004",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Fire damage to up to 4 enemies within 4m of a target (20m). 120 MP. 3 Stagger.",
+    "es": "Daño de Fuego a hasta 4 enemigos a 4 m de un objetivo (20 m). 120 PM. 3 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "-20% MP consumed",
+     "Reducción del 20 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "Deals up to 12% more damage when less targets are hit",
+     "Cuantos menos objetivos se acierten, aumento máx. del 12 % de daño"
+    ],
+    [
+     8,
+     "+100 Skill Accuracy",
+     "Aumento de 100 de la Precisión de la habilidad"
+    ],
+    [
+     12,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ],
+    [
+     16,
+     "Adds [Ashy Call] Chain Skill",
+     "Adición de hab. de cadena «Llamado de ceniza» x2"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Main nuke",
+    "es": "Nuke principal"
+   },
+   "tip": {
+    "en": "No cooldown: spam it. KR puts it alone in the macro key.",
+    "es": "Sin enfriamiento: úsala sin parar. En KR va sola en la macro."
+   },
+   "pickLev": [
+    0,
+    3,
+    4
+   ],
+   "pickEnd": [
+    1,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Elemental Fusion",
+   "ne": "Fusión elemental",
+   "nk": "원소 융합",
+   "ic": "ICON_EL_SKILL_030",
+   "t": "active",
+   "un": 14,
+   "cd": 0,
+   "d": {
+    "en": "Each spirit skill gives 1 element. At 4 stacks you get Four Elements and can cast Elemental Fusion.",
+    "es": "Cada habilidad de Espíritu da 1 elemento. Con 4 entras en Cuatro elementos y puedes usar Fusión elemental."
+   },
+   "sp": [
+    [
+     8,
+     "Changes to AoE Skill",
+     "Cambio a habilidad de área"
+    ],
+    [
+     8,
+     "Extra damage after 3s on hit",
+     "Al acertar, daño adicional después de 3s"
+    ],
+    [
+     8,
+     "+10 all Element Boost on hit",
+     "Al acertar, aumento del 10 % de Amplificación de Elementos (Todos)"
+    ],
+    [
+     12,
+     "Changes to Charge Skill, dealing up to 200% more damage",
+     "Cambio a habilidad de carga y aumento de máx. 200 % de daño"
+    ],
+    [
+     16,
+     "25% chance to regain Four Elements",
+     "Reobtención de Cuatro elementos con un 25 % de prob."
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Burst",
+    "es": "Ráfaga"
+   },
+   "tip": {
+    "en": "Cast it the moment Four Elements is up. KR players skip the charge pick.",
+    "es": "Úsala apenas tengas Cuatro elementos. En KR no usan la versión de carga."
+   },
+   "pickLev": [
+    0,
+    1,
+    4
+   ],
+   "pickEnd": [
+    1,
+    2,
+    4
+   ]
+  },
+  {
+   "n": "Summon: Fire Spirit",
+   "ne": "Invocación: Espíritu de fuego",
+   "nk": "소환: 불의 정령",
+   "ic": "ICON_EL_SKILL_010",
+   "t": "active",
+   "un": 1,
+   "cd": 15,
+   "d": {
+    "en": "Summons a Fire Spirit that hits up to 4 enemies within 5m, then fights with basic attacks and a 15% skill proc.",
+    "es": "Invoca un Espíritu de fuego que golpea a hasta 4 enemigos a 5 m y luego pelea con ataques básicos (15 % de habilidad)."
+   },
+   "sp": [
+    [
+     8,
+     "-50% MP Cost",
+     "Reducción del 50 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "+20% Fire Spirit Critical Hit damage",
+     "Aumento del 20 % de daño Crítico de Espíritu de fuego"
+    ],
+    [
+     8,
+     "10% chance to activate skill when Fire Spirit lands attack",
+     "(Espíritu de fuego) Al acertar un ataque, aumento del 10 % de la prob. de activación de habilidad"
+    ],
+    [
+     12,
+     "5% chance to inflict Knockdown for 3s on landing Fire Spirit attack",
+     "(Espíritu de fuego) Al acertar un ataque, estado de Derribo durante 3s con un 5 % de prob."
+    ],
+    [
+     16,
+     "+20% Fire Spirit Stats",
+     "Aumento del 20 % de estadísticas de Espíritu de fuego"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Main spirit",
+    "es": "Espíritu principal"
+   },
+   "tip": {
+    "en": "Best endgame spirit (KR dummy tests). Summon it after your buffs.",
+    "es": "Mejor espíritu en endgame (pruebas KR). Invócalo después de tus buffs."
+   },
+   "pickLev": [
+    0,
+    1,
+    4
+   ],
+   "pickEnd": [
+    1,
+    4,
+    2
+   ]
+  },
+  {
+   "n": "Cold Shock",
+   "ne": "Impacto helado",
+   "nk": "냉기 충격",
+   "ic": "ICON_EL_SKILL_001",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Water damage to a target (20m), restores 100 MP. Chains into Vacuum Explosion and Earth Tremor.",
+    "es": "Daño de Agua a un objetivo (20 m), recupera 100 PM. Encadena Explosión de vacío y Temblor terrestre."
+   },
+   "sp": [
+    [
+     8,
+     "+20% MP restored",
+     "Aumento del 20 % de Recuperación de Puntos de Maná"
+    ],
+    [
+     8,
+     "Absorbs 1% HP",
+     "Absorción de Puntos de Vida del 1 %"
+    ],
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     12,
+     "+2% Attack on landing [Earth Tremor] (Up to 5 stacks)",
+     "Al acertar «Temblor terrestre», aumento del 2 % de Ataque (acumulaciones máx.: 5)"
+    ],
+    [
+     16,
+     "10% chance to remove 1 buff on landing [Earth Tremor]",
+     "Al acertar «Temblor terrestre», disipación de magia fortalecedora x1 con un 10 % de prob."
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Filler + MP",
+    "es": "Relleno + PM"
+   },
+   "tip": {
+    "en": "Your basic chain. Keep the 5 Attack stacks from Earth Tremor up.",
+    "es": "Tu cadena básica. Mantén las 5 acumulaciones de Ataque de Temblor terrestre."
+   },
+   "pickLev": [
+    0,
+    3,
+    2
+   ],
+   "pickEnd": [
+    2,
+    3,
+    0
+   ]
+  },
+  {
+   "n": "Summon: Water Spirit",
+   "ne": "Invocación: Espíritu de agua",
+   "nk": "소환: 물의 정령",
+   "ic": "ICON_EL_SKILL_011",
+   "t": "active",
+   "un": 3,
+   "cd": 15,
+   "d": {
+    "en": "Summons a Water Spirit: single-target Water hit, then basic attacks that restore MP. 15% skill proc.",
+    "es": "Invoca un Espíritu de agua: golpe de Agua a un objetivo y ataques básicos que recuperan PM. 15 % de habilidad."
+   },
+   "sp": [
+    [
+     8,
+     "-50% MP Cost",
+     "Reducción del 50 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "+10% Water Spirit Attack",
+     "Aumento del 10 % de Ataque de Espíritu de agua"
+    ],
+    [
+     8,
+     "10% chance to activate skill when Water Spirit lands attack",
+     "(Espíritu de agua) Al acertar un ataque, aumento del 10 % de la prob. de activación de habilidad"
+    ],
+    [
+     12,
+     "5% chance to inflict Root for 2s on landing Water Spirit attack",
+     "(Espíritu de agua) Al acertar un ataque, estado de Atadura durante 2s con un 5 % de prob."
+    ],
+    [
+     16,
+     "+20% Water Spirit Stats",
+     "Aumento del 20 % de estadísticas de Espíritu de agua"
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "Leveling spirit",
+    "es": "Espíritu de nivel"
+   },
+   "tip": {
+    "en": "Best spirit while leveling (damage + MP). Backup when Fire is on cooldown.",
+    "es": "Mejor espíritu al subir de nivel (daño + PM). Respaldo si Fuego está en enfriamiento."
+   },
+   "pickLev": [
+    0,
+    1,
+    4
+   ],
+   "pickEnd": [
+    1,
+    4,
+    2
+   ]
+  },
+  {
+   "n": "Jointstrike: Curse",
+   "ne": "Golpe conjunto: Maldición",
+   "nk": "협공: 저주",
+   "ic": "ICON_EL_SKILL_014",
+   "t": "active",
+   "un": 4,
+   "cd": 10,
+   "d": {
+    "en": "Hits up to 4 enemies within 4m and applies Curse: DoT every 1s and -10% damage they deal to you.",
+    "es": "Golpea a hasta 4 enemigos a 4 m y aplica Maldición: daño continuo cada 1 s y -10 % del daño que te hacen."
+   },
+   "sp": [
+    [
+     8,
+     "+2s Curse duration",
+     "Aumento de 2 s de duración de Maldición"
+    ],
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "-2s cooldown",
+     "Reducción de 2 s de Tiempo de Enfriamiento"
+    ],
+    [
+     16,
+     "[Jointstrike: Curse] ignores Block and Evasion and lands as a Critical Hit",
+     "«Golpe conjunto: Maldición» ignora el Bloqueo y la Evasión y acierta con un golpe Crítico"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "DoT",
+    "es": "Daño continuo"
+   },
+   "tip": {
+    "en": "Keep it on cooldown: the DoT feeds Consecutive Countercurrent.",
+    "es": "Úsala siempre que esté lista: el daño continuo activa Retroceso continuo."
+   },
+   "pickLev": [
+    2,
+    0,
+    3
+   ],
+   "pickEnd": [
+    0,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Dimensional Control",
+   "ne": "Dominio espacial",
+   "nk": "공간 지배",
+   "ic": "ICON_EL_SKILL_033",
+   "t": "active",
+   "un": 8,
+   "cd": 0,
+   "d": {
+    "en": "Briefly usable after each spirit skill. Hits up to 4 enemies within 4m and slows them 40% for 3s.",
+    "es": "Se activa brevemente tras cada habilidad de Espíritu. Golpea a hasta 4 enemigos a 4 m y los ralentiza 40 % 3 s."
+   },
+   "sp": [
+    [
+     8,
+     "+20% Slow effect",
+     "Aumento del 20 % de efecto de Ralentización"
+    ],
+    [
+     8,
+     "Extra damage after 3s on hit",
+     "Al acertar, daño adicional después de 3s"
+    ],
+    [
+     8,
+     "+50% Multi-Hit chance on hit",
+     "Al acertar, aumento del 50 % de prob. de Multigolpe"
+    ],
+    [
+     12,
+     "Pull in nearby targets",
+     "Atracción centrada en objetivo"
+    ],
+    [
+     16,
+     "30% chance to inflict Root for 3s on hit",
+     "Al acertar, hay un 30 % de probabilidad de aplicar Atadura durante 3s"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "Proc hit",
+    "es": "Golpe de activación"
+   },
+   "tip": {
+    "en": "Free damage after every spirit skill. Put it in the damage macro.",
+    "es": "Daño gratis tras cada habilidad de Espíritu. Ponla en la macro de daño."
+   },
+   "pickLev": [
+    3,
+    1,
+    2
+   ],
+   "pickEnd": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Rapid Scattershot",
+   "ne": "Ráfaga continua",
+   "nk": "연속 난사",
+   "ic": "ICON_EL_SKILL_034",
+   "t": "active",
+   "un": 5,
+   "cd": 0,
+   "d": {
+    "en": "Damage to a Staggered target within 20m.",
+    "es": "Daño a un objetivo en Tambaleo en un radio de 20 m."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 5% HP",
+     "Absorción de Puntos de Vida del 5 %"
+    ],
+    [
+     8,
+     "Restores 120 MP",
+     "Recuperación de 120 de Puntos de Maná"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     16,
+     "-1s all skill cooldowns on hit",
+     "Al acertar, reducción de 1s de Tiempo de Enfriamiento de todas las habilidades"
+    ]
+   ],
+   "rank": 9,
+   "tag": {
+    "en": "Stagger punish",
+    "es": "Castigo de Tambaleo"
+   },
+   "tip": {
+    "en": "Only works on Staggered targets. Put it under Cold Shock in the macro.",
+    "es": "Solo funciona en objetivos en Tambaleo. Ponla bajo Impacto helado en la macro."
+   },
+   "pickLev": [
+    2,
+    3,
+    0
+   ],
+   "pickEnd": [
+    3,
+    4,
+    2
+   ]
+  },
+  {
+   "n": "Summon: Earth Spirit",
+   "ne": "Invocación: Espíritu de tierra",
+   "nk": "소환: 땅의 정령",
+   "ic": "ICON_EL_SKILL_013",
+   "t": "active",
+   "un": 7,
+   "cd": 15,
+   "d": {
+    "en": "Summons an Earth Spirit: Earth hit plus 3750 Enmity (taunt). Tanky spirit.",
+    "es": "Invoca un Espíritu de tierra: golpe de Tierra y +3750 de Hostilidad (provocar). Espíritu resistente."
+   },
+   "sp": [
+    [
+     8,
+     "-50% MP Cost",
+     "Reducción del 50 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "+20% PvE Damage Tolerance and +10 PvP Damage Tolerance to Earth Spirit",
+     "Aumento del 20 % de Tolerancia a Daño JcE y 10 % de Tolerancia a Daño JcJ de Espíritu de tierra"
+    ],
+    [
+     8,
+     "10% chance to activate skill when Earth Spirit lands attack",
+     "(Espíritu de tierra) Al acertar un ataque, aumento del 10 % de la prob. de activación de habilidad"
+    ],
+    [
+     12,
+     "5% chance to restore 5% of Spirit HP when landing Earth Spirit attack",
+     "(Espíritu de tierra) Al acertar un ataque, recuperación del 5 % de Puntos de Vida de Espíritu con un 5 % de prob."
+    ],
+    [
+     16,
+     "+20% Earth Spirit Stats",
+     "Aumento del 20 % de estadísticas de Espíritu de tierra"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Tank spirit",
+    "es": "Espíritu tanque"
+   },
+   "tip": {
+    "en": "Solo tank for hard mobs or PvP. Leave at 1 for PvE DPS.",
+    "es": "Tanque en solitario contra mobs duros o JcJ. Déjalo en 1 para DPS JcE."
+   },
+   "pickLev": [
+    1,
+    4,
+    0
+   ],
+   "pickEnd": [
+    1,
+    4,
+    0
+   ]
+  },
+  {
+   "n": "Summon: Wind Spirit",
+   "ne": "Invocación: Espíritu de viento",
+   "nk": "소환: 바람의 정령",
+   "ic": "ICON_EL_SKILL_012",
+   "t": "active",
+   "un": 10,
+   "cd": 15,
+   "d": {
+    "en": "Summons a Wind Spirit: Wind AoE on up to 4 enemies within 5m and heals you 134-147 HP.",
+    "es": "Invoca un Espíritu de viento: daño de Viento en área a hasta 4 enemigos a 5 m y te cura 134-147 PV."
+   },
+   "sp": [
+    [
+     8,
+     "-50% MP Cost",
+     "Reducción del 50 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "+20% Wind Spirit Critical Hit",
+     "Aumento del 20 % de Crítico de Espíritu de viento"
+    ],
+    [
+     8,
+     "10% chance to activate skill when Wind Spirit lands attack",
+     "(Espíritu de viento) Al acertar un ataque, aumento del 10 % de la prob. de activación de habilidad"
+    ],
+    [
+     12,
+     "5% chance to reduce enemy Attack Speed by 30% for 10s on landing Wind Spirit attack",
+     "(Espíritu de viento) Al atacar, reducción del 30 % de Velocidad de Ataque durante 10s con un 5 % de prob."
+    ],
+    [
+     16,
+     "+20% Wind Spirit Stats",
+     "Aumento del 20 % de estadísticas de Espíritu de viento"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Skip",
+    "es": "Omitir"
+   },
+   "tip": {
+    "en": "Only useful early to reach Four Elements faster. Leave at 1.",
+    "es": "Solo sirve al principio para llegar antes a Cuatro elementos. Déjalo en 1."
+   },
+   "pickLev": [
+    0,
+    1,
+    4
+   ],
+   "pickEnd": [
+    1,
+    4,
+    2
+   ]
+  },
+  {
+   "n": "Soul's Cry",
+   "ne": "Grito de alma",
+   "nk": "영혼의 절규",
+   "ic": "ICON_EL_SKILL_007",
+   "t": "active",
+   "un": 12,
+   "cd": 45,
+   "d": {
+    "en": "Damage to a target (20m) with 70% chance of Fear for 5s (100% on NPCs). 15 Stagger.",
+    "es": "Daño a un objetivo (20 m) con 70 % de prob. de Terror 5 s (100 % en PNJ). 15 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     8,
+     "Inflicts Root for 5s",
+     "Efecto de Atadura durante 5s"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "-10s cooldown",
+     "Reducción de 10 s de Tiempo de Enfriamiento"
+    ],
+    [
+     16,
+     "+2s Fear duration",
+     "Aumento de 2 s de duración de Terror"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP CC",
+    "es": "Control JcJ"
+   },
+   "tip": {
+    "en": "PvP control. Do not put it in PvE macros: Fear makes mobs run.",
+    "es": "Control para JcJ. No la pongas en macros JcE: el Terror hace huir a los mobs."
+   },
+   "pickLev": [
+    2,
+    3,
+    1
+   ],
+   "pickEnd": [
+    2,
+    3,
+    1
+   ]
+  },
+  {
+   "n": "Defiance",
+   "ne": "Eliminación de impacto",
+   "nk": "충격 해제",
+   "ic": "ICON_CO_SKILL_002",
+   "t": "active",
+   "un": 16,
+   "cd": 60,
+   "d": {
+    "en": "Removes Stun, Knockdown, Airborne, Grab, Frost and Fear; 5s Tenacity (status immunity).",
+    "es": "Elimina Aturdimiento, Derribo, Atadura aérea, Agarre, Congelación y Terror; 5 s de Robustez (inmunidad)."
+   },
+   "sp": [
+    [
+     8,
+     "Adds [Curse of Despair] Chain Skill",
+     "Añade [Maldición: Maldición de desesperación] como segunda habilidad de cadena."
+    ],
+    [
+     8,
+     "Restores 1000 Stamina on using [Defiance]",
+     "Al lanzar [Eliminación de impacto], recupera 1000 de Vigor"
+    ],
+    [
+     8,
+     "Restores 20% HP on using [Defiance]",
+     "Al lanzar «Eliminación de impacto», recuperación del 20 % de Puntos de Vida"
+    ],
+    [
+     12,
+     "+2s Tenacity duration",
+     "Aumento de 2 s de duración de Robustez"
+    ],
+    [
+     16,
+     "+50% PvE Damage Tolerance and +25% PvP Damage Tolerance for Tenacity duration",
+     "Durante la duración de Robustez, la Tolerancia a Daño JcE aumenta un 50 % y la Tolerancia a Daño JcJ un 25 %"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "CC break",
+    "es": "Romper control"
+   },
+   "tip": {
+    "en": "Press by hand when stunned. Never in a macro.",
+    "es": "Úsala a mano cuando te controlen. Nunca en macro."
+   },
+   "pickLev": [
+    2,
+    1,
+    3
+   ],
+   "pickEnd": [
+    2,
+    4,
+    3
+   ]
+  },
+  {
+   "n": "Spirit Strike",
+   "ne": "Golpe de Espíritu",
+   "nk": "정령 타격",
+   "ic": "ICON_EL_SKILL_Passive_004",
+   "t": "passive",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "+6% PvE Damage Boost, +3% PvP, +0.4% Perfect Chance for you and your spirit.",
+    "es": "+6 % Amplificación de Daño JcE, +3 % JcJ y +0.4 % de Perfección para ti y tu Espíritu."
+   },
+   "sp": [],
+   "rank": 8,
+   "tag": {
+    "en": "Top passive",
+    "es": "Pasiva clave"
+   },
+   "tip": {
+    "en": "Best passive (KR tier 1). Max it first.",
+    "es": "Mejor pasiva (nivel 1 en KR). Súbela primero."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Mental Focus",
+   "ne": "Concentración mental",
+   "nk": "정신 집중",
+   "ic": "ICON_EL_SKILL_Passive_006",
+   "t": "passive",
+   "un": 15,
+   "cd": 0,
+   "d": {
+    "en": "+11% Mental-type Chance and +0.3% Double Chance (Smite).",
+    "es": "+11 % Acierto de Tipo Mental y +0.3 % de Golpe (doble daño)."
+   },
+   "sp": [],
+   "rank": 10,
+   "tag": {
+    "en": "Smite",
+    "es": "Golpe"
+   },
+   "tip": {
+    "en": "Smite is the best damage stat; this is a free source.",
+    "es": "Golpe es la mejor estadística de daño; esta es una fuente gratis."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Element Unification",
+   "ne": "Unificación elemental",
+   "nk": "원소 결집",
+   "ic": "ICON_EL_SKILL_Passive_008",
+   "t": "passive",
+   "un": 25,
+   "cd": 0,
+   "d": {
+    "en": "+1.1% Crit Damage Boost for you and spirit per spirit skill hit, 10s, up to 5 stacks.",
+    "es": "+1.1 % Amplificación de Daño Crítico para ti y tu Espíritu por golpe de habilidad de Espíritu, 10 s, hasta 5."
+   },
+   "sp": [],
+   "rank": 11,
+   "tag": {
+    "en": "Crit dmg",
+    "es": "Daño crítico"
+   },
+   "tip": {
+    "en": "Good once you have crit gear and keep spirits busy.",
+    "es": "Buena cuando tengas equipo de crítico y Espíritus activos."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Spirit Revitalization",
+   "ne": "Revitalización de Espíritu",
+   "nk": "정령 회생",
+   "ic": "ICON_EL_SKILL_Passive_011",
+   "t": "passive",
+   "un": 13,
+   "cd": 30,
+   "d": {
+    "en": "11% chance on hit to cut spirit summon cooldowns by 1s. Heals spirit 12% at 50% HP.",
+    "es": "11 % de prob. al acertar de reducir 1 s el enfriamiento de invocaciones. Cura 12 % al Espíritu a 50 % PV."
+   },
+   "sp": [],
+   "rank": 12,
+   "tag": {
+    "en": "Spirit CDR",
+    "es": "Enfr. Espíritus"
+   },
+   "tip": {
+    "en": "More summons = more Elemental Fusion and Dimensional Control.",
+    "es": "Más invocaciones = más Fusión elemental y Dominio espacial."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Spirit's Descent",
+   "ne": "Descenso de Espíritu",
+   "nk": "정령 강림",
+   "ic": "ICON_EL_SKILL_Passive_003",
+   "t": "passive",
+   "un": 9,
+   "cd": 0,
+   "d": {
+    "en": "10s after a summon, 50% chance on hit for extra damage. 30s with Ancient Spirit.",
+    "es": "10 s tras invocar, 50 % de prob. al acertar de daño extra. 30 s con Espíritu ancestral."
+   },
+   "sp": [],
+   "rank": 13,
+   "tag": {
+    "en": "Proc damage",
+    "es": "Daño extra"
+   },
+   "tip": {
+    "en": "Good early; boosted by Summon: Ancient Spirit.",
+    "es": "Buena al inicio; la potencia Invocación: Espíritu ancestral."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Consecutive Countercurrent",
+   "ne": "Retroceso continuo",
+   "nk": "연속 역류",
+   "ic": "ICON_EL_SKILL_Passive_013",
+   "t": "passive",
+   "un": 17,
+   "cd": 0,
+   "d": {
+    "en": "50% chance on hit for extra damage on targets taking Damage over Time.",
+    "es": "50 % de prob. al acertar de daño extra a objetivos con daño continuo."
+   },
+   "sp": [],
+   "rank": 14,
+   "tag": {
+    "en": "DoT bonus",
+    "es": "Bonus DoT"
+   },
+   "tip": {
+    "en": "Pairs with Curse and Corrode. Good early filler.",
+    "es": "Combina con Maldición y Corrosión. Buen relleno al inicio."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Corrode",
+   "ne": "Erosión",
+   "nk": "침식",
+   "ic": "ICON_EL_SKILL_Passive_012",
+   "t": "passive",
+   "un": 11,
+   "cd": 0,
+   "d": {
+    "en": "+100 Critical Hit; 50% chance for extra damage on a crit.",
+    "es": "+100 de Crítico; 50 % de prob. de daño extra al hacer crítico."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "Low value",
+    "es": "Poco valor"
+   },
+   "tip": {
+    "en": "Very low gain per level. Only with spare points.",
+    "es": "Ganancia muy baja por nivel. Solo con puntos sobrantes."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Spirit Communion",
+   "ne": "Comunión de Espíritu",
+   "nk": "정령 교감",
+   "ic": "ICON_EL_SKILL_Passive_007",
+   "t": "passive",
+   "un": 21,
+   "cd": 0,
+   "d": {
+    "en": "+100 Accuracy; 10% chance on hit to heal you and spirit 182-200 HP.",
+    "es": "+100 de Precisión; 10 % de prob. al acertar de curarte a ti y al Espíritu 182-200 PV."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "Sustain",
+    "es": "Sustento"
+   },
+   "tip": {
+    "en": "Leave at 1 for PvE.",
+    "es": "Déjala en 1 para JcE."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Spirit Protection",
+   "ne": "Protección de Espíritu",
+   "nk": "정령 보호",
+   "ic": "ICON_EL_SKILL_Passive_002",
+   "t": "passive",
+   "un": 6,
+   "cd": 0,
+   "d": {
+    "en": "+2% Defense for you and your spirit.",
+    "es": "+2 % de Defensa para ti y tu Espíritu."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "Defense",
+    "es": "Defensa"
+   },
+   "tip": {
+    "en": "PvP only.",
+    "es": "Solo JcJ."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Revitalization Contract",
+   "ne": "Pacto de resurrección",
+   "nk": "회생의 계약",
+   "ic": "ICON_AS_SKILL_Passive_009",
+   "t": "passive",
+   "un": 23,
+   "cd": 0,
+   "d": {
+    "en": "+17% Status Effect Resist; more resist when hit while CC'd; emergency heal.",
+    "es": "+17 % Resistencia a efectos de estado; más resistencia al recibir golpes bajo control; curación de emergencia."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "PvP",
+    "es": "JcJ"
+   },
+   "tip": {
+    "en": "PvP only.",
+    "es": "Solo JcJ."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Summon: Ancient Spirit",
+   "ne": "Invocación: Espíritu ancestral",
+   "nk": "고대의 정령",
+   "ic": "ICON_EL_SKILL_025",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Summons an Ancient Spirit for 30s; each of its skills grants Four Elements. AoE on 4 enemies.",
+    "es": "Invoca un Espíritu ancestral 30 s; cada habilidad suya da Cuatro elementos. Área a 4 enemigos."
+   },
+   "sp": [
+    [
+     5,
+     "+10% Ancient Spirit Attack",
+     "Aumento del 10 % de Ataque de Espíritu ancestral"
+    ],
+    [
+     10,
+     "x1.5 [Spirit's Descent] activation chance and damage for 30s",
+     "Aumento de prob. de activación y daño de «Descenso de Espíritu» x1,5 durante 30s"
+    ],
+    [
+     15,
+     "Ancient Spirit uses skill after 5 basic attacks",
+     "Tras 5 ataques básicos de Espíritu ancestral, uso de habilidad"
+    ],
+    [
+     20,
+     "+20% Ancient Spirit Stats",
+     "Aumento del 20 % de estadísticas de Espíritu ancestral"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Burst spirit",
+    "es": "Espíritu de ráfaga"
+   },
+   "tip": {
+    "en": "Summon after Flame Blessing and Benediction: spirits copy your stats on summon.",
+    "es": "Invócalo tras Bendición ardiente y Favor: los Espíritus copian tus stats al aparecer."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Enhance: Spirit's Benediction",
+   "ne": "Mejora: Favor de Espíritu",
+   "nk": "강화: 정령의 가호",
+   "ic": "ICON_EL_SKILL_019",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "+20% PvE Damage Boost and +20% PvE Damage Tolerance plus HP regen for you and spirit, 10s.",
+    "es": "+20 % Amplificación de Daño JcE y +20 % Tolerancia JcE con regeneración para ti y el Espíritu, 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "Restores 10% of Max HP on cast",
+     "Al lanzar, recuperación del 10 % de Puntos de Vida"
+    ],
+    [
+     10,
+     "x1.5 [Spirit Strike] Damage Boost effect",
+     "Aumento de efecto de Amplificación de Daño de hab. pasiva «Golpe de Espíritu» x1,5"
+    ],
+    [
+     15,
+     "x1.5 activation chance and amount healed from [Spirit Communion]",
+     "Aumento de prob. de activación de «Comunión de Espíritu» y recuperación x1,5"
+    ],
+    [
+     20,
+     "+25% PvE Damage Boost and Damage Tolerance, +12.5% PvP Damage Boost and Damage Tolerance for caster and Spirit",
+     "Aumento del 25 % de Amplificación de Daño de JcE y Tolerancia a Daño JcE y de 12,5 % de Amplificación de Daño JcJ y Tolerancia a Daño JcJ propia y de Espíritu"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Main buff",
+    "es": "Buff principal"
+   },
+   "tip": {
+    "en": "Big damage buff. Shares a key with Flame Blessing.",
+    "es": "Gran buff de daño. Comparte tecla con Bendición ardiente."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Flame Blessing",
+   "ne": "Bendición ardiente",
+   "nk": "불길의 축복",
+   "ic": "ICON_EL_SKILL_037",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "For 10s, 50% chance on hit to deal extra damage (1s cooldown).",
+    "es": "Durante 10 s, 50 % de prob. al acertar de daño extra (enfriamiento 1 s)."
+   },
+   "sp": [
+    [
+     5,
+     "+100 Accuracy",
+     "Aumento de 100 de Precisión"
+    ],
+    [
+     10,
+     "+100 Critical Hit",
+     "Aumento de 100 de Crítico"
+    ],
+    [
+     15,
+     "+10% Critical Damage Boost",
+     "Aumento del 10 % de Amplificación de Daño Crítico"
+    ],
+    [
+     20,
+     "-50% extra damage cooldown",
+     "Reducción del 50 % de Tiempo de Enfriamiento de daño adicional"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Opener buff",
+    "es": "Buff inicial"
+   },
+   "tip": {
+    "en": "Cast first in every burst window.",
+    "es": "Lánzala primero en cada ventana de ráfaga."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Jointstrike: Corrode",
+   "ne": "Golpe conjunto: Corrosión",
+   "nk": "협공: 부식",
+   "ic": "ICON_EL_SKILL_015",
+   "t": "stigma",
+   "un": 22,
+   "cd": 45,
+   "d": {
+    "en": "AoE on 4 enemies; Corrode 20s: +10% damage taken from Spirit and DoT every 1s.",
+    "es": "Área a 4 enemigos; Corrosión 20 s: +10 % de daño recibido del Espíritu y daño continuo cada 1 s."
+   },
+   "sp": [
+    [
+     5,
+     "+15% extra damage taken from Spirit during Corrode",
+     "Aumento adicional del 15 % de daño recibido del Espíritu durante Corrosión"
+    ],
+    [
+     10,
+     "-20% Combat Speed on hit for 10s",
+     "Al acertar, reducción del 20 % de Velocidad de Hechizo durante 10s"
+    ],
+    [
+     15,
+     "-70% Incoming Heal during Corrode",
+     "Durante Corrosión, reducción del 70 % de Curación Recibida"
+    ],
+    [
+     20,
+     "+10s Corrode effect duration",
+     "Aumento de 10 s de duración de efecto de Corrosión"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Debuff",
+    "es": "Debuff"
+   },
+   "tip": {
+    "en": "Keep it on the boss; also a DoT for Countercurrent.",
+    "es": "Mantenla en el jefe; también es DoT para Retroceso continuo."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    3,
+    1,
+    2
+   ]
+  },
+  {
+   "n": "Cursed Cloud",
+   "ne": "Nube de maldición",
+   "nk": "저주의 구름",
+   "ic": "ICON_EL_SKILL_022",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "AoE on 4 enemies plus a 10s DoT. 20 Stagger.",
+    "es": "Área a 4 enemigos y daño continuo 10 s. 20 de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "-1000 enemy Max Stamina during Damage over Time",
+     "Durante daño continuo, reducción de 1000 de Vigor máx."
+    ],
+    [
+     10,
+     "-20% Max HP of PC targets during Damage over Time",
+     "Al infligir daño continuo a PNJ, reducción del 20 % de Puntos de Vida Máximos"
+    ],
+    [
+     15,
+     "+10s Damage over Time duration",
+     "Aumento de 10 s de la duración de daño continuo"
+    ],
+    [
+     20,
+     "-30% Status Effect Resist during Damage over Time",
+     "Durante daño continuo, reducción del 30 % de Resistencia a Efectos de Estado"
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "AoE DoT",
+    "es": "DoT en área"
+   },
+   "tip": {
+    "en": "Good for packs and leveling. Swap for Corrode on trash.",
+    "es": "Buena para grupos de mobs y nivel. Cámbiala por Corrosión en trash."
+   },
+   "pickLev": [
+    2,
+    0,
+    1,
+    3
+   ],
+   "pickEnd": [
+    2,
+    0,
+    3,
+    1
+   ]
+  },
+  {
+   "n": "Siphon",
+   "ne": "Drenaje",
+   "nk": "흡인",
+   "ic": "ICON_EL_SKILL_006",
+   "t": "stigma",
+   "un": 22,
+   "cd": 30,
+   "d": {
+    "en": "Damage plus 300 MP damage; absorbs 10% HP and restores 300 MP.",
+    "es": "Daño y 300 de daño a PM; absorbe 10 % de PV y recupera 300 PM."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ],
+    [
+     10,
+     "+5% HP absorbed",
+     "Aumento del 5 % de Absorción de Puntos de Vida"
+    ],
+    [
+     15,
+     "30% of Max HP as Protective Shield for 30s on use",
+     "Al lanzar, obtención de barrera del 30 % de Puntos de Vida Máximos durante 30s"
+    ],
+    [
+     20,
+     "Stun for 3s on hit",
+     "Al acertar, estado de Aturdimiento durante 3s"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "Sustain",
+    "es": "Sustento"
+   },
+   "tip": {
+    "en": "HP and MP while soloing. Great leveling pick.",
+    "es": "PV y PM en solitario. Gran opción para subir de nivel."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    2,
+    0,
+    1,
+    3
+   ]
+  },
+  {
+   "n": "Jointstrike: Destructive Attack",
+   "ne": "Golpe conjunto: Ofensiva de perdición",
+   "nk": "협공: 파멸의 공세",
+   "ic": "ICON_EL_SKILL_024",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Hits a target and your spirit joins in. 50 Stagger.",
+    "es": "Golpea a un objetivo y tu Espíritu se une al ataque. 50 de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "Changes to Charge Skill, dealing up to 200% more [Jointstrike: Destructive Attack] damage",
+     "Cambio a habilidad de carga y aumento de máx. 200 % de daño de «Golpe conjunto: Ofensiva de perdición»"
+    ],
+    [
+     10,
+     "+30% Skill Speed",
+     "Aumento de la Velocidad de habilidad en un 30 %"
+    ],
+    [
+     15,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ],
+    [
+     20,
+     "Reset [Jointstrike: Curse] and [Jointstrike: Corrode] cooldown on landing [Jointstrike: Destructive Attack] first hit",
+     "Al acertar el primer golpe de «Golpe conjunto: Ofensiva de perdición», restablecimiento de Tiempo de Enfriamiento de «Golpe conjunto: Maldición» y «Golpe conjunto: Corrosión»"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "Stagger",
+    "es": "Tambaleo"
+   },
+   "tip": {
+    "en": "Big Stagger damage. KR tests say it can lower DPS.",
+    "es": "Mucho daño de Tambaleo. Pruebas KR dicen que puede bajar el DPS."
+   },
+   "pickLev": [
+    1,
+    2,
+    3,
+    0
+   ],
+   "pickEnd": [
+    1,
+    2,
+    3,
+    0
+   ]
+  },
+  {
+   "n": "Magic Block",
+   "ne": "Bloqueo mágico",
+   "nk": "마법 차단",
+   "ic": "ICON_EL_SKILL_026",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Damage with 75% chance to Seal 5s. 20 Stagger.",
+    "es": "Daño con 75 % de prob. de Sellado 5 s. 20 de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "50% chance to inflict Root for 5s on hit",
+     "Al acertar, hay un 50 % de probabilidad de aplicar Atadura durante 5s"
+    ],
+    [
+     10,
+     "-1000 enemy Max Stamina for 5s on hit",
+     "Al acertar, reducción de 1000 de Vigor máx. durante 5s"
+    ],
+    [
+     15,
+     "+2s Seal duration",
+     "Aumento de 2 s de duración de Sellado"
+    ],
+    [
+     20,
+     "+25% Seal chance",
+     "Aumento del 25 % de prob. de Sellado"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP",
+    "es": "JcJ"
+   },
+   "tip": {
+    "en": "PvP silence.",
+    "es": "Silencio para JcJ."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    3,
+    2,
+    0,
+    1
+   ]
+  },
+  {
+   "n": "Seize Magic",
+   "ne": "Usurpación mágica",
+   "nk": "마법 강탈",
+   "ic": "ICON_EL_SKILL_023",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "AoE that removes up to 2 buffs, extra damage per buff removed. 20 Stagger.",
+    "es": "Área que disipa hasta 2 buffs, daño extra por buff disipado. 20 de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "Removes up to 3 buffs",
+     "Elimina hasta 3 magias fortalecedoras."
+    ],
+    [
+     10,
+     "Inflicts Seal for 5s when removing 3 or more buffs",
+     "Al disipar 3 o más magias fortalecedoras, Sellado durante 5 s"
+    ],
+    [
+     15,
+     "Removes up to 5 buffs",
+     "Elimina hasta 5 magias fortalecedoras"
+    ],
+    [
+     20,
+     "-30s cooldown",
+     "Reducción de 30 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Dispel",
+    "es": "Disipar"
+   },
+   "tip": {
+    "en": "PvP or bosses with buffs.",
+    "es": "JcJ o jefes con buffs."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    2,
+    3,
+    1
+   ]
+  },
+  {
+   "n": "Kaisinel's Power",
+   "ne": "Poder de Kaisinel",
+   "nk": "카이시넬의 권능",
+   "ic": "ICON_EL_SKILL_036",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "+20% Status Effect Chance and +20% Status Effect Resist for 10s.",
+    "es": "+20 % Acierto y +20 % Resistencia a efectos de estado durante 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "+150 Block and Evasion",
+     "Aumento de 150 de Bloqueo y Evasión"
+    ],
+    [
+     10,
+     "+15% Status Effect Resist",
+     "Aumento del 15 % de Resistencia a Efectos de Estado"
+    ],
+    [
+     15,
+     "+150 Accuracy",
+     "Aumento de 150 de Precisión"
+    ],
+    [
+     20,
+     "+15% Status Effect Chance",
+     "Aumento del 15 % de Acierto de Efectos de Estado"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP",
+    "es": "JcJ"
+   },
+   "tip": {
+    "en": "PvP only.",
+    "es": "Solo JcJ."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Command: Proxy",
+   "ne": "Orden: Sustituto",
+   "nk": "명령: 대역",
+   "ic": "ICON_EL_SKILL_017",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "4s: your spirit takes 50% of damage you receive and gains damage tolerance.",
+    "es": "4 s: tu Espíritu recibe el 50 % del daño que recibes y gana tolerancia al daño."
+   },
+   "sp": [
+    [
+     5,
+     "+2s Command: Proxy duration",
+     "+2 s de duración de Orden: Sustitución"
+    ],
+    [
+     10,
+     "+10% PVP Damage Tolerance increase and +5% PvP Damage Tolerance to Spirit",
+     "Aumento adicional del 10 % de Tolerancia a Daño JcE y 5 % de Tolerancia a Daño JcJ de Espíritu"
+    ],
+    [
+     15,
+     "x1.5 [Spirit Protection] effect during Command: Proxy",
+     "Efecto de «Protección de Espíritu» x1,5 durante la duración de Orden: Sustituto"
+    ],
+    [
+     20,
+     "Restores 3% of Spirit's HP every 1s for Command: Proxy duration",
+     "Durante Orden: Sustituto, recupera un 3% de los Puntos de Vida del Espíritu por segundo."
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Defensive",
+    "es": "Defensiva"
+   },
+   "tip": {
+    "en": "Emergency defense. Rarely worth a slot in PvE.",
+    "es": "Defensa de emergencia. Rara vez vale un espacio en JcE."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    3,
+    1,
+    2
+   ]
+  },
+  {
+   "n": "Cry of Terror",
+   "ne": "Grito de terror",
+   "nk": "공포의 절규",
+   "ic": "ICON_EL_SKILL_008",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "AoE on 4 enemies with 50% chance of Fear 5s (100% on NPCs).",
+    "es": "Área a 4 enemigos con 50 % de prob. de Terror 5 s (100 % en PNJ)."
+   },
+   "sp": [
+    [
+     5,
+     "Root for 5s on hit",
+     "Al acertar, estado de Atadura durante 5s"
+    ],
+    [
+     10,
+     "Up to +20% damage when more targets hit",
+     "Cuantos más objetivos se acierten, el daño aumenta un máximo del 20 %"
+    ],
+    [
+     15,
+     "+2s Fear duration",
+     "Aumento de 2 s de duración de Terror"
+    ],
+    [
+     20,
+     "+20% Fear Chance",
+     "Aumento del 20 % de prob. de Terror"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP CC",
+    "es": "Control JcJ"
+   },
+   "tip": {
+    "en": "PvP crowd control.",
+    "es": "Control de masas JcJ."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    3,
+    2,
+    0,
+    1
+   ]
+  },
+  {
+   "n": "Assault Terror",
+   "ne": "Terror de agresión",
+   "nk": "강습 공포",
+   "ic": "ICON_CO_SKILL_003",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "AoE on 4 enemies, 30% Fear chance (100% on NPCs), +Defense based on targets.",
+    "es": "Área a 4 enemigos, 30 % de prob. de Terror (100 % en PNJ), +Defensa según objetivos."
+   },
+   "sp": [
+    [
+     5,
+     "+20% caster's Attack for 5s",
+     "Aumento del 20 % de Ataque propio durante 5s"
+    ],
+    [
+     10,
+     "500 MP damage on hit",
+     "Al acertar, 500 de daño de Puntos de Maná"
+    ],
+    [
+     15,
+     "+10m range",
+     "Aumento de 10 m de alcance"
+    ],
+    [
+     20,
+     "+20% Fear Chance",
+     "Aumento del 20 % de prob. de Terror"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP CC",
+    "es": "Control JcJ"
+   },
+   "tip": {
+    "en": "PvP crowd control.",
+    "es": "Control de masas JcJ."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    3,
+    2,
+    1
+   ]
+  }
+ ],
+ "points": [
+  [
+   "Combustion",
+   4
+  ],
+  [
+   "Cold Shock",
+   3
+  ],
+  [
+   "Summon: Water Spirit",
+   4
+  ],
+  [
+   "Jointstrike: Curse",
+   4
+  ],
+  [
+   "Summon: Fire Spirit",
+   4
+  ],
+  [
+   "Spirit Strike",
+   4
+  ],
+  [
+   "Dimensional Control",
+   4
+  ],
+  [
+   "Combustion",
+   7
+  ],
+  [
+   "Elemental Fusion",
+   4
+  ],
+  [
+   "Mental Focus",
+   4
+  ],
+  [
+   "Summon: Fire Spirit",
+   7
+  ],
+  [
+   "Elemental Fusion",
+   7
+  ],
+  [
+   "Combustion",
+   10
+  ],
+  [
+   "Elemental Fusion",
+   10
+  ],
+  [
+   "Spirit Strike",
+   7
+  ],
+  [
+   "Cold Shock",
+   7
+  ],
+  [
+   "Summon: Fire Spirit",
+   10
+  ],
+  [
+   "Mental Focus",
+   7
+  ],
+  [
+   "Spirit Strike",
+   10
+  ],
+  [
+   "Cold Shock",
+   10
+  ],
+  [
+   "Jointstrike: Curse",
+   7
+  ],
+  [
+   "Summon: Water Spirit",
+   7
+  ],
+  [
+   "Dimensional Control",
+   7
+  ],
+  [
+   "Mental Focus",
+   10
+  ],
+  [
+   "Summon: Water Spirit",
+   10
+  ],
+  [
+   "Jointstrike: Curse",
+   10
+  ],
+  [
+   "Dimensional Control",
+   10
+  ],
+  [
+   "Element Unification",
+   4
+  ],
+  [
+   "Spirit Revitalization",
+   4
+  ],
+  [
+   "Rapid Scattershot",
+   4
+  ]
+ ],
+ "stigma": {
+  "loadouts": [
+   {
+    "id": "main",
+    "name": {
+     "en": "PvE main",
+     "es": "JcE principal"
+    },
+    "skills": [
+     "Summon: Ancient Spirit",
+     "Enhance: Spirit's Benediction",
+     "Flame Blessing",
+     "Jointstrike: Corrode"
+    ],
+    "note": {
+     "en": "Fixed set in KR and global guides. Buffs first, then Ancient Spirit.",
+     "es": "Set fijo en guías KR y globales. Primero buffs, luego Espíritu ancestral."
+    }
+   },
+   {
+    "id": "solo",
+    "name": {
+     "en": "Solo / leveling",
+     "es": "Solo / subir de nivel"
+    },
+    "skills": [
+     "Summon: Ancient Spirit",
+     "Enhance: Spirit's Benediction",
+     "Siphon",
+     "Cursed Cloud"
+    ],
+    "note": {
+     "en": "Siphon fixes HP and MP; Cursed Cloud clears packs.",
+     "es": "Drenaje cubre PV y PM; Nube de maldición limpia grupos."
+    }
+   },
+   {
+    "id": "alt",
+    "name": {
+     "en": "AoE / trash",
+     "es": "Área / trash"
+    },
+    "skills": [
+     "Summon: Ancient Spirit",
+     "Enhance: Spirit's Benediction",
+     "Flame Blessing",
+     "Cursed Cloud"
+    ],
+    "note": {
+     "en": "Swap Corrode for Cursed Cloud on big packs.",
+     "es": "Cambia Corrosión por Nube de maldición en grupos grandes."
+    }
+   }
+  ],
+  "levelTips": {
+   "en": "Get Ancient Spirit and Benediction to 5 first, then all four to 10, then to 20.",
+   "es": "Sube Espíritu ancestral y Favor a 5 primero, luego los cuatro a 10 y después a 20."
+  }
+ },
+ "dvValues": {
+  "Combustion": 10,
+  "Elemental Fusion": 10,
+  "Summon: Fire Spirit": 9,
+  "Spirit Strike": 9,
+  "Mental Focus": 9,
+  "Cold Shock": 8,
+  "Summon: Water Spirit": 7,
+  "Jointstrike: Curse": 7,
+  "Dimensional Control": 6,
+  "Element Unification": 6,
+  "Spirit Revitalization": 5,
+  "Spirit's Descent": 4,
+  "Consecutive Countercurrent": 4,
+  "Rapid Scattershot": 4,
+  "Corrode": 2,
+  "Spirit Communion": 2,
+  "Defiance": 2,
+  "Summon: Earth Spirit": 1,
+  "Spirit Protection": 1,
+  "Revitalization Contract": 1,
+  "Soul's Cry": 0,
+  "Summon: Wind Spirit": 0
+ },
+ "dvSimple": {
+  "en": [
+   "Take every Combustion and Elemental Fusion node first",
+   "Then Summon: Fire Spirit nodes",
+   "Mental Focus and Spirit Strike (green) next",
+   "Cold Shock nodes",
+   "Summon: Water Spirit and Jointstrike: Curse",
+   "Offensive orange nodes on the path",
+   "Dimensional Control and Element Unification",
+   "Spirit Revitalization",
+   "Early days: grab the cheapest node of each skill",
+   "Skip Wind Spirit, Soul's Cry and defensive passives"
+  ],
+  "es": [
+   "Toma primero todos los nodos de Combustión y Fusión elemental",
+   "Luego los de Invocación: Espíritu de fuego",
+   "Después Concentración mental y Golpe de Espíritu (verdes)",
+   "Nodos de Impacto helado",
+   "Invocación: Espíritu de agua y Golpe conjunto: Maldición",
+   "Nodos naranjas ofensivos en el camino",
+   "Dominio espacial y Unificación elemental",
+   "Revitalización de Espíritu",
+   "Primeros días: toma el nodo más barato de cada habilidad",
+   "Omite Espíritu de viento, Grito de alma y pasivas defensivas"
+  ]
+ },
+ "macro": {
+  "leveling": {
+   "slots": [
+    [
+     "1",
+     [
+      "Elemental Fusion",
+      "Summon: Water Spirit"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Jointstrike: Curse",
+      "Dimensional Control",
+      "Combustion"
+     ],
+     "m"
+    ],
+    [
+     "LMB",
+     [
+      "Rapid Scattershot",
+      "Cold Shock"
+     ],
+     "m"
+    ],
+    [
+     "Q",
+     [
+      "Defiance"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "1",
+    "2",
+    "LMB"
+   ]
+  },
+  "endgame": {
+   "slots": [
+    [
+     "1",
+     [
+      "Enhance: Spirit's Benediction",
+      "Flame Blessing",
+      "Summon: Ancient Spirit"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Elemental Fusion",
+      "Summon: Fire Spirit",
+      "Summon: Water Spirit"
+     ],
+     "m"
+    ],
+    [
+     "3",
+     [
+      "Jointstrike: Corrode",
+      "Jointstrike: Curse",
+      "Dimensional Control",
+      "Combustion"
+     ],
+     "m"
+    ],
+    [
+     "LMB",
+     [
+      "Rapid Scattershot",
+      "Cold Shock"
+     ],
+     "m"
+    ],
+    [
+     "Q",
+     [
+      "Defiance"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "1",
+    "2",
+    "3",
+    "LMB"
+   ]
+  },
+  "notes": {
+   "en": "Fusion, Dimensional Control and Scattershot only light up when proc'd, so they sit at the bottom. KR style: Combustion alone on the macro, debuffs on mouse buttons.",
+   "es": "Fusión, Dominio espacial y Ráfaga solo se activan con su condición, por eso van abajo. Estilo KR: Combustión sola en la macro y debuffs en botones del ratón."
+  }
+ },
+ "rotation": {
+  "en": [
+   "Flame Blessing → Enhance: Spirit's Benediction",
+   "Summon: Ancient Spirit (after buffs: spirits copy your stats)",
+   "Summon: Fire Spirit; Water Spirit when Fire is on cooldown",
+   "Elemental Fusion at Four Elements; Dimensional Control after each spirit skill",
+   "Keep Curse and Corrode up; spam Combustion",
+   "Fill with Cold Shock chains; Rapid Scattershot on Stagger"
+  ],
+  "es": [
+   "Bendición ardiente → Mejora: Favor de Espíritu",
+   "Invocación: Espíritu ancestral (tras buffs: copian tus stats)",
+   "Invocación: Espíritu de fuego; Agua si Fuego está en enfriamiento",
+   "Fusión elemental con Cuatro elementos; Dominio espacial tras cada habilidad de Espíritu",
+   "Mantén Maldición y Corrosión; usa Combustión sin parar",
+   "Rellena con Impacto helado; Ráfaga continua en Tambaleo"
+  ]
+ },
+ "synergy": [
+  {
+   "a": "Enhance: Spirit's Benediction",
+   "b": "Summon: Ancient Spirit",
+   "t": {
+    "en": "Buff, then summon",
+    "es": "Buff y luego invoca"
+   },
+   "s": {
+    "en": "Spirits copy your stats when summoned, so buff first.",
+    "es": "Los Espíritus copian tus stats al invocarse: buffea primero."
+   }
+  },
+  {
+   "a": "Summon: Ancient Spirit",
+   "b": "Spirit's Descent",
+   "t": {
+    "en": "Long proc window",
+    "es": "Ventana larga"
+   },
+   "s": {
+    "en": "Descent lasts 30s instead of 10s with Ancient Spirit.",
+    "es": "Descenso dura 30 s en vez de 10 s con Espíritu ancestral."
+   }
+  },
+  {
+   "a": "Summon: Fire Spirit",
+   "b": "Elemental Fusion",
+   "t": {
+    "en": "Elements → Fusion",
+    "es": "Elementos → Fusión"
+   },
+   "s": {
+    "en": "Each spirit skill adds an element; 4 unlock Fusion.",
+    "es": "Cada habilidad de Espíritu suma un elemento; 4 desbloquean Fusión."
+   }
+  },
+  {
+   "a": "Jointstrike: Curse",
+   "b": "Consecutive Countercurrent",
+   "t": {
+    "en": "DoT procs",
+    "es": "Activa con DoT"
+   },
+   "s": {
+    "en": "Hits on targets with a DoT can deal extra damage.",
+    "es": "Los golpes a objetivos con DoT pueden hacer daño extra."
+   }
+  },
+  {
+   "a": "Jointstrike: Corrode",
+   "b": "Summon: Fire Spirit",
+   "t": {
+    "en": "Spirit damage up",
+    "es": "Más daño de Espíritu"
+   },
+   "s": {
+    "en": "Corrode makes targets take more damage from your spirit.",
+    "es": "Corrosión hace que el objetivo reciba más daño de tu Espíritu."
+   }
+  }
+ ],
+ "stats": {
+  "order": [
+   {
+    "en": "Smite (Double Chance)",
+    "es": "Golpe (doble daño)",
+    "w": 100
+   },
+   {
+    "en": "Attack %",
+    "es": "Ataque %",
+    "w": 90
+   },
+   {
+    "en": "Combat Speed",
+    "es": "Velocidad de combate",
+    "w": 85
+   },
+   {
+    "en": "Damage Boost / PvE Damage Boost",
+    "es": "Amplificación de daño / JcE",
+    "w": 70
+   },
+   {
+    "en": "Weapon Damage Boost",
+    "es": "Amplificación de daño de arma",
+    "w": 65
+   },
+   {
+    "en": "Critical Hit (to ~50%)",
+    "es": "Crítico (hasta ~50 %)",
+    "w": 45
+   }
+  ],
+  "notes": {
+   "en": "Spirits give lots of crit and accuracy: stop crit near 50%. Weapon Damage Boost manastones; front/back boosts are worthless.",
+   "es": "Los Espíritus dan mucho crítico y precisión: para el crítico cerca del 50 %. Piedras de maná de Amplificación de daño de arma; frontal/espalda no sirven."
+  }
+ },
+ "genus": {
+  "s15": [
+   [
+    "Max Attack",
+    "Ataque máximo",
+    1
+   ],
+   [
+    "PvE Attack",
+    "Ataque JcE",
+    1
+   ],
+   [
+    "Attack Bonus",
+    "Bonificación de ataque",
+    2
+   ],
+   [
+    "Boss Attack",
+    "Ataque contra jefes",
+    3
+   ]
+  ],
+  "s369": [
+   [
+    "Power Shard Damage Bonus",
+    "Bonif. de daño de fragmento de poder (¿Golpe?)",
+    1
+   ],
+   [
+    "PvE Accuracy",
+    "Precisión JcE",
+    2
+   ],
+   [
+    "Accuracy Bonus",
+    "Bonificación de precisión",
+    2
+   ],
+   [
+    "Critical Hit",
+    "Crítico",
+    3
+   ]
+  ],
+  "s278": [
+   [
+    "PvE Defense",
+    "Defensa JcE",
+    1
+   ],
+   [
+    "HP increase",
+    "Aumento de PV",
+    1
+   ],
+   [
+    "Boss Defense",
+    "Defensa contra jefes",
+    2
+   ],
+   [
+    "Critical Damage Defense",
+    "Defensa contra daño crítico",
+    3
+   ]
+  ],
+  "s4": {
+   "cogni": [
+    [
+     "Critical Damage Boost",
+     "Amplificación de daño crítico",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     2
+    ],
+    [
+     "Cogni Damage Boost",
+     "Amplificación de daño Cogni",
+     2
+    ]
+   ],
+   "fera": [
+    [
+     "Weapon Damage Boost",
+     "Amplificación de daño de arma",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     2
+    ],
+    [
+     "Fera Damage Boost",
+     "Amplificación de daño Fera",
+     2
+    ]
+   ],
+   "natura": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     1
+    ],
+    [
+     "Multi-hit Chance",
+     "Prob. de Multigolpe",
+     2
+    ],
+    [
+     "Perfect Chance",
+     "Prob. de Perfección",
+     2
+    ]
+   ],
+   "varian": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     1
+    ],
+    [
+     "Varian Damage Boost",
+     "Amplificación de daño Varian",
+     2
+    ],
+    [
+     "Accuracy Bonus",
+     "Bonificación de precisión",
+     3
+    ]
+   ],
+   "special": [
+    [
+     "Double Chance",
+     "Prob. de Golpe (doble)",
+     1
+    ],
+    [
+     "Critical Damage Boost",
+     "Amplificación de daño crítico",
+     2
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     2
+    ]
+   ]
+  },
+  "notes": {
+   "en": "KR players favor Max Attack for pets. Skip Front/Back options: this class gets nothing from them.",
+   "es": "En KR prefieren Ataque máximo para las mascotas. Omite Frontal/Espalda: esta clase no aprovecha nada."
+  }
+ },
+ "leveling": {
+  "en": [
+   "Use Summon: Water Spirit while leveling: good damage and MP.",
+   "MP is the early problem: weave Cold Shock and end spirit casts on Water.",
+   "Packs: Curse → Combustion → Elemental Fusion (AoE pick).",
+   "Upgrade weapon to about +10; it is the biggest early jump.",
+   "Skip Soul's Cry in PvE: Fear makes mobs run."
+  ],
+  "es": [
+   "Usa Invocación: Espíritu de agua al subir: buen daño y PM.",
+   "El PM es el problema inicial: intercala Impacto helado y termina con Agua.",
+   "Grupos: Maldición → Combustión → Fusión elemental (opción de área).",
+   "Mejora el arma a +10 aprox.; es el mayor salto inicial.",
+   "Omite Grito de alma en JcE: el Terror hace huir a los mobs."
+  ]
+ },
+ "kr": {
+  "en": "KR (정령성) uses a single Fire Spirit (불정), Combustion (화염 전소) alone in a fast macro and debuffs on mouse buttons. Fixed stigmas: 불축, 고대정령, 정령의 가호, 부식.",
+  "es": "En KR (정령성) usan un solo Espíritu de fuego (불정), Combustión (화염 전소) sola en una macro rápida y debuffs en el ratón. Estigmas fijos: 불축, 고대정령, 정령의 가호, 부식."
+ },
+ "sources": [
+  [
+   "questlog.gg skill database",
+   "https://questlog.gg/aion-2/en/db/skills"
+  ],
+  [
+   "MMO Herald – Spiritmaster",
+   "https://mmoherald.com/aion-2/guides/spiritmaster"
+  ],
+  [
+   "AION 2 Global guides – Elementalist",
+   "https://couga54.github.io/aion2-guides/en/elementalist/"
+  ],
+  [
+   "Vortex – Spiritmaster PvE/PvP guide",
+   "https://vortexgaming.io/en/postdetail/726048"
+  ],
+  [
+   "Vortex – 정령성 S2 guide (KR)",
+   "https://vortexgaming.io/postdetail/769437"
+  ],
+  [
+   "Vortex – 정령성 딜사이클 (KR)",
+   "https://vortexgaming.io/postdetail/616013"
+  ]
+ ]
+}

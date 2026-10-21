@@ -1,0 +1,2633 @@
+{
+ "id": "sorcerer",
+ "name": {
+  "en": "Sorcerer",
+  "es": "Hechicero"
+ },
+ "classIcon": "UT_Class_Sorcerer_Large",
+ "color": "#ff7a3d",
+ "role": {
+  "en": "Ranged magic DPS",
+  "es": "DPS mágico a distancia"
+ },
+ "weapon": {
+  "en": "Spellbook + Guard",
+  "es": "Libro de hechizos + Guarda"
+ },
+ "difficulty": 2,
+ "summary": {
+  "en": "Top ranged burst caster built on Fire skills fed by MP. Firestorm speeds up Hellfire, Fire Mark enables Blaze, and Flame Arrow refills MP.",
+  "es": "Lanzador de ráfaga a distancia basado en Fuego y PM. Quebrantamiento acelera Llamas del infierno, la Marca ígnea habilita Explosión y Flecha en llamas recarga PM."
+ },
+ "engine": {
+  "en": "Firestorm → Hellfire cooldown, Flame Arrow → MP → Grace of Enhancement",
+  "es": "Quebrantamiento en llamas → enfriamiento de Llamas del infierno; Flecha en llamas → PM → Merced de mejora"
+ },
+ "skills": [
+  {
+   "n": "Firestorm",
+   "ne": "Quebrantamiento en llamas",
+   "nk": "불꽃 작살",
+   "ic": "ICON_SO_SKILL_004",
+   "t": "active",
+   "un": 1,
+   "cd": 5,
+   "d": {
+    "en": "Fire damage to one target within 20m. 5 Stagger Gauge damage. 250 MP.",
+    "es": "Daño de Fuego a un objetivo a 20 m. 5 de daño al medidor de Tambaleo. 250 PM."
+   },
+   "sp": [
+    [
+     8,
+     "-50% MP Cost",
+     "Reducción del 50 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ],
+    [
+     8,
+     "-60% Incoming Heal for 5s on hit",
+     "-60 % de Curación recibida durante 5s al acertar"
+    ],
+    [
+     12,
+     "-2s [Hellfire] cooldown per fireball",
+     "Reducción de 2 s de Tiempo de Enfriamiento de «Llamas del infierno» por cada quebrantamiento"
+    ],
+    [
+     16,
+     "+15% damage per fireball, up to +75%",
+     "Aumento del 15 % de daño por cada quebrantamiento (máx. 75 %)"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Engine",
+    "es": "Motor"
+   },
+   "tip": {
+    "en": "At spec 12 every fireball cuts Hellfire's cooldown by 2s, so cast it on cooldown.",
+    "es": "Con la espec. de Nv 12 cada bola le quita 2 s a Llamas del infierno: úsala siempre que esté lista."
+   },
+   "pickLev": [
+    0,
+    3,
+    4
+   ],
+   "pickEnd": [
+    3,
+    4,
+    1
+   ]
+  },
+  {
+   "n": "Blaze",
+   "ne": "Explosión de llama",
+   "nk": "불꽃 폭발",
+   "ic": "ICON_SO_SKILL_005",
+   "t": "active",
+   "un": 4,
+   "cd": 5,
+   "d": {
+    "en": "Fire damage to a target with Fire Mark within 20m and restores 100 MP. 7 Stagger Gauge damage.",
+    "es": "Daño de Fuego a un objetivo con Marca ígnea a 20 m y recupera 100 PM. 7 de daño al medidor de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 3% HP",
+     "Absorción de Puntos de Vida del 3 %"
+    ],
+    [
+     8,
+     "+50% MP restored",
+     "Aumento del 50 % de Recuperación de Puntos de Maná"
+    ],
+    [
+     8,
+     "Delayed Damage after 3s",
+     "Daño diferido tras 3s"
+    ],
+    [
+     12,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     16,
+     "-3s [Wish of Concentration] cooldown on hit",
+     "Al acertar, el Tiempo de Enfriamiento de «Voto de concentración» se reduce 3 s"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Main nuke",
+    "es": "Nuke principal"
+   },
+   "tip": {
+    "en": "Needs Fire Mark: hit with any Fire skill first (Flame Arrow works).",
+    "es": "Necesita Marca ígnea: golpea antes con cualquier hechizo de Fuego (sirve Flecha en llamas)."
+   },
+   "pickLev": [
+    0,
+    3,
+    4
+   ],
+   "pickEnd": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Hellfire",
+   "ne": "Llamas del infierno",
+   "nk": "지옥의 화염",
+   "ic": "ICON_SO_SKILL_006",
+   "t": "active",
+   "un": 14,
+   "cd": 45,
+   "charge": true,
+   "d": {
+    "en": "Charge skill (3 levels): Fire damage to up to 4 enemies within 4m of a target at 20m. 20-35 Stagger Gauge damage.",
+    "es": "Habilidad de carga (3 fases): daño de Fuego a hasta 4 enemigos a 4 m de un objetivo a 20 m. 20-35 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "+30% Skill Speed",
+     "Aumento de la Velocidad de habilidad en un 30 %"
+    ],
+    [
+     8,
+     "Fire Damage over Time for 10s on hit",
+     "Al acertar, daño continuo de Fuego durante 10s"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Ignores Block and Evasion and lands as Multi-Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con Multigolpe"
+    ],
+    [
+     16,
+     "-15s cooldown",
+     "Reducción de 15 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Charged burst",
+    "es": "Carga explosiva"
+   },
+   "tip": {
+    "en": "Cast by hand and charge it fully; Firestorm keeps it coming back fast.",
+    "es": "Úsala a mano y cárgala completa; Quebrantamiento en llamas la recarga rápido."
+   },
+   "pickLev": [
+    0,
+    3,
+    4
+   ],
+   "pickEnd": [
+    1,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Bittercold Wind",
+   "ne": "Viento helado",
+   "nk": "혹한의 바람",
+   "ic": "ICON_SO_SKILL_025",
+   "t": "active",
+   "un": 3,
+   "cd": 15,
+   "d": {
+    "en": "Summons a 2s wind at a target within 20m: Water damage to up to 4 enemies within 4m, 60% chance to Root for 3s. 150 MP.",
+    "es": "Invoca un viento de 2 s en un objetivo a 20 m: daño de Agua a hasta 4 enemigos a 4 m y 60 % de Atadura 3 s. 150 PM."
+   },
+   "sp": [
+    [
+     8,
+     "+1s [Bittercold Wind] summon duration",
+     "El tiempo de invocación de «Viento helado» aumenta 1 s"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     8,
+     "Pull effect",
+     "Efecto de atracción"
+    ],
+    [
+     12,
+     "Ignores Block and Evasion and lands as a Critical Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con golpe Crítico"
+    ],
+    [
+     16,
+     "-1s [Frost] cooldown on hit",
+     "Al acertar, el Tiempo de Enfriamiento de [Congelación] se reduce en 1 s"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Guaranteed crit",
+    "es": "Crítico seguro"
+   },
+   "tip": {
+    "en": "Pull packs together while leveling; at spec 12 it always crits.",
+    "es": "Agrupa mobs con la atracción al subir; con la espec. de Nv 12 siempre es crítico."
+   },
+   "pickLev": [
+    2,
+    3,
+    0
+   ],
+   "pickEnd": [
+    3,
+    1,
+    0
+   ]
+  },
+  {
+   "n": "Wish of Concentration",
+   "ne": "Voto de concentración",
+   "nk": "집중의 기원",
+   "ic": "ICON_SO_SKILL_028",
+   "t": "active",
+   "un": 12,
+   "cd": 60,
+   "d": {
+    "en": "+10% Attack and +100 Accuracy for 10s. 100 MP.",
+    "es": "+10 % de Ataque y +100 de Precisión durante 10 s. 100 PM."
+   },
+   "sp": [
+    [
+     8,
+     "Reduces MP Cost by 10%",
+     "Reducción del 10 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "+10% additional Attack",
+     "Aumento adicional del 10 % de Ataque"
+    ],
+    [
+     8,
+     "+500 Max MP",
+     "Aumento de 500 de Puntos de Maná Máximos"
+    ],
+    [
+     12,
+     "+10% Combat Speed",
+     "Aumento del 10 % de Velocidad de Hechizo"
+    ],
+    [
+     16,
+     "-10s all skill cooldowns",
+     "Reducción de 10 s del Tiempo de Enfriamiento de todas las habilidades"
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "Burst buff",
+    "es": "Buff de ráfaga"
+   },
+   "tip": {
+    "en": "Pop it with Element Enhancement before your big hits.",
+    "es": "Actívalo junto con Mejora elemental antes de tus golpes fuertes."
+   },
+   "pickLev": [
+    1,
+    3,
+    4
+   ],
+   "pickEnd": [
+    1,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Ice Chain",
+   "ne": "Cadena gélida",
+   "nk": "얼음 사슬",
+   "ic": "ICON_SO_SKILL_009",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Water damage to up to 4 enemies within 4m of a target at 20m and Slows by 40% for 5s. 120 MP.",
+    "es": "Daño de Agua a hasta 4 enemigos a 4 m de un objetivo a 20 m y Ralentiza un 40 % durante 5 s. 120 PM."
+   },
+   "sp": [
+    [
+     8,
+     "-20% MP Cost",
+     "Reducción del 20 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ],
+    [
+     8,
+     "Deals up to 12% more damage when less targets are hit",
+     "Cuantos menos objetivos se acierten, el daño aumenta un máximo del 12 %"
+    ],
+    [
+     12,
+     "-1s [Winter's Shackles] cooldown on hit",
+     "Al acertar, el Tiempo de Enfriamiento de «Atadura invernal» se reduce 1 s"
+    ],
+    [
+     16,
+     "5% chance to inflict Frost for 2s on landing [Cold Wave]",
+     "Al acertar «Onda helada», estado de Congelación durante 2 s con un 5 % de prob."
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "AoE filler",
+    "es": "Relleno en área"
+   },
+   "tip": {
+    "en": "No cooldown: spam it when others are down; its Slow triggers Cold Snap.",
+    "es": "Sin enfriamiento: úsala cuando lo demás esté en espera; su Ralentización activa Invocación helada."
+   },
+   "pickLev": [
+    0,
+    3,
+    1
+   ],
+   "pickEnd": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Winter's Shackles",
+   "ne": "Atadura invernal",
+   "nk": "겨울의 속박",
+   "ic": "ICON_SO_SKILL_011",
+   "t": "active",
+   "un": 8,
+   "cd": 45,
+   "d": {
+    "en": "Water damage to up to 4 enemies within 4m of a target at 20m and Slows for 3s. 200 MP.",
+    "es": "Daño de Agua a hasta 4 enemigos a 4 m de un objetivo a 20 m y Ralentiza 3 s. 200 PM."
+   },
+   "sp": [
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     8,
+     "30% chance to inflict Frost for 3s on landing [Winter's Shackles]",
+     "«Atadura invernal»: 30 % de prob. de Congelación durante 3 s al acertar"
+    ],
+    [
+     8,
+     "+20% PvE Damage Boost and +10% PvP Damage Boost for 5s on landing [Winter's Shackles]",
+     "Al acertar «Atadura invernal», aumento del 20 % de Amplificación de Daño de JcE y 10 % de Amplificación de Daño JcJ durante 5s"
+    ],
+    [
+     12,
+     "Adds [Winter's Illusion] Chain Skill",
+     "Adición de hab. de cadena «Ilusión invernal» x2"
+    ],
+    [
+     16,
+     "-15s [Winter's Shackles] cooldown",
+     "El Tiempo de Enfriamiento de «Atadura invernal» se reduce 15 s"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "Damage window",
+    "es": "Ventana de daño"
+   },
+   "tip": {
+    "en": "Land it, then fire Hellfire and Blaze inside the 5s +20% PvE window.",
+    "es": "Acierta con ella y lanza Llamas del infierno y Explosión de llama en la ventana de 5 s con +20 % JcE."
+   },
+   "pickLev": [
+    2,
+    3,
+    4
+   ],
+   "pickEnd": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Flame Arrow",
+   "ne": "Flecha en llamas",
+   "nk": "불꽃 화살",
+   "ic": "ICON_SO_SKILL_020",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Basic attack: Fire damage to a target within 20m and restores 100 MP.",
+    "es": "Ataque básico: daño de Fuego a un objetivo a 20 m y recupera 100 PM."
+   },
+   "sp": [
+    [
+     8,
+     "+20% MP restored",
+     "Aumento del 20 % de Recuperación de Puntos de Maná"
+    ],
+    [
+     8,
+     "Absorbs 1% HP",
+     "Absorción de Puntos de Vida del 1 %"
+    ],
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     12,
+     "+5% Fire Damage Boost for 10s on activating [Pyroclasm]",
+     "Al activarse [Ignición], El Aumento de Amplificación de Daño de Fuego aumenta un 5 % durante 10s"
+    ],
+    [
+     16,
+     "Reset [Blaze] cooldown on landing [Pyroclasm]",
+     "Al acertar «Ignición», se restablece el Tiempo de Enfriamiento de «Explosión de llama»"
+    ]
+   ],
+   "rank": 8,
+   "tag": {
+    "en": "MP engine",
+    "es": "Motor de PM"
+   },
+   "tip": {
+    "en": "Weave it between spells to refill MP and keep Fire Mark up.",
+    "es": "Intercálala entre hechizos para recargar PM y mantener la Marca ígnea."
+   },
+   "pickLev": [
+    0,
+    3,
+    4
+   ],
+   "pickEnd": [
+    3,
+    4,
+    2
+   ]
+  },
+  {
+   "n": "Flame Scattershot",
+   "ne": "Llamas sin puntería",
+   "nk": "화염 난사",
+   "ic": "ICON_SO_SKILL_001",
+   "t": "active",
+   "un": 5,
+   "cd": 0,
+   "d": {
+    "en": "Fire damage to a Staggered target within 20m.",
+    "es": "Daño de Fuego a un objetivo en Tambaleo a 20 m."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 5% HP",
+     "Absorción de Puntos de Vida del 5 %"
+    ],
+    [
+     8,
+     "Restores 120 MP",
+     "Recuperación de 120 de Puntos de Maná"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     16,
+     "-1s all skill cooldowns on hit",
+     "Al acertar, reducción de 1s de Tiempo de Enfriamiento de todas las habilidades"
+    ]
+   ],
+   "rank": 9,
+   "tag": {
+    "en": "Stagger finisher",
+    "es": "Remate de Tambaleo"
+   },
+   "tip": {
+    "en": "Only works on Staggered targets; keep it as the last macro step.",
+    "es": "Solo sirve contra objetivos en Tambaleo; déjala como último paso de la macro."
+   },
+   "pickLev": [
+    1,
+    3,
+    4
+   ],
+   "pickEnd": [
+    1,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Frost",
+   "ne": "Congelación",
+   "nk": "빙결",
+   "ic": "ICON_SO_SKILL_015",
+   "t": "active",
+   "un": 7,
+   "cd": 30,
+   "d": {
+    "en": "Water damage to up to 4 enemies within 4m of a target at 20m; 50% chance to Frost for 3s (100% on NPCs).",
+    "es": "Daño de Agua a hasta 4 enemigos a 4 m de un objetivo a 20 m; 50 % de Congelación 3 s (100 % en PNJ)."
+   },
+   "sp": [
+    [
+     8,
+     "Restores 200 MP",
+     "Recuperación de 200 de Puntos de Maná"
+    ],
+    [
+     8,
+     "-5s cooldown",
+     "Reducción de 5 s del Tiempo de Enfriamiento"
+    ],
+    [
+     8,
+     "Reset [Frost Burst] cooldown on landing Frost",
+     "Al acertar Congelación, se restablece el Tiempo de Enfriamiento de «Explosión de Congelación»"
+    ],
+    [
+     12,
+     "+25% PC target Frost Chance",
+     "+25 % de acierto de congelación a objetivos PJ"
+    ],
+    [
+     16,
+     "+1s Frost duration",
+     "Aumento de 1 s de duración de Congelación"
+    ]
+   ],
+   "rank": 10,
+   "tag": {
+    "en": "Leveling CC",
+    "es": "Control al subir"
+   },
+   "tip": {
+    "en": "Useful for mob packs while leveling; bosses ignore it.",
+    "es": "Útil contra grupos de mobs al subir; los jefes lo ignoran."
+   },
+   "pickLev": [
+    2,
+    0,
+    1
+   ],
+   "pickEnd": [
+    2,
+    0,
+    1
+   ]
+  },
+  {
+   "n": "Frost Burst",
+   "ne": "Explosión de Congelación",
+   "nk": "빙결 폭발",
+   "ic": "ICON_SO_SKILL_022",
+   "t": "active",
+   "un": 10,
+   "cd": 10,
+   "d": {
+    "en": "Water damage to up to 4 enemies within 4m of a Frozen target at 20m. 7 Stagger Gauge damage.",
+    "es": "Daño de Agua a hasta 4 enemigos a 4 m de un objetivo Congelado a 20 m. 7 de daño al medidor de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 7% HP",
+     "Absorción de Puntos de Vida del 7 %"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     8,
+     "75% chance to Knock Back 2m",
+     "Empuje de 2 m con un 75 % de prob."
+    ],
+    [
+     12,
+     "Ignores Block and Evasion and lands as a Critical Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con golpe Crítico"
+    ],
+    [
+     16,
+     "50% chance to reset cooldown",
+     "50 % de prob. de reiniciar el tiempo de espera"
+    ]
+   ],
+   "rank": 11,
+   "tag": {
+    "en": "Leveling combo",
+    "es": "Combo al subir"
+   },
+   "tip": {
+    "en": "Follow Frost with it on mobs; drop it at endgame.",
+    "es": "Úsala tras Congelación contra mobs; en endgame se deja de lado."
+   },
+   "pickLev": [
+    0,
+    3,
+    4
+   ],
+   "pickEnd": [
+    0,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Defiance",
+   "ne": "Eliminación de impacto",
+   "nk": "충격 해제",
+   "ic": "ICON_CO_SKILL_002",
+   "t": "active",
+   "un": 16,
+   "cd": 60,
+   "d": {
+    "en": "Removes Stun, Knockdown, Airborne, Grab, Frost and Fear and grants status immunity (Tenacity) for 5s.",
+    "es": "Quita Aturdimiento, Derribo, Atadura aérea, Agarre, Congelación y Terror y da inmunidad (Robustez) 5 s."
+   },
+   "sp": [
+    [
+     8,
+     "Adds [Curse: Old Tree] Chain Skill",
+     "Añade [Maldición: Árbol viejo] como segunda habilidad de cadena."
+    ],
+    [
+     8,
+     "Restores 1000 Stamina on using [Defiance]",
+     "Al lanzar [Eliminación de impacto], recupera 1000 de Vigor"
+    ],
+    [
+     8,
+     "Restores 20% HP on using [Defiance]",
+     "Al lanzar «Eliminación de impacto», recuperación del 20 % de Puntos de Vida"
+    ],
+    [
+     12,
+     "+2s Tenacity duration",
+     "Aumento de 2 s de duración de Robustez"
+    ],
+    [
+     16,
+     "+50% PvE Damage Tolerance and +25% PvP Damage Tolerance for Tenacity duration",
+     "Durante la duración de Robustez, la Tolerancia a Daño JcE aumenta un 50 % y la Tolerancia a Daño JcJ un 25 %"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "CC break",
+    "es": "Romper control"
+   },
+   "tip": {
+    "en": "Keep it by hand for boss knockdowns; no points needed.",
+    "es": "Tenla a mano para derribos de jefes; no necesita puntos."
+   },
+   "pickLev": [
+    2,
+    3,
+    4
+   ],
+   "pickEnd": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Robe of Flame",
+   "ne": "Toga de llama",
+   "nk": "불꽃의 로브",
+   "ic": "ICON_SO_SKILL_Passive_004",
+   "t": "passive",
+   "un": 11,
+   "cd": 0,
+   "d": {
+    "en": "+100 Accuracy, +1% PvE Damage Boost, +0.5% PvP Damage Boost, +0.2% Double Chance.",
+    "es": "+100 de Precisión, +1 % de Amplificación de daño JcE, +0,5 % JcJ y +0,2 % de Golpe doble."
+   },
+   "sp": [],
+   "rank": 1,
+   "tag": {
+    "en": "Core passive",
+    "es": "Pasiva clave"
+   },
+   "tip": {
+    "en": "Max it; Element Enhancement Lv10 multiplies it by 1.5.",
+    "es": "Llévala al máximo; Mejora elemental Nv 10 la multiplica ×1,5."
+   }
+  },
+  {
+   "n": "Grace of Enhancement",
+   "ne": "Merced de mejora",
+   "nk": "강화의 은혜",
+   "ic": "ICON_SO_SKILL_Passive_007",
+   "t": "passive",
+   "un": 21,
+   "cd": 0,
+   "d": {
+    "en": "+20% PvE Damage Boost while MP is 25%+, and 50% chance for extra damage on hit (1s CD).",
+    "es": "+20 % de Amplificación de daño JcE con PM al 25 % o más y 50 % de daño extra al acertar (1 s)."
+   },
+   "sp": [],
+   "rank": 2,
+   "tag": {
+    "en": "PvE damage",
+    "es": "Daño JcE"
+   },
+   "tip": {
+    "en": "Never drop under 25% MP; Flame Arrow and Blaze keep it on.",
+    "es": "No bajes del 25 % de PM; Flecha en llamas y Explosión de llama la mantienen activa."
+   }
+  },
+  {
+   "n": "Robe of Earth",
+   "ne": "Toga terrestre",
+   "nk": "대지의 로브",
+   "ic": "ICON_SO_SKILL_Passive_006",
+   "t": "passive",
+   "un": 6,
+   "cd": 0,
+   "d": {
+    "en": "+7% Max MP and +5 MP regen. +105 Critical Hit while MP is 50%+.",
+    "es": "+7 % de PM máx. y +5 de regeneración de PM. +105 de Crítico con PM al 50 % o más."
+   },
+   "sp": [],
+   "rank": 3,
+   "tag": {
+    "en": "Crit while MP high",
+    "es": "Crítico con PM alto"
+   },
+   "tip": {
+    "en": "Keep MP above half to hold the crit bonus.",
+    "es": "Mantén los PM sobre la mitad para conservar el bonus de crítico."
+   }
+  },
+  {
+   "n": "Absorb Essence",
+   "ne": "Absorción de esencia",
+   "nk": "정기 흡수",
+   "ic": "ICON_SO_SKILL_Passive_001",
+   "t": "passive",
+   "un": 13,
+   "cd": 0,
+   "d": {
+    "en": "+10.7% Ailment and Mental chance; restores 25 MP on hit (1s CD).",
+    "es": "+10,7 % de acierto corporal y mental; recupera 25 PM al acertar (1 s)."
+   },
+   "sp": [],
+   "rank": 4,
+   "tag": {
+    "en": "MP sustain",
+    "es": "Sustento de PM"
+   },
+   "tip": {
+    "en": "Cheap MP sustain; points go here last.",
+    "es": "Sustento de PM barato; ponle puntos al final."
+   }
+  },
+  {
+   "n": "Cold Snap",
+   "ne": "Invocación helada",
+   "nk": "냉기 소환",
+   "ic": "ICON_SO_SKILL_Passive_003",
+   "t": "passive",
+   "un": 9,
+   "cd": 0,
+   "d": {
+    "en": "50% chance for extra damage when hitting a Slowed target (1s CD).",
+    "es": "50 % de prob. de daño extra al golpear a un objetivo Ralentizado (1 s)."
+   },
+   "sp": [],
+   "rank": 5,
+   "tag": {
+    "en": "Slow bonus",
+    "es": "Bonus por Ralentización"
+   },
+   "tip": {
+    "en": "Ice Chain and Winter's Shackles keep targets Slowed for it.",
+    "es": "Cadena gélida y Atadura invernal mantienen la Ralentización para activarla."
+   }
+  },
+  {
+   "n": "Fire Mark",
+   "ne": "Marca ígnea",
+   "nk": "불의 표식",
+   "ic": "ICON_SO_SKILL_Passive_002",
+   "t": "passive",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Fire hits apply Fire Mark for 5s: 20% chance of extra damage from Fire hits. Enables Blaze.",
+    "es": "Los golpes de Fuego aplican Marca ígnea 5 s: 20 % de daño extra con Fuego. Habilita Explosión de llama."
+   },
+   "sp": [],
+   "rank": 6,
+   "tag": {
+    "en": "Blaze enabler",
+    "es": "Activa Explosión"
+   },
+   "tip": {
+    "en": "Free at Lv1; extra levels only add proc damage.",
+    "es": "Gratis desde Nv 1; los niveles extra solo suben el daño adicional."
+   }
+  },
+  {
+   "n": "Vitality Evaporation",
+   "ne": "Vaporización de viveza",
+   "nk": "생기 증발",
+   "ic": "ICON_SO_SKILL_Passive_008",
+   "t": "passive",
+   "un": 25,
+   "cd": 0,
+   "d": {
+    "en": "Extra damage on hit while the target is above 70% HP (1s CD).",
+    "es": "Daño extra al acertar si el objetivo tiene más del 70 % de PV (1 s)."
+   },
+   "sp": [],
+   "rank": 7,
+   "tag": {
+    "en": "Opener damage",
+    "es": "Daño de apertura"
+   },
+   "tip": {
+    "en": "Only helps at the start of fights; low priority.",
+    "es": "Solo ayuda al inicio del combate; prioridad baja."
+   }
+  },
+  {
+   "n": "Robe of Cold",
+   "ne": "Toga de helada",
+   "nk": "냉기의 로브",
+   "ic": "ICON_SO_SKILL_Passive_005",
+   "t": "passive",
+   "un": 17,
+   "cd": 0,
+   "d": {
+    "en": "+1% Defense, +55 Crit Resist; Slows attackers by 25% for 2s (10s CD).",
+    "es": "+1 % de Defensa, +55 de Resistencia a crítico; Ralentiza 25 % 2 s a quien te ataca (10 s)."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "Defense",
+    "es": "Defensa"
+   },
+   "tip": {
+    "en": "Leave at level 1 for PvE.",
+    "es": "Déjala en nivel 1 para JcE."
+   }
+  },
+  {
+   "n": "Grace of Resistance",
+   "ne": "Merced de resistencia",
+   "nk": "저항의 은혜",
+   "ic": "ICON_SO_SKILL_038",
+   "t": "passive",
+   "un": 15,
+   "cd": 0,
+   "d": {
+    "en": "+11.2% Mental and Impact Resist.",
+    "es": "+11,2 % de Resistencia mental y de impacto."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "PvP resist",
+    "es": "Resistencia JcJ"
+   },
+   "tip": {
+    "en": "PvP pick; skip for PvE.",
+    "es": "Para JcJ; sáltala en JcE."
+   }
+  },
+  {
+   "n": "Revitalization Contract",
+   "ne": "Pacto de resurrección",
+   "nk": "회생의 계약",
+   "ic": "ICON_AS_SKILL_Passive_009",
+   "t": "passive",
+   "un": 23,
+   "cd": 0,
+   "d": {
+    "en": "+17% Status Effect Resist, stacking more when hit while CC'd; emergency HP restore.",
+    "es": "+17 % de Resistencia a efectos de estado, más al recibir golpes bajo control; curación de emergencia."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "Survival",
+    "es": "Supervivencia"
+   },
+   "tip": {
+    "en": "PvP survival; leave at 1 for PvE.",
+    "es": "Supervivencia en JcJ; déjala en 1 para JcE."
+   }
+  },
+  {
+   "n": "Element Enhancement",
+   "ne": "Mejora elemental",
+   "nk": "원소 강화",
+   "ic": "ICON_SO_SKILL_040",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "+20% Fire and Water Attack for 10s.",
+    "es": "+20 % de Ataque de Fuego y Agua durante 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "+200 Accuracy",
+     "Aumento de 200 de Precisión"
+    ],
+    [
+     10,
+     "x1.5 [Robe of Flame] effect",
+     "Eficacia del efecto pasivo [Toga de llama] ×1,5"
+    ],
+    [
+     15,
+     "x1.5 [Grace of Enhancement] effect",
+     "Efecto [Merced de mejora] x1,5"
+    ],
+    [
+     20,
+     "+10% additional Fire and Water Attack",
+     "Aumento adicional del 10 % de Ataque de Fuego y Agua"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Core stigma",
+    "es": "Estigma clave"
+   },
+   "tip": {
+    "en": "Always equipped; Lv10 and Lv15 boost your two best passives.",
+    "es": "Siempre equipado; Nv 10 y Nv 15 potencian tus dos mejores pasivas."
+   }
+  },
+  {
+   "n": "Delayed Explosion",
+   "ne": "Explosión retrasada",
+   "nk": "지연 폭발",
+   "ic": "ICON_SO_SKILL_032",
+   "t": "stigma",
+   "un": 22,
+   "cd": 30,
+   "d": {
+    "en": "Fire damage after 4s; target takes +15% damage from you during the delay. 200 MP.",
+    "es": "Daño de Fuego tras 4 s; el objetivo recibe +15 % de tu daño durante la espera. 200 PM."
+   },
+   "sp": [
+    [
+     5,
+     "Restores 200 MP",
+     "Recuperación de 200 de Puntos de Maná"
+    ],
+    [
+     10,
+     "-10s [Delayed Explosion] cooldown",
+     "El Tiempo de Enfriamiento de «Explosión retrasada» se reduce 10 s"
+    ],
+    [
+     15,
+     "Changes to AoE Skill",
+     "Cambio a habilidad de área"
+    ],
+    [
+     20,
+     "+10% additional Damage Taken",
+     "Aumento adicional de un 10 % del daño recibido"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Damage amp",
+    "es": "Amplificador"
+   },
+   "tip": {
+    "en": "Open with it so the whole burst lands inside the +15% window.",
+    "es": "Abre con ella para que toda la ráfaga entre en la ventana de +15 %."
+   }
+  },
+  {
+   "n": "Fire Wall",
+   "ne": "Barrera de fuego",
+   "nk": "불의 장벽",
+   "ic": "ICON_SO_SKILL_039",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "3s Fire Wall at a target: Fire damage and Embers (DoT) for 10s on up to 4 enemies. 200 MP.",
+    "es": "Barrera de fuego de 3 s en el objetivo: daño de Fuego y Brasas (daño continuo) 10 s a hasta 4 enemigos. 200 PM."
+   },
+   "sp": [
+    [
+     5,
+     "Enhanced Embers - Grants extra damage when landing an attack",
+     "Mejora de estado de Brasas - Daño adicional al atacar"
+    ],
+    [
+     10,
+     "+2m wall width",
+     "La anchura de la muralla aumenta 2 m"
+    ],
+    [
+     15,
+     "+2s [Fire Wall] summoning duration",
+     "El tiempo de invocación de «Barrera de fuego» aumenta 2 s"
+    ],
+    [
+     20,
+     "+10s Embers duration",
+     "Aumento de 10 s de duración de Brasas"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Fire DoT",
+    "es": "Daño continuo de Fuego"
+   },
+   "tip": {
+    "en": "Drop it under the boss right after your buffs.",
+    "es": "Ponla bajo el jefe justo después de tus buffs."
+   }
+  },
+  {
+   "n": "Cold Storm",
+   "ne": "Tormenta helada",
+   "nk": "냉기 폭풍",
+   "ic": "ICON_SO_SKILL_019",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Water damage and Slow to up to 4 enemies; 7s storm applies Frostbite (DoT). 200 MP.",
+    "es": "Daño de Agua y Ralentización a hasta 4 enemigos; tormenta de 7 s con Congelamiento (daño continuo). 200 PM."
+   },
+   "sp": [
+    [
+     5,
+     "Enhanced Frostbite - Grants extra damage when landing an attack",
+     "Mejora de estado de Congelamiento - Daño adicional al atacar"
+    ],
+    [
+     10,
+     "30% chance to inflict Root for 2s",
+     "Estado de Atadura durante 2 s con un 30 % de prob."
+    ],
+    [
+     15,
+     "+3s [Cold Storm] summoning duration",
+     "Aumenta el tiempo de invocación de «Tormenta helada» en 3 s"
+    ],
+    [
+     20,
+     "+10s Frostbite duration",
+     "Aumento de 10 s de duración de Congelamiento"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Water DoT",
+    "es": "Daño continuo de Agua"
+   },
+   "tip": {
+    "en": "Pairs with Fire Wall; its Slow also feeds Cold Snap.",
+    "es": "Combina con Barrera de fuego; su Ralentización también activa Invocación helada."
+   }
+  },
+  {
+   "n": "Steel Barrier",
+   "ne": "Barrera de acero",
+   "nk": "강철 보호막",
+   "ic": "ICON_SO_SKILL_016",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Shield of 16% Max HP for 60s with +10% PvE Damage Tolerance; restores 300 Stamina when it ends.",
+    "es": "Escudo del 16 % de PV máx. durante 60 s con +10 % de Tolerancia a daño JcE; recupera 300 de Vigor al terminar."
+   },
+   "sp": [
+    [
+     5,
+     "+10% Move Speed",
+     "Aumento del 10 % de Velocidad de Movimiento"
+    ],
+    [
+     10,
+     "HP Regen at fixed intervals",
+     "Recuperación de Puntos de Vida a intervalos regulares"
+    ],
+    [
+     15,
+     "+10% PvE Damage Tolerance increase and +5% PvP Damage Tolerance increase",
+     "Aumento adicional del 10 % de Tolerancia a Daño JcE y 5 % de Tolerancia a Daño JcJ"
+    ],
+    [
+     20,
+     "-15s cooldown",
+     "Reducción de 15 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "Shield",
+    "es": "Escudo"
+   },
+   "tip": {
+    "en": "Best defensive slot for solo play and hard bosses.",
+    "es": "El mejor espacio defensivo para jugar solo y jefes difíciles."
+   }
+  },
+  {
+   "n": "Arctic Armor",
+   "ne": "Blindaje ártico",
+   "nk": "빙설의 갑주",
+   "ic": "ICON_SO_SKILL_021",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "+20% PvE Damage Tolerance for 10s; 5% chance to Frost nearby attackers.",
+    "es": "+20 % de Tolerancia a daño JcE durante 10 s; 5 % de Congelar a quien te ataque cerca."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Impact-type Resist",
+     "Aumento del 20 % de la Resistencia de Tipo Impacto"
+    ],
+    [
+     10,
+     "x1.5 [Absorb Essence] effect",
+     "Efecto [Absorción de Esencia] x1,5"
+    ],
+    [
+     15,
+     "x1.5 [Robe of Cold] effect",
+     "Efecto [Toga de helada] x1,5"
+    ],
+    [
+     20,
+     "+20% PvE Damage Tolerance increase and +10% PvP Damage Tolerance increase",
+     "Aumento adicional del 20 % de Tolerancia a Daño JcE y 10 % de Tolerancia a Daño JcJ"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "Damage reduction",
+    "es": "Reducción de daño"
+   },
+   "tip": {
+    "en": "Save it for a boss's big hit.",
+    "es": "Guárdalo para el golpe fuerte del jefe."
+   }
+  },
+  {
+   "n": "Divine Burst",
+   "ne": "Explosión de divinidad",
+   "nk": "신성 폭발",
+   "ic": "ICON_SO_SKILL_036",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Fire damage to one target. 50 Stagger Gauge damage. 200 MP.",
+    "es": "Daño de Fuego a un objetivo. 50 de daño al medidor de Tambaleo. 200 PM."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ],
+    [
+     10,
+     "Absorbs 10% HP",
+     "Absorción de Puntos de Vida del 10 %"
+    ],
+    [
+     15,
+     "75% chance to inflict Knock Back",
+     "Aplica Empuje con un 75 % de prob."
+    ],
+    [
+     20,
+     "Inflict Stun for 3s after Knock Back",
+     "Aplica Aturdimiento durante 3 s tras empujarlo"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "Stagger",
+    "es": "Tambaleo"
+   },
+   "tip": {
+    "en": "Bring it when the party needs to break a stagger bar.",
+    "es": "Llévala cuando el grupo necesite romper la barra de Tambaleo."
+   }
+  },
+  {
+   "n": "Glacial Smite",
+   "ne": "Golpe de glaciar",
+   "nk": "빙하 강타",
+   "ic": "ICON_SO_SKILL_012",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Water damage to up to 4 enemies within 4m of a target. 20 Stagger Gauge damage. 200 MP.",
+    "es": "Daño de Agua a hasta 4 enemigos a 4 m del objetivo. 20 de daño al medidor de Tambaleo. 200 PM."
+   },
+   "sp": [
+    [
+     5,
+     "Up to +20% damage when more targets hit",
+     "Cuantos más objetivos se acierten, el daño aumenta un máximo del 20 %"
+    ],
+    [
+     10,
+     "-30s cooldown",
+     "Reducción de 30 s de Tiempo de Enfriamiento"
+    ],
+    [
+     15,
+     "50% chance to inflict Frost for 3s",
+     "50 % de prob. de Congelación durante 3 s"
+    ],
+    [
+     20,
+     "Ignores Block and Evasion and lands as Multi-Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con Multigolpe"
+    ]
+   ],
+   "rank": 8,
+   "tag": {
+    "en": "AoE nuke",
+    "es": "Nuke en área"
+   },
+   "tip": {
+    "en": "Okay for mob farming; weaker than Fire Wall on bosses.",
+    "es": "Sirve para farmear mobs; más débil que Barrera de fuego en jefes."
+   }
+  },
+  {
+   "n": "Lumiel's Space",
+   "ne": "Espacio de Lumiel",
+   "nk": "루미엘의 공간",
+   "ic": "ICON_SO_SKILL_027",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Damage to up to 4 enemies; 75% chance of Airborne for 3s (100% on NPCs). 300 MP.",
+    "es": "Daño a hasta 4 enemigos; 75 % de Atadura aérea 3 s (100 % en PNJ). 300 PM."
+   },
+   "sp": [
+    [
+     5,
+     "Up to +20% damage when more targets hit",
+     "Cuantos más objetivos se acierten, el daño aumenta un máximo del 20 %"
+    ],
+    [
+     10,
+     "Adds [The Depths] Chain Skill",
+     "Adición de hab. de cadena «Sima» x2"
+    ],
+    [
+     15,
+     "+1s [The Depths] Knockdown duration",
+     "«Sima»: aumento de 1 s de duración de Derribo"
+    ],
+    [
+     20,
+     "-30s [Lumiel's Space] cooldown",
+     "«Espacio de Lumiel»: reducción de 30 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Crowd control",
+    "es": "Control de masas"
+   },
+   "tip": {
+    "en": "Mainly PvP control.",
+    "es": "Sobre todo control para JcJ."
+   }
+  },
+  {
+   "n": "Soul Freeze",
+   "ne": "Estancado de alma",
+   "nk": "영혼 동결",
+   "ic": "ICON_SO_SKILL_013",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Water damage and 75% chance to Seal for 5s (100% on NPCs). 20 Stagger Gauge damage.",
+    "es": "Daño de Agua y 75 % de Sellado 5 s (100 % en PNJ). 20 de daño al medidor de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "50% chance to inflict Root for 5s",
+     "Efecto de Atadura con un 50 % de prob. durante 5 s"
+    ],
+    [
+     10,
+     "-1,000 Stamina",
+     "Reducción de 1000 de Vigor"
+    ],
+    [
+     15,
+     "+2s Seal duration",
+     "Aumento de 2 s de duración de Sellado"
+    ],
+    [
+     20,
+     "+25% Seal chance",
+     "Aumento del 25 % de prob. de Sellado"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP silence",
+    "es": "Silencio JcJ"
+   },
+   "tip": {
+    "en": "PvP tool; skip in PvE.",
+    "es": "Herramienta JcJ; sáltala en JcE."
+   }
+  },
+  {
+   "n": "Curse: Tree",
+   "ne": "Maldición: Árbol",
+   "nk": "저주: 나무",
+   "ic": "ICON_SO_SKILL_014",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Polymorphs a target into a tree for 10s (-20% Fire Tolerance); breaks when attacked.",
+    "es": "Convierte al objetivo en Árbol 10 s (-20 % de Resistencia a Fuego); se rompe al recibir daño."
+   },
+   "sp": [
+    [
+     5,
+     "Increases number of hits required to remove Polymorph",
+     "Aumento del número de impactos para remover la mutación"
+    ],
+    [
+     10,
+     "-200 Block, Evasion for 10s when Polymorph ends",
+     "El Bloqueo y la Evasión se reducen en 200 durante 10 s tras finalizar la mutación"
+    ],
+    [
+     15,
+     "-20% Impact-type Resist for 10s when Polymorph ends",
+     "La Resistencia de Tipo Impacto se reduce un 20 % durante 10 s tras finalizar la mutación"
+    ],
+    [
+     20,
+     "Inflicts debuff even if Polymorph is removed through attacks",
+     "Aplica la magia debilitante incluso si la mutación finaliza por un ataque"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP control",
+    "es": "Control JcJ"
+   },
+   "tip": {
+    "en": "PvP only.",
+    "es": "Solo JcJ."
+   }
+  },
+  {
+   "n": "Hibernation",
+   "ne": "Hibernación",
+   "nk": "동면",
+   "ic": "ICON_SO_SKILL_041",
+   "t": "stigma",
+   "un": 22,
+   "cd": 180,
+   "d": {
+    "en": "5s of immunity to damage and status effects; can be cancelled early.",
+    "es": "5 s de inmunidad a daño y efectos de estado; se puede cancelar antes."
+   },
+   "sp": [
+    [
+     5,
+     "+100% Incoming Heal",
+     "Aumento del 100 % de Curación Recibida"
+    ],
+    [
+     10,
+     "Restores 5% Max HP every 1s for the duration",
+     "Recuperación del 5 % de Puntos de Vida Máximos con un intervalo de 1 s durante la duración"
+    ],
+    [
+     15,
+     "+2s duration",
+     "+2 s de duración"
+    ],
+    [
+     20,
+     "Triggers when afflicted with Impact-type status",
+     "Al estar en estado tipo impacto, activación de «Hibernación»"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Emergency",
+    "es": "Emergencia"
+   },
+   "tip": {
+    "en": "PvP panic button; long cooldown.",
+    "es": "Botón de pánico en JcJ; enfriamiento largo."
+   }
+  },
+  {
+   "n": "Assault Bombardment",
+   "ne": "Bombardeo de agresión",
+   "nk": "강습 폭격",
+   "ic": "ICON_CO_SKILL_003",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "Damage to up to 4 enemies with 30% Frost chance (100% on NPCs); +Defense per enemy hit.",
+    "es": "Daño a hasta 4 enemigos con 30 % de Congelación (100 % en PNJ); +Defensa por enemigo alcanzado."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Attack for 5s on hit",
+     "Al acertar, aumenta un 20 % del Ataque durante 5s"
+    ],
+    [
+     10,
+     "500 MP damage on hit",
+     "Al acertar, 500 de daño de Puntos de Maná"
+    ],
+    [
+     15,
+     "+10m range",
+     "Aumento de 10 m de alcance"
+    ],
+    [
+     20,
+     "+20% Frost Chance",
+     "Aumento del 20 % de prob. de Congelación"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP AoE",
+    "es": "Área JcJ"
+   },
+   "tip": {
+    "en": "Mostly for PvP and fortress fights.",
+    "es": "Sobre todo para JcJ y asedios."
+   }
+  }
+ ],
+ "points": [
+  [
+   "Firestorm",
+   4
+  ],
+  [
+   "Flame Arrow",
+   3
+  ],
+  [
+   "Ice Chain",
+   3
+  ],
+  [
+   "Blaze",
+   4
+  ],
+  [
+   "Bittercold Wind",
+   3
+  ],
+  [
+   "Firestorm",
+   6
+  ],
+  [
+   "Blaze",
+   6
+  ],
+  [
+   "Robe of Flame",
+   3
+  ],
+  [
+   "Wish of Concentration",
+   4
+  ],
+  [
+   "Hellfire",
+   4
+  ],
+  [
+   "Ice Chain",
+   6
+  ],
+  [
+   "Bittercold Wind",
+   6
+  ],
+  [
+   "Firestorm",
+   8
+  ],
+  [
+   "Blaze",
+   8
+  ],
+  [
+   "Winter's Shackles",
+   4
+  ],
+  [
+   "Hellfire",
+   6
+  ],
+  [
+   "Wish of Concentration",
+   6
+  ],
+  [
+   "Robe of Flame",
+   6
+  ],
+  [
+   "Grace of Enhancement",
+   4
+  ],
+  [
+   "Firestorm",
+   10
+  ],
+  [
+   "Blaze",
+   10
+  ],
+  [
+   "Hellfire",
+   8
+  ],
+  [
+   "Bittercold Wind",
+   8
+  ],
+  [
+   "Wish of Concentration",
+   8
+  ],
+  [
+   "Ice Chain",
+   8
+  ],
+  [
+   "Robe of Flame",
+   10
+  ],
+  [
+   "Grace of Enhancement",
+   8
+  ],
+  [
+   "Flame Arrow",
+   8
+  ],
+  [
+   "Hellfire",
+   10
+  ],
+  [
+   "Wish of Concentration",
+   10
+  ],
+  [
+   "Bittercold Wind",
+   10
+  ],
+  [
+   "Grace of Enhancement",
+   10
+  ],
+  [
+   "Flame Arrow",
+   6
+  ],
+  [
+   "Winter's Shackles",
+   8
+  ],
+  [
+   "Ice Chain",
+   10
+  ],
+  [
+   "Robe of Earth",
+   6
+  ],
+  [
+   "Winter's Shackles",
+   10
+  ],
+  [
+   "Flame Arrow",
+   10
+  ],
+  [
+   "Robe of Earth",
+   10
+  ],
+  [
+   "Absorb Essence",
+   6
+  ]
+ ],
+ "stigma": {
+  "loadouts": [
+   {
+    "id": "main",
+    "name": {
+     "en": "Boss DPS",
+     "es": "DPS de jefe"
+    },
+    "skills": [
+     "Element Enhancement",
+     "Delayed Explosion",
+     "Fire Wall",
+     "Cold Storm"
+    ],
+    "note": {
+     "en": "Max damage: amp with Delayed Explosion, then two DoT fields.",
+     "es": "Daño máximo: amplifica con Explosión retrasada y luego dos zonas de daño continuo."
+    }
+   },
+   {
+    "id": "solo",
+    "name": {
+     "en": "Solo / leveling",
+     "es": "Solo / subir de nivel"
+    },
+    "skills": [
+     "Element Enhancement",
+     "Steel Barrier",
+     "Fire Wall",
+     "Cold Storm"
+    ],
+    "note": {
+     "en": "Shield instead of Delayed Explosion for safer farming.",
+     "es": "Escudo en lugar de Explosión retrasada para farmear más seguro."
+    }
+   },
+   {
+    "id": "hard",
+    "name": {
+     "en": "Hard boss",
+     "es": "Jefe difícil"
+    },
+    "skills": [
+     "Element Enhancement",
+     "Delayed Explosion",
+     "Steel Barrier",
+     "Arctic Armor"
+    ],
+    "note": {
+     "en": "Two defensive tools for bosses that hit hard.",
+     "es": "Dos defensivos para jefes que pegan fuerte."
+    }
+   },
+   {
+    "id": "stagger",
+    "name": {
+     "en": "Stagger",
+     "es": "Tambaleo"
+    },
+    "skills": [
+     "Element Enhancement",
+     "Delayed Explosion",
+     "Divine Burst",
+     "Fire Wall"
+    ],
+    "note": {
+     "en": "Divine Burst adds 50 Stagger gauge damage when the party needs breaks.",
+     "es": "Explosión de divinidad suma 50 al medidor de Tambaleo cuando el grupo necesita romperlo."
+    }
+   }
+  ],
+  "levelTips": {
+   "en": "Level Element Enhancement first: Lv10 gives ×1.5 Robe of Flame and Lv15 ×1.5 Grace of Enhancement. Then Delayed Explosion (Lv10 −10s CD) and Fire Wall.",
+   "es": "Sube primero Mejora elemental: Nv 10 da ×1,5 a Toga de llama y Nv 15 ×1,5 a Merced de mejora. Después Explosión retrasada (Nv 10 −10 s) y Barrera de fuego."
+  }
+ },
+ "dvValues": {
+  "Blaze": 10,
+  "Firestorm": 10,
+  "Hellfire": 9,
+  "Bittercold Wind": 9,
+  "Wish of Concentration": 8,
+  "Ice Chain": 8,
+  "Winter's Shackles": 7,
+  "Flame Arrow": 7,
+  "Flame Scattershot": 1.5,
+  "Frost": 0.8,
+  "Frost Burst": 0.8,
+  "Defiance": 0,
+  "Robe of Flame": 10,
+  "Grace of Enhancement": 9,
+  "Robe of Earth": 7,
+  "Cold Snap": 5,
+  "Fire Mark": 5,
+  "Absorb Essence": 4,
+  "Vitality Evaporation": 3,
+  "Robe of Cold": 0.4,
+  "Grace of Resistance": 0.3,
+  "Revitalization Contract": 0.4
+ },
+ "dvSimple": {
+  "en": [
+   "Take every Firestorm and Blaze node first",
+   "Then Robe of Flame nodes",
+   "Hellfire nodes",
+   "Grace of Enhancement nodes",
+   "Bittercold Wind nodes",
+   "Wish of Concentration nodes",
+   "Ice Chain nodes",
+   "Robe of Earth nodes",
+   "Winter's Shackles nodes",
+   "Flame Arrow nodes",
+   "Cold Snap and Fire Mark nodes",
+   "Absorb Essence nodes",
+   "Skip Robe of Cold, Grace of Resistance and Revitalization Contract"
+  ],
+  "es": [
+   "Toma primero todos los nodos de Quebrantamiento en llamas y Explosión de llama",
+   "Luego los de Toga de llama",
+   "Llamas del infierno",
+   "Merced de mejora",
+   "Viento helado",
+   "Voto de concentración",
+   "Cadena gélida",
+   "Toga terrestre",
+   "Atadura invernal",
+   "Flecha en llamas",
+   "Invocación helada y Marca ígnea",
+   "Absorción de esencia",
+   "Salta Toga de helada, Merced de resistencia y Pacto de resurrección"
+  ]
+ },
+ "macro": {
+  "leveling": {
+   "slots": [
+    [
+     "1",
+     [
+      "Blaze",
+      "Firestorm"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Bittercold Wind",
+      "Ice Chain"
+     ],
+     "m"
+    ],
+    [
+     "3",
+     [
+      "Frost Burst",
+      "Frost"
+     ],
+     "m"
+    ],
+    [
+     "4",
+     [
+      "Winter's Shackles"
+     ],
+     "m"
+    ],
+    [
+     "5",
+     [
+      "Wish of Concentration"
+     ],
+     "m"
+    ],
+    [
+     "LMB",
+     [
+      "Flame Arrow"
+     ],
+     "m"
+    ],
+    [
+     "Q",
+     [
+      "Hellfire"
+     ],
+     "h"
+    ],
+    [
+     "F",
+     [
+      "Defiance"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "1",
+    "LMB",
+    "2",
+    "5",
+    "3",
+    "LMB",
+    "4"
+   ]
+  },
+  "endgame": {
+   "slots": [
+    [
+     "1",
+     [
+      "Element Enhancement",
+      "Bittercold Wind",
+      "Delayed Explosion"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Wish of Concentration",
+      "Cold Storm",
+      "Fire Wall"
+     ],
+     "m"
+    ],
+    [
+     "3",
+     [
+      "Blaze",
+      "Firestorm"
+     ],
+     "m"
+    ],
+    [
+     "4",
+     [
+      "Winter's Shackles",
+      "Ice Chain"
+     ],
+     "m"
+    ],
+    [
+     "LMB",
+     [
+      "Flame Arrow"
+     ],
+     "m"
+    ],
+    [
+     "E",
+     [
+      "Flame Scattershot"
+     ],
+     "m"
+    ],
+    [
+     "Q",
+     [
+      "Hellfire"
+     ],
+     "h"
+    ],
+    [
+     "F",
+     [
+      "Defiance"
+     ],
+     "h"
+    ],
+    [
+     "G",
+     [
+      "Steel Barrier"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "1",
+    "2",
+    "LMB",
+    "3",
+    "LMB",
+    "4",
+    "E"
+   ]
+  },
+  "notes": {
+   "en": "Flame Arrow between steps keeps MP and Fire Mark up. Charge Hellfire by hand after Firestorm resets it.",
+   "es": "Flecha en llamas entre pasos mantiene PM y Marca ígnea. Carga Llamas del infierno a mano cuando Quebrantamiento la recargue."
+  }
+ },
+ "rotation": {
+  "en": [
+   "Delayed Explosion on the boss (+15% damage window)",
+   "Element Enhancement + Wish of Concentration",
+   "Fire Wall + Cold Storm",
+   "Bittercold Wind (guaranteed crit)",
+   "Winter's Shackles → charged Hellfire → Blaze inside the +20% window",
+   "Hold the macro; fire Hellfire whenever Firestorm brings it back"
+  ],
+  "es": [
+   "Explosión retrasada al jefe (ventana de +15 % de daño)",
+   "Mejora elemental + Voto de concentración",
+   "Barrera de fuego + Tormenta helada",
+   "Viento helado (crítico seguro)",
+   "Atadura invernal → Llamas del infierno cargada → Explosión de llama dentro de la ventana de +20 %",
+   "Mantén la macro; lanza Llamas del infierno cada vez que Quebrantamiento la recargue"
+  ]
+ },
+ "synergy": [
+  {
+   "a": "Firestorm",
+   "b": "Hellfire",
+   "t": {
+    "en": "Cooldown engine",
+    "es": "Motor de enfriamiento"
+   },
+   "s": {
+    "en": "Each fireball cuts 2s off Hellfire at spec 12.",
+    "es": "Cada bola le quita 2 s a Llamas del infierno con la espec. de Nv 12."
+   }
+  },
+  {
+   "a": "Flame Arrow",
+   "b": "Blaze",
+   "t": {
+    "en": "Mark, then detonate",
+    "es": "Marca y detona"
+   },
+   "s": {
+    "en": "Any Fire hit applies Fire Mark, which Blaze needs.",
+    "es": "Cualquier golpe de Fuego aplica Marca ígnea, que Explosión de llama necesita."
+   }
+  },
+  {
+   "a": "Winter's Shackles",
+   "b": "Hellfire",
+   "t": {
+    "en": "+20% PvE window",
+    "es": "Ventana de +20 % JcE"
+   },
+   "s": {
+    "en": "Fire your charged Hellfire during the 5s buff.",
+    "es": "Lanza Llamas del infierno cargada durante el buff de 5 s."
+   }
+  },
+  {
+   "a": "Element Enhancement",
+   "b": "Robe of Flame",
+   "t": {
+    "en": "×1.5 passive",
+    "es": "Pasiva ×1,5"
+   },
+   "s": {
+    "en": "Stigma Lv10 boosts Robe of Flame, Lv15 boosts Grace of Enhancement.",
+    "es": "El estigma Nv 10 potencia Toga de llama y Nv 15 Merced de mejora."
+   }
+  },
+  {
+   "a": "Ice Chain",
+   "b": "Cold Snap",
+   "t": {
+    "en": "Slow → bonus hit",
+    "es": "Ralentizar → golpe extra"
+   },
+   "s": {
+    "en": "Keep targets Slowed so Cold Snap procs.",
+    "es": "Mantén a los objetivos Ralentizados para que salte Invocación helada."
+   }
+  }
+ ],
+ "stats": {
+  "order": [
+   {
+    "en": "Attack",
+    "es": "Ataque",
+    "w": 100
+   },
+   {
+    "en": "Critical Hit",
+    "es": "Golpe crítico",
+    "w": 85
+   },
+   {
+    "en": "Accuracy (bosses)",
+    "es": "Precisión (jefes)",
+    "w": 70
+   },
+   {
+    "en": "Combat Speed",
+    "es": "Velocidad de combate",
+    "w": 60
+   },
+   {
+    "en": "Max MP / MP regen",
+    "es": "PM máx. / regeneración de PM",
+    "w": 45
+   }
+  ],
+  "notes": {
+   "en": "Attack and Crit manastones first; add Accuracy until you stop missing bosses. Keep MP high for Grace of Enhancement and Robe of Earth.",
+   "es": "Piedras de maná de Ataque y Crítico primero; agrega Precisión hasta no fallar contra jefes. Mantén PM altos para Merced de mejora y Toga terrestre."
+  }
+ },
+ "genus": {
+  "s15": [
+   [
+    "PvE Attack",
+    "Ataque JcE",
+    1
+   ],
+   [
+    "Boss Attack",
+    "Ataque contra jefes",
+    1
+   ],
+   [
+    "Back Attack",
+    "Ataque por la espalda",
+    2
+   ],
+   [
+    "Attack Bonus",
+    "Bonificación de ataque",
+    3
+   ]
+  ],
+  "s369": [
+   [
+    "Power Shard Damage Bonus",
+    "Bonificación de daño de fragmento de poder",
+    1
+   ],
+   [
+    "Critical Hit",
+    "Golpe crítico",
+    2
+   ],
+   [
+    "PvE Accuracy",
+    "Precisión JcE",
+    3
+   ]
+  ],
+  "s278": [
+   [
+    "HP increase",
+    "Aumento de PV",
+    1
+   ],
+   [
+    "PvE Defense",
+    "Defensa JcE",
+    2
+   ],
+   [
+    "HP",
+    "PV",
+    3
+   ]
+  ],
+  "s4": {
+   "cogni": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     1
+    ],
+    [
+     "Critical Damage Boost",
+     "Amplificación de daño crítico",
+     2
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     2
+    ]
+   ],
+   "fera": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     1
+    ],
+    [
+     "Weapon Damage Boost",
+     "Amplificación de daño de arma",
+     2
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     2
+    ]
+   ],
+   "natura": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     1
+    ],
+    [
+     "Multi-hit Chance",
+     "Prob. de Multigolpe",
+     2
+    ],
+    [
+     "Natura Damage Boost",
+     "Amplificación de daño Natura",
+     3
+    ]
+   ],
+   "varian": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     1
+    ],
+    [
+     "Back Attack Damage Boost",
+     "Amplificación de daño por la espalda",
+     2
+    ],
+    [
+     "Varian Damage Boost",
+     "Amplificación de daño Varian",
+     3
+    ]
+   ],
+   "special": [
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     1
+    ],
+    [
+     "Critical Damage Boost",
+     "Amplificación de daño crítico",
+     1
+    ],
+    [
+     "Double Chance",
+     "Prob. de Golpe doble",
+     2
+    ]
+   ]
+  },
+  "notes": {
+   "en": "Slot 7: PvE Damage Tolerance. Power Shard Damage Bonus may be Smite (double damage chance); if unconfirmed, Critical Hit is the safe pick.",
+   "es": "Espacio 7: Tolerancia a daño JcE. Bonificación de fragmento de poder podría ser Golpe fulminante (daño doble); si no se confirma, Golpe crítico es lo seguro."
+  }
+ },
+ "leveling": {
+  "en": [
+   "Put points in Firestorm, Flame Arrow and Ice Chain first.",
+   "Blaze at Lv4: take the 3% HP lifesteal to skip potions.",
+   "Pull packs with Bittercold Wind, then Ice Chain them.",
+   "Frost + Frost Burst clear mob packs; drop them later.",
+   "Equip Steel Barrier as soon as stigmas open at Lv22."
+  ],
+  "es": [
+   "Pon puntos primero en Quebrantamiento, Flecha en llamas y Cadena gélida.",
+   "Explosión de llama en Nv 4: toma el robo de vida del 3 % para ahorrar pociones.",
+   "Agrupa con Viento helado y luego usa Cadena gélida.",
+   "Congelación + Explosión de Congelación limpian grupos; déjalas después.",
+   "Equipa Barrera de acero apenas se abran los estigmas en Nv 22."
+  ]
+ },
+ "kr": {
+  "en": "KR guides call the core 불꽃 폭발 (Blaze) and 지옥의 화염 (Hellfire) and build around the Firestorm spec 12 Hellfire reset. Post-balance they run Element Enhancement + Delayed Explosion on every boss.",
+  "es": "Las guías coreanas llaman 불꽃 폭발 (Explosión de llama) y 지옥의 화염 (Llamas del infierno) al núcleo, construido sobre la espec. 12 de Quebrantamiento. Tras el balance usan Mejora elemental + Explosión retrasada en todo jefe."
+ },
+ "sources": [
+  [
+   "Inven KR – Sorcerer PvE guide",
+   "https://www.inven.co.kr/board/aion2/6453/66"
+  ],
+  [
+   "Vortex Gaming – Sorcerer guide",
+   "https://vortexgaming.io/en/postdetail/724101"
+  ],
+  [
+   "couga54 – Sorcerer guide",
+   "https://couga54.github.io/aion2-guides/en/sorcerer/"
+  ],
+  [
+   "Wikily – Sorcerer",
+   "https://wikily.gg/aion-2/classes/sorcerer"
+  ],
+  [
+   "EXPCarry – Sorcerer guide",
+   "https://expcarry.com/aion-2-sorcerer-guide"
+  ],
+  [
+   "questlog.gg – Skill database",
+   "https://questlog.gg/aion-2/en/db/skills"
+  ],
+  [
+   "EUTOPIA: Sorcerer Build UPDATE (YouTube)",
+   "https://www.youtube.com/watch?v=Qr9NvMvI1-M"
+  ]
+ ],
+ "pro": {
+  "src": [
+   "EUTOPIA — AION 2 Sorcerer Build UPDATE (Oct 7, 2026)",
+   "https://www.youtube.com/watch?v=Qr9NvMvI1-M"
+  ],
+  "intro": {
+   "en": "Global PvE endgame build from EUTOPIA's tested setup (Lv45, ~1700 iLvl). Same character, three ways to play:",
+   "es": "Build PvE endgame de Global, basado en las pruebas de EUTOPIA (Nv45, ~1700 iLvl). Mismo personaje, tres formas de jugar:"
+  },
+  "dps": [
+   [
+    {
+     "en": "Full rotation macro",
+     "es": "Macro de rotación completa"
+    },
+    17.4,
+    "#8a93a8"
+   ],
+   [
+    {
+     "en": "Optimized macro",
+     "es": "Macro optimizada"
+    },
+    19.2,
+    "#ffb340"
+   ],
+   [
+    {
+     "en": "Optimized stack",
+     "es": "Stack optimizado"
+    },
+    21.1,
+    "#5fd0ff"
+   ]
+  ],
+  "dpsNote": {
+   "en": "Scarecrow test, boss DPS. The stack wins because it fires the best ready skill instead of walking a fixed list.",
+   "es": "Prueba en espantapájaros, DPS a jefe. El stack gana porque lanza la mejor habilidad lista en vez de seguir una lista fija."
+  },
+  "prio": [
+   "Hellfire",
+   "Firestorm",
+   "Bittercold Wind",
+   "Blaze",
+   "Wish of Concentration",
+   "Flame Arrow"
+  ],
+  "skip": [
+   [
+    "Ice Chain",
+    {
+     "en": "Not needed for stagger: Hellfire and other skills already pass stagger checks (never failed one in 1400–1600 content).",
+     "es": "No hace falta para Tambaleo: Fuego infernal y otras ya pasan los chequeos (nunca falló uno en contenido 1400–1600)."
+    }
+   ],
+   [
+    "Flame Scattershot",
+    {
+     "en": "Weak. Skip its Daevanion nodes; your normal rotation does more.",
+     "es": "Débil. Salta sus nodos Daevanion; tu rotación normal pega más."
+    }
+   ]
+  ],
+  "specs": [
+   [
+    "Hellfire",
+    [
+     0,
+     3
+    ]
+   ],
+   [
+    "Firestorm",
+    [
+     1,
+     3
+    ]
+   ],
+   [
+    "Bittercold Wind",
+    [
+     0,
+     3
+    ]
+   ],
+   [
+    "Blaze",
+    [
+     2,
+     3
+    ]
+   ],
+   [
+    "Wish of Concentration",
+    [
+     1,
+     3,
+     4
+    ]
+   ],
+   [
+    "Flame Arrow",
+    [
+     2,
+     3
+    ]
+   ],
+   [
+    "Winter's Shackles",
+    [
+     2,
+     3
+    ]
+   ],
+   [
+    "Flame Scattershot",
+    [
+     2,
+     3
+    ]
+   ]
+  ],
+  "specNote": {
+   "en": "Hover each specialty: the \"Ignores Block and Evasion\" ones also land as Critical / Multi-Hit, so they are PvE picks, not PvP-only.",
+   "es": "Pasa el mouse por cada especialidad: las de \"Ignora Bloqueo y Evasión\" también aciertan como Crítico / Multigolpe, así que sirven en PvE, no solo PvP."
+  },
+  "passives": [
+   "Fire Mark",
+   "Robe of Cold",
+   "Robe of Flame",
+   "Grace of Enhancement",
+   "Robe of Earth",
+   "Grace of Resistance"
+  ],
+  "stig": [
+   "Element Enhancement",
+   "Delayed Explosion",
+   "Fire Wall",
+   "Cold Storm"
+  ],
+  "flex": [
+   [
+    "Cold Storm",
+    "Steel Barrier",
+    {
+     "en": "Hard content (Transcendence, Nightmare, Expedition) when you take too much damage.",
+     "es": "Contenido difícil (Trascendencia, Pesadilla, Expedición) si recibes mucho daño."
+    }
+   ],
+   [
+    "Cold Storm",
+    "Divine Burst",
+    {
+     "en": "Only if your group keeps missing stagger checks.",
+     "es": "Solo si tu grupo falla los chequeos de Tambaleo."
+    }
+   ]
+  ],
+  "stack": [
+   {
+    "k": "2",
+    "sk": [
+     "Element Enhancement"
+    ],
+    "ty": "s",
+    "l": {
+     "en": "Opener",
+     "es": "Apertura"
+    }
+   },
+   {
+    "k": "6",
+    "sk": [
+     "Delayed Explosion",
+     "Winter's Shackles"
+    ],
+    "ty": "s",
+    "l": {
+     "en": "Setup",
+     "es": "Preparación"
+    }
+   },
+   {
+    "k": "Q",
+    "sk": [
+     "Hellfire"
+    ],
+    "ty": "h",
+    "l": {
+     "en": "Hold! full charge",
+     "es": "¡Mantén! carga completa"
+    }
+   },
+   {
+    "k": "7",
+    "sk": [
+     "Fire Wall",
+     "Cold Storm"
+    ],
+    "ty": "s",
+    "l": {
+     "en": "Summons",
+     "es": "Invocaciones"
+    }
+   },
+   {
+    "k": "E",
+    "sk": [
+     "Bittercold Wind",
+     "Blaze",
+     "Firestorm",
+     "Wish of Concentration"
+    ],
+    "ty": "c",
+    "l": {
+     "en": "Core stack",
+     "es": "Stack principal"
+    }
+   },
+   {
+    "k": "R",
+    "sk": [
+     "Flame Arrow"
+    ],
+    "ty": "f",
+    "l": {
+     "en": "Filler",
+     "es": "Relleno"
+    }
+   }
+  ],
+  "stackNote": {
+   "en": "One key per stack: the game fires the lowest READY skill. Keys are an example — keep the order inside each stack.",
+   "es": "Una tecla por stack: el juego lanza la habilidad LISTA más baja. Las teclas son ejemplo — respeta el orden dentro de cada stack."
+  },
+  "seq": [
+   [
+    "Element Enhancement",
+    "2"
+   ],
+   [
+    "Delayed Explosion",
+    "6"
+   ],
+   [
+    "Winter's Shackles",
+    "6"
+   ],
+   [
+    "Hellfire",
+    "Q"
+   ],
+   [
+    "Fire Wall",
+    "7"
+   ],
+   [
+    "Cold Storm",
+    "7"
+   ],
+   [
+    "Bittercold Wind",
+    "E"
+   ],
+   [
+    "Blaze",
+    "E"
+   ],
+   [
+    "Firestorm",
+    "E"
+   ],
+   [
+    "Wish of Concentration",
+    "E"
+   ],
+   [
+    "Flame Arrow",
+    "R"
+   ]
+  ],
+  "seqNote": {
+   "en": "Burst window = Element Enhancement → Delayed Explosion → Winter's Shackles (+20% PvE dmg) → FULL Hellfire. Then summons, then mash the core stack; Flame Arrow only when everything is on cooldown.",
+   "es": "Ventana de ráfaga = Mejora elemental → Explosión retrasada → Atadura invernal (+20 % daño PvE) → Fuego infernal COMPLETO. Luego invocaciones y spamea el stack principal; Flecha en llamas solo si todo está en enfriamiento."
+  },
+  "wish": {
+   "en": "Wish goes LAST: at skill Lv16 its specialty cuts all cooldowns by 10s. Use it after Hellfire, Firestorm and Bittercold are spent so the reset isn't wasted. Keep it visible on your bar to track it.",
+   "es": "Voto va AL FINAL: con la habilidad en Nv16 su especialidad reduce 10 s todos los enfriamientos. Úsalo después de gastar Fuego infernal, Quebrantamiento y Viento helado para no desperdiciar el reinicio. Déjalo visible en tu barra."
+  },
+  "macro": [
+   "Element Enhancement",
+   "Delayed Explosion",
+   "Winter's Shackles",
+   "Fire Wall",
+   "Cold Storm",
+   "Bittercold Wind",
+   "Firestorm",
+   "Flame Arrow"
+  ],
+  "macroNote": {
+   "en": "Convenience option (10 ms delay, on LMB or RMB). Optional: add Wish before Flame Arrow (9 entries). Hellfire can NOT be in it: it casts uncharged.",
+   "es": "Opción cómoda (retardo 10 ms, en clic izq. o der.). Opcional: agrega Voto antes de Flecha en llamas (9 pasos). Fuego infernal NO puede ir: se lanza sin carga."
+  },
+  "hf": {
+   "en": "Hellfire uncharged = 15–16K DPS vs 22K with full charge (−20–30%). Release the macro, HOLD Hellfire, then go back to the macro.",
+   "es": "Fuego infernal sin cargar = 15–16K DPS vs 22K con carga completa (−20–30 %). Suelta la macro, MANTÉN Fuego infernal y vuelve a la macro."
+  },
+  "dv": {
+   "en": [
+    "Nezekan: all orange Combat Speed and Cooldown Reduction nodes.",
+    "Every board: Hellfire, Firestorm, Bittercold Wind, Blaze, Wish, Winter's Shackles, Flame Arrow nodes.",
+    "Zikel and after: Damage Boost is the top orange stat.",
+    "Skip Flame Scattershot nodes.",
+    "Don't fill one board blindly — crystals are limited; route through offensive stats + core skills."
+   ],
+   "es": [
+    "Nezekan: todos los nodos naranjas de Velocidad de combate y Reducción de enfriamiento.",
+    "En cada tablero: nodos de Fuego infernal, Quebrantamiento, Viento helado, Explosión de llama, Voto, Atadura invernal y Flecha en llamas.",
+    "Zikel en adelante: Amplificación de daño es la stat naranja principal.",
+    "Salta los nodos de Llamas sin puntería.",
+    "No llenes un tablero a ciegas — los cristales son limitados; ve por stats ofensivas + habilidades clave."
+   ]
+  },
+  "global": {
+   "en": "Global ≠ Korea/Taiwan 1:1 (different buffs/nerfs), so KR charts don't transfer exactly.",
+   "es": "Global ≠ Corea/Taiwán 1:1 (otros buffs/nerfs), así que las tablas KR no aplican exactas."
+  }
+ }
+}

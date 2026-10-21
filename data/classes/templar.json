@@ -1,0 +1,2365 @@
+{
+ "id": "templar",
+ "name": {
+  "en": "Templar",
+  "es": "Templario"
+ },
+ "classIcon": "UT_Class_Templar_Large",
+ "color": "#4f8cff",
+ "role": {
+  "en": "Main tank",
+  "es": "Tanque principal"
+ },
+ "weapon": {
+  "en": "Sword + Shield",
+  "es": "Espada + escudo"
+ },
+ "difficulty": 2,
+ "summary": {
+  "en": "Front-line tank that holds threat, blocks, and shields the party. Shield skills unlock Judgment; Blocks power Fury and Debilitating Smash.",
+  "es": "Tanque de primera línea que mantiene el aggro, bloquea y protege al grupo. Las habilidades de escudo activan Juicio; los bloqueos activan Arrebato y Embestida decadente."
+ },
+ "engine": {
+  "en": "Shield skill → Judgment → Block → Debilitating Smash / Fury",
+  "es": "Hab. de escudo → Juicio → Bloqueo → Embestida decadente / Arrebato"
+ },
+ "skills": [
+  {
+   "n": "Judgment",
+   "ne": "Juicio",
+   "nk": "심판",
+   "ic": "ICON_TE_SKILL_004",
+   "t": "active",
+   "un": 4,
+   "cd": 5,
+   "d": {
+    "en": "Shield skills enable it: X-X damage to a target within 4m, raises Enmity. 5 Stagger.",
+    "es": "Se activa con habilidades de escudo: X-X de daño a un objetivo a 4 m y aumenta la Hostilidad. 5 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 1% HP",
+     "Absorción de Puntos de Vida del 1 %"
+    ],
+    [
+     8,
+     "Deals extra damage on attacking a target afflicted with Impact-type status",
+     "Daño adicional al atacar a un objetivo bajo un efecto de impacto"
+    ],
+    [
+     8,
+     "Extra damage on hit",
+     "Daño adicional al acertar"
+    ],
+    [
+     12,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ],
+    [
+     16,
+     "Remove cooldown",
+     "Eliminación de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Core damage/threat",
+    "es": "Daño/aggro base"
+   },
+   "tip": {
+    "en": "Spend it right after every shield skill.",
+    "es": "Úsalo justo después de cada habilidad de escudo."
+   },
+   "pickLev": [
+    2,
+    3,
+    0
+   ],
+   "pickEnd": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Pummel",
+   "ne": "Azotamiento continuo",
+   "nk": "연속 난타",
+   "ic": "ICON_TE_SKILL_006",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "X-X damage to up to 4 enemies within 4m and raises Enmity. 3 Stagger.",
+    "es": "X-X de daño a hasta 4 enemigos a 4 m y aumenta la Hostilidad. 3 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "-20% MP consumed",
+     "Reducción del 20 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "[Punishing Strike] absorbs 3% HP",
+     "Absorción de Puntos de Vida del 3 % de «Estacazo de amonestación»"
+    ],
+    [
+     8,
+     "Deals up to 12% more damage when less targets are hit",
+     "Cuantos menos objetivos se acierten, el daño aumenta un máximo del 12 %"
+    ],
+    [
+     12,
+     "-1s [Punishment] cooldown on hit",
+     "Al acertar, el Tiempo de Enfriamiento de [Castigo] se reduce en 1s"
+    ],
+    [
+     16,
+     "[Punishing Strike] grants extra damage on hit",
+     "Daño adicional al acertar con [Estacazo de amonestación]"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Filler combo",
+    "es": "Combo de relleno"
+   },
+   "tip": {
+    "en": "Fills every gap; also cuts Punishment cooldown.",
+    "es": "Rellena huecos y reduce el enfriamiento de Castigo."
+   },
+   "pickLev": [
+    0,
+    3,
+    1
+   ],
+   "pickEnd": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Shield Smite",
+   "ne": "Golpe de escudo",
+   "nk": "방패 강타",
+   "ic": "ICON_TE_SKILL_010",
+   "t": "active",
+   "un": 3,
+   "cd": 10,
+   "d": {
+    "en": "X-X damage to up to 4 enemies within 4m, 60% Stun 3s (100% vs NPC). Triggers Judgment. 10 Stagger.",
+    "es": "X-X de daño a hasta 4 enemigos a 4 m, 60 % de Aturdimiento 3 s (100 % a PNJ). Activa Juicio. 10 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "+1s Stun duration",
+     "Aumento de 1 s de duración de Aturdimiento"
+    ],
+    [
+     8,
+     "Removes MP Cost and restores 200 MP on hit",
+     "Eliminación del consumo de Puntos de Maná y, al acertar, recuperación de 200 de Puntos de Maná"
+    ],
+    [
+     8,
+     "50% chance to trigger [Debilitating Smash] on hit",
+     "Al acertar, activación de «Embestida decadente» con un 50 % de prob."
+    ],
+    [
+     12,
+     "-2s cooldown",
+     "Reducción de 2 s de Tiempo de Enfriamiento"
+    ],
+    [
+     16,
+     "AoE Stun",
+     "Aturdimiento de área"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Stun + Judgment",
+    "es": "Aturdir + Juicio"
+   },
+   "tip": {
+    "en": "Main Judgment opener; stun enables Annihilate.",
+    "es": "Abridor principal de Juicio; el aturdimiento habilita Aniquilación."
+   },
+   "pickLev": [
+    1,
+    3,
+    2
+   ],
+   "pickEnd": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Warding Strike",
+   "ne": "Estacazo de amparo",
+   "nk": "비호의 일격",
+   "ic": "ICON_TE_SKILL_035",
+   "t": "active",
+   "un": 8,
+   "cd": 30,
+   "d": {
+    "en": "X-X AoE within 5m, heals self and grants Warding (+20% PvE Damage Tolerance) 10s. Triggers Judgment.",
+    "es": "X-X de daño en área a 5 m, te cura y otorga Amparo (+20 % Tolerancia a Daño JcE) 10 s. Activa Juicio."
+   },
+   "sp": [
+    [
+     8,
+     "-5s cooldown",
+     "Reducción de 5 s del Tiempo de Enfriamiento"
+    ],
+    [
+     8,
+     "+100 Block during Warding",
+     "Aumento de 100 de Bloqueo durante Amparo"
+    ],
+    [
+     8,
+     "Heal over Time during Warding",
+     "Efecto de recuperación continua durante Amparo"
+    ],
+    [
+     12,
+     "Adds PvE Damage Tolerance and PvP Damage Tolerance increase effect when more targets hit to Warding",
+     "Cuantos más objetivos se acierten, aumento de efecto de Tolerancia a Daño JcE y Tolerancia a Daño JcJ de Amparo"
+    ],
+    [
+     16,
+     "+10% PvE Damage Tolerance and +5% PvP Damage Tolerance to party members on skill use",
+     "Al usar la habilidad, aumento del 10 % de Tolerancia a Daño JcE y 5 % de Tolerancia a Daño JcJ de miembros del grupo"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Mitigation",
+    "es": "Mitigación"
+   },
+   "tip": {
+    "en": "Keep Warding up during every pull.",
+    "es": "Mantén Amparo activo en cada pull."
+   },
+   "pickLev": [
+    0,
+    2,
+    1
+   ],
+   "pickEnd": [
+    0,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Debilitating Smash",
+   "ne": "Embestida decadente",
+   "nk": "쇠약의 맹타",
+   "ic": "ICON_TE_SKILL_025",
+   "t": "active",
+   "un": 7,
+   "cd": 10,
+   "d": {
+    "en": "After a Block: X-X AoE within 4m and Debilitate (-25% Defense) 5s. 10 Stagger.",
+    "es": "Tras bloquear: X-X de daño en área a 4 m y Decadencia (-25 % Defensa) 5 s. 10 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "30% chance to inflict Stun for 3s",
+     "Aturdimiento durante 3s con un 30 % de prob."
+    ],
+    [
+     8,
+     "+3s Debilitate duration",
+     "Aumento de 3 s de duración de Decadencia"
+    ],
+    [
+     8,
+     "-60% Incoming Heal during Debilitate",
+     "Reducción de un 60 % de la Curación Recibida durante Debilitamiento"
+    ],
+    [
+     12,
+     "Ignores Block and Evasion and lands as Multi-Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con Multigolpe"
+    ],
+    [
+     16,
+     "25% chance to reset cooldown on Block",
+     "Al bloquear con éxito, restablecimiento de Tiempo de Enfriamiento con un 25 % de prob."
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "Defense shred",
+    "es": "Baja defensa"
+   },
+   "tip": {
+    "en": "Keep Debilitate on the boss for the whole party.",
+    "es": "Mantén Decadencia en el jefe para todo el grupo."
+   },
+   "pickLev": [
+    1,
+    3,
+    0
+   ],
+   "pickEnd": [
+    1,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Punishment",
+   "ne": "Castigo",
+   "nk": "징벌",
+   "ic": "ICON_TE_SKILL_009",
+   "t": "active",
+   "un": 14,
+   "cd": 30,
+   "charge": true,
+   "d": {
+    "en": "Charge: X-X damage to up to 4 enemies near target (20m); grants Executor (+200 Accuracy, +20% PvE Damage Boost) 20s.",
+    "es": "Carga: X-X de daño a hasta 4 enemigos cerca del objetivo (20 m); otorga Verdugo (+200 Precisión, +20 % Amplificación JcE) 20 s."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 10% HP",
+     "Absorción de Puntos de Vida del 10 %"
+    ],
+    [
+     8,
+     "Inflicts Damage over Time to target on hit",
+     "Al acertar, daño continuo a objetivo"
+    ],
+    [
+     8,
+     "+30% Skill Speed",
+     "Aumento de la Velocidad de habilidad en un 30 %"
+    ],
+    [
+     12,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     16,
+     "Ignores Block and Evasion and lands as a Critical Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con golpe Crítico"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "Damage buff",
+    "es": "Buff de daño"
+   },
+   "tip": {
+    "en": "Charge in a safe window; keep Executor up.",
+    "es": "Cárgalo en un momento seguro; mantén Verdugo."
+   },
+   "pickLev": [
+    2,
+    0,
+    3
+   ],
+   "pickEnd": [
+    2,
+    4,
+    1
+   ]
+  },
+  {
+   "n": "Vicious Strike",
+   "ne": "Estacazo impetuoso",
+   "nk": "맹렬한 일격",
+   "ic": "ICON_TE_SKILL_001",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "X-X damage to up to 4 enemies within 4m, raises Enmity and restores 100 MP.",
+    "es": "X-X de daño a hasta 4 enemigos a 4 m, aumenta la Hostilidad y recupera 100 de Maná."
+   },
+   "sp": [
+    [
+     8,
+     "+20% MP restored",
+     "Aumento del 20 % de Recuperación de Puntos de Maná"
+    ],
+    [
+     8,
+     "Absorbs 1% HP",
+     "Absorción de Puntos de Vida del 1 %"
+    ],
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     12,
+     "-2s [Warding Strike] cooldown on hit",
+     "Al acertar, reducción de 2s de Tiempo de Enfriamiento de «Estacazo de amparo»"
+    ],
+    [
+     16,
+     "Adds [Threatening Blow] Chain Skill",
+     "Adición de hab. de cadena «Embestida amenazante» x4"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "AoE threat / MP",
+    "es": "Aggro en área / Maná"
+   },
+   "tip": {
+    "en": "Use on packs and when MP runs low.",
+    "es": "Úsalo en grupos de enemigos y con poco Maná."
+   },
+   "pickLev": [
+    0,
+    3,
+    1
+   ],
+   "pickEnd": [
+    0,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Annihilate",
+   "ne": "Aniquilación",
+   "nk": "섬멸",
+   "ic": "ICON_TE_SKILL_028",
+   "t": "active",
+   "un": 12,
+   "cd": 20,
+   "d": {
+    "en": "X-X damage to a stunned/knocked-down target within 4m; Knockdown 3s (100% vs NPC).",
+    "es": "X-X de daño a un objetivo aturdido o derribado a 4 m; Derribo 3 s (100 % a PNJ)."
+   },
+   "sp": [
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     8,
+     "+20% Knockdown Chance",
+     "Aumento del 20 % de prob. de Derribo"
+    ],
+    [
+     8,
+     "+100% damage to targets with Incapacitated Immunity",
+     "Al atacar a un objetivo con Inmune a Incapacitación, aumento del 100 % de daño"
+    ],
+    [
+     12,
+     "-10s cooldown",
+     "Reducción de 10 s de Tiempo de Enfriamiento"
+    ],
+    [
+     16,
+     "Changes to AoE Skill",
+     "Cambio a habilidad de área"
+    ]
+   ],
+   "rank": 8,
+   "tag": {
+    "en": "Follow-up hit",
+    "es": "Golpe de remate"
+   },
+   "tip": {
+    "en": "Use after Shield Smite stun; bosses: take +100% vs immune.",
+    "es": "Úsalo tras el aturdimiento de Golpe de escudo; en jefes, +100 % contra inmunes."
+   },
+   "pickLev": [
+    0,
+    3,
+    1
+   ],
+   "pickEnd": [
+    2,
+    3,
+    0
+   ]
+  },
+  {
+   "n": "Poach",
+   "ne": "Aprisionamiento",
+   "nk": "포획",
+   "ic": "ICON_TE_SKILL_013",
+   "t": "active",
+   "un": 1,
+   "cd": 15,
+   "d": {
+    "en": "X-X damage at 20m, pulls the target in front of you, 75% Root 2s (100% vs NPC). 10 Stagger.",
+    "es": "X-X de daño a 20 m, atrae al objetivo frente a ti, 75 % de Atadura 2 s (100 % a PNJ). 10 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "Moves to the target if target has Incapacitated Immunity",
+     "Si objetivo tiene Inmune a Incapacitación, desplazamiento hacia objetivo"
+    ],
+    [
+     8,
+     "-20% Status Effect Resist for 5s on hit",
+     "-20 % de Resistencia a Efectos de Estado durante 5s al acertar"
+    ],
+    [
+     8,
+     "Resets cooldown on defeating an enemy",
+     "Al derrotar a enemigo, restablecimiento de Tiempo de Enfriamiento"
+    ],
+    [
+     12,
+     "10% Max HP Protective Shield",
+     "Barrera del 10 % de Puntos de Vida Máximos"
+    ],
+    [
+     16,
+     "50% chance to Stun for 3s",
+     "50 % de probabilidad de Aturdimiento durante 3s"
+    ]
+   ],
+   "rank": 9,
+   "tag": {
+    "en": "Pull",
+    "es": "Atraer"
+   },
+   "tip": {
+    "en": "Grab loose adds back to you.",
+    "es": "Atrae a los enemigos sueltos hacia ti."
+   },
+   "pickLev": [
+    2,
+    3,
+    0
+   ],
+   "pickEnd": [
+    0,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Shield Rush",
+   "ne": "Asalto con escudo",
+   "nk": "방패 돌격",
+   "ic": "ICON_TE_SKILL_015",
+   "t": "active",
+   "un": 10,
+   "cd": 20,
+   "d": {
+    "en": "After Dodge or while flying: rush 10m, X-X damage, 30% Stun 3s (100% vs NPC). Triggers Judgment.",
+    "es": "Tras Evasión urgente o en vuelo: carga 10 m, X-X de daño, 30 % de Aturdimiento 3 s (100 % a PNJ). Activa Juicio."
+   },
+   "sp": [
+    [
+     8,
+     "Restores 300 Stamina on hit",
+     "Restaura 300 de Vigor al impactar"
+    ],
+    [
+     8,
+     "+10m range",
+     "Aumento de 10 m de alcance"
+    ],
+    [
+     8,
+     "Changes to Charge Skill and deals AoE damage",
+     "Cambia a Habilidad de carga y causa daño de área"
+    ],
+    [
+     12,
+     "-10s cooldown",
+     "Reducción de 10 s de Tiempo de Enfriamiento"
+    ],
+    [
+     16,
+     "+25% Stun Chance",
+     "Aumento del 25 % de prob. de Aturdimiento"
+    ]
+   ],
+   "rank": 10,
+   "tag": {
+    "en": "Gap closer",
+    "es": "Acercamiento"
+   },
+   "tip": {
+    "en": "Dodge into it to engage and fire Judgment.",
+    "es": "Usa Evasión y luego esta para entrar y activar Juicio."
+   },
+   "pickLev": [
+    1,
+    3,
+    0
+   ],
+   "pickEnd": [
+    1,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Flash Rampage",
+   "ne": "Desenfreno de destello",
+   "nk": "섬광 난무",
+   "ic": "ICON_GL_SKILL_027",
+   "t": "active",
+   "un": 5,
+   "cd": 0,
+   "d": {
+    "en": "X-X damage to a Staggered target within 4m and raises Enmity.",
+    "es": "X-X de daño a un objetivo en Tambaleo a 4 m y aumenta la Hostilidad."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 5% HP",
+     "Absorción de Puntos de Vida del 5 %"
+    ],
+    [
+     8,
+     "Restores 120 MP on hit",
+     "Al acertar, recuperación de 120 de Puntos de Maná"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     16,
+     "-1s to all skill cooldowns on hit",
+     "Al acertar, el Tiempo de Enfriamiento de todas las Habilidades se reduce en 1s"
+    ]
+   ],
+   "rank": 11,
+   "tag": {
+    "en": "Stagger window",
+    "es": "Ventana de Tambaleo"
+   },
+   "tip": {
+    "en": "Only usable on Staggered targets; leave at 1.",
+    "es": "Solo sirve con Tambaleo; déjala en nivel 1."
+   },
+   "pickLev": [
+    0,
+    1,
+    3
+   ],
+   "pickEnd": [
+    1,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Defiance",
+   "ne": "Eliminación de impacto",
+   "nk": "충격 해제",
+   "ic": "ICON_CO_SKILL_002",
+   "t": "active",
+   "un": 16,
+   "cd": 60,
+   "d": {
+    "en": "Removes Stun, Knockdown, Airborne, Grab, Frost and Fear; grants Tenacity (status immunity) 5s.",
+    "es": "Elimina Aturdimiento, Derribo, Atadura aérea, Agarre, Congelación y Terror; otorga Robustez (inmunidad) 5 s."
+   },
+   "sp": [
+    [
+     8,
+     "Adds [Capture] Chain Skill",
+     "Añade [Captura] como segunda habilidad de cadena."
+    ],
+    [
+     8,
+     "Restores 1000 Stamina on using [Defiance]",
+     "Al lanzar [Eliminación de impacto], recupera 1000 de Vigor"
+    ],
+    [
+     8,
+     "Restores 20% HP on using [Defiance]",
+     "Al lanzar «Eliminación de impacto», recuperación del 20 % de Puntos de Vida"
+    ],
+    [
+     12,
+     "+2s Tenacity duration",
+     "Aumento de 2 s de duración de Robustez"
+    ],
+    [
+     16,
+     "+50% PvE Damage Tolerance and +25% PvP Damage Tolerance for Tenacity duration",
+     "Durante la duración de Robustez, la Tolerancia a Daño JcE aumenta un 50 % y la Tolerancia a Daño JcJ un 25 %"
+    ]
+   ],
+   "rank": 12,
+   "tag": {
+    "en": "CC break",
+    "es": "Romper control"
+   },
+   "tip": {
+    "en": "Save for boss stuns/knockdowns.",
+    "es": "Guárdala para aturdimientos o derribos del jefe."
+   },
+   "pickLev": [
+    2,
+    3,
+    1
+   ],
+   "pickEnd": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Fury",
+   "ne": "Arrebato",
+   "nk": "격앙",
+   "ic": "ICON_TE_SKILL_Passive_008",
+   "t": "passive",
+   "un": 21,
+   "cd": 0,
+   "d": {
+    "en": "On Block: +5.5% PvE Damage Boost for you and party 20s. +0.3% Front Attack Damage Boost.",
+    "es": "Al bloquear: +5.5 % Amplificación de Daño JcE para ti y el grupo 20 s. +0.3 % Amplificación frontal."
+   },
+   "sp": [],
+   "rank": 1,
+   "tag": {
+    "en": "Party buff",
+    "es": "Buff de grupo"
+   },
+   "tip": {
+    "en": "Top passive: Block uptime = party damage.",
+    "es": "Pasiva top: bloquear = más daño del grupo."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Punishing Benediction",
+   "ne": "Favor de condena",
+   "nk": "단죄의 가호",
+   "ic": "ICON_TE_SKILL_Passive_003",
+   "t": "passive",
+   "un": 9,
+   "cd": 0,
+   "d": {
+    "en": "+100 Critical Hit; on hit, 50% chance to deal X-X extra damage for 10s.",
+    "es": "+100 Golpe crítico; al acertar, 50 % de prob. de X-X de daño extra durante 10 s."
+   },
+   "sp": [],
+   "rank": 2,
+   "tag": {
+    "en": "Damage",
+    "es": "Daño"
+   },
+   "tip": {
+    "en": "Best damage passive to max.",
+    "es": "La mejor pasiva de daño para subir al máximo."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Ironclad Defense",
+   "ne": "Defensa de tenacidad",
+   "nk": "철벽 방어",
+   "ic": "ICON_TE_SKILL_Passive_004",
+   "t": "passive",
+   "un": 11,
+   "cd": 0,
+   "d": {
+    "en": "+7% Defense and +1% Endurance.",
+    "es": "+7 % Defensa y +1 % Tenacidad."
+   },
+   "sp": [],
+   "rank": 3,
+   "tag": {
+    "en": "Defense",
+    "es": "Defensa"
+   },
+   "tip": {
+    "en": "Core tank stat; Second Skin boosts it.",
+    "es": "Stat clave de tanque; Armadura doble lo potencia."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Block Pain",
+   "ne": "Restricción de dolor",
+   "nk": "고통 차단",
+   "ic": "ICON_TE_SKILL_Passive_010",
+   "t": "passive",
+   "un": 25,
+   "cd": 0,
+   "d": {
+    "en": "When struck: +11% PvE Damage Tolerance for 10s (20s cooldown).",
+    "es": "Al recibir golpe: +11 % Tolerancia a Daño JcE 10 s (enfriamiento 20 s)."
+   },
+   "sp": [],
+   "rank": 4,
+   "tag": {
+    "en": "Mitigation",
+    "es": "Mitigación"
+   },
+   "tip": {
+    "en": "Free uptime mitigation while tanking.",
+    "es": "Mitigación gratis mientras tanqueas."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Warding Shield",
+   "ne": "Escudo de amparo",
+   "nk": "비호의 방패",
+   "ic": "ICON_TE_SKILL_Passive_002",
+   "t": "passive",
+   "un": 6,
+   "cd": 0,
+   "d": {
+    "en": "+200 Block; restores 53-64 HP on Block (3s cooldown).",
+    "es": "+200 Bloqueo; recupera 53-64 PV al bloquear (enfriamiento 3 s)."
+   },
+   "sp": [],
+   "rank": 5,
+   "tag": {
+    "en": "Block",
+    "es": "Bloqueo"
+   },
+   "tip": {
+    "en": "More Block feeds Fury and Debilitating Smash.",
+    "es": "Más Bloqueo alimenta Arrebato y Embestida decadente."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Enhance Health",
+   "ne": "Mejora física",
+   "nk": "체력 강화",
+   "ic": "ICON_TE_SKILL_Passive_001",
+   "t": "passive",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "+250 HP, +7.5% Max HP and +6% Incoming Heal.",
+    "es": "+250 PV, +7.5 % PV máximos y +6 % Curación recibida."
+   },
+   "sp": [],
+   "rank": 6,
+   "tag": {
+    "en": "HP",
+    "es": "PV"
+   },
+   "tip": {
+    "en": "Cheap survival; level 3 is enough early.",
+    "es": "Supervivencia barata; nivel 3 basta al inicio."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Guarding Seal",
+   "ne": "Sello de protección",
+   "nk": "수호의 인장",
+   "ic": "ICON_TE_SKILL_Passive_005",
+   "t": "passive",
+   "un": 13,
+   "cd": 0,
+   "d": {
+    "en": "Below 50% HP: shield for 21% Max HP, 30s (60s cooldown).",
+    "es": "Bajo 50 % PV: escudo del 21 % de PV máx. 30 s (enfriamiento 60 s)."
+   },
+   "sp": [],
+   "rank": 7,
+   "tag": {
+    "en": "Emergency shield",
+    "es": "Escudo de emergencia"
+   },
+   "tip": {
+    "en": "Auto safety net on bad pulls.",
+    "es": "Red de seguridad automática."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Insulting Roar",
+   "ne": "Rugido agravante",
+   "nk": "모욕의 포효",
+   "ic": "ICON_TE_SKILL_Passive_007",
+   "t": "passive",
+   "un": 17,
+   "cd": 0,
+   "d": {
+    "en": "+100% Enmity Boost; +5.5% Attack for 5s on Front Attack.",
+    "es": "+100 % Amplificación de Hostilidad; +5.5 % Ataque 5 s al atacar de frente."
+   },
+   "sp": [],
+   "rank": 8,
+   "tag": {
+    "en": "Threat",
+    "es": "Aggro"
+   },
+   "tip": {
+    "en": "Doubles threat; level 3 is enough.",
+    "es": "Duplica el aggro; nivel 3 basta."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Survival Willpower",
+   "ne": "Voluntad de supervivencia",
+   "nk": "생존 의지",
+   "ic": "ICON_GL_SKILL_Passive_009",
+   "t": "passive",
+   "un": 23,
+   "cd": 0,
+   "d": {
+    "en": "+17% Status Effect Resist; +12% PvE Damage Tolerance 5s when CC'd.",
+    "es": "+17 % Resistencia a efectos de estado; +12 % Tolerancia JcE 5 s al recibir control."
+   },
+   "sp": [],
+   "rank": 9,
+   "tag": {
+    "en": "CC resist",
+    "es": "Resistir control"
+   },
+   "tip": {
+    "en": "Good for PvP; low priority in PvE.",
+    "es": "Buena en JcJ; baja prioridad en JcE."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Impact Hit",
+   "ne": "Acierto de impacto",
+   "nk": "충격 적중",
+   "ic": "ICON_GL_SKILL_Passive_006",
+   "t": "passive",
+   "un": 15,
+   "cd": 0,
+   "d": {
+    "en": "+11.2% Impact-type Chance and +0.3% Double Chance.",
+    "es": "+11.2 % Acierto de Tipo Impacto y +0.3 % Golpe."
+   },
+   "sp": [],
+   "rank": 10,
+   "tag": {
+    "en": "Stun chance",
+    "es": "Prob. aturdir"
+   },
+   "tip": {
+    "en": "Leave at 1; NPC stuns already land 100%.",
+    "es": "Déjala en 1; a PNJ ya aturdes al 100 %."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Nezekan's Shield",
+   "ne": "Escudo de Nezekan",
+   "nk": "네자칸의 방패",
+   "ic": "ICON_TE_SKILL_030",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Shield for you and party within 40m blocking 41% Max HP for 3s.",
+    "es": "Escudo para ti y el grupo a 40 m que bloquea el 41 % de PV máx. durante 3 s."
+   },
+   "sp": [
+    [
+     5,
+     "+20% all Element Tolerance for Protective Shield duration",
+     "Aumento del 20 % de Tolerancia a Elementos (Todos) durante la duración de Barrera"
+    ],
+    [
+     10,
+     "+2s Protective Shield duration",
+     "Aumento de 2 s de duración de Barrera"
+    ],
+    [
+     15,
+     "+20% PvE Damage Tolerance and +10% PvP Damage Tolerance for Protective Shield duration",
+     "Aumento del 20 % de Tolerancia a Daño JcE y 10 % de Tolerancia a Daño JcJ durante la duración de Barrera"
+    ],
+    [
+     20,
+     "Restores 20% of Max HP when Protective Shield is removed",
+     "Al finalizar la barrera, recuperación del 20 % de Puntos de Vida Máximos"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Party shield",
+    "es": "Escudo de grupo"
+   },
+   "tip": {
+    "en": "Pop right before boss raid-wide hits.",
+    "es": "Úsalo justo antes de los golpes de área del jefe."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Shield of Protection",
+   "ne": "Escudo de protección",
+   "nk": "보호의 방패",
+   "ic": "ICON_TE_SKILL_011",
+   "t": "stigma",
+   "un": 22,
+   "cd": 20,
+   "d": {
+    "en": "Guaranteed Block with +100% Block Damage Reduction briefly; restores 110 MP/Stamina on Block.",
+    "es": "Bloqueo garantizado con +100 % Reducción de daño al bloquear; recupera 110 Maná/Vigor al bloquear."
+   },
+   "sp": [
+    [
+     5,
+     "+1 consecutive use",
+     "Lanzamientos en cadena +1"
+    ],
+    [
+     10,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     15,
+     "+20% Move Speed for 3s on Block",
+     "Al bloquear, la Velocidad de Movimiento aumenta un 20 % durante 3s"
+    ],
+    [
+     20,
+     "Restores 10% HP once on Block",
+     "Al bloquear, recupera un 10 % de Puntos de Vida 1 vez"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Block big hits",
+    "es": "Bloquear golpes"
+   },
+   "tip": {
+    "en": "Time it on heavy boss swings; triggers Fury and Smash.",
+    "es": "Úsalo en golpes fuertes; activa Arrebato y Embestida."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Taunt",
+   "ne": "Provocación",
+   "nk": "도발",
+   "ic": "ICON_TE_SKILL_012",
+   "t": "stigma",
+   "un": 22,
+   "cd": 30,
+   "d": {
+    "en": "X-X at 20m, raises Enmity, Shrink (-200 Accuracy, -10% Attack) 15s.",
+    "es": "X-X a 20 m, aumenta la Hostilidad, Encogimiento (-200 Precisión, -10 % Ataque) 15 s."
+   },
+   "sp": [
+    [
+     5,
+     "Adds 10% PvE Damage Tolerance reduction and 5% PvP Damage Tolerance reduction effect to Shrink",
+     "Añade un efecto de Reducción de un 10 % a la Tolerancia a Daño JcE y un 5 % a la Tolerancia a Daño JcJ a Encogimiento"
+    ],
+    [
+     10,
+     "+10% Shrink Attack reduction",
+     "+10 % de Reducción al ataque Encogimiento"
+    ],
+    [
+     15,
+     "-5s cooldown",
+     "Reducción de 5 s del Tiempo de Enfriamiento"
+    ],
+    [
+     20,
+     "+2s Taunt duration, +5s Shrink duration",
+     "Aumento de 2 s de duración de Provocación y 5 s de duración de Encogimiento"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Threat + debuff",
+    "es": "Aggro + debuff"
+   },
+   "tip": {
+    "en": "Open every pull; keep Shrink on the boss.",
+    "es": "Abre cada pull; mantén Encogimiento en el jefe."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Second Skin",
+   "ne": "Armadura doble",
+   "nk": "이중 갑옷",
+   "ic": "ICON_TE_SKILL_018",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "+30% PvE / +15% PvP Damage Tolerance for 10s.",
+    "es": "+30 % Tolerancia a Daño JcE / +15 % JcJ durante 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "+10% all Element Tolerance for the duration",
+     "+10 % de Tolerancia a todos los elementos mientras dura"
+    ],
+    [
+     10,
+     "+20% Block for the duration",
+     "Aumento del 20 % de Bloqueo durante la duración"
+    ],
+    [
+     15,
+     "x1.5 [Ironclad Defense] effect for the duration",
+     "Durante su duración, el efecto de [Defensa de tenacidad] aumenta 1,5 veces"
+    ],
+    [
+     20,
+     "+20% PvE Damage Tolerance increase and +10% PvP Damage Tolerance increase",
+     "Aumento adicional del 20 % de Tolerancia a Daño JcE y 10 % de Tolerancia a Daño JcJ"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Big cooldown",
+    "es": "Defensiva mayor"
+   },
+   "tip": {
+    "en": "Your main 'oh no' button for burst phases.",
+    "es": "Tu defensiva principal para fases de burst."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Doom Shield",
+   "ne": "Escudo de perdición",
+   "nk": "파멸의 방패",
+   "ic": "ICON_TE_SKILL_007",
+   "t": "stigma",
+   "un": 22,
+   "cd": 30,
+   "d": {
+    "en": "Rush 20m, X-X damage, 75% Knockdown 3s, 5% Max HP shield 5s. Triggers Judgment.",
+    "es": "Carga 20 m, X-X de daño, 75 % de Derribo 3 s, escudo del 5 % de PV máx. 5 s. Activa Juicio."
+   },
+   "sp": [
+    [
+     5,
+     "Resets [Annihilate] cooldown on hit",
+     "Al acertar, restablecimiento de Tiempo de Enfriamiento de «Aniquilación»"
+    ],
+    [
+     10,
+     "+200 Block for 5s on hit",
+     "Al acertar, aumento de 200 de Bloqueo durante 5s"
+    ],
+    [
+     15,
+     "Resets cooldown on defeating an enemy",
+     "Al derrotar a enemigo, restablecimiento de Tiempo de Enfriamiento"
+    ],
+    [
+     20,
+     "+25% Knockdown Chance",
+     "Aumento del 25 % de prob. de Derribo"
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "Engage + combo",
+    "es": "Entrada + combo"
+   },
+   "tip": {
+    "en": "Best solo/DPS stigma: engage, Judgment, Annihilate reset.",
+    "es": "Mejor estigma solo/DPS: entra, Juicio y reinicia Aniquilación."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Empyrean Lord's Punishment",
+   "ne": "Castigo empíreo",
+   "nk": "주신의 징벌",
+   "ic": "ICON_TE_SKILL_029",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "X-X to up to 4 enemies near target (20m), 50% Stun 3s (100% vs NPC). 50 Stagger.",
+    "es": "X-X a hasta 4 enemigos cerca del objetivo (20 m), 50 % de Aturdimiento 3 s (100 % a PNJ). 50 de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "Up to +20% damage when less targets hit",
+     "Cuantos menos objetivos alcances, más aumenta el daño, hasta un 20 %"
+    ],
+    [
+     10,
+     "+50 Stagger Gauge Damage",
+     "Aumento de 50 de daño al medidor de Tambaleo"
+    ],
+    [
+     15,
+     "+10% PvE Damage Boost and +5% PvP Damage Boost for 10s on hit",
+     "Al acertar, aumento del 10 % de Amplificación de Daño de JcE y 5 % de Amplificación de Daño JcJ durante 10s"
+    ],
+    [
+     20,
+     "+25% Stun Chance",
+     "Aumento del 25 % de prob. de Aturdimiento"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "Burst + Stagger",
+    "es": "Burst + Tambaleo"
+   },
+   "tip": {
+    "en": "Big Stagger chunk; DPS loadout core.",
+    "es": "Gran daño al Tambaleo; base del set DPS."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Battlefield Banner",
+   "ne": "Estandarte del Campo de batalla",
+   "nk": "전장의 깃발",
+   "ic": "ICON_TE_SKILL_045",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Increases Attack proportional to Defense for 10s.",
+    "es": "Aumenta el Ataque en proporción a la Defensa durante 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "+10% Multi-Hit Chance for duration",
+     "Aumento del 10 % del Acierto de Multigolpe durante la duración"
+    ],
+    [
+     10,
+     "+10% Weapon Damage Boost for duration",
+     "+10 % de Amplificación de Daño de Arma mientras dura"
+    ],
+    [
+     15,
+     "+20% Attack increase proportional to Defense",
+     "Aumento del 20 % de efecto de Aumento de Ataque proporcional a la Defensa"
+    ],
+    [
+     20,
+     "-30s cooldown",
+     "Reducción de 30 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "DPS buff",
+    "es": "Buff de daño"
+   },
+   "tip": {
+    "en": "Pair with Punishment for burst windows.",
+    "es": "Combínalo con Castigo en ventanas de burst."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Comrade in Arms",
+   "ne": "Protección de camarada",
+   "nk": "전우 보호",
+   "ic": "ICON_TE_SKILL_024",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "+20% PvE Damage Tolerance; splits an ally's damage 50/50 with you.",
+    "es": "+20 % Tolerancia a Daño JcE; divide el daño de un aliado 50/50 contigo."
+   },
+   "sp": [
+    [
+     5,
+     "Restores 25% of Max HP once if hit during Comrade in Arms while HP is 25% or less",
+     "Mientras dura, al recibir un ataque con un 25 % o menos de Puntos de Vida, recupera 1 vez un 25 % de los Puntos de Vida máximos"
+    ],
+    [
+     10,
+     "x1.5 [Guarding Seal] Protective Shield effect for the duration",
+     "Durante su duración, el efecto de Barrera de [Sello de protección] aumenta 1,5 veces"
+    ],
+    [
+     15,
+     "x1.5 [Block Pain] effect for the duration",
+     "Durante su duración, el efecto de [Restricción de dolor] aumenta 1,5 veces"
+    ],
+    [
+     20,
+     "Restores 50% of caster's Max HP when the effect ends",
+     "Al finalizar efecto, recuperación del 50 % de Puntos de Vida Máximos propios"
+    ]
+   ],
+   "rank": 8,
+   "tag": {
+    "en": "Protect ally",
+    "es": "Proteger aliado"
+   },
+   "tip": {
+    "en": "Swap in when a healer or DPS is targeted.",
+    "es": "Equípala si el jefe ataca al sanador o a un DPS."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Noble Armor",
+   "ne": "Armadura de nobleza",
+   "nk": "고결의 갑주",
+   "ic": "ICON_TE_SKILL_022",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "+5.4% Max HP for 120s and heals 5.4% Max HP. Cannot be dispelled.",
+    "es": "+5.4 % PV máx. durante 120 s y cura 5.4 % de PV máx. No se puede disipar."
+   },
+   "sp": [
+    [
+     5,
+     "+5% Defense for the duration",
+     "Aumento de Defensa en un 5 % durante su duración"
+    ],
+    [
+     10,
+     "x1.5 [Insulting Roar] effect for the duration",
+     "Durante su duración, el efecto de [Rugido agravante] aumenta 1,5 veces"
+    ],
+    [
+     15,
+     "x1.5 [Fury] effect for the duration",
+     "Mientras dura el efecto, el efecto de Arrebato aumenta 1,5 veces"
+    ],
+    [
+     20,
+     "+10% Incoming Heal for the duration",
+     "+10 % de Curación recibida mientras dura"
+    ]
+   ],
+   "rank": 9,
+   "tag": {
+    "en": "Long buff",
+    "es": "Buff largo"
+   },
+   "tip": {
+    "en": "Near-permanent buff for solo play.",
+    "es": "Buff casi permanente para jugar solo."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Executing Blade",
+   "ne": "Espada de ejecución",
+   "nk": "처형의 검",
+   "ic": "ICON_TE_SKILL_041",
+   "t": "stigma",
+   "un": 22,
+   "cd": 45,
+   "d": {
+    "en": "X-X AoE within 4m, -30% Defense 5s; +20% damage vs Impact-type status. 20 Stagger.",
+    "es": "X-X en área a 4 m, -30 % Defensa 5 s; +20 % de daño contra estados de Impacto. 20 de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "-15s cooldown",
+     "Reducción de 15 s de Tiempo de Enfriamiento"
+    ],
+    [
+     10,
+     "Inflict Exposed for 5s on hit",
+     "Inflige Vulnerabilidad durante 5s al impactar"
+    ],
+    [
+     15,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ],
+    [
+     20,
+     "+30% damage on attacking a target inflicted with Impact-type status",
+     "Aumento de daño del 30 % Al atacar a un objetivo afectado por un estado de Tipo Impacto"
+    ]
+   ],
+   "rank": 10,
+   "tag": {
+    "en": "AoE burst",
+    "es": "Burst en área"
+   },
+   "tip": {
+    "en": "Use on stunned packs while farming.",
+    "es": "Úsala en grupos aturdidos al farmear."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Grapple",
+   "ne": "Apresamiento",
+   "nk": "나포",
+   "ic": "ICON_TE_SKILL_021",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Pulls up to 4 enemies within 7m of a target (20m) to you, Root 3s. 20 Stagger.",
+    "es": "Atrae hasta 4 enemigos a 7 m de un objetivo (20 m) hacia ti, Atadura 3 s. 20 de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "50% chance to inflict Stun for 3s on hit",
+     "50 % de probabilidad de infligir Aturdimiento durante 3s al impactar"
+    ],
+    [
+     10,
+     "20% of Max HP as Protective Shield for 10s on use",
+     "Al lanzar, obtención de barrera del 20 % de Puntos de Vida Máximos durante 10s"
+    ],
+    [
+     15,
+     "-30s cooldown",
+     "Reducción de 30 s de Tiempo de Enfriamiento"
+    ],
+    [
+     20,
+     "Up to +20% PvE Damage Tolerance and +10% PvP Damage Tolerance when more targets hit",
+     "Cuantos más objetivos se acierten, aumento máx. del 20 % de Tolerancia a Daño JcE y 10 % de Tolerancia a Daño JcJ"
+    ]
+   ],
+   "rank": 11,
+   "tag": {
+    "en": "Group pull",
+    "es": "Atraer grupo"
+   },
+   "tip": {
+    "en": "Situational: trash packs and PvP.",
+    "es": "Situacional: grupos de enemigos y JcJ."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Assault Fury",
+   "ne": "Ataque feroz de agresión",
+   "nk": "강습 맹격",
+   "ic": "ICON_CO_SKILL_003",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "X-X to up to 4 enemies near target (20m), 30% Stun 3s (100% vs NPC); Defense up to +20% by targets hit.",
+    "es": "X-X a hasta 4 enemigos cerca del objetivo (20 m), 30 % de Aturdimiento 3 s (100 % a PNJ); hasta +20 % Defensa según objetivos."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Attack for 5s on hit",
+     "Al acertar, aumento del 20 % de Ataque durante 5s"
+    ],
+    [
+     10,
+     "500 MP damage on hit",
+     "Al acertar, 500 de daño de Puntos de Maná"
+    ],
+    [
+     15,
+     "+10m range",
+     "Aumento de 10 m de alcance"
+    ],
+    [
+     20,
+     "+20% Stun Chance",
+     "Aumento del 20 % de prob. de Aturdimiento"
+    ]
+   ],
+   "rank": 12,
+   "tag": {
+    "en": "PvP opener",
+    "es": "Apertura JcJ"
+   },
+   "tip": {
+    "en": "Mostly PvP; long cooldown.",
+    "es": "Sobre todo JcJ; enfriamiento largo."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Armor of Balance",
+   "ne": "Armadura de equilibrio",
+   "nk": "균형의 갑옷",
+   "ic": "ICON_GL_SKILL_013",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "+50% Impact-type Resist for 10s.",
+    "es": "+50 % Resistencia de Tipo Impacto durante 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Ailment-type, Mental-type Resist for the duration",
+     "Aumento de Resistencia de Tipo Corporal y Resistencia de Tipo Mental en un 20 % durante la duración"
+    ],
+    [
+     10,
+     "+20% Move Speed for the duration",
+     "Aumento del 20 % de Velocidad de Movimiento durante la duración"
+    ],
+    [
+     15,
+     "x1.5 [Warding Shield] effect for the duration",
+     "Durante su duración, el efecto de [Escudo de amparo] aumenta 1,5 veces"
+    ],
+    [
+     20,
+     "+50% Impact-type Resist increase",
+     "Aumento adicional del 50 % de Resistencia de Tipo Impacto"
+    ]
+   ],
+   "rank": 13,
+   "tag": {
+    "en": "Anti-stun",
+    "es": "Anti aturdir"
+   },
+   "tip": {
+    "en": "PvP only.",
+    "es": "Solo JcJ."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "points": [
+  [
+   "Pummel",
+   3
+  ],
+  [
+   "Shield Smite",
+   3
+  ],
+  [
+   "Judgment",
+   4
+  ],
+  [
+   "Vicious Strike",
+   3
+  ],
+  [
+   "Warding Strike",
+   3
+  ],
+  [
+   "Debilitating Smash",
+   3
+  ],
+  [
+   "Enhance Health",
+   3
+  ],
+  [
+   "Warding Shield",
+   3
+  ],
+  [
+   "Judgment",
+   7
+  ],
+  [
+   "Pummel",
+   7
+  ],
+  [
+   "Shield Smite",
+   7
+  ],
+  [
+   "Punishing Benediction",
+   4
+  ],
+  [
+   "Ironclad Defense",
+   3
+  ],
+  [
+   "Guarding Seal",
+   3
+  ],
+  [
+   "Punishment",
+   4
+  ],
+  [
+   "Warding Strike",
+   7
+  ],
+  [
+   "Insulting Roar",
+   3
+  ],
+  [
+   "Judgment",
+   10
+  ],
+  [
+   "Pummel",
+   10
+  ],
+  [
+   "Fury",
+   7
+  ],
+  [
+   "Block Pain",
+   3
+  ],
+  [
+   "Shield Smite",
+   10
+  ],
+  [
+   "Punishment",
+   10
+  ],
+  [
+   "Warding Strike",
+   10
+  ],
+  [
+   "Fury",
+   10
+  ],
+  [
+   "Debilitating Smash",
+   10
+  ],
+  [
+   "Vicious Strike",
+   10
+  ],
+  [
+   "Punishing Benediction",
+   10
+  ]
+ ],
+ "stigma": {
+  "loadouts": [
+   {
+    "id": "main",
+    "name": {
+     "en": "Dungeon tank",
+     "es": "Tanque de mazmorra"
+    },
+    "skills": [
+     "Nezekan's Shield",
+     "Shield of Protection",
+     "Taunt",
+     "Second Skin"
+    ],
+    "note": {
+     "en": "Max safety: party shield, guaranteed Blocks, threat and a big cooldown. Swap Second Skin for Comrade in Arms if allies get hit.",
+     "es": "Máxima seguridad: escudo de grupo, bloqueos garantizados, aggro y defensiva mayor. Cambia Armadura doble por Protección de camarada si golpean a aliados."
+    }
+   },
+   {
+    "id": "solo",
+    "name": {
+     "en": "Solo / leveling",
+     "es": "Solo / subir nivel"
+    },
+    "skills": [
+     "Doom Shield",
+     "Executing Blade",
+     "Empyrean Lord's Punishment",
+     "Noble Armor"
+    ],
+    "note": {
+     "en": "Fast pack clears: engage, stun, AoE burst.",
+     "es": "Limpieza rápida: entra, aturde y burst en área."
+    }
+   },
+   {
+    "id": "alt",
+    "name": {
+     "en": "Offensive tank (DPS)",
+     "es": "Tanque ofensivo (DPS)"
+    },
+    "skills": [
+     "Doom Shield",
+     "Battlefield Banner",
+     "Empyrean Lord's Punishment",
+     "Taunt"
+    ],
+    "note": {
+     "en": "For geared groups with a solid healer: more boss damage, less safety.",
+     "es": "Para grupos equipados con buen sanador: más daño al jefe, menos seguridad."
+    }
+   }
+  ],
+  "levelTips": {
+   "en": "Level Nezekan's Shield and Taunt first for dungeons; for DPS take Battlefield Banner to 10 (Weapon Damage Boost) and Doom Shield to 5 (Annihilate reset).",
+   "es": "Sube primero Escudo de Nezekan y Provocación para mazmorras; para DPS lleva Estandarte del Campo de batalla a 10 (Amplificación de arma) y Escudo de perdición a 5 (reinicio de Aniquilación)."
+  }
+ },
+ "dvValues": {
+  "Judgment": 10,
+  "Pummel": 10,
+  "Punishment": 9,
+  "Fury": 9,
+  "Shield Smite": 8,
+  "Warding Strike": 8,
+  "Debilitating Smash": 8,
+  "Punishing Benediction": 7,
+  "Ironclad Defense": 7,
+  "Block Pain": 6,
+  "Warding Shield": 6,
+  "Enhance Health": 5,
+  "Vicious Strike": 5,
+  "Annihilate": 5,
+  "Guarding Seal": 4,
+  "Insulting Roar": 4,
+  "Survival Willpower": 3,
+  "Shield Rush": 3,
+  "Defiance": 3,
+  "Poach": 2,
+  "Impact Hit": 1,
+  "Flash Rampage": 1
+ },
+ "dvSimple": {
+  "en": [
+   "Take every Judgment and Pummel node first",
+   "Then Punishment nodes",
+   "Fury nodes as soon as they are reachable",
+   "Shield Smite and Warding Strike nodes",
+   "Debilitating Smash nodes",
+   "Ironclad Defense and Block Pain for tankiness",
+   "Punishing Benediction for damage",
+   "Warding Shield and Enhance Health",
+   "Vicious Strike and Annihilate if on the path",
+   "Skip Flash Rampage and Impact Hit"
+  ],
+  "es": [
+   "Toma primero todos los nodos de Juicio y Azotamiento continuo",
+   "Luego los de Castigo",
+   "Arrebato en cuanto estén al alcance",
+   "Golpe de escudo y Estacazo de amparo",
+   "Embestida decadente",
+   "Defensa de tenacidad y Restricción de dolor para aguantar",
+   "Favor de condena para daño",
+   "Escudo de amparo y Mejora física",
+   "Estacazo impetuoso y Aniquilación si están de paso",
+   "Evita Desenfreno de destello y Acierto de impacto"
+  ]
+ },
+ "macro": {
+  "leveling": {
+   "slots": [
+    [
+     "1",
+     [
+      "Judgment",
+      "Shield Smite",
+      "Pummel"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Warding Strike",
+      "Debilitating Smash",
+      "Vicious Strike"
+     ],
+     "m"
+    ],
+    [
+     "3",
+     [
+      "Poach"
+     ],
+     "h"
+    ],
+    [
+     "4",
+     [
+      "Punishment"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "3",
+    "1",
+    "2",
+    "1"
+   ]
+  },
+  "endgame": {
+   "slots": [
+    [
+     "1",
+     [
+      "Judgment",
+      "Debilitating Smash",
+      "Annihilate",
+      "Pummel"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Shield Smite",
+      "Warding Strike",
+      "Vicious Strike"
+     ],
+     "m"
+    ],
+    [
+     "3",
+     [
+      "Taunt"
+     ],
+     "h"
+    ],
+    [
+     "4",
+     [
+      "Punishment"
+     ],
+     "h"
+    ],
+    [
+     "5",
+     [
+      "Shield of Protection"
+     ],
+     "h"
+    ],
+    [
+     "6",
+     [
+      "Nezekan's Shield"
+     ],
+     "h"
+    ],
+    [
+     "7",
+     [
+      "Second Skin"
+     ],
+     "h"
+    ],
+    [
+     "8",
+     [
+      "Defiance"
+     ],
+     "h"
+    ],
+    [
+     "9",
+     [
+      "Shield Rush"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "3",
+    "2",
+    "1",
+    "4",
+    "1",
+    "2",
+    "1"
+   ]
+  },
+  "notes": {
+   "en": "Keep defensives, Punishment (charge), pulls and Defiance on manual keys. Macros repeat inputs but do not guarantee order.",
+   "es": "Deja defensivas, Castigo (carga), atracciones y Eliminación de impacto a mano. Las macros repiten teclas pero no garantizan el orden."
+  }
+ },
+ "rotation": {
+  "en": [
+   "Open with Taunt (or Poach) to grab threat",
+   "Shield Smite or Warding Strike, then Judgment right away",
+   "Fill with Pummel; Debilitating Smash after each Block",
+   "Annihilate on stunned targets",
+   "Charge Punishment in safe windows to keep Executor",
+   "Pop Shield of Protection / Nezekan's Shield / Second Skin before big hits"
+  ],
+  "es": [
+   "Abre con Provocación (o Aprisionamiento) para tomar el aggro",
+   "Golpe de escudo o Estacazo de amparo, y luego Juicio enseguida",
+   "Rellena con Azotamiento continuo; Embestida decadente tras cada bloqueo",
+   "Aniquilación sobre objetivos aturdidos",
+   "Carga Castigo en momentos seguros para mantener Verdugo",
+   "Usa Escudo de protección / Escudo de Nezekan / Armadura doble antes de los golpes fuertes"
+  ]
+ },
+ "synergy": [
+  {
+   "a": "Shield Smite",
+   "b": "Judgment",
+   "t": {
+    "en": "Shield → Judgment",
+    "es": "Escudo → Juicio"
+   },
+   "s": {
+    "en": "Every shield skill opens a short Judgment window.",
+    "es": "Cada habilidad de escudo abre una ventana corta de Juicio."
+   }
+  },
+  {
+   "a": "Shield of Protection",
+   "b": "Debilitating Smash",
+   "t": {
+    "en": "Forced Block",
+    "es": "Bloqueo forzado"
+   },
+   "s": {
+    "en": "Guaranteed Blocks enable Smash and refresh Fury for the party.",
+    "es": "Los bloqueos garantizados habilitan Embestida y renuevan Arrebato."
+   }
+  },
+  {
+   "a": "Shield Smite",
+   "b": "Annihilate",
+   "t": {
+    "en": "Stun → finisher",
+    "es": "Aturdir → remate"
+   },
+   "s": {
+    "en": "Annihilate only hits stunned or knocked-down targets.",
+    "es": "Aniquilación solo golpea objetivos aturdidos o derribados."
+   }
+  },
+  {
+   "a": "Doom Shield",
+   "b": "Annihilate",
+   "t": {
+    "en": "Cooldown reset",
+    "es": "Reinicio"
+   },
+   "s": {
+    "en": "Doom Shield (Lv5) resets Annihilate and knocks down.",
+    "es": "Escudo de perdición (Nv5) reinicia Aniquilación y derriba."
+   }
+  },
+  {
+   "a": "Pummel",
+   "b": "Punishment",
+   "t": {
+    "en": "Cooldown feed",
+    "es": "Reducir enfriamiento"
+   },
+   "s": {
+    "en": "Pummel's Lv12 specialty cuts Punishment cooldown by 1s per hit.",
+    "es": "La especialidad Nv12 de Azotamiento reduce 1 s Castigo por golpe."
+   }
+  }
+ ],
+ "stats": {
+  "order": [
+   {
+    "en": "HP",
+    "es": "PV",
+    "w": 100
+   },
+   {
+    "en": "Defense",
+    "es": "Defensa",
+    "w": 90
+   },
+   {
+    "en": "Block",
+    "es": "Bloqueo",
+    "w": 80
+   },
+   {
+    "en": "PvE Damage Tolerance",
+    "es": "Tolerancia a Daño JcE",
+    "w": 70
+   },
+   {
+    "en": "Accuracy",
+    "es": "Precisión",
+    "w": 55
+   },
+   {
+    "en": "Attack",
+    "es": "Ataque",
+    "w": 45
+   }
+  ],
+  "notes": {
+   "en": "Cap Accuracy first so threat lands. Offensive tank swaps to Attack, Critical Hit, Combat Speed and Weapon Damage Boost.",
+   "es": "Primero llega a la Precisión necesaria para que el aggro entre. El tanque ofensivo cambia a Ataque, Crítico, Velocidad de combate y Amplificación de arma."
+  }
+ },
+ "genus": {
+  "s15": [
+   [
+    "HP",
+    "PV",
+    1
+   ],
+   [
+    "PvE Attack",
+    "Ataque PvE",
+    2
+   ],
+   [
+    "Boss Attack",
+    "Ataque a jefes",
+    3
+   ]
+  ],
+  "s369": [
+   [
+    "Block",
+    "Bloqueo",
+    1
+   ],
+   [
+    "PvE Accuracy",
+    "Precisión PvE",
+    2
+   ],
+   [
+    "Critical Hit",
+    "Golpe crítico",
+    3
+   ]
+  ],
+  "s278": [
+   [
+    "PvE Defense",
+    "Defensa PvE",
+    1
+   ],
+   [
+    "Boss Defense",
+    "Defensa contra jefes",
+    2
+   ],
+   [
+    "HP increase",
+    "Aumento de PV",
+    3
+   ]
+  ],
+  "s4": {
+   "cogni": [
+    [
+     "Block",
+     "Bloqueo",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño PvE",
+     2
+    ],
+    [
+     "HP",
+     "PV",
+     3
+    ]
+   ],
+   "fera": [
+    [
+     "Block",
+     "Bloqueo",
+     1
+    ],
+    [
+     "Weapon Damage Boost",
+     "Amplificación de daño de arma",
+     2
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño PvE",
+     3
+    ]
+   ],
+   "natura": [
+    [
+     "Block",
+     "Bloqueo",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño PvE",
+     2
+    ],
+    [
+     "Multi-hit Chance",
+     "Prob. de multigolpe",
+     3
+    ]
+   ],
+   "varian": [
+    [
+     "Block",
+     "Bloqueo",
+     1
+    ],
+    [
+     "Front Attack Damage Boost",
+     "Amplificación de daño frontal",
+     2
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño PvE",
+     3
+    ]
+   ],
+   "special": [
+    [
+     "Block",
+     "Bloqueo",
+     1
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     2
+    ],
+    [
+     "Front Attack Damage Boost",
+     "Amplificación de daño frontal",
+     3
+    ]
+   ]
+  },
+  "notes": {
+   "en": "Block fuels Fury and Debilitating Smash, so it beats raw HP once you survive. Offensive tank: swap slots 1/5 to PvE Attack and slot 4 to damage boosts.",
+   "es": "El Bloqueo alimenta Arrebato y Embestida decadente, así que supera a los PV cuando ya aguantas. Tanque ofensivo: pon Ataque PvE en 1/5 y amplificaciones de daño en 4."
+  }
+ },
+ "leveling": {
+  "en": [
+   "Pull packs with Poach and hit them with Vicious Strike and Pummel",
+   "Always follow Shield Smite with Judgment",
+   "Run the Solo stigma set until you tank dungeons",
+   "Leave Flash Rampage and Impact Hit at level 1"
+  ],
+  "es": [
+   "Atrae grupos con Aprisionamiento y golpéalos con Estacazo impetuoso y Azotamiento continuo",
+   "Tras Golpe de escudo, usa siempre Juicio",
+   "Usa el set de estigmas Solo hasta tanquear mazmorras",
+   "Deja Desenfreno de destello y Acierto de impacto en nivel 1"
+  ]
+ },
+ "kr": {
+  "en": "KR players (수호성) push 심판 (Judgment) and 연속 난타 (Pummel) to 20 and gear damage-first in dungeons, relying on stigmas and shields for defense.",
+  "es": "En Corea (수호성) suben 심판 (Juicio) y 연속 난타 (Azotamiento continuo) a 20 y priorizan daño en mazmorras, usando estigmas y escudos para la defensa."
+ },
+ "sources": [
+  [
+   "questlog.gg Aion 2 skill database",
+   "https://questlog.gg/aion-2/en/db/skills"
+  ],
+  [
+   "EXPCarry Aion 2 Templar guide",
+   "https://expcarry.com/aion-2-templar-guide"
+  ],
+  [
+   "Vortex Gaming 수호성 PvE guide (KR)",
+   "https://vortexgaming.io/postdetail/696602"
+  ],
+  [
+   "Inven Aion 2 Templar board (KR)",
+   "https://www.inven.co.kr/board/aion2/6438"
+  ]
+ ]
+}

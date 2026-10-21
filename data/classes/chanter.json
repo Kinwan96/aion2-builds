@@ -1,0 +1,2410 @@
+{
+ "id": "chanter",
+ "name": {
+  "en": "Chanter",
+  "es": "Cantor"
+ },
+ "classIcon": "UT_Class_Chanter_Large",
+ "color": "#4fc98a",
+ "role": {
+  "en": "Melee support / buffer",
+  "es": "Soporte cuerpo a cuerpo / buffer"
+ },
+ "weapon": {
+  "en": "Staff",
+  "es": "Bastón"
+ },
+ "difficulty": 2,
+ "summary": {
+  "en": "A melee buffer who keeps party-wide mantras up, heals in a pinch and still deals solid damage. You open windows with Spinning Strike or Impactful Crush and spam Dark Crush inside them.",
+  "es": "Un buffer cuerpo a cuerpo que mantiene proclamas para el grupo, cura en apuros y hace buen daño. Abres ventanas con Golpe giratorio o Fractura impactante y spameas Fractura sombría dentro."
+ },
+ "engine": {
+  "en": "Spinning Strike / Impactful Crush → Dark Crush spam",
+  "es": "Golpe giratorio / Fractura impactante → spam de Fractura sombría"
+ },
+ "skills": [
+  {
+   "n": "Onslaught",
+   "ne": "Fractura trituradora",
+   "nk": "격파쇄",
+   "ic": "ICON_CH_SKILL_001",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Deals X-X damage to up to 4 enemies within 4m and restores 100 MP.",
+    "es": "Inflige X-X de daño a un máximo de 4 enemigos en 4 m y restaura 100 PM."
+   },
+   "sp": [
+    [
+     8,
+     "+20% MP restored",
+     "Aumento del 20 % de Recuperación de Puntos de Maná"
+    ],
+    [
+     8,
+     "Absorbs 0.7% HP",
+     "Absorción de Puntos de Vida del 0.7 %"
+    ],
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     12,
+     "-1s [Spinning Strike] cooldown on hit",
+     "Al acertar, el Tiempo de Enfriamiento de [Golpe giratorio] se reduce en 1s"
+    ],
+    [
+     16,
+     "Adds [Storm Chain] Chain Skill",
+     "Añadida la 4ta Habilidad de cadena [Fractura de tormenta]"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Filler / MP",
+    "es": "Relleno / PM"
+   },
+   "tip": {
+    "en": "Spam between cooldowns; it keeps your MP topped up.",
+    "es": "Úsala entre enfriamientos; mantiene tu maná lleno."
+   },
+   "pickLev": [
+    1,
+    3,
+    4
+   ],
+   "pickEnd": [
+    4,
+    3,
+    2
+   ]
+  },
+  {
+   "n": "Incandescent Blow",
+   "ne": "Golpe incandescente",
+   "nk": "백열격",
+   "ic": "ICON_CH_SKILL_004",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Deals X-X damage to up to 4 enemies within 4m. 2 Stagger Gauge Damage. Costs 120 MP.",
+    "es": "Inflige X-X de daño a un máximo de 4 enemigos en 4 m. Daño al medidor de Tambaleo: 2. Cuesta 120 PM."
+   },
+   "sp": [
+    [
+     8,
+     "-20% MP consumed",
+     "Reducción del 20 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "+200 Block while using skill",
+     "Aumento de 200 de Bloqueo durante el uso de la habilidad"
+    ],
+    [
+     8,
+     "Deals up to 12% more damage when less targets are hit",
+     "Aumento de daño de hasta un 12 % cuanto menor sea el número de objetivos acertados"
+    ],
+    [
+     12,
+     "-200 enemy Accuracy for 3s on landing Bursting Blow",
+     "Al acertar «Golpe de ráfaga», reducción de 200 de Precisión durante 3s"
+    ],
+    [
+     16,
+     "Ignores Block and Evasion and lands as Multi-Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con Multigolpe"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "Filler hit",
+    "es": "Golpe de relleno"
+   },
+   "tip": {
+    "en": "Top of the main macro: it fires whenever nothing else is ready.",
+    "es": "Va arriba de la macro principal: sale cuando no hay nada más listo."
+   },
+   "pickLev": [
+    2,
+    4,
+    0
+   ],
+   "pickEnd": [
+    4,
+    2,
+    1
+   ]
+  },
+  {
+   "n": "Impactful Crush",
+   "ne": "Fractura impactante",
+   "nk": "타격쇄",
+   "ic": "ICON_CH_SKILL_006",
+   "t": "active",
+   "un": 3,
+   "cd": 15,
+   "d": {
+    "en": "Ranged hit (20m), 60% Stun 3s (100% on NPCs). Opens [Dark Crush] for 2s. 10 Stagger Gauge Damage.",
+    "es": "Golpe a 20 m, 60 % de Aturdimiento 3s (100 % en PNJ). Habilita [Fractura sombría] 2s. Daño al medidor de Tambaleo: 10."
+   },
+   "sp": [
+    [
+     8,
+     "Changes to AoE damage",
+     "Cambio a daño de área"
+    ],
+    [
+     8,
+     "+1s [Impactful Crush] Stun duration",
+     "Aumento de 1 s de duración de Aturdimiento con «Fractura impactante»"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "+30% Skill Speed",
+     "Aumento de la Velocidad de habilidad en un 30 %"
+    ],
+    [
+     16,
+     "+20% [Impactful Crush] Stun Chance",
+     "Aumento del 20 % de la probabilidad de Aturdimiento de [Fractura impactante]"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "Opener / stun",
+    "es": "Apertura / aturdir"
+   },
+   "tip": {
+    "en": "Opens a Dark Crush window; take Skill Speed so it barely costs time.",
+    "es": "Abre ventana de Fractura sombría; la Velocidad de habilidad la hace casi instantánea."
+   },
+   "pickLev": [
+    0,
+    2,
+    3
+   ],
+   "pickEnd": [
+    3,
+    2,
+    0
+   ]
+  },
+  {
+   "n": "Wave Blow",
+   "ne": "Golpe ondulatorio",
+   "nk": "파동격",
+   "ic": "ICON_CH_SKILL_008",
+   "t": "active",
+   "un": 12,
+   "cd": 20,
+   "d": {
+    "en": "Hits a Stunned target within 4m and inflicts Knockdown 3s. 7% chance to work on CC-immune targets. 10 Stagger Gauge Damage.",
+    "es": "Golpea a un objetivo Aturdido a 4 m y lo Derriba 3s. 7 % de prob. contra inmunes. Daño al medidor de Tambaleo: 10."
+   },
+   "sp": [
+    [
+     8,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     8,
+     "+6m Range",
+     "Aumento de 6 m de alcance"
+    ],
+    [
+     8,
+     "+1s Knockdown duration",
+     "Aumento de 1 s de duración de Derribo"
+    ],
+    [
+     12,
+     "-15% target's PvE Damage Boost and -7.5% PvP Damage Boost for 10s",
+     "Reducción del 15 % de Amplificación de Daño de JcE y 7.5 % de Amplificación de Daño JcJ de objetivo durante 10s"
+    ],
+    [
+     16,
+     "-5s cooldown",
+     "Reducción de 5 s del Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 17,
+   "tag": {
+    "en": "Boss debuff",
+    "es": "Debuff de jefe"
+   },
+   "tip": {
+    "en": "In groups, the 12 spec lowers the boss's damage: keep it up.",
+    "es": "En grupo, el especial de nivel 12 baja el daño del jefe: mantenlo activo."
+   },
+   "pickLev": [
+    1,
+    3,
+    4
+   ],
+   "pickEnd": [
+    3,
+    4,
+    1
+   ]
+  },
+  {
+   "n": "Rushing Smash",
+   "ne": "Trituración de acometida",
+   "nk": "돌진 격파",
+   "ic": "ICON_CH_SKILL_009",
+   "t": "active",
+   "un": 1,
+   "cd": 15,
+   "d": {
+    "en": "Rushes to a target within 20m, deals X-X damage to up to 4 enemies and restores 100 MP. 10 Stagger Gauge Damage.",
+    "es": "Acomete hacia un objetivo a 20 m, inflige X-X de daño a hasta 4 enemigos y recupera 100 PM. Daño al medidor de Tambaleo: 10."
+   },
+   "sp": [
+    [
+     8,
+     "-20% target's Impact-type Resist for 5s",
+     "Disminución del 20 % de la Resistencia a tipo impacto del objetivo durante 5s"
+    ],
+    [
+     8,
+     "Changes to Charge Skill, dealing up to 200% more damage",
+     "Cambia a Habilidad de carga, hasta +200 % de daño"
+    ],
+    [
+     8,
+     "50% chance to trigger [Heat Wave Blow] on hit",
+     "Al acertar con [Trituración de acometida], hay un 50% de probabilidad de activar [Golpe de onda abrasadora]"
+    ],
+    [
+     12,
+     "Resets cooldown on defeating an enemy",
+     "Al derrotar a enemigo, restablecimiento de Tiempo de Enfriamiento"
+    ],
+    [
+     16,
+     "Ignores Block and Evasion and lands as Multi-Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con Multigolpe"
+    ]
+   ],
+   "rank": 12,
+   "tag": {
+    "en": "Gap closer",
+    "es": "Acercamiento"
+   },
+   "tip": {
+    "en": "Pull opener; with the kill reset it chains between packs.",
+    "es": "Abre cada pull; con el reinicio al matar encadenas grupos."
+   },
+   "pickLev": [
+    2,
+    3,
+    0
+   ],
+   "pickEnd": [
+    4,
+    1,
+    2
+   ]
+  },
+  {
+   "n": "Dark Crush",
+   "ne": "Fractura sombría",
+   "nk": "암격쇄",
+   "ic": "ICON_CH_SKILL_010",
+   "t": "active",
+   "un": 4,
+   "cd": 5,
+   "d": {
+    "en": "Deals X-X damage to a target within 20m. Usable briefly after openers. 5 Stagger Gauge Damage.",
+    "es": "Inflige X-X de daño a un objetivo a 20 m. Se habilita tras las aperturas. Daño al medidor de Tambaleo: 5."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 0.7% HP",
+     "Absorción de Puntos de Vida del 0.7 %"
+    ],
+    [
+     8,
+     "Deals extra damage on attacking a target afflicted with Impact-type status",
+     "Daño adicional al atacar a objetivos en estado de Tipo impacto"
+    ],
+    [
+     8,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ],
+    [
+     12,
+     "Adds [Piercing Strike] Chain Skill",
+     "Adición de hab. de cadena «Fractura perforadora» x2"
+    ],
+    [
+     16,
+     "Removes [Dark Crush] cooldown",
+     "Eliminación de Tiempo de Enfriamiento de «Fractura sombría»"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Main damage",
+    "es": "Daño principal"
+   },
+   "tip": {
+    "en": "Your top skill: rush it to 16 for no cooldown and spam it in every window.",
+    "es": "Tu mejor habilidad: súbela a 16 para quitar el enfriamiento y spamea en cada ventana."
+   },
+   "pickLev": [
+    2,
+    3,
+    0
+   ],
+   "pickEnd": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Recuperation",
+   "ne": "Hechizo de recobro",
+   "nk": "쾌유의 주문",
+   "ic": "ICON_CH_SKILL_013",
+   "t": "active",
+   "un": 8,
+   "cd": 15,
+   "d": {
+    "en": "Heals caster and party within 40m for 183-201 HP, cleanses 1 debuff, then heals over 8s.",
+    "es": "Cura 183~201 PV a ti y al grupo en 40 m, elimina 1 debuff y cura durante 8s."
+   },
+   "sp": [
+    [
+     8,
+     "+1 consecutive use and Heal over Time can stack up to 2 times",
+     "Lanzamientos en cadena +1 y acumulaciones máx. de recuperación continua x2"
+    ],
+    [
+     8,
+     "Removes up to 2 debuffs",
+     "Disipación de máx. 2 magia(s) debilitante(s)"
+    ],
+    [
+     8,
+     "+4s healing duration",
+     "Aumento de 4 s de duración de recuperación"
+    ],
+    [
+     12,
+     "+5% HP restored",
+     "Recuperación adicional del 5 % de Puntos de Vida"
+    ],
+    [
+     16,
+     "-3s cooldown",
+     "Reducción de 3 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 8,
+   "tag": {
+    "en": "Party heal",
+    "es": "Cura de grupo"
+   },
+   "tip": {
+    "en": "Your main group heal and cleanse; cast it by hand when HP drops.",
+    "es": "Tu cura y limpieza de grupo; úsala a mano cuando baje la vida."
+   },
+   "pickLev": [
+    0,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Heat Wave Blow",
+   "ne": "Golpe de onda abrasadora",
+   "nk": "열파격",
+   "ic": "ICON_CH_SKILL_015",
+   "t": "active",
+   "un": 7,
+   "cd": 10,
+   "d": {
+    "en": "After a Block: AoE X-X damage to up to 4 enemies, 40% Seal 3s (100% on NPCs). 10 Stagger Gauge Damage.",
+    "es": "Tras bloquear: X-X de daño en área a hasta 4 enemigos, 40 % de Sellado 3s (100 % en PNJ). Daño al medidor de Tambaleo: 10."
+   },
+   "sp": [
+    [
+     8,
+     "40% chance to inflict Stun for 3s",
+     "Con un 40 % de probabilidad, aplica Aturdimiento durante 3s"
+    ],
+    [
+     8,
+     "+20% Seal Chance",
+     "Aumento del 20 % de prob. de acierto de Sellado"
+    ],
+    [
+     8,
+     "Up to +20% damage when more targets hit",
+     "Cuantos más objetivos se acierten, aumento máx. del 20 % de daño"
+    ],
+    [
+     12,
+     "Ignores Block and Evasion and lands as Multi-Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con Multigolpe"
+    ],
+    [
+     16,
+     "25% chance to reset [Heat Wave Blow] cooldown on Block",
+     "Al bloquear con éxito, restablecimiento de Tiempo de Enfriamiento de «Golpe de onda abrasadora» con un 25 % de prob."
+    ]
+   ],
+   "rank": 22,
+   "tag": {
+    "en": "Block proc",
+    "es": "Tras bloqueo"
+   },
+   "tip": {
+    "en": "Reactive; worth it while leveling with Rushing Smash's proc spec.",
+    "es": "Reactiva; útil al subir de nivel con el especial de Trituración de acometida."
+   },
+   "pickLev": [
+    2,
+    3,
+    4
+   ],
+   "pickEnd": [
+    3,
+    4,
+    2
+   ]
+  },
+  {
+   "n": "Defiance",
+   "ne": "Eliminación de impacto",
+   "nk": "충격 해제",
+   "ic": "ICON_CO_SKILL_002",
+   "t": "active",
+   "un": 16,
+   "cd": 60,
+   "d": {
+    "en": "Removes Stun, Knockdown, Airborne, Grab, Frost and Fear and grants Tenacity (CC immunity) for 5s.",
+    "es": "Elimina Aturdimiento, Derribo, Atadura aérea, Agarre, Congelación y Terror y otorga Robustez (inmunidad) 5s."
+   },
+   "sp": [
+    [
+     8,
+     "Adds [Crushing Strike] Chain Skill",
+     "Añade [Fractura potente] como segunda habilidad de cadena."
+    ],
+    [
+     8,
+     "Restores 1000 Stamina on using [Defiance]",
+     "Al lanzar [Eliminación de impacto], recupera 1000 de Vigor"
+    ],
+    [
+     8,
+     "Restores 10% HP on using [Defiance]",
+     "Al lanzar «Eliminación de impacto», recuperación del 10 % de PV"
+    ],
+    [
+     12,
+     "+2s Tenacity duration",
+     "Aumento de 2 s de duración de Robustez"
+    ],
+    [
+     16,
+     "+50% PvE Damage Tolerance and +25% PvP Damage Tolerance for Tenacity duration",
+     "Durante la duración de Robustez, la Tolerancia a Daño JcE aumenta un 50 % y la Tolerancia a Daño JcJ un 25 %"
+    ]
+   ],
+   "rank": 18,
+   "tag": {
+    "en": "CC break",
+    "es": "Romper control"
+   },
+   "tip": {
+    "en": "Keep it on its own key for stuns and boss knockdowns.",
+    "es": "Tenla en su propia tecla para aturdimientos y derribos de jefe."
+   },
+   "pickLev": [
+    2,
+    3,
+    4
+   ],
+   "pickEnd": [
+    3,
+    4,
+    2
+   ]
+  },
+  {
+   "n": "Tremor Crush",
+   "ne": "Fractura sísmica",
+   "nk": "진동쇄",
+   "ic": "ICON_CH_SKILL_021",
+   "t": "active",
+   "un": 10,
+   "cd": 20,
+   "d": {
+    "en": "After [Dodge] or while flying: dash 10m, X-X damage, 50% Stun 3s (100% on NPCs). 10 Stagger Gauge Damage.",
+    "es": "Tras [Evasión urgente] o en vuelo: avanza 10 m, X-X de daño, 50 % de Aturdimiento 3s (100 % en PNJ). Daño al medidor de Tambaleo: 10."
+   },
+   "sp": [
+    [
+     8,
+     "Restores 300 Stamina on hit",
+     "Al acertar, recuperación de 300 de Vigor"
+    ],
+    [
+     8,
+     "+10m [Tremor Crush] range",
+     "Aumento de 10 m de alcance de «Fractura sísmica»"
+    ],
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     12,
+     "Adds [Surging Strike] Chain Skill",
+     "Adición de hab. de cadena «Fractura impetuosa» x2"
+    ],
+    [
+     16,
+     "+25% [Tremor Crush] Stun Chance",
+     "Aumento del 25 % de la probabilidad de Aturdimiento de [Fractura sísmica]"
+    ]
+   ],
+   "rank": 27,
+   "tag": {
+    "en": "Dodge follow-up",
+    "es": "Tras esquivar"
+   },
+   "tip": {
+    "en": "Use after a dodge; mostly PvP, low priority in PvE.",
+    "es": "Úsala tras esquivar; sobre todo JcJ, baja prioridad en JcE."
+   },
+   "pickLev": [
+    0,
+    1,
+    2
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "n": "Spinning Strike",
+   "ne": "Golpe giratorio",
+   "nk": "회전격",
+   "ic": "ICON_CH_SKILL_029",
+   "t": "active",
+   "un": 14,
+   "cd": 30,
+   "d": {
+    "en": "AoE X-X damage around a target within 20m; +15% Crit Damage Boost on hit (2 stacks). Opens [Dark Crush] 2s. 250 MP.",
+    "es": "X-X de daño en área alrededor de un objetivo a 20 m; +15 % de Daño Crítico al acertar (2 acum.). Habilita [Fractura sombría] 2s. 250 PM."
+   },
+   "sp": [
+    [
+     8,
+     "-5s cooldown",
+     "Reducción de 5 s del Tiempo de Enfriamiento"
+    ],
+    [
+     8,
+     "+10% Heal Boost (up to 20%)",
+     "Aumento de Amplificación de Curación en 10 % (máximo 20 %)"
+    ],
+    [
+     8,
+     "Up to +20% damage when less targets hit",
+     "Cuantos menos objetivos alcance, mayor será el daño, hasta un máximo del 20 %"
+    ],
+    [
+     12,
+     "40% chance to inflict Seal for 3s",
+     "Efecto de Sellado durante 3s con un 40 % de probabilidad."
+    ],
+    [
+     16,
+     "Ignores Block and Evasion and lands as a Critical Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con golpe Crítico"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Burst opener",
+    "es": "Apertura de daño"
+   },
+   "tip": {
+    "en": "Open every burst with it: crit buff plus a Dark Crush window.",
+    "es": "Abre cada ráfaga con ella: buff de crítico y ventana de Fractura sombría."
+   },
+   "pickLev": [
+    0,
+    2,
+    4
+   ],
+   "pickEnd": [
+    0,
+    4,
+    2
+   ]
+  },
+  {
+   "n": "Gust Rampage",
+   "ne": "Desenfreno de vendaval",
+   "nk": "질풍 난무",
+   "ic": "ICON_CH_SKILL_030",
+   "t": "active",
+   "un": 5,
+   "cd": 0,
+   "d": {
+    "en": "Deals X-X damage to a target afflicted with Stagger within 4m.",
+    "es": "Inflige X-X de daño a un objetivo en Tambaleo en 4 m."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 5% HP",
+     "Absorción de Puntos de Vida del 5 %"
+    ],
+    [
+     8,
+     "Restores 120 MP",
+     "Recuperación de 120 de Puntos de Maná"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     16,
+     "-1s all skill cooldowns on hit",
+     "Al acertar, reducción de 1s de Tiempo de Enfriamiento de todas las habilidades"
+    ]
+   ],
+   "rank": 21,
+   "tag": {
+    "en": "Stagger punish",
+    "es": "Castigo a Tambaleo"
+   },
+   "tip": {
+    "en": "Spam it on a Staggered boss; the 16 spec cuts all cooldowns.",
+    "es": "Spaméala con el jefe en Tambaleo; el especial 16 baja todos los enfriamientos."
+   },
+   "pickLev": [
+    0,
+    3,
+    4
+   ],
+   "pickEnd": [
+    4,
+    3,
+    2
+   ]
+  },
+  {
+   "n": "Fracturing Blow",
+   "ne": "Golpe devastador",
+   "nk": "분쇄격",
+   "ic": "ICON_CH_SKILL_043",
+   "t": "stigma",
+   "un": 22,
+   "cd": 45,
+   "d": {
+    "en": "Rush 20m, X-X damage and -30% Defense for 5s; +20% damage vs Impact-status targets. 20 Stagger Gauge Damage.",
+    "es": "Acomete 20 m, X-X de daño y -30 % de Defensa 5s; +20 % de daño a objetivos en estado de impacto. Daño al medidor de Tambaleo: 20."
+   },
+   "sp": [
+    [
+     5,
+     "-15s cooldown",
+     "Reducción de 15 s de Tiempo de Enfriamiento"
+    ],
+    [
+     10,
+     "Inflict Exposed for 5s on hit",
+     "Inflige Exposición durante 5s al golpear"
+    ],
+    [
+     15,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ],
+    [
+     20,
+     "+30% additional Impact-type Status target damage",
+     "+30 % de daño de objetivo de Estado de tipo impacto"
+    ]
+   ],
+   "rank": 32,
+   "tag": {
+    "en": "Burst / defense shred",
+    "es": "Ráfaga / baja defensa"
+   },
+   "tip": {
+    "en": "Damage option for the 4th slot when no Cleric needs the care slot.",
+    "es": "Opción de daño para el 4.º espacio si no hace falta curar."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    2,
+    1,
+    3
+   ]
+  },
+  {
+   "n": "Focused Defense",
+   "ne": "Defensa concentrada",
+   "nk": "집중 방어",
+   "ic": "ICON_CH_SKILL_014",
+   "t": "stigma",
+   "un": 22,
+   "cd": 20,
+   "d": {
+    "en": "Briefly guarantees Block with +100% Block Damage Reduction; restores 110 MP and Stamina on Block.",
+    "es": "Bloqueo garantizado por un instante con +100 % de Reducción por Bloqueo; recupera 110 PM y Vigor al bloquear."
+   },
+   "sp": [
+    [
+     5,
+     "+1 consecutive use",
+     "Lanzamientos en cadena +1"
+    ],
+    [
+     10,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     15,
+     "+20% Move Speed for 3s on Block",
+     "Al bloquear con éxito, aumenta un 20 % la Velocidad de Movimiento durante 3s"
+    ],
+    [
+     20,
+     "Restores 5% HP once on Parry",
+     "Al bloquear con arma con éxito, recuperación del 5 % de Puntos de Vida x1"
+    ]
+   ],
+   "rank": 25,
+   "tag": {
+    "en": "Timed block",
+    "es": "Bloqueo a tiempo"
+   },
+   "tip": {
+    "en": "Time it on big boss hits; it also triggers Heat Wave Blow.",
+    "es": "Úsala en golpes fuertes del jefe; también activa Golpe de onda abrasadora."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    3,
+    2
+   ]
+  },
+  {
+   "n": "Sprint Mantra",
+   "ne": "Proclama de esprint",
+   "nk": "질주의 진언",
+   "ic": "ICON_CH_SKILL_016",
+   "t": "stigma",
+   "un": 22,
+   "cd": 5,
+   "d": {
+    "en": "Aura: +10.5% Move Speed for you and nearby party; 15% chance to heal 127-140 HP on hit.",
+    "es": "Aura: +10.5 % de Velocidad de Movimiento para ti y el grupo; 15 % de prob. de curar 127~140 PV al golpear."
+   },
+   "sp": [
+    [
+     5,
+     "+10% Incoming Heal",
+     "Aumento del 10 % de Curación Recibida"
+    ],
+    [
+     10,
+     "+30% Natural Stamina Regen",
+     "Aumento del 30 % de Recuperación Natural de Vigor"
+    ],
+    [
+     15,
+     "+50% amount restored when HP is 50% or less",
+     "Aumento de Recuperación de Puntos de Vida en un 50 % cuando los Puntos de Vida están al 50 % o menos"
+    ],
+    [
+     20,
+     "+10% Restoration",
+     "Aumento del 10 % de Recuperación"
+    ]
+   ],
+   "rank": 13,
+   "tag": {
+    "en": "Speed aura",
+    "es": "Aura de velocidad"
+   },
+   "tip": {
+    "en": "Always-on mantra: speed for farming, passive heals in groups.",
+    "es": "Proclama siempre activa: velocidad para farmear y curas pasivas en grupo."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    2,
+    3,
+    1
+   ]
+  },
+  {
+   "n": "Healing Touch",
+   "ne": "Toque de recobro",
+   "nk": "쾌유의 손길",
+   "ic": "ICON_CH_SKILL_017",
+   "t": "stigma",
+   "un": 22,
+   "cd": 30,
+   "d": {
+    "en": "Restores 927-1020 HP to you and party members within 40m.",
+    "es": "Recupera 927~1020 PV a ti y al grupo en 40 m."
+   },
+   "sp": [
+    [
+     5,
+     "+20% amount healed when HP is 50% or less",
+     "Aumento de Recuperación en un 20 % cuando los Puntos de Vida están al 50 % o menos."
+    ],
+    [
+     10,
+     "Restores 1000 Stamina",
+     "Recuperación de 1000 de Vigor"
+    ],
+    [
+     15,
+     "Removes 5 debuff(s)",
+     "Disipación de magias debilitantes x5"
+    ],
+    [
+     20,
+     "+5% HP restored",
+     "Recuperación adicional del 5 % de Puntos de Vida"
+    ]
+   ],
+   "rank": 14,
+   "tag": {
+    "en": "Big heal",
+    "es": "Cura fuerte"
+   },
+   "tip": {
+    "en": "Take it when there is no Cleric; level 15 adds a 5-debuff cleanse.",
+    "es": "Llévala si no hay Clérigo; en nivel 15 limpia 5 debuffs."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    2,
+    0,
+    3,
+    1
+   ]
+  },
+  {
+   "n": "Undefeated Mantra",
+   "ne": "Proclama del invicto",
+   "nk": "불패의 진언",
+   "ic": "ICON_CH_SKILL_019",
+   "t": "stigma",
+   "un": 22,
+   "cd": 5,
+   "d": {
+    "en": "Aura: +10.5% PvE Damage Boost and PvE Damage Tolerance (5.25% PvP) for you and nearby party.",
+    "es": "Aura: +10.5 % de Amplificación de Daño JcE y Tolerancia JcE (5.25 % JcJ) para ti y el grupo cercano."
+   },
+   "sp": [
+    [
+     5,
+     "+100 Critical Hit",
+     "Aumento de 100 de Crítico"
+    ],
+    [
+     10,
+     "+100 Accuracy",
+     "Aumento de 100 de Precisión"
+    ],
+    [
+     15,
+     "+5% Critical Damage Boost",
+     "Aumento del 5 % de Amplificación de Daño Crítico"
+    ],
+    [
+     20,
+     "+5% Double Chance",
+     "Aumento del 5 % de Golpe"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Core party buff",
+    "es": "Buff de grupo clave"
+   },
+   "tip": {
+    "en": "Never drop it; it is why groups want a Chanter. Level it first.",
+    "es": "Nunca la quites; es la razón por la que te buscan. Súbela primero."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Obliterate",
+   "ne": "Extinción ígnea",
+   "nk": "멸화",
+   "ic": "ICON_CH_SKILL_022",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "AoE X-X damage to up to 4 enemies, 50% Knockdown (100% on NPCs). 50 Stagger Gauge Damage. 200 MP.",
+    "es": "X-X de daño en área a hasta 4 enemigos, 50 % de Derribo (100 % en PNJ). Daño al medidor de Tambaleo: 50. 200 PM."
+   },
+   "sp": [
+    [
+     5,
+     "Up to +20% damage when more targets hit",
+     "Cuantos más objetivos se acierten, aumento máx. del 20 % de daño"
+    ],
+    [
+     10,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ],
+    [
+     15,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ],
+    [
+     20,
+     "+25% Knockdown Chance",
+     "Aumento del 25 % de prob. de Derribo"
+    ]
+   ],
+   "rank": 31,
+   "tag": {
+    "en": "Stagger tool",
+    "es": "Rompe Tambaleo"
+   },
+   "tip": {
+    "en": "Swap in only when a boss needs fast Stagger damage.",
+    "es": "Ponla solo si un jefe pide daño rápido al Tambaleo."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    1,
+    2,
+    0,
+    3
+   ]
+  },
+  {
+   "n": "Ensnaring Mark",
+   "ne": "Estigma de amarre",
+   "nk": "결박의 낙인",
+   "ic": "ICON_CH_SKILL_023",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "AoE X-X damage around a target within 20m, 50% Seal 5s (100% on NPCs). Opens [Dark Crush] 3s. 200 MP.",
+    "es": "X-X de daño en área en un objetivo a 20 m, 50 % de Sellado 5s (100 % en PNJ). Habilita [Fractura sombría] 3s. 200 PM."
+   },
+   "sp": [
+    [
+     5,
+     "50% chance to inflict Root",
+     "Efecto de Atadura con un 50 % de prob."
+    ],
+    [
+     10,
+     "50% chance to inflict -1000 enemy Max Stamina",
+     "Reducción de 1000 de Vigor máx. con un 50 % de prob."
+    ],
+    [
+     15,
+     "+3s Seal, Root, Max Stamina reduction effect",
+     "Aumento de 3 s de Sellado, Atadura y efecto de Reducción de Vigor Máximo"
+    ],
+    [
+     20,
+     "+25% Seal, Root, Max Stamina reduction chance",
+     "Aumento del 25 % de probabilidad de Sellado, Atadura y Reducción de Vigor Máximo"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP control",
+    "es": "Control JcJ"
+   },
+   "tip": {
+    "en": "PvP only; skip it in PvE.",
+    "es": "Solo JcJ; sáltala en JcE."
+   },
+   "pickLev": [
+    0,
+    2,
+    3,
+    1
+   ],
+   "pickEnd": [
+    0,
+    2,
+    3,
+    1
+   ]
+  },
+  {
+   "n": "Impeding Authority",
+   "ne": "Poder de bloqueo",
+   "nk": "차단의 권능",
+   "ic": "ICON_CH_SKILL_024",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Shield worth 16% Max HP for 20s on you and party within 40m.",
+    "es": "Escudo del 16 % de PV máx. durante 20s para ti y el grupo en 40 m."
+   },
+   "sp": [
+    [
+     5,
+     "+15% Defense",
+     "Aumento del 15 % de Defensa"
+    ],
+    [
+     10,
+     "+10% Incoming Heal",
+     "Aumento del 10 % de Curación Recibida"
+    ],
+    [
+     15,
+     "+10% PvE Damage Tolerance, +5% PvP Damage Tolerance",
+     "Aumento de Tolerancia a Daño JcE en 10 %, Tolerancia a Daño JcJ en 5 %"
+    ],
+    [
+     20,
+     "Restores 7% of Max HP when Protective Shield ends or is broken",
+     "Al finalizar o destruirse la barrera, recuperación del 7 % de Puntos de Vida Máximos"
+    ]
+   ],
+   "rank": 26,
+   "tag": {
+    "en": "Party shield",
+    "es": "Escudo de grupo"
+   },
+   "tip": {
+    "en": "Pre-cast before a raid-wide hit.",
+    "es": "Lánzala antes de un golpe de área del jefe."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    2,
+    3,
+    0,
+    1
+   ]
+  },
+  {
+   "n": "Power of the Storm",
+   "ne": "Poder de vendaval",
+   "nk": "질풍의 권능",
+   "ic": "ICON_CH_SKILL_025",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "10s: +20% Combat Speed and -20% cooldowns for you; +20% Combat Speed and -10% cooldowns for party.",
+    "es": "10s: +20 % de Velocidad de Combate y -20 % de enfriamientos para ti; +20 % y -10 % para el grupo."
+   },
+   "sp": [
+    [
+     5,
+     "-30s cooldown",
+     "Reducción de 30 s de Tiempo de Enfriamiento"
+    ],
+    [
+     10,
+     "+200 Accuracy",
+     "Aumento de 200 de Precisión"
+    ],
+    [
+     15,
+     "+200 Critical Hit",
+     "Aumento de 200 de Crítico"
+    ],
+    [
+     20,
+     "+20% Caster Attack and +10% party member Attack",
+     "Aumento de un 20 % de tu Ataque y de un 10 % del Ataque de los miembros del grupo"
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "Burst buff",
+    "es": "Buff de ráfaga"
+   },
+   "tip": {
+    "en": "Use it in real burst windows, synced with the party.",
+    "es": "Úsala en ventanas de daño reales, junto al grupo."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    3,
+    1,
+    2
+   ]
+  },
+  {
+   "n": "Marchutan's Wrath",
+   "ne": "Ira de Marchutan",
+   "nk": "마르쿠탄의 분노",
+   "ic": "ICON_CH_SKILL_033",
+   "t": "stigma",
+   "un": 22,
+   "cd": 30,
+   "d": {
+    "en": "AoE X-X damage around a target within 20m. Opens [Dark Crush] for 3s.",
+    "es": "X-X de daño en área alrededor de un objetivo a 20 m. Habilita [Fractura sombría] 3s."
+   },
+   "sp": [
+    [
+     5,
+     "Up to +20% damage when less targets hit",
+     "Cuantos menos objetivos alcance, mayor será el daño, hasta un máximo del 20 %"
+    ],
+    [
+     10,
+     "50% chance to inflict Stun for 3s",
+     "Con un 50 % de probabilidad, aplica Aturdimiento durante 3s"
+    ],
+    [
+     15,
+     "-70% Incoming Heal and Potion Recovery",
+     "Reducción del 70 % de Curación Recibida y Recuperación de Poción"
+    ],
+    [
+     20,
+     "+25% additional Stun Chance",
+     "Aumento adicional del 25 % de probabilidad de Aturdimiento"
+    ]
+   ],
+   "rank": 20,
+   "tag": {
+    "en": "Extra opener",
+    "es": "Apertura extra"
+   },
+   "tip": {
+    "en": "One more Dark Crush window for solo or damage setups.",
+    "es": "Una ventana más de Fractura sombría para solo o daño."
+   },
+   "pickLev": [
+    0,
+    1,
+    3,
+    2
+   ],
+   "pickEnd": [
+    0,
+    1,
+    3,
+    2
+   ]
+  },
+  {
+   "n": "Guardian Blessing",
+   "ne": "Bendición del guardián",
+   "nk": "수호의 축복",
+   "ic": "ICON_CH_SKILL_042",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "+5.4% Max HP for 120s and heals 5.4% HP instantly. Cannot be dispelled.",
+    "es": "+5.4 % de PV máx. durante 120s y cura 5.4 % al instante. No se puede disipar."
+   },
+   "sp": [
+    [
+     5,
+     "+10% Status Effect Resist",
+     "Aumento del 10 % de Resistencia a Efectos de Estado"
+    ],
+    [
+     10,
+     "x1.5 [Crossguard] effect for the duration",
+     "Aumento de efecto de «Defensa en cruz» x1,5 durante la duración"
+    ],
+    [
+     15,
+     "x1.5 [Wind's Promise] effect for the duration",
+     "Durante su duración, el efecto de [Promesa de viento] aumenta 1,5 veces"
+    ],
+    [
+     20,
+     "+10% Incoming Heal",
+     "Aumento del 10 % de Curación Recibida"
+    ]
+   ],
+   "rank": 24,
+   "tag": {
+    "en": "Self buff",
+    "es": "Buff propio"
+   },
+   "tip": {
+    "en": "At 15 it boosts Wind's Promise x1.5: a damage pick for solo builds.",
+    "es": "En 15 potencia Promesa de viento x1,5: opción de daño en solo."
+   },
+   "pickLev": [
+    0,
+    2,
+    1,
+    3
+   ],
+   "pickEnd": [
+    2,
+    0,
+    3,
+    1
+   ]
+  },
+  {
+   "n": "Barrier Spell",
+   "ne": "Hechizo de barrera",
+   "nk": "결계의 주문",
+   "ic": "ICON_CH_SKILL_044",
+   "t": "stigma",
+   "un": 22,
+   "cd": 180,
+   "d": {
+    "en": "For 3s, you and party within 40m cannot drop below 10% HP (some big hits ignore it).",
+    "es": "Durante 3s, tú y el grupo en 40 m no bajan del 10 % de PV (algunos golpes lo ignoran)."
+   },
+   "sp": [
+    [
+     5,
+     "Restores 10% HP when effect expires naturally",
+     "Al finalizar efecto de forma natural, recuperación del 10 % de Puntos de Vida"
+    ],
+    [
+     10,
+     "+10% PvE Damage Tolerance and +5% PvP Damage Tolerance for 10s when effect expires naturally",
+     "Al finalizar efecto de forma natural, aumento del 10 % de Tolerancia a Daño JcE y 5 % de Tolerancia a Daño JcJ durante 10s"
+    ],
+    [
+     15,
+     "+10% HP limit",
+     "Aumento del 10 % de Puntos de Vida fijo"
+    ],
+    [
+     20,
+     "+1s effect duration",
+     "Aumento de Duración del efecto en 1 s"
+    ]
+   ],
+   "rank": 30,
+   "tag": {
+    "en": "Wipe saver",
+    "es": "Anti-wipe"
+   },
+   "tip": {
+    "en": "Save it for a known lethal mechanic.",
+    "es": "Guárdala para una mecánica letal conocida."
+   },
+   "pickLev": [
+    0,
+    1,
+    3,
+    2
+   ],
+   "pickEnd": [
+    3,
+    0,
+    1,
+    2
+   ]
+  },
+  {
+   "n": "Assault Shock",
+   "ne": "Impacto de agresión",
+   "nk": "강습 충격",
+   "ic": "ICON_CO_SKILL_003",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "AoE X-X damage around a target within 20m, 30% Stun 3s (100% on NPCs); gain up to +20% Defense.",
+    "es": "X-X de daño en área en un objetivo a 20 m, 30 % de Aturdimiento 3s (100 % en PNJ); hasta +20 % de Defensa."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Attack for 5s on hit",
+     "Al acertar, aumento del 20 % de Ataque durante 5s"
+    ],
+    [
+     10,
+     "500 MP damage on hit",
+     "Al acertar, 500 de daño de Puntos de Maná"
+    ],
+    [
+     15,
+     "+10m range",
+     "Aumento de 10 m de alcance"
+    ],
+    [
+     20,
+     "+20% Stun Chance",
+     "Aumento del 20 % de prob. de Aturdimiento"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP stun",
+    "es": "Aturdir JcJ"
+   },
+   "tip": {
+    "en": "PvP pick; not needed in PvE.",
+    "es": "Opción JcJ; no hace falta en JcE."
+   },
+   "pickLev": [
+    0,
+    2,
+    3,
+    1
+   ],
+   "pickEnd": [
+    0,
+    3,
+    2,
+    1
+   ]
+  },
+  {
+   "n": "Blessing of Life",
+   "ne": "Bendición de vida",
+   "nk": "생명의 축복",
+   "ic": "ICON_CH_SKILL_Passive_012",
+   "t": "passive",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "+150 HP, +6.5% Max HP and Heal Boost scaled from Attack.",
+    "es": "+150 PV, +6.5 % de PV máx. y Amplificación de Curación según tu Ataque."
+   },
+   "sp": [],
+   "rank": 11,
+   "tag": {
+    "en": "HP / heals",
+    "es": "PV / curas"
+   },
+   "tip": {
+    "en": "Strong after recent buffs; max it for group play.",
+    "es": "Fuerte tras los últimos cambios; súbela al máximo para grupo."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Crossguard",
+   "ne": "Defensa en cruz",
+   "nk": "십자 방어",
+   "ic": "ICON_CH_SKILL_Passive_002",
+   "t": "passive",
+   "un": 6,
+   "cd": 0,
+   "d": {
+    "en": "+200 Block; heals 53-58 HP on Block (1s cooldown).",
+    "es": "+200 de Bloqueo; cura 53~58 PV al bloquear (1s de enfriamiento)."
+   },
+   "sp": [],
+   "rank": 33,
+   "tag": {
+    "en": "Block",
+    "es": "Bloqueo"
+   },
+   "tip": {
+    "en": "Weak effect; leftover points only.",
+    "es": "Efecto débil; solo con puntos sobrantes."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Protection Circle",
+   "ne": "Círculo de protección",
+   "nk": "보호진",
+   "ic": "ICON_CH_SKILL_Passive_001",
+   "t": "passive",
+   "un": 9,
+   "cd": 0,
+   "d": {
+    "en": "Hits build stacks; at 10, you and party get a shield of 3.1% Max HP for 10s.",
+    "es": "Cada golpe suma cargas; con 10, tú y el grupo reciben un escudo del 3.1 % de PV máx. 10s."
+   },
+   "sp": [],
+   "rank": 29,
+   "tag": {
+    "en": "Party shield",
+    "es": "Escudo de grupo"
+   },
+   "tip": {
+    "en": "Passive party shield; fine via Daevanion nodes.",
+    "es": "Escudo pasivo; basta con los nodos de Daevanion."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Inspiring Spell",
+   "ne": "Hechizo de inspiración",
+   "nk": "고취의 주문",
+   "ic": "ICON_CH_SKILL_Passive_011",
+   "t": "passive",
+   "un": 11,
+   "cd": 0,
+   "d": {
+    "en": "+100 Critical Hit and +0.5% Perfect Chance.",
+    "es": "+100 de Crítico y +0.5 % de Perforación."
+   },
+   "sp": [],
+   "rank": 16,
+   "tag": {
+    "en": "Crit",
+    "es": "Crítico"
+   },
+   "tip": {
+    "en": "Mid priority; many key hits already crit.",
+    "es": "Prioridad media; varios golpes clave ya son críticos."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Attack Preparation",
+   "ne": "Preparación de ataque",
+   "nk": "공격 준비",
+   "ic": "ICON_GL_SKILL_Passive_005",
+   "t": "passive",
+   "un": 13,
+   "cd": 0,
+   "d": {
+    "en": "+5.5% PvE Damage Boost (2.75% PvP), +2% Defense, +100 Accuracy.",
+    "es": "+5.5 % de Amplificación de Daño JcE (2.75 % JcJ), +2 % de Defensa, +100 de Precisión."
+   },
+   "sp": [],
+   "rank": 10,
+   "tag": {
+    "en": "Damage",
+    "es": "Daño"
+   },
+   "tip": {
+    "en": "Top passive for damage; max it.",
+    "es": "La mejor pasiva de daño; súbela al máximo."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Impact Hit",
+   "ne": "Acierto de impacto",
+   "nk": "충격 적중",
+   "ic": "ICON_GL_SKILL_Passive_006",
+   "t": "passive",
+   "un": 15,
+   "cd": 0,
+   "d": {
+    "en": "+11.2% Impact-type Chance and +0.3% Double Chance.",
+    "es": "+11.2 % de Acierto de Tipo Impacto y +0.3 % de Golpe."
+   },
+   "sp": [],
+   "rank": 15,
+   "tag": {
+    "en": "Stun chance",
+    "es": "Prob. de aturdir"
+   },
+   "tip": {
+    "en": "Makes stuns land, which feeds Raging Spell and Fracturing Blow.",
+    "es": "Hace que entren los aturdimientos, útil para Hechizo de furia y Golpe devastador."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Raging Spell",
+   "ne": "Hechizo de furia",
+   "nk": "격노의 주문",
+   "ic": "ICON_CH_SKILL_Passive_007",
+   "t": "passive",
+   "un": 17,
+   "cd": 0,
+   "d": {
+    "en": "Extra X-X damage on targets in Stagger or Impact-type status (1s cooldown).",
+    "es": "X-X de daño extra a objetivos en Tambaleo o estado de impacto (1s de enfriamiento)."
+   },
+   "sp": [],
+   "rank": 23,
+   "tag": {
+    "en": "Bonus damage",
+    "es": "Daño extra"
+   },
+   "tip": {
+    "en": "Situational: good on bosses that stay stunned or staggered.",
+    "es": "Situacional: bueno con jefes que quedan aturdidos o en Tambaleo."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Earth's Promise",
+   "ne": "Promesa terrestre",
+   "nk": "대지의 약속",
+   "ic": "ICON_CH_SKILL_Passive_010",
+   "t": "passive",
+   "un": 21,
+   "cd": 0,
+   "d": {
+    "en": "Each hit lowers target PvE Damage Tolerance by 5.4% (2.7% PvP) for 5s. No stack with Cleric's Chain of Suffering.",
+    "es": "Cada golpe baja la Tolerancia a Daño JcE del objetivo un 5.4 % (2.7 % JcJ) 5s. No se suma con el efecto del Clérigo."
+   },
+   "sp": [],
+   "rank": 19,
+   "tag": {
+    "en": "Party debuff",
+    "es": "Debuff de grupo"
+   },
+   "tip": {
+    "en": "Raid-wide damage boost; less useful with a Cleric.",
+    "es": "Más daño para todo el grupo; menos útil con Clérigo."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Survival Willpower",
+   "ne": "Voluntad de supervivencia",
+   "nk": "생존 의지",
+   "ic": "ICON_GL_SKILL_Passive_009",
+   "t": "passive",
+   "un": 23,
+   "cd": 0,
+   "d": {
+    "en": "+17% Status Effect Resist; +12% PvE Damage Tolerance for 5s when hit by hard CC.",
+    "es": "+17 % de Resistencia a Efectos de Estado; +12 % de Tolerancia JcE 5s al recibir control fuerte."
+   },
+   "sp": [],
+   "rank": 28,
+   "tag": {
+    "en": "PvP defense",
+    "es": "Defensa JcJ"
+   },
+   "tip": {
+    "en": "Mainly for PvP.",
+    "es": "Sobre todo para JcJ."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Wind's Promise",
+   "ne": "Promesa de viento",
+   "nk": "바람의 약속",
+   "ic": "ICON_CH_SKILL_Passive_008",
+   "t": "passive",
+   "un": 25,
+   "cd": 0,
+   "d": {
+    "en": "+5.7% Critical Damage Boost; 50% chance for extra X-X damage on crit (1s cooldown).",
+    "es": "+5.7 % de Amplificación de Daño Crítico; 50 % de prob. de X-X de daño extra al critear (1s)."
+   },
+   "sp": [],
+   "rank": 9,
+   "tag": {
+    "en": "Crit damage",
+    "es": "Daño crítico"
+   },
+   "tip": {
+    "en": "KR players max this first among passives.",
+    "es": "Los jugadores coreanos la maximizan primero."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  }
+ ],
+ "points": [
+  [
+   "Onslaught",
+   4
+  ],
+  [
+   "Dark Crush",
+   4
+  ],
+  [
+   "Rushing Smash",
+   3
+  ],
+  [
+   "Incandescent Blow",
+   3
+  ],
+  [
+   "Impactful Crush",
+   4
+  ],
+  [
+   "Recuperation",
+   4
+  ],
+  [
+   "Dark Crush",
+   7
+  ],
+  [
+   "Onslaught",
+   7
+  ],
+  [
+   "Blessing of Life",
+   4
+  ],
+  [
+   "Spinning Strike",
+   4
+  ],
+  [
+   "Attack Preparation",
+   4
+  ],
+  [
+   "Dark Crush",
+   10
+  ],
+  [
+   "Spinning Strike",
+   7
+  ],
+  [
+   "Onslaught",
+   10
+  ],
+  [
+   "Impact Hit",
+   4
+  ],
+  [
+   "Spinning Strike",
+   10
+  ],
+  [
+   "Incandescent Blow",
+   7
+  ],
+  [
+   "Wind's Promise",
+   4
+  ],
+  [
+   "Recuperation",
+   7
+  ],
+  [
+   "Impactful Crush",
+   7
+  ],
+  [
+   "Attack Preparation",
+   7
+  ],
+  [
+   "Wind's Promise",
+   7
+  ],
+  [
+   "Blessing of Life",
+   7
+  ],
+  [
+   "Incandescent Blow",
+   10
+  ],
+  [
+   "Wind's Promise",
+   10
+  ],
+  [
+   "Attack Preparation",
+   10
+  ],
+  [
+   "Recuperation",
+   10
+  ],
+  [
+   "Impactful Crush",
+   10
+  ],
+  [
+   "Blessing of Life",
+   10
+  ],
+  [
+   "Impact Hit",
+   5
+  ],
+  [
+   "Rushing Smash",
+   4
+  ],
+  [
+   "Wave Blow",
+   4
+  ]
+ ],
+ "stigma": {
+  "loadouts": [
+   {
+    "id": "main",
+    "name": {
+     "en": "Party support",
+     "es": "Soporte de grupo"
+    },
+    "skills": [
+     "Undefeated Mantra",
+     "Power of the Storm",
+     "Sprint Mantra",
+     "Healing Touch"
+    ],
+    "note": {
+     "en": "Standard group setup. With a Cleric, swap Healing Touch for Marchutan's Wrath or Focused Defense.",
+     "es": "Configuración estándar de grupo. Con Clérigo, cambia Toque de recobro por Ira de Marchutan o Defensa concentrada."
+    }
+   },
+   {
+    "id": "solo",
+    "name": {
+     "en": "Solo / damage",
+     "es": "Solo / daño"
+    },
+    "skills": [
+     "Undefeated Mantra",
+     "Power of the Storm",
+     "Marchutan's Wrath",
+     "Guardian Blessing"
+    ],
+    "note": {
+     "en": "More Dark Crush windows; Guardian Blessing 15 boosts Wind's Promise. Sprint Mantra is a fine swap for farming.",
+     "es": "Más ventanas de Fractura sombría; Bendición del guardián 15 potencia Promesa de viento. Proclama de esprint sirve para farmear."
+    }
+   },
+   {
+    "id": "alt",
+    "name": {
+     "en": "Hard content / safety",
+     "es": "Contenido difícil / seguridad"
+    },
+    "skills": [
+     "Undefeated Mantra",
+     "Power of the Storm",
+     "Healing Touch",
+     "Impeding Authority"
+    ],
+    "note": {
+     "en": "For progression bosses: add a shield. Barrier Spell or Focused Defense also fit the last slot.",
+     "es": "Para jefes difíciles: añade un escudo. Hechizo de barrera o Defensa concentrada también encajan."
+    }
+   }
+  ],
+  "levelTips": {
+   "en": "Level Undefeated Mantra to 20 first, then Power of the Storm. Sprint Mantra and Healing Touch come next.",
+   "es": "Sube Proclama del invicto a 20 primero, luego Poder de vendaval. Después Proclama de esprint y Toque de recobro."
+  }
+ },
+ "dvValues": {
+  "Dark Crush": 10,
+  "Onslaught": 9,
+  "Spinning Strike": 9,
+  "Incandescent Blow": 7,
+  "Recuperation": 7,
+  "Impactful Crush": 7,
+  "Wind's Promise": 8,
+  "Attack Preparation": 8,
+  "Blessing of Life": 6,
+  "Impact Hit": 5,
+  "Inspiring Spell": 5,
+  "Earth's Promise": 5,
+  "Wave Blow": 4,
+  "Rushing Smash": 4,
+  "Defiance": 4,
+  "Raging Spell": 3,
+  "Protection Circle": 3,
+  "Gust Rampage": 3,
+  "Survival Willpower": 2,
+  "Heat Wave Blow": 2,
+  "Tremor Crush": 1,
+  "Crossguard": 1
+ },
+ "dvSimple": {
+  "en": [
+   "Take every Dark Crush node first",
+   "Then Onslaught and Spinning Strike nodes",
+   "Nezekan: Cooldown Reduction and Combat Speed",
+   "Attack Preparation and Wind's Promise nodes",
+   "Incandescent Blow and Recuperation nodes",
+   "Impactful Crush nodes",
+   "Zikel: Damage Boost",
+   "Vaizel: Critical Damage Boost",
+   "Blessing of Life nodes",
+   "Triniel: Multi-Hit Chance",
+   "Impact Hit, Inspiring Spell, Earth's Promise",
+   "Skip extra Max MP: Onslaught covers MP"
+  ],
+  "es": [
+   "Toma primero todos los nodos de Fractura sombría",
+   "Luego Fractura trituradora y Golpe giratorio",
+   "Nezekan: Reducción de Enfriamiento y Velocidad de Combate",
+   "Nodos de Preparación de ataque y Promesa de viento",
+   "Nodos de Golpe incandescente y Hechizo de recobro",
+   "Nodos de Fractura impactante",
+   "Zikel: Amplificación de Daño",
+   "Vaizel: Amplificación de Daño Crítico",
+   "Nodos de Bendición de vida",
+   "Triniel: Probabilidad de Multigolpe",
+   "Acierto de impacto, Hechizo de inspiración, Promesa terrestre",
+   "Evita PM máx. extra: Fractura trituradora ya da maná"
+  ]
+ },
+ "macro": {
+  "leveling": {
+   "slots": [
+    [
+     "1",
+     [
+      "Dark Crush",
+      "Impactful Crush",
+      "Rushing Smash",
+      "Onslaught"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Spinning Strike",
+      "Incandescent Blow"
+     ],
+     "m"
+    ],
+    [
+     "3",
+     [
+      "Recuperation"
+     ],
+     "h"
+    ],
+    [
+     "4",
+     [
+      "Heat Wave Blow"
+     ],
+     "h"
+    ],
+    [
+     "Q",
+     [
+      "Gust Rampage"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "1",
+    "2",
+    "1",
+    "3"
+   ]
+  },
+  "endgame": {
+   "slots": [
+    [
+     "1",
+     [
+      "Dark Crush",
+      "Spinning Strike",
+      "Impactful Crush",
+      "Incandescent Blow"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Wave Blow",
+      "Rushing Smash",
+      "Onslaught"
+     ],
+     "m"
+    ],
+    [
+     "Q",
+     [
+      "Gust Rampage"
+     ],
+     "h"
+    ],
+    [
+     "3",
+     [
+      "Power of the Storm"
+     ],
+     "h"
+    ],
+    [
+     "4",
+     [
+      "Recuperation"
+     ],
+     "h"
+    ],
+    [
+     "5",
+     [
+      "Healing Touch"
+     ],
+     "h"
+    ],
+    [
+     "6",
+     [
+      "Defiance"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "3",
+    "1",
+    "2",
+    "1",
+    "Q"
+   ]
+  },
+  "notes": {
+   "en": "KR players run Dark Crush → Spinning Strike → Impactful Crush → Incandescent Blow in one held macro with Skill Queue on. Mantras are toggles: turn them on before the pull.",
+   "es": "Los coreanos usan Fractura sombría → Golpe giratorio → Fractura impactante → Golpe incandescente en una sola macro mantenida con la cola de habilidades activa. Las proclamas son interruptores: actívalas antes del pull."
+  }
+ },
+ "rotation": {
+  "en": [
+   "Turn on Undefeated Mantra and Sprint Mantra before the pull",
+   "Pop Power of the Storm in the burst window",
+   "Spinning Strike, then spam Dark Crush while it is lit",
+   "Impactful Crush (or Marchutan's Wrath) to reopen Dark Crush",
+   "Fill with Onslaught and Incandescent Blow; keep Wave Blow's debuff up",
+   "Gust Rampage on Stagger; Recuperation/Healing Touch as needed"
+  ],
+  "es": [
+   "Activa Proclama del invicto y Proclama de esprint antes del pull",
+   "Usa Poder de vendaval en la ventana de ráfaga",
+   "Golpe giratorio y spamea Fractura sombría mientras esté activa",
+   "Fractura impactante (o Ira de Marchutan) para reabrir Fractura sombría",
+   "Rellena con Fractura trituradora y Golpe incandescente; mantén el debuff de Golpe ondulatorio",
+   "Desenfreno de vendaval en Tambaleo; Hechizo de recobro/Toque de recobro si hace falta"
+  ]
+ },
+ "synergy": [
+  {
+   "a": "Spinning Strike",
+   "b": "Dark Crush",
+   "t": {
+    "en": "Open, then spam",
+    "es": "Abre y spamea"
+   },
+   "s": {
+    "en": "Spinning Strike gives a crit buff and a Dark Crush window; at 16 Dark Crush has no cooldown.",
+    "es": "Golpe giratorio da buff de crítico y ventana de Fractura sombría; en 16 esta no tiene enfriamiento."
+   }
+  },
+  {
+   "a": "Onslaught",
+   "b": "Spinning Strike",
+   "t": {
+    "en": "Cooldown feed",
+    "es": "Baja enfriamiento"
+   },
+   "s": {
+    "en": "Onslaught's 12 spec cuts 1s off Spinning Strike per hit.",
+    "es": "El especial 12 de Fractura trituradora baja 1s a Golpe giratorio por golpe."
+   }
+  },
+  {
+   "a": "Impactful Crush",
+   "b": "Fracturing Blow",
+   "t": {
+    "en": "Stun, then shred",
+    "es": "Aturde y rompe"
+   },
+   "s": {
+    "en": "Stunned targets take +20% (up to +50%) from Fracturing Blow.",
+    "es": "Los objetivos aturdidos reciben +20 % (hasta +50 %) de Golpe devastador."
+   }
+  },
+  {
+   "a": "Guardian Blessing",
+   "b": "Wind's Promise",
+   "t": {
+    "en": "Crit amp",
+    "es": "Más crítico"
+   },
+   "s": {
+    "en": "Guardian Blessing 15 makes Wind's Promise 1.5x stronger.",
+    "es": "Bendición del guardián 15 hace Promesa de viento 1,5 veces más fuerte."
+   }
+  },
+  {
+   "a": "Rushing Smash",
+   "b": "Heat Wave Blow",
+   "t": {
+    "en": "Leveling AoE",
+    "es": "AoE al subir"
+   },
+   "s": {
+    "en": "Rushing Smash's spec can proc Heat Wave Blow on pulls.",
+    "es": "El especial de Trituración de acometida puede activar Golpe de onda abrasadora."
+   }
+  }
+ ],
+ "stats": {
+  "order": [
+   {
+    "en": "Accuracy",
+    "es": "Precisión",
+    "w": 100
+   },
+   {
+    "en": "Attack",
+    "es": "Ataque",
+    "w": 90
+   },
+   {
+    "en": "Combat Speed",
+    "es": "Velocidad de Combate",
+    "w": 75
+   },
+   {
+    "en": "Cooldown Reduction (~30%)",
+    "es": "Reducción de Enfriamiento (~30 %)",
+    "w": 65
+   },
+   {
+    "en": "Damage Boost",
+    "es": "Amplificación de Daño",
+    "w": 55
+   },
+   {
+    "en": "HP",
+    "es": "PV",
+    "w": 40
+   }
+  ],
+  "notes": {
+   "en": "Get enough Accuracy first; key hits already crit, so don't overstack Critical Hit. KR players stop Cooldown Reduction around 30%.",
+   "es": "Primero Precisión suficiente; los golpes clave ya son críticos, no acumules Crítico. Los coreanos se quedan en ~30 % de Reducción de Enfriamiento."
+  }
+ },
+ "genus": {
+  "s15": [
+   [
+    "PvE Attack",
+    "Ataque PvE",
+    1
+   ],
+   [
+    "Boss Attack",
+    "Ataque contra jefes",
+    1
+   ],
+   [
+    "Attack Bonus",
+    "Bonificación de ataque",
+    2
+   ],
+   [
+    "Critical Attack",
+    "Ataque crítico",
+    3
+   ]
+  ],
+  "s369": [
+   [
+    "PvE Accuracy",
+    "Precisión PvE",
+    1
+   ],
+   [
+    "Accuracy Bonus",
+    "Bonificación de precisión",
+    2
+   ],
+   [
+    "Power Shard Damage Bonus",
+    "Bonif. de daño de fragmento de poder",
+    2
+   ],
+   [
+    "Critical Hit",
+    "Crítico",
+    3
+   ]
+  ],
+  "s278": [
+   [
+    "HP increase",
+    "Aumento de PV",
+    1
+   ],
+   [
+    "PvE Defense",
+    "Defensa PvE",
+    2
+   ],
+   [
+    "Defense Bonus",
+    "Bonificación de defensa",
+    2
+   ],
+   [
+    "Critical Hit Resist",
+    "Resistencia a crítico",
+    3
+   ]
+  ],
+  "s4": {
+   "cogni": [
+    [
+     "Critical Damage Boost",
+     "Amplificación de daño crítico",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño PvE",
+     2
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     2
+    ],
+    [
+     "Attack Bonus",
+     "Bonificación de ataque",
+     3
+    ]
+   ],
+   "fera": [
+    [
+     "Weapon Damage Boost",
+     "Amplificación de daño de arma",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño PvE",
+     2
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     2
+    ],
+    [
+     "Attack Bonus",
+     "Bonificación de ataque",
+     3
+    ]
+   ],
+   "natura": [
+    [
+     "Multi-hit Chance",
+     "Probabilidad de multigolpe",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño PvE",
+     2
+    ],
+    [
+     "Perfect Chance",
+     "Probabilidad de perforación",
+     3
+    ]
+   ],
+   "varian": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño PvE",
+     1
+    ],
+    [
+     "Front Attack Damage Boost",
+     "Amplificación de daño frontal",
+     2
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     2
+    ]
+   ],
+   "special": [
+    [
+     "Critical Damage Boost",
+     "Amplificación de daño crítico",
+     1
+    ],
+    [
+     "Double Chance",
+     "Probabilidad de golpe doble",
+     1
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     2
+    ]
+   ]
+  },
+  "notes": {
+   "en": "Dark Crush and Spinning Strike crit by spec, so Critical Damage Boost beats Critical Hit. If you play pure support, HP and defense lines are fine.",
+   "es": "Fractura sombría y Golpe giratorio critean por especial, así que Daño Crítico vale más que Crítico. Si juegas soporte puro, PV y defensa están bien."
+  }
+ },
+ "leveling": {
+  "en": [
+   "Rush Dark Crush to 16 to remove its cooldown",
+   "Turn on Skill Queue and use one held macro",
+   "Pull with Rushing Smash; its kill reset chains packs",
+   "Keep Sprint Mantra on for travel speed and passive heals",
+   "Get Undefeated Mantra at 22, then Power of the Storm"
+  ],
+  "es": [
+   "Sube Fractura sombría a 16 para quitar su enfriamiento",
+   "Activa la cola de habilidades y usa una macro mantenida",
+   "Empieza con Trituración de acometida; su reinicio al matar encadena grupos",
+   "Mantén Proclama de esprint para correr más y curarte",
+   "Toma Proclama del invicto en 22 y luego Poder de vendaval"
+  ]
+ },
+ "kr": {
+  "en": "Korean guides (호법성) max 암격쇄, 회전격 and 격파쇄 to 20 and put 바람의 약속 first among passives. Many skip 마르쿠탄의 분노 in parties and treat 불패의 진언 + 질풍의 권능 as mandatory.",
+  "es": "Las guías coreanas (호법성) suben 암격쇄, 회전격 y 격파쇄 a 20 y ponen 바람의 약속 primero entre pasivas. Muchos omiten 마르쿠탄의 분노 en grupo y ven 불패의 진언 + 질풍의 권능 como obligatorias."
+ },
+ "sources": [
+  [
+   "questlog.gg Aion 2 skill database",
+   "https://questlog.gg/aion-2/en/db/skills"
+  ],
+  [
+   "ExpCarry – Aion 2 Chanter Guide",
+   "https://expcarry.com/aion-2-chanter-guide"
+  ],
+  [
+   "Vortex – 호법성 PvE 특화/스티그마",
+   "https://vortexgaming.io/postdetail/688518"
+  ],
+  [
+   "Vortex – 호법성 세팅 (매크로/스티그마)",
+   "https://vortexgaming.io/postdetail/1264072"
+  ],
+  [
+   "Metabot – Chanter class page",
+   "https://metabot.gg/en/aion-2/classes/chanter"
+  ],
+  [
+   "Inven – 호법성 스티그마 25레벨 특화 정리",
+   "https://www.inven.co.kr/board/aion2/6444/2008"
+  ]
+ ]
+}

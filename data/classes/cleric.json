@@ -1,0 +1,2250 @@
+{
+ "id": "cleric",
+ "name": {
+  "en": "Cleric",
+  "es": "Clérigo"
+ },
+ "classIcon": "UT_Class_Cleric_Large",
+ "color": "#f2c94c",
+ "role": {
+  "en": "Healer / support DPS",
+  "es": "Sanador / DPS de apoyo"
+ },
+ "weapon": {
+  "en": "Mace + Orb",
+  "es": "Maza + Orbe"
+ },
+ "difficulty": 2,
+ "summary": {
+  "en": "The main healer: party heals, cleanses and damage buffs. Between heals it deals solid Earth/Wind damage, so it also levels well solo.",
+  "es": "El sanador principal: curas de grupo, limpiezas y buffs. Entre curas hace buen daño de Tierra/Viento, así que también sube nivel bien en solo."
+ },
+ "engine": {
+  "en": "Chain of Torment → Condemnation (always crit with Earth Punishment) + Judgment Thunder spam",
+  "es": "Enlace de dolor → Condena (siempre crítica con Castigo terrestre) + spam de Rayo del juicio"
+ },
+ "skills": [
+  {
+   "n": "Earth's Retribution",
+   "ne": "Retribución terrestre",
+   "nk": "대지의 응보",
+   "ic": "ICON_CL_SKILL_001",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Deals Earth damage to a target within 20m and restores 110 MP.",
+    "es": "Inflige daño de Tierra a un objetivo a 20 m y recupera 110 PM."
+   },
+   "sp": [
+    [
+     8,
+     "+20% MP restored",
+     "Aumento del 20 % de Recuperación de Puntos de Maná"
+    ],
+    [
+     8,
+     "+20% [Discharge] Chain Skill trigger chance",
+     "Aumento del 20 % de prob. de activación de hab. de cadena «Descarga»"
+    ],
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     12,
+     "-7s [Bolt] cooldown on landing [Discharge]",
+     "Al acertar «Descarga», reducción de 7s de Tiempo de Enfriamiento de «Centella»"
+    ],
+    [
+     16,
+     "Ignores Block and Evasion",
+     "Ignora Bloqueo y Evasión"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "MP filler",
+    "es": "Relleno de PM"
+   },
+   "tip": {
+    "en": "Spam it between cooldowns; it refills MP instead of auto-attacks.",
+    "es": "Úsalo entre cooldowns; recupera PM en lugar del ataque básico."
+   },
+   "pickLev": [
+    0,
+    1,
+    3
+   ],
+   "pickEnd": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Judgment Thunder",
+   "ne": "Rayo del juicio",
+   "nk": "심판의 번개",
+   "ic": "ICON_CL_SKILL_004",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Wind damage to up to 4 enemies within 4m of a target (20m). Main spam nuke.",
+    "es": "Daño de Viento hasta a 4 enemigos a 4 m del objetivo (20 m). Nuke principal sin cooldown."
+   },
+   "sp": [
+    [
+     8,
+     "-20% MP consumed",
+     "Reducción del 20 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "Deals up to 12% more damage when less targets are hit",
+     "Aumento de daño de hasta un 12 % cuanto menor sea el número de objetivos acertados"
+    ],
+    [
+     8,
+     "-10% enemy Combat Speed for 5s on landing [Divine Punishment]",
+     "Al acertar «Castigo divino», reducción del 10 % de Velocidad de Hechizo durante 5s"
+    ],
+    [
+     12,
+     "10% chance to inflict Root for 2s on landing [Divine Punishment]",
+     "Al acertar «Castigo divino», estado de Atadura durante 2s con un 10 % de prob."
+    ],
+    [
+     16,
+     "Activates [Divine Punishment] 1 extra time",
+     "Activación de «Castigo divino» +1"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Main nuke",
+    "es": "Nuke principal"
+   },
+   "tip": {
+    "en": "Top KR priority: rush it to 16 for the extra Divine Punishment.",
+    "es": "Prioridad n.º 1 en KR: súbela a 16 por el Castigo divino extra."
+   },
+   "pickLev": [
+    0,
+    1,
+    2
+   ],
+   "pickEnd": [
+    4,
+    1,
+    0
+   ]
+  },
+  {
+   "n": "Bolt",
+   "ne": "Centella",
+   "nk": "벽력",
+   "ic": "ICON_CL_SKILL_006",
+   "t": "active",
+   "un": 14,
+   "cd": 45,
+   "charge": true,
+   "d": {
+    "en": "Charged Wind nuke on up to 4 enemies (max 3 charge levels); 20-35 Stagger damage.",
+    "es": "Nuke de Viento cargado hasta a 4 enemigos (3 niveles de carga); 20-35 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "30% chance to inflict Stun for 3s when fully charged",
+     "Al alcanzar la recarga máxima, estado de Aturdimiento durante 3s con un 30 % de prob."
+    ],
+    [
+     8,
+     "+300 Skill Accuracy",
+     "Aumento de 300 de la Precisión de la habilidad"
+    ],
+    [
+     8,
+     "+30% Skill Speed",
+     "Aumento de la Velocidad de habilidad en un 30 %"
+    ],
+    [
+     12,
+     "Up to +20% damage when less targets hit",
+     "Cuantos menos objetivos se acierten, aumento máx. del 20 % de daño"
+    ],
+    [
+     16,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "Burst / stagger",
+    "es": "Burst / tambaleo"
+   },
+   "tip": {
+    "en": "Always full-charge it on bosses to fill the Stagger bar.",
+    "es": "Cárgala siempre al máximo en jefes para llenar el Tambaleo."
+   },
+   "pickLev": [
+    2,
+    0
+   ],
+   "pickEnd": [
+    2,
+    4,
+    3
+   ]
+  },
+  {
+   "n": "Chain of Torment",
+   "ne": "Enlace de dolor",
+   "nk": "고통의 연쇄",
+   "ic": "ICON_CL_SKILL_007",
+   "t": "active",
+   "un": 4,
+   "cd": 20,
+   "d": {
+    "en": "Earth AoE (4 targets), -5% enemy PvE Damage Tolerance and a 10s DoT. Enables Condemnation.",
+    "es": "Daño de Tierra en área (4), -5 % de Tolerancia a Daño JcE enemiga y DoT de 10s. Habilita Condena."
+   },
+   "sp": [
+    [
+     8,
+     "Slows target for 5s",
+     "Ralentización de objetivo durante 5s"
+    ],
+    [
+     8,
+     "+3s Damage over Time",
+     "Aumento de 3 s de daño continuo"
+    ],
+    [
+     8,
+     "Has a 20% chance to inflict Knockdown on the target for 3s",
+     "Estado de Derribo a objetivo durante 3s con un 20 % de prob."
+    ],
+    [
+     12,
+     "+10% PvE Damage Tolerance reduction and +5% PvP Damage Tolerance reduction",
+     "Reducción adicional del 10 % de Tolerancia a Daño JcE y 5 % de Tolerancia a Daño JcJ"
+    ],
+    [
+     16,
+     "Ignores Block and Evasion and reduces Damage over Time interval by 50%",
+     "Ignora Bloqueo y Evasión, y reduce el intervalo de Daño continuo un 50 %."
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Party debuff",
+    "es": "Debuff de grupo"
+   },
+   "tip": {
+    "en": "Keep it up 100%: it buffs the whole party's damage and unlocks Condemnation.",
+    "es": "Mantenlo al 100 %: sube el daño de todo el grupo y habilita Condena."
+   },
+   "pickLev": [
+    1,
+    0,
+    3
+   ],
+   "pickEnd": [
+    3,
+    1,
+    4
+   ]
+  },
+  {
+   "n": "Debilitating Mark",
+   "ne": "Estigma debilitante",
+   "nk": "약화의 낙인",
+   "ic": "ICON_CL_SKILL_008",
+   "t": "active",
+   "un": 1,
+   "cd": 10,
+   "d": {
+    "en": "Wind AoE (4 targets), -5% enemy PvE Damage Boost and a 10s DoT.",
+    "es": "Daño de Viento en área (4), -5 % de Amplificación de Daño JcE enemiga y DoT de 10s."
+   },
+   "sp": [
+    [
+     8,
+     "Removes MP Consumed and restores 150 MP",
+     "Eliminación del consumo de Puntos de Maná y recuperación de 150 de Puntos de Maná"
+    ],
+    [
+     8,
+     "-15% target Defense for duration of Damage over Time",
+     "Reducción del 15 % de Defensa de objetivo durante daño continuo"
+    ],
+    [
+     8,
+     "Has a 20% chance to inflict Stun on the target for 3s",
+     "Estado de Aturdimiento a objetivo durante 3s con un 20 % de prob."
+    ],
+    [
+     12,
+     "+10% PvE Damage Boost reduction and +5% PvP Damage Boost reduction",
+     "Reducción adicional de un 10 % de la Amplificación de Daño JcE y de un 5 % de la Amplificación de Daño JcJ"
+    ],
+    [
+     16,
+     "Ignores Block and Evasion and reduces Damage over Time interval by 50%",
+     "Ignora Bloqueo y Evasión, y reduce el intervalo de Daño continuo un 50 %."
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "Defense debuff",
+    "es": "Debuff defensivo"
+   },
+   "tip": {
+    "en": "Stacks with Chain of Torment; keep both DoTs on the boss.",
+    "es": "Se acumula con Enlace de dolor; mantén ambos DoT en el jefe."
+   },
+   "pickLev": [
+    0,
+    1,
+    2
+   ],
+   "pickEnd": [
+    1,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Light of Regeneration",
+   "ne": "Luz de protección",
+   "nk": "재생의 빛",
+   "ic": "ICON_CL_SKILL_009",
+   "t": "active",
+   "un": 7,
+   "cd": 30,
+   "d": {
+    "en": "Party HoT: heals you and party within 40m every 2s for 30s.",
+    "es": "Curación continua: cura a ti y al grupo a 40 m cada 2s durante 30s."
+   },
+   "sp": [
+    [
+     8,
+     "+5% Defense while healing",
+     "Aumento del 5 % de Defensa durante recuperación"
+    ],
+    [
+     8,
+     "+20% amount healed when HP is 50% or less",
+     "Aumento de Recuperación en un 20 % cuando los Puntos de Vida están al 50 % o menos."
+    ],
+    [
+     8,
+     "+5% Incoming Heal during healing",
+     "Aumento del 5 % de Curación Recibida durante recuperación"
+    ],
+    [
+     12,
+     "+5% Move Speed during healing",
+     "Aumento del 5 % de Velocidad de Movimiento durante recuperación"
+    ],
+    [
+     16,
+     "+5% PvE Damage Tolerance and +2.5% PvP Damage Tolerance during healing",
+     "Aumento del 5 % de Tolerancia a Daño JcE y 2.5 % de Tolerancia a Daño JcJ durante recuperación"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Party HoT",
+    "es": "Cura continua"
+   },
+   "tip": {
+    "en": "Refresh on cooldown before pulls; it also gives damage tolerance.",
+    "es": "Renuévala en cooldown antes de cada pull; también da tolerancia."
+   },
+   "pickLev": [
+    1,
+    0,
+    3
+   ],
+   "pickEnd": [
+    4,
+    1,
+    2
+   ]
+  },
+  {
+   "n": "Healing Light",
+   "ne": "Luz de curación",
+   "nk": "치유의 빛",
+   "ic": "ICON_CL_SKILL_010",
+   "t": "active",
+   "un": 10,
+   "cd": 6,
+   "d": {
+    "en": "Heals you and the lowest-HP party member within 40m.",
+    "es": "Cura a ti y al miembro del grupo con menos PV a 40 m."
+   },
+   "sp": [
+    [
+     8,
+     "+2 consecutive uses",
+     "Más de 2 usos consecutivos"
+    ],
+    [
+     8,
+     "+20% amount healed when HP is 50% or less",
+     "Aumento de Recuperación en un 20 % cuando los Puntos de Vida están al 50 % o menos."
+    ],
+    [
+     8,
+     "50% chance to remove 1 debuff",
+     "Disipación de magia debilitante x1 con un 50 % de prob."
+    ],
+    [
+     12,
+     "+2% HP restored",
+     "Recuperación adicional del 2 % de Puntos de Vida"
+    ],
+    [
+     16,
+     "-2s cooldown",
+     "Reducción de 2 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Spot heal",
+    "es": "Cura directa"
+   },
+   "tip": {
+    "en": "Your smart single heal; KR picks -2s cooldown and +2% HP.",
+    "es": "Tu cura inteligente; en KR eligen -2 s de cooldown y +2 % de PV."
+   },
+   "pickLev": [
+    0,
+    1,
+    3
+   ],
+   "pickEnd": [
+    4,
+    3,
+    1
+   ]
+  },
+  {
+   "n": "Radiant Recovery",
+   "ne": "Resplandor de recobro",
+   "nk": "쾌유의 광휘",
+   "ic": "ICON_CL_SKILL_012",
+   "t": "active",
+   "un": 12,
+   "cd": 12,
+   "d": {
+    "en": "Party heal within 40m that also removes 1 debuff.",
+    "es": "Cura de grupo a 40 m que además elimina 1 efecto negativo."
+   },
+   "sp": [
+    [
+     8,
+     "Removes up to 2 debuffs",
+     "Elimina hasta 2 efectos negativos"
+    ],
+    [
+     8,
+     "+1 consecutive use",
+     "Lanzamientos en cadena +1"
+    ],
+    [
+     8,
+     "-3s cooldown",
+     "Reducción de 3 s de Tiempo de Enfriamiento"
+    ],
+    [
+     12,
+     "+10% Incoming Heal for 10s",
+     "+10 % de Curación recibida durante 10s"
+    ],
+    [
+     16,
+     "+5% HP restored",
+     "Restaura un 5 % adicional de Puntos de Vida"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Main party heal",
+    "es": "Cura de grupo"
+   },
+   "tip": {
+    "en": "Most important heal in KR guides: level it first among heals.",
+    "es": "La cura más importante según guías KR: súbela primero."
+   },
+   "pickLev": [
+    2,
+    1,
+    0
+   ],
+   "pickEnd": [
+    2,
+    4,
+    0
+   ]
+  },
+  {
+   "n": "Divine Aura",
+   "ne": "Aura divina",
+   "nk": "신성한 기운",
+   "ic": "ICON_CL_SKILL_015",
+   "t": "active",
+   "un": 3,
+   "cd": 30,
+   "d": {
+    "en": "Summons a stationary aura for 5s that periodically hits your target for Earth damage.",
+    "es": "Invoca un aura fija de 5s que golpea a tu objetivo con daño de Tierra."
+   },
+   "sp": [
+    [
+     8,
+     "-40% Move Speed for 3s to up to 4 enemies within 4m of the Aura",
+     "-40 % de Velocidad de movimiento durante 3s hasta a 4 enemigos dentro de un rango de 4 m del aura"
+    ],
+    [
+     8,
+     "Changes to AoE Skill",
+     "Cambio a habilidad de área"
+    ],
+    [
+     8,
+     "+50% [Divine Aura] attacking speed",
+     "Aumento del 50 % de velocidad de disparo de «Aura divina»"
+    ],
+    [
+     12,
+     "+3s [Divine Aura] duration",
+     "Aumento de 3 s de duración de «Aura divina»"
+    ],
+    [
+     16,
+     "-10s cooldown",
+     "Reducción de 10 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 8,
+   "tag": {
+    "en": "Extra DPS",
+    "es": "DPS extra"
+   },
+   "tip": {
+    "en": "Drop it on cooldown; AoE version is great for leveling packs.",
+    "es": "Úsala en cooldown; la versión en área es ideal para subir nivel."
+   },
+   "pickLev": [
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Condemnation",
+   "ne": "Condena",
+   "nk": "단죄",
+   "ic": "ICON_CL_SKILL_035",
+   "t": "active",
+   "un": 8,
+   "cd": 3,
+   "d": {
+    "en": "Earth AoE on a target afflicted with Chain of Torment (3s cooldown).",
+    "es": "Daño de Tierra en área a un objetivo con Enlace de dolor (3s de cooldown)."
+   },
+   "sp": [
+    [
+     8,
+     "Restores 100 MP on hit",
+     "Al acertar, recuperación de 100 de Puntos de Maná"
+    ],
+    [
+     8,
+     "Up to +12% damage when less targets hit",
+     "Cuantos menos objetivos se acierten, aumento máx. del 12 %"
+    ],
+    [
+     8,
+     "20% chance to inflict Root for 3s",
+     "20 % de probabilidad de infligir Atadura durante 3s"
+    ],
+    [
+     12,
+     "Resets cooldown on landing a Critical Hit with [Condemnation]",
+     "Reinicio del tiempo de espera de [Condena] al acertar un Crítico con [Condena]"
+    ],
+    [
+     16,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Core damage",
+    "es": "Daño principal"
+   },
+   "tip": {
+    "en": "Earth Punishment makes it always crit, so the crit reset fires every time.",
+    "es": "Castigo terrestre lo hace crítico siempre, así el reinicio salta cada vez."
+   },
+   "pickLev": [
+    0,
+    1,
+    3
+   ],
+   "pickEnd": [
+    3,
+    4,
+    1
+   ]
+  },
+  {
+   "n": "Lightning Strike Scattershot",
+   "ne": "Relámpagos sin puntería",
+   "nk": "벼락 난사",
+   "ic": "ICON_CL_SKILL_037",
+   "t": "active",
+   "un": 5,
+   "cd": 0,
+   "d": {
+    "en": "Damages a target afflicted with Stagger within 20m.",
+    "es": "Inflige daño a un objetivo en Tambaleo a 20 m."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 5% HP",
+     "Absorción de Puntos de Vida del 5 %"
+    ],
+    [
+     8,
+     "Restores 120 MP",
+     "Recuperación de 120 de Puntos de Maná"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     16,
+     "-1s all skill cooldowns on hit",
+     "Al acertar, reducción de 1s de Tiempo de Enfriamiento de todas las habilidades"
+    ]
+   ],
+   "rank": 9,
+   "tag": {
+    "en": "Stagger punish",
+    "es": "Castigo en tambaleo"
+   },
+   "tip": {
+    "en": "Spam only while the boss is Staggered.",
+    "es": "Úsalo solo mientras el jefe está en Tambaleo."
+   },
+   "pickLev": [
+    0,
+    1,
+    2
+   ],
+   "pickEnd": [
+    4,
+    3,
+    1
+   ]
+  },
+  {
+   "n": "Defiance",
+   "ne": "Eliminación de impacto",
+   "nk": "충격 해제",
+   "ic": "ICON_CO_SKILL_002",
+   "t": "active",
+   "un": 16,
+   "cd": 60,
+   "d": {
+    "en": "Removes Stun, Knockdown, Airborne, Grab, Frost and Fear; grants status immunity for 5s.",
+    "es": "Elimina Aturdimiento, Derribo, Atadura aérea, Agarre, Congelación y Terror; inmunidad 5s."
+   },
+   "sp": [
+    [
+     8,
+     "Adds [Blessing of Regeneration] Chain Skill",
+     "Añade [Bendición de regeneración] como segunda habilidad de cadena."
+    ],
+    [
+     8,
+     "Restores 1000 Stamina on using [Defiance]",
+     "Al lanzar [Eliminación de impacto], recupera 1000 de Vigor"
+    ],
+    [
+     8,
+     "Restores 10% HP on using [Defiance]",
+     "Al lanzar «Eliminación de impacto», recuperación del 10 % de PV"
+    ],
+    [
+     12,
+     "+2s Tenacity duration",
+     "Aumento de 2 s de duración de Robustez"
+    ],
+    [
+     16,
+     "+50% PvE Damage Tolerance and +25% PvP Damage Tolerance for Tenacity duration",
+     "Durante la duración de Robustez, la Tolerancia a Daño JcE aumenta un 50 % y la Tolerancia a Daño JcJ un 25 %"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "CC break",
+    "es": "Rompe control"
+   },
+   "tip": {
+    "en": "Low PvE priority; leave at 1 and press it when stunned.",
+    "es": "Prioridad baja en JcE; déjala en 1 y úsala al ser aturdido."
+   },
+   "pickLev": [
+    2
+   ],
+   "pickEnd": [
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Light of Protection",
+   "ne": "Luz de protección",
+   "nk": "보호의 빛",
+   "ic": "ICON_CL_SKILL_041",
+   "t": "stigma",
+   "un": 22,
+   "cd": 5,
+   "d": {
+    "en": "+10.5% PvE Damage Boost and PvE Damage Tolerance for you and nearby party.",
+    "es": "+10,5 % de Amplificación y Tolerancia a Daño JcE para ti y el grupo cercano."
+   },
+   "sp": [
+    [
+     5,
+     "+10% Incoming Heal",
+     "Aumento del 10 % de Curación Recibida"
+    ],
+    [
+     10,
+     "+100 Accuracy",
+     "Aumento de 100 de Precisión"
+    ],
+    [
+     15,
+     "+10% Max HP",
+     "Aumento del 10 % de Puntos de Vida Máximos"
+    ],
+    [
+     20,
+     "+10% Perfect Chance",
+     "Aumento del 10 % de Perforación"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Party aura",
+    "es": "Aura de grupo"
+   },
+   "tip": {
+    "en": "Always on in every build; does not stack with the Chanter buff.",
+    "es": "Siempre activa en toda build; no se acumula con el buff del Cantor."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Earth Punishment",
+   "ne": "Castigo terrestre",
+   "nk": "대지의 징벌",
+   "ic": "ICON_CL_SKILL_040",
+   "t": "stigma",
+   "un": 22,
+   "cd": 30,
+   "d": {
+    "en": "Earth damage plus a 10s DoT; 20 Stagger. Grants Earth's Blessing.",
+    "es": "Daño de Tierra y DoT de 10s; 20 de Tambaleo. Otorga Bendición de la Tierra."
+   },
+   "sp": [
+    [
+     5,
+     "[Condemnation] lands as a Critical Hit on targets afflicted with [Earth Punishment]",
+     "Acierto con golpe Crítico garantizado de «Condena» a objetivos con efecto de «Castigo terrestre»"
+    ],
+    [
+     10,
+     "+10% Double Chance to caster and +5% to party members from [Earth's Blessing]",
+     "Aumento de un 10 % de tu Golpe Potente y de un 5 % del Golpe Potente de los miembros del grupo con [Bendición de la Tierra]"
+    ],
+    [
+     15,
+     "+10% Attack and Defense to caster and +5% to party members from [Earth's Blessing]",
+     "Aumento de un 10 % de tu Ataque y Defensa y de un 5 % del Ataque y la Defensa de los miembros del grupo con [Bendición de la Tierra]"
+    ],
+    [
+     20,
+     "+10s [Earth Punishment] and [Earth's Blessing] duration",
+     "+10 s de duración de [Castigo terrestre] y [Bendición de la Tierra]"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "DPS + party buff",
+    "es": "DPS + buff"
+   },
+   "tip": {
+    "en": "Level to 20: guaranteed Condemnation crits and a long party buff.",
+    "es": "Súbelo a 20: Condena siempre crítica y buff de grupo largo."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Prayer of Amplification",
+   "ne": "Oración de amplificación",
+   "nk": "증폭의 기도",
+   "ic": "ICON_CL_SKILL_044",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "+20% Attack for 10s.",
+    "es": "+20 % de Ataque durante 10s."
+   },
+   "sp": [
+    [
+     5,
+     "+20% PvE Damage Boost and +10% PvP Damage Boost",
+     "+20 % de Amplificación del daño en JcE, +10 % de Amplificación del daño en JcJ"
+    ],
+    [
+     10,
+     "x1.5 [Empyrean Lord's Grace] effect for the duration",
+     "Aumento de efecto de «Gracia empírea» x1,5 durante la duración"
+    ],
+    [
+     15,
+     "x1.5 [Earth's Grace] effect for the duration",
+     "Aumento de efecto de «Gracia terrestre» x1,5 durante la duración"
+    ],
+    [
+     20,
+     "+15% additional Attack",
+     "Aumento adicional de un 15 % del Ataque"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Burst buff",
+    "es": "Buff de burst"
+   },
+   "tip": {
+    "en": "Use with burst windows; Attack also scales your heals.",
+    "es": "Úsala en ventanas de burst; el Ataque también sube tus curas."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Summon Resurrection",
+   "ne": "Resurrección de invocación",
+   "nk": "소환 부활",
+   "ic": "ICON_CL_SKILL_039",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "Resurrects fallen party members within 40m (2s cast).",
+    "es": "Revive a los miembros caídos del grupo a 40 m (2s de lanzamiento)."
+   },
+   "sp": [
+    [
+     5,
+     "-1s casting time",
+     "Reducción de 1 s de tiempo de lanzamiento"
+    ],
+    [
+     10,
+     "Invincible for 3s after resurrection",
+     "Efecto de Invencibilidad durante 3s después de revivir"
+    ],
+    [
+     15,
+     "Restores 20% of Max HP",
+     "Recuperación del 20 % de Puntos de Vida Máximos"
+    ],
+    [
+     20,
+     "Invincible for 5s after resurrection",
+     "Efecto de Invencibilidad durante 5s después de revivir"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Battle res",
+    "es": "Resurrección"
+   },
+   "tip": {
+    "en": "Lv5 is enough (faster cast); swap in for hard dungeons.",
+    "es": "Con nivel 5 basta (lanzamiento rápido); úsala en mazmorras difíciles."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Noble Aura",
+   "ne": "Aura noble",
+   "nk": "고결한 기운",
+   "ic": "ICON_CL_SKILL_046",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Summons an aura for 300s that follows you and attacks your target every 2s.",
+    "es": "Invoca un aura de 300s que te sigue y ataca a tu objetivo cada 2s."
+   },
+   "sp": [
+    [
+     5,
+     "+200 Aura Critical Hit",
+     "Aumento de 200 de Crítico de aura"
+    ],
+    [
+     10,
+     "+20 damage to targets afflicted with Debilitating Mark",
+     "Aumento del 20 % de daño a objetivos en estado de Estigma debilitante"
+    ],
+    [
+     15,
+     "+30% damage to targets with Incapacitated Immunity",
+     "Aumento del 30 % de daño a objetivos con Inmunidad a Incapacitación"
+    ],
+    [
+     20,
+     "-1s Aura attack cooldown",
+     "Reducción de 1 s de Tiempo de Enfriamiento de ataque de aura"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Passive DPS",
+    "es": "DPS pasivo"
+   },
+   "tip": {
+    "en": "Free damage for 5 minutes; very popular with top global players.",
+    "es": "Daño gratis por 5 minutos; muy usada por jugadores top globales."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Absolution",
+   "ne": "Absolución",
+   "nk": "면죄",
+   "ic": "ICON_CL_SKILL_028",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Big party heal within 40m and removes up to 2 debuffs.",
+    "es": "Gran cura de grupo a 40 m y elimina hasta 2 efectos negativos."
+   },
+   "sp": [
+    [
+     5,
+     "-30s cooldown",
+     "Reducción de 30 s de Tiempo de Enfriamiento"
+    ],
+    [
+     10,
+     "Removes all debuffs",
+     "Disipación de todas las magias debilitantes"
+    ],
+    [
+     15,
+     "+5% HP restored",
+     "Recuperación adicional del 5 % de Puntos de Vida"
+    ],
+    [
+     20,
+     "Restores 1.5% HP every 2s for 10s",
+     "Recuperación adicional del 1,5 % de Puntos de Vida con un intervalo de 2s durante 10s"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Emergency heal",
+    "es": "Cura de emergencia"
+   },
+   "tip": {
+    "en": "KR levels it to 5 first; core for PvP and heavy-cleanse fights.",
+    "es": "En KR la suben a 5 primero; clave en JcJ y peleas con muchos debuffs."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Salvation",
+   "ne": "Salvación",
+   "nk": "구원",
+   "ic": "ICON_CL_SKILL_026",
+   "t": "stigma",
+   "un": 22,
+   "cd": 150,
+   "d": {
+    "en": "You are immune to damage and status effects for 3s.",
+    "es": "Eres inmune al daño y a efectos de estado durante 3s."
+   },
+   "sp": [
+    [
+     5,
+     "+100% Incoming Heal",
+     "Aumento del 100 % de Curación Recibida"
+    ],
+    [
+     10,
+     "Restores 20% of Max HP at the end of [Salvation]",
+     "Al finalizar «Salvación», recuperación del 20 % de Puntos de Vida Máximos"
+    ],
+    [
+     15,
+     "Grants base effect of [Salvation] to the party member with the lowest HP",
+     "Efecto básico de «Salvación» al miembro del grupo con los Puntos de Vida más bajos"
+    ],
+    [
+     20,
+     "Triggers [Salvation] when afflicted with Impact-type status",
+     "[Salvación] se activa al estar afectado por un estado de Tipo Impacto"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Immunity",
+    "es": "Inmunidad"
+   },
+   "tip": {
+    "en": "Lv15 can save the lowest-HP ally; PvP and hard bosses.",
+    "es": "En nivel 15 protege al aliado con menos PV; JcJ y jefes duros."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Yustiel's Power",
+   "ne": "Poder de Yustiel",
+   "nk": "유스티엘의 권능",
+   "ic": "ICON_CL_SKILL_042",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "+20% PvE Damage Tolerance for you and party within 40m for 10s.",
+    "es": "+20 % de Tolerancia a Daño JcE para ti y el grupo a 40 m durante 10s."
+   },
+   "sp": [
+    [
+     5,
+     "10% Max HP Protective Shield",
+     "Generación de barrera del 10 % de Puntos de Vida Máximos"
+    ],
+    [
+     10,
+     "+100 Block, Evasion",
+     "Aumento de 100 de Bloqueo y Evasión"
+    ],
+    [
+     15,
+     "+20% Status Effect Resist",
+     "Aumento del 20 % de Resistencia a Efectos de Estado"
+    ],
+    [
+     20,
+     "+10% PvE Damage Tolerance increase and +5% PvP Damage Tolerance increase",
+     "Aumento adicional del 10 % de Tolerancia a Daño JcE y 5 % de Tolerancia a Daño JcJ"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Party defensive",
+    "es": "Defensa de grupo"
+   },
+   "tip": {
+    "en": "Fixed pick in PvP; use before big boss hits in PvE.",
+    "es": "Fija en JcJ; en JcE úsala antes de golpes fuertes del jefe."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Benevolence",
+   "ne": "Poder de vida",
+   "nk": "생명의 권능",
+   "ic": "ICON_CL_SKILL_047",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "For 20s, heals you and party within 40m every 2s.",
+    "es": "Durante 20s, cura a ti y al grupo a 40 m cada 2s."
+   },
+   "sp": [
+    [
+     5,
+     "+10s duration",
+     "Aumento de 10 s de duración"
+    ],
+    [
+     10,
+     "Restores 200 Stamina every 5s for the duration",
+     "Recuperación de 200 de Vigor con un intervalo de 5s durante la duración"
+    ],
+    [
+     15,
+     "Restores 2% HP every 5s for the duration",
+     "Recuperación del 2 % de Puntos de Vida con un intervalo de 5s durante la duración"
+    ],
+    [
+     20,
+     "Cleansing effect every 5s for the duration",
+     "Efecto de Purificación cada 5s durante su duración"
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "Sustain heal",
+    "es": "Cura sostenida"
+   },
+   "tip": {
+    "en": "Optional for long heal-check fights; ranked lower by KR players.",
+    "es": "Opcional en peleas largas de curación; los KR la valoran menos."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Voice of Doom",
+   "ne": "Voz de perdición",
+   "nk": "파멸의 목소리",
+   "ic": "ICON_CL_SKILL_029",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Earth AoE + DoT; -60% enemy Incoming Heal and potion recovery for 20s.",
+    "es": "Daño de Tierra en área + DoT; -60 % de curación recibida y pociones enemigas 20s."
+   },
+   "sp": [
+    [
+     5,
+     "Up to +20% damage when more targets hit",
+     "Cuantos más objetivos se acierten, aumento máx. del 20 % de daño"
+    ],
+    [
+     10,
+     "Removes Protective Shields on hit",
+     "Al acertar, eliminación de barreras"
+    ],
+    [
+     15,
+     "-200 Critical Hit Resist for duration",
+     "Reducción de 200 de Resistencia Crítica durante la duración"
+    ],
+    [
+     20,
+     "-50% Damage over Time intervals",
+     "Reducción del intervalo de Daño continuo en un 50 %"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Anti-heal DoT",
+    "es": "DoT antisanación"
+   },
+   "tip": {
+    "en": "Solid DPS slot (KR \"Ruin\") and strong in PvP.",
+    "es": "Buena opción de DPS (\"Ruina\" en KR) y fuerte en JcJ."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Power Burst",
+   "ne": "Explosión de poder",
+   "nk": "권능 폭발",
+   "ic": "ICON_CL_SKILL_027",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Single-target Earth nuke; 50 Stagger.",
+    "es": "Nuke de Tierra a un objetivo; 50 de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ],
+    [
+     10,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ],
+    [
+     15,
+     "75% chance to inflict Knock Back",
+     "Estado de Empuje con un 75 % de prob."
+    ],
+    [
+     20,
+     "75% chance to inflict Stun for 3s",
+     "Con un 75 % de probabilidad, aplica Aturdimiento durante 3s"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "Nuke / stagger",
+    "es": "Nuke / tambaleo"
+   },
+   "tip": {
+    "en": "Niche: big Stagger hit, rarely taken.",
+    "es": "De nicho: mucho Tambaleo, poco usada."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Root",
+   "ne": "Atadura",
+   "nk": "속박",
+   "ic": "ICON_CL_SKILL_019",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Earth AoE with 75% chance to Root for 10s (100% on NPCs).",
+    "es": "Daño de Tierra en área con 75 % de Atadura 10s (100 % en PNJ)."
+   },
+   "sp": [
+    [
+     5,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     10,
+     "+2s Root duration",
+     "Aumento de 2 s de duración de Atadura"
+    ],
+    [
+     15,
+     "+25% Root chance",
+     "Aumento del 25 % de prob. de Atadura"
+    ],
+    [
+     20,
+     "x2 Damage over Time on Root targets",
+     "Al lanzar Atadura, duplicación de daño continuo de objetivo"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP control",
+    "es": "Control JcJ"
+   },
+   "tip": {
+    "en": "PvP only.",
+    "es": "Solo JcJ."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Assault Mark",
+   "ne": "Estigma de agresión",
+   "nk": "강습 낙인",
+   "ic": "ICON_CO_SKILL_003",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "AoE hit with Root chance (100% on NPCs); +Defense per target hit.",
+    "es": "Golpe en área con prob. de Atadura (100 % en PNJ); +Defensa por objetivo."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Attack for 5s on hit",
+     "Al acertar, aumento del 20 % de Ataque durante 5s"
+    ],
+    [
+     10,
+     "500 MP damage on hit",
+     "Al acertar, 500 de daño de Puntos de Maná"
+    ],
+    [
+     15,
+     "+10m range",
+     "Aumento de 10 m de alcance"
+    ],
+    [
+     20,
+     "+20% Root Chance",
+     "Aumento del 20 % de prob. de Atadura"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Shared stigma",
+    "es": "Estigma común"
+   },
+   "tip": {
+    "en": "Rarely used by Clerics.",
+    "es": "Poco usada por Clérigos."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Warm Benediction",
+   "ne": "Favor cálido",
+   "nk": "따뜻한 가호",
+   "ic": "ICON_CL_SKILL_Passive_001",
+   "t": "passive",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "+6% Max HP and +7 Max MP.",
+    "es": "+6 % de PV máximos y +7 de PM máximos."
+   },
+   "sp": [],
+   "rank": 6,
+   "tag": {
+    "en": "HP",
+    "es": "PV"
+   },
+   "tip": {
+    "en": "PvP survivability; low PvE value.",
+    "es": "Supervivencia en JcJ; poco valor en JcE."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Empyrean Lords' Benediction",
+   "ne": "Favor empíreo",
+   "nk": "주신의 가호",
+   "ic": "ICON_CL_SKILL_Passive_002",
+   "t": "passive",
+   "un": 6,
+   "cd": 0,
+   "d": {
+    "en": "+200 Block; heals on Block (3s cooldown).",
+    "es": "+200 de Bloqueo; cura al bloquear (3s de espera)."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "Block",
+    "es": "Bloqueo"
+   },
+   "tip": {
+    "en": "Leave at 1.",
+    "es": "Déjala en 1."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Empyrean Lord's Grace",
+   "ne": "Gracia empírea",
+   "nk": "주신의 은총",
+   "ic": "ICON_CL_SKILL_Passive_012",
+   "t": "passive",
+   "un": 9,
+   "cd": 0,
+   "d": {
+    "en": "+100 Critical Hit, +0.2% Double Chance and extra damage on hit (1s cooldown).",
+    "es": "+100 de Crítico, +0,2 % de Golpe Potente y daño extra al atacar (1s)."
+   },
+   "sp": [],
+   "rank": 5,
+   "tag": {
+    "en": "Damage",
+    "es": "Daño"
+   },
+   "tip": {
+    "en": "Boosted by Prayer of Amplification; KR guides rate it low.",
+    "es": "Potenciada por Oración de amplificación; guías KR la valoran poco."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Healing Enhancement",
+   "ne": "Mejora curativa",
+   "nk": "치유력 강화",
+   "ic": "ICON_CL_SKILL_Passive_003",
+   "t": "passive",
+   "un": 11,
+   "cd": 0,
+   "d": {
+    "en": "Raises Heal Boost based on your Attack.",
+    "es": "Aumenta la Amplificación de Curación según tu Ataque."
+   },
+   "sp": [],
+   "rank": 2,
+   "tag": {
+    "en": "Heal power",
+    "es": "Poder curativo"
+   },
+   "tip": {
+    "en": "Key healer passive; your heals scale with Attack.",
+    "es": "Pasiva clave de sanador; tus curas escalan con Ataque."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Immortal Veil",
+   "ne": "Velo inmortal",
+   "nk": "불사의 장막",
+   "ic": "ICON_CL_SKILL_Passive_011",
+   "t": "passive",
+   "un": 13,
+   "cd": 0,
+   "d": {
+    "en": "+2% Defense and +100 Critical Hit Resist.",
+    "es": "+2 % de Defensa y +100 de Resistencia Crítica."
+   },
+   "sp": [],
+   "rank": 4,
+   "tag": {
+    "en": "Defense",
+    "es": "Defensa"
+   },
+   "tip": {
+    "en": "Top PvP passive; mid priority in PvE.",
+    "es": "Pasiva top en JcJ; prioridad media en JcE."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Heal Block",
+   "ne": "Bloqueo de recuperación",
+   "nk": "회복 차단",
+   "ic": "ICON_CL_SKILL_Passive_005",
+   "t": "passive",
+   "un": 15,
+   "cd": 0,
+   "d": {
+    "en": "7% chance on hit to reduce target Incoming Heal by 32% for 5s.",
+    "es": "7 % de prob. al acertar de reducir la curación recibida del objetivo un 32 % 5s."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "PvP",
+    "es": "JcJ"
+   },
+   "tip": {
+    "en": "PvP only.",
+    "es": "Solo JcJ."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Prayer of Concentration",
+   "ne": "Oración de concentración",
+   "nk": "집중의 기도",
+   "ic": "ICON_CL_SKILL_Passive_006",
+   "t": "passive",
+   "un": 17,
+   "cd": 0,
+   "d": {
+    "en": "At 50% HP or less: shield and +20% Heal Boost for 30s (60s cooldown).",
+    "es": "Con 50 % de PV o menos: barrera y +20 % de Amplificación de Curación 30s (60s)."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "Emergency",
+    "es": "Emergencia"
+   },
+   "tip": {
+    "en": "Leave at 1.",
+    "es": "Déjala en 1."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Earth's Grace",
+   "ne": "Gracia terrestre",
+   "nk": "대지의 은총",
+   "ic": "ICON_CL_SKILL_Passive_008",
+   "t": "passive",
+   "un": 21,
+   "cd": 0,
+   "d": {
+    "en": "+10.5% Critical Damage Boost and +100 Accuracy.",
+    "es": "+10,5 % de Amplificación de Daño Crítico y +100 de Precisión."
+   },
+   "sp": [],
+   "rank": 1,
+   "tag": {
+    "en": "Top passive",
+    "es": "Pasiva top"
+   },
+   "tip": {
+    "en": "No.1 passive in every KR PvE guide.",
+    "es": "Pasiva n.º 1 en todas las guías KR de JcE."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Survival Willpower",
+   "ne": "Voluntad de supervivencia",
+   "nk": "생존 의지",
+   "ic": "ICON_GL_SKILL_Passive_009",
+   "t": "passive",
+   "un": 23,
+   "cd": 0,
+   "d": {
+    "en": "+17% Status Effect Resist; damage tolerance when stunned or knocked down.",
+    "es": "+17 % de Resistencia a efectos de estado; tolerancia al ser aturdido o derribado."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "PvP",
+    "es": "JcJ"
+   },
+   "tip": {
+    "en": "PvP pick; skip in PvE.",
+    "es": "Para JcJ; omítela en JcE."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Radiant Benediction",
+   "ne": "Favor radiante",
+   "nk": "찬란한 가호",
+   "ic": "ICON_CL_SKILL_Passive_007",
+   "t": "passive",
+   "un": 25,
+   "cd": 0,
+   "d": {
+    "en": "Heals you and party within 40m when an attack lands (5s cooldown).",
+    "es": "Cura a ti y al grupo a 40 m al acertar un ataque (5s de espera)."
+   },
+   "sp": [],
+   "rank": 3,
+   "tag": {
+    "en": "Free heal",
+    "es": "Cura gratis"
+   },
+   "tip": {
+    "en": "Rewards damage-heavy play: attacking heals the party.",
+    "es": "Premia jugar ofensivo: atacar cura al grupo."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  }
+ ],
+ "points": [
+  [
+   "Judgment Thunder",
+   4
+  ],
+  [
+   "Debilitating Mark",
+   3
+  ],
+  [
+   "Chain of Torment",
+   4
+  ],
+  [
+   "Earth's Retribution",
+   3
+  ],
+  [
+   "Condemnation",
+   4
+  ],
+  [
+   "Light of Regeneration",
+   4
+  ],
+  [
+   "Healing Light",
+   4
+  ],
+  [
+   "Radiant Recovery",
+   4
+  ],
+  [
+   "Divine Aura",
+   4
+  ],
+  [
+   "Judgment Thunder",
+   7
+  ],
+  [
+   "Condemnation",
+   7
+  ],
+  [
+   "Chain of Torment",
+   7
+  ],
+  [
+   "Bolt",
+   4
+  ],
+  [
+   "Radiant Recovery",
+   7
+  ],
+  [
+   "Healing Light",
+   7
+  ],
+  [
+   "Light of Regeneration",
+   7
+  ],
+  [
+   "Earth's Retribution",
+   7
+  ],
+  [
+   "Debilitating Mark",
+   7
+  ],
+  [
+   "Earth's Grace",
+   7
+  ],
+  [
+   "Judgment Thunder",
+   10
+  ],
+  [
+   "Radiant Recovery",
+   10
+  ],
+  [
+   "Condemnation",
+   10
+  ],
+  [
+   "Chain of Torment",
+   10
+  ],
+  [
+   "Healing Light",
+   10
+  ],
+  [
+   "Light of Regeneration",
+   10
+  ],
+  [
+   "Earth's Grace",
+   10
+  ],
+  [
+   "Earth's Retribution",
+   10
+  ],
+  [
+   "Debilitating Mark",
+   8
+  ],
+  [
+   "Healing Enhancement",
+   7
+  ],
+  [
+   "Immortal Veil",
+   4
+  ]
+ ],
+ "stigma": {
+  "loadouts": [
+   {
+    "id": "main",
+    "name": {
+     "en": "Party healer (PvE)",
+     "es": "Sanador de grupo (JcE)"
+    },
+    "skills": [
+     "Light of Protection",
+     "Earth Punishment",
+     "Prayer of Amplification",
+     "Summon Resurrection"
+    ],
+    "note": {
+     "en": "KR Inven standard. Swap Resurrection for Salvation or Voice of Doom on easy content.",
+     "es": "Estándar de Inven KR. Cambia Resurrección por Salvación o Voz de perdición en contenido fácil."
+    }
+   },
+   {
+    "id": "solo",
+    "name": {
+     "en": "Solo / leveling DPS",
+     "es": "DPS solo / subir nivel"
+    },
+    "skills": [
+     "Light of Protection",
+     "Earth Punishment",
+     "Noble Aura",
+     "Prayer of Amplification"
+    ],
+    "note": {
+     "en": "Max damage: Noble Aura is the most-used stigma by top global players after Light of Protection.",
+     "es": "Daño máximo: Aura noble es el estigma más usado por jugadores top tras Luz de protección."
+    }
+   },
+   {
+    "id": "alt",
+    "name": {
+     "en": "PvP",
+     "es": "JcJ"
+    },
+    "skills": [
+     "Absolution",
+     "Yustiel's Power",
+     "Salvation",
+     "Light of Protection"
+    ],
+    "note": {
+     "en": "Survival kit for arenas and open PvP; Earth Punishment is the flex slot.",
+     "es": "Kit de supervivencia para arenas y JcJ abierto; Castigo terrestre es el hueco flexible."
+    }
+   }
+  ],
+  "levelTips": {
+   "en": "Absolution 5 → Light of Protection 10 → Resurrection/Salvation 1 → Prayer 5 → Light of Protection 15 → Earth Punishment 20 (biggest DPS gain) → Prayer 15.",
+   "es": "Absolución 5 → Luz de protección 10 → Resurrección/Salvación 1 → Oración 5 → Luz de protección 15 → Castigo terrestre 20 (mayor ganancia de DPS) → Oración 15."
+  }
+ },
+ "dvValues": {
+  "Judgment Thunder": 10,
+  "Condemnation": 10,
+  "Radiant Recovery": 10,
+  "Light of Regeneration": 9,
+  "Healing Light": 9,
+  "Chain of Torment": 9,
+  "Earth's Retribution": 8,
+  "Earth's Grace": 9,
+  "Empyrean Lord's Grace": 6,
+  "Debilitating Mark": 7,
+  "Healing Enhancement": 7,
+  "Divine Aura": 5,
+  "Bolt": 4,
+  "Immortal Veil": 5,
+  "Warm Benediction": 4,
+  "Radiant Benediction": 5,
+  "Lightning Strike Scattershot": 3,
+  "Survival Willpower": 2,
+  "Defiance": 2,
+  "Empyrean Lords' Benediction": 1,
+  "Prayer of Concentration": 1,
+  "Heal Block": 1
+ },
+ "dvSimple": {
+  "en": [
+   "Start at the center and path toward orange stat nodes.",
+   "Blue (skill +1) nodes before green (passive +1).",
+   "Judgment Thunder and Condemnation first.",
+   "Radiant Recovery, Healing Light, Light of Regeneration next.",
+   "Chain of Torment and Earth's Retribution.",
+   "Earth's Grace is the best passive node.",
+   "Then Debilitating Mark and Healing Enhancement.",
+   "Empyrean Lord's Grace and Immortal Veil with leftovers.",
+   "Main boards: Nezekan, Zikel, Vaizel.",
+   "Skip Heal Block, Prayer of Concentration and Block nodes in PvE."
+  ],
+  "es": [
+   "Empieza en el centro y avanza hacia los nodos naranjas de stats.",
+   "Nodos azules (habilidad +1) antes que verdes (pasiva +1).",
+   "Primero Rayo del juicio y Condena.",
+   "Luego Resplandor de recobro, Luz de curación y Luz de protección (regeneración).",
+   "Enlace de dolor y Retribución terrestre.",
+   "Gracia terrestre es el mejor nodo pasivo.",
+   "Después Estigma debilitante y Mejora curativa.",
+   "Gracia empírea y Velo inmortal con lo que sobre.",
+   "Tableros principales: Nezekan, Zikel, Vaizel.",
+   "En JcE omite Bloqueo de recuperación, Oración de concentración y nodos de Bloqueo."
+  ]
+ },
+ "macro": {
+  "leveling": {
+   "slots": [
+    [
+     "1",
+     [
+      "Debilitating Mark",
+      "Chain of Torment",
+      "Condemnation",
+      "Judgment Thunder"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Divine Aura",
+      "Earth's Retribution"
+     ],
+     "m"
+    ],
+    [
+     "3",
+     [
+      "Bolt"
+     ],
+     "h"
+    ],
+    [
+     "Q",
+     [
+      "Healing Light"
+     ],
+     "h"
+    ],
+    [
+     "E",
+     [
+      "Light of Regeneration"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "2",
+    "1",
+    "3",
+    "1",
+    "2"
+   ]
+  },
+  "endgame": {
+   "slots": [
+    [
+     "1",
+     [
+      "Debilitating Mark",
+      "Chain of Torment",
+      "Condemnation",
+      "Judgment Thunder"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Earth Punishment",
+      "Divine Aura",
+      "Earth's Retribution"
+     ],
+     "m"
+    ],
+    [
+     "3",
+     [
+      "Bolt"
+     ],
+     "h"
+    ],
+    [
+     "4",
+     [
+      "Prayer of Amplification"
+     ],
+     "h"
+    ],
+    [
+     "Q",
+     [
+      "Healing Light"
+     ],
+     "h"
+    ],
+    [
+     "E",
+     [
+      "Radiant Recovery"
+     ],
+     "h"
+    ],
+    [
+     "R",
+     [
+      "Light of Regeneration"
+     ],
+     "h"
+    ],
+    [
+     "F",
+     [
+      "Lightning Strike Scattershot"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "4",
+    "2",
+    "1",
+    "3",
+    "1",
+    "F"
+   ]
+  },
+  "notes": {
+   "en": "Same order as the popular global macro (Judgment Thunder, Debilitating Mark, Chain of Torment, Earth's Retribution). Keep all heals by hand so you never waste a GCD.",
+   "es": "Mismo orden que la macro global popular (Rayo del juicio, Estigma debilitante, Enlace de dolor, Retribución terrestre). Cura siempre a mano para no perder tiempo."
+  }
+ },
+ "rotation": {
+  "en": [
+   "Keep Light of Protection on; open with Light of Regeneration.",
+   "Earth Punishment, then Debilitating Mark + Chain of Torment.",
+   "Condemnation on every reset (guaranteed crit).",
+   "Fill with Judgment Thunder; Earth's Retribution when low on MP.",
+   "Full-charge Bolt for Stagger, then Lightning Strike Scattershot.",
+   "Radiant Recovery / Healing Light whenever the party needs it."
+  ],
+  "es": [
+   "Mantén Luz de protección; abre con Luz de protección (regeneración).",
+   "Castigo terrestre, luego Estigma debilitante + Enlace de dolor.",
+   "Condena en cada reinicio (crítico garantizado).",
+   "Rellena con Rayo del juicio; Retribución terrestre si te falta PM.",
+   "Centella cargada al máximo para Tambaleo y luego Relámpagos sin puntería.",
+   "Resplandor de recobro / Luz de curación cuando el grupo lo necesite."
+  ]
+ },
+ "synergy": [
+  {
+   "a": "Chain of Torment",
+   "b": "Condemnation",
+   "t": {
+    "en": "Unlock",
+    "es": "Habilitar"
+   },
+   "s": {
+    "en": "Condemnation can only hit targets with Chain of Torment.",
+    "es": "Condena solo golpea objetivos con Enlace de dolor."
+   }
+  },
+  {
+   "a": "Earth Punishment",
+   "b": "Condemnation",
+   "t": {
+    "en": "Crit reset loop",
+    "es": "Bucle de crítico"
+   },
+   "s": {
+    "en": "Earth Punishment forces Condemnation crits, triggering its cooldown reset.",
+    "es": "Castigo terrestre fuerza críticos de Condena y activa su reinicio."
+   }
+  },
+  {
+   "a": "Earth's Retribution",
+   "b": "Bolt",
+   "t": {
+    "en": "Cooldown feed",
+    "es": "Reducir cooldown"
+   },
+   "s": {
+    "en": "Discharge procs cut Bolt cooldown by 7s.",
+    "es": "Las Descargas reducen 7 s el cooldown de Centella."
+   }
+  },
+  {
+   "a": "Bolt",
+   "b": "Lightning Strike Scattershot",
+   "t": {
+    "en": "Stagger punish",
+    "es": "Castigo en tambaleo"
+   },
+   "s": {
+    "en": "Bolt fills Stagger; Scattershot only hits Staggered targets.",
+    "es": "Centella llena el Tambaleo; Relámpagos sin puntería solo golpea en Tambaleo."
+   }
+  },
+  {
+   "a": "Prayer of Amplification",
+   "b": "Earth's Grace",
+   "t": {
+    "en": "Buff x1.5",
+    "es": "Buff x1,5"
+   },
+   "s": {
+    "en": "At Lv15 Prayer boosts Earth's Grace by 1.5x.",
+    "es": "En nivel 15 la Oración multiplica Gracia terrestre x1,5."
+   }
+  }
+ ],
+ "stats": {
+  "order": [
+   {
+    "en": "Accuracy",
+    "es": "Precisión",
+    "w": 100
+   },
+   {
+    "en": "Critical Hit",
+    "es": "Crítico",
+    "w": 90
+   },
+   {
+    "en": "Attack",
+    "es": "Ataque",
+    "w": 80
+   },
+   {
+    "en": "Cooldown Reduction",
+    "es": "Reducción de enfriamiento",
+    "w": 70
+   },
+   {
+    "en": "HP",
+    "es": "PV",
+    "w": 55
+   },
+   {
+    "en": "Critical Hit Resist",
+    "es": "Resistencia Crítica",
+    "w": 40
+   }
+  ],
+  "notes": {
+   "en": "Attack also raises healing (Healing Enhancement). PvE manastones: Accuracy + Crit; PvP: Accuracy + Crit Resist.",
+   "es": "El Ataque también sube la curación (Mejora curativa). Piedras de maná JcE: Precisión + Crítico; JcJ: Precisión + Resistencia Crítica."
+  }
+ },
+ "genus": {
+  "s15": [
+   [
+    "PvE Attack",
+    "Ataque JcE",
+    1
+   ],
+   [
+    "Attack Bonus",
+    "Bonificación de Ataque",
+    2
+   ],
+   [
+    "Boss Attack",
+    "Ataque contra jefes",
+    2
+   ],
+   [
+    "Critical Attack",
+    "Ataque crítico",
+    3
+   ]
+  ],
+  "s369": [
+   [
+    "PvE Accuracy",
+    "Precisión JcE",
+    1
+   ],
+   [
+    "Critical Hit",
+    "Crítico",
+    2
+   ],
+   [
+    "Accuracy Bonus",
+    "Bonificación de Precisión",
+    3
+   ]
+  ],
+  "s278": [
+   [
+    "PvE Defense",
+    "Defensa JcE",
+    1
+   ],
+   [
+    "HP increase",
+    "Aumento de PV",
+    2
+   ],
+   [
+    "Critical Hit Resist",
+    "Resistencia a Crítico",
+    3
+   ]
+  ],
+  "s4": {
+   "cogni": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de Daño JcE",
+     1
+    ],
+    [
+     "Critical Damage Boost",
+     "Amplificación de Daño Crítico",
+     2
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de Daño",
+     3
+    ]
+   ],
+   "fera": [
+    [
+     "Weapon Damage Boost",
+     "Amplificación de Daño de Arma",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de Daño JcE",
+     2
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de Daño",
+     3
+    ]
+   ],
+   "natura": [
+    [
+     "Multi-hit Chance",
+     "Prob. de Multigolpe",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de Daño JcE",
+     2
+    ],
+    [
+     "Perfect Chance",
+     "Prob. de Perforación",
+     3
+    ]
+   ],
+   "varian": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de Daño JcE",
+     1
+    ],
+    [
+     "Front Attack Damage Boost",
+     "Amplificación de Daño Frontal",
+     2
+    ],
+    [
+     "Varian Damage Boost",
+     "Amplificación de Daño Varian",
+     3
+    ]
+   ],
+   "special": [
+    [
+     "Double Chance",
+     "Prob. de Golpe Potente",
+     1
+    ],
+    [
+     "Critical Damage Boost",
+     "Amplificación de Daño Crítico",
+     2
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de Daño",
+     3
+    ]
+   ]
+  },
+  "notes": {
+   "en": "Genus has no heal stat, but Cleric heals scale with Attack, so attack stats raise both healing and solo damage. In hard content swap one slot to HP / PvE Defense.",
+   "es": "Genus no tiene stat de curación, pero las curas del Clérigo escalan con Ataque: los stats de ataque suben curación y daño. En contenido difícil cambia un hueco a PV / Defensa JcE."
+  }
+ },
+ "leveling": {
+  "en": [
+   "Solo as a caster: Debilitating Mark + Chain of Torment, Condemnation, then Judgment Thunder spam.",
+   "Take Divine Aura's AoE specialty for packs.",
+   "Use Earth's Retribution instead of auto-attacks to refill MP.",
+   "Heal only when low: Healing Light also heals you.",
+   "At Lv22 slot Earth Punishment and Light of Protection first."
+  ],
+  "es": [
+   "En solo juega como caster: Estigma debilitante + Enlace de dolor, Condena y spam de Rayo del juicio.",
+   "Toma la especialidad de área de Aura divina para grupos de mobs.",
+   "Usa Retribución terrestre en vez del ataque básico para recuperar PM.",
+   "Cúrate solo cuando estés bajo: Luz de curación también te cura.",
+   "En nivel 22 equipa primero Castigo terrestre y Luz de protección."
+  ]
+ },
+ "kr": {
+  "en": "KR players (치유성, \"Chiyuseong\") call the Condemnation crit loop \"단죄 딜\" and rate Radiant Recovery (쾌유의 광휘) the most important skill. They play damage-heavy and heal reactively.",
+  "es": "Los jugadores KR (치유성) llaman \"단죄 딜\" al bucle de críticos de Condena y consideran Resplandor de recobro (쾌유의 광휘) la habilidad más importante. Juegan ofensivo y curan de forma reactiva."
+ },
+ "sources": [
+  [
+   "Inven: 치유성 beginner guide",
+   "https://www.inven.co.kr/board/aion2/6452/657"
+  ],
+  [
+   "Vortex Gaming: Cleric build (KR video summary)",
+   "https://vortexgaming.io/en/postdetail/688137"
+  ],
+  [
+   "Metabot: Cleric top-player builds",
+   "https://metabot.gg/en/aion-2/classes/cleric/build"
+  ],
+  [
+   "questlog.gg skill database",
+   "https://questlog.gg/aion-2/en/db/skills"
+  ],
+  [
+   "Gamers Together: Aion 2 macros",
+   "https://gamerstogether.cz/en/aion-2-macros"
+  ]
+ ]
+}

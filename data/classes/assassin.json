@@ -1,0 +1,2260 @@
+{
+ "id": "assassin",
+ "name": {
+  "en": "Assassin",
+  "es": "Asesino"
+ },
+ "classIcon": "UT_Class_Assassin_Large",
+ "color": "#b06cff",
+ "role": {
+  "en": "Melee crit burst DPS",
+  "es": "DPS cuerpo a cuerpo de críticos"
+ },
+ "weapon": {
+  "en": "Dual daggers",
+  "es": "Dagas dobles"
+ },
+ "difficulty": 3,
+ "summary": {
+  "en": "Melee crit DPS that fights from behind. Stack Insignias, detonate them, and keep Heart Gore resetting on crits.",
+  "es": "DPS cuerpo a cuerpo de críticos que pelea por la espalda. Acumula insignias, detónalas y mantén Estocada al corazón reiniciándose con críticos."
+ },
+ "engine": {
+  "en": "Crits → Heart Gore resets; Illusive Clone + Swift Contract burst",
+  "es": "Críticos → reinicio de Estocada al corazón; ráfaga con Clon ilusorio + Pacto de celeridad"
+ },
+ "skills": [
+  {
+   "n": "Heart Gore",
+   "ne": "Estocada al corazón",
+   "nk": "심장 찌르기",
+   "ic": "ICON_AS_SKILL_035",
+   "t": "active",
+   "un": 4,
+   "cd": 5,
+   "d": {
+    "en": "Triggers on a Critical Hit: damage to up to 4 enemies within 4m and restores 100 MP.",
+    "es": "Se activa con golpe Crítico: daño a hasta 4 enemigos en 4 m y recupera 100 PM."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 0.7% HP",
+     "Absorción de Puntos de Vida del 0.7 %"
+    ],
+    [
+     8,
+     "Engraves 1 Insignia for 10s on hit",
+     "Al acertar, grabación de 1 insignia durante 10s"
+    ],
+    [
+     8,
+     "Up to +20% Critical Hit when less targets hit",
+     "Cuantos menos objetivos se acierten, aumento máx. del 20 % de Crítico"
+    ],
+    [
+     12,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     16,
+     "Resets [Heart Gore] cooldown on landing a Critical Hit",
+     "Al acertar un golpe Crítico, restablecimiento de Tiempo de Enfriamiento de «Estocada al corazón»"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Main damage",
+    "es": "Daño principal"
+   },
+   "tip": {
+    "en": "Press it every time it lights up; at 16 crits reset it, so stack Crit.",
+    "es": "Úsala cada vez que se ilumine; a nivel 16 los críticos la reinician, así que sube Crítico."
+   },
+   "pickLev": [
+    1,
+    3,
+    4
+   ],
+   "pickEnd": [
+    0,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Quick Slice",
+   "ne": "Corte rápido",
+   "nk": "빠른 베기",
+   "ic": "ICON_AS_SKILL_001",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Damage to up to 4 enemies within 4m and restores 100 MP. No cooldown filler.",
+    "es": "Daño a hasta 4 enemigos en 4 m y recupera 100 PM. Relleno sin enfriamiento."
+   },
+   "sp": [
+    [
+     8,
+     "+20% MP restored",
+     "Aumento del 20 % de Recuperación de Puntos de Maná"
+    ],
+    [
+     8,
+     "Absorbs 0.7% HP",
+     "Absorción de Puntos de Vida del 0.7 %"
+    ],
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     12,
+     "-1s [Insignia Explosion] cooldown on hit",
+     "Al acertar, reducción de 1s de Tiempo de Enfriamiento de «Explosión de insignia»"
+    ],
+    [
+     16,
+     "Ignores Block and Evasion and lands as a Critical Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con golpe Crítico"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Filler / crit feed",
+    "es": "Relleno / críticos"
+   },
+   "tip": {
+    "en": "Spam between cooldowns; the Lv16 guaranteed crit keeps Heart Gore firing.",
+    "es": "Úsala entre enfriamientos; el crítico garantizado de nivel 16 mantiene activa Estocada al corazón."
+   },
+   "pickLev": [
+    1,
+    3,
+    4
+   ],
+   "pickEnd": [
+    1,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Insignia Explosion",
+   "ne": "Explosión de insignia",
+   "nk": "문양 폭발",
+   "ic": "ICON_AS_SKILL_013",
+   "t": "active",
+   "un": 14,
+   "cd": 10,
+   "d": {
+    "en": "Detonates Insignias on a target within 20m: AoE damage (up to 4) and Stun 3s. More stacks = more damage.",
+    "es": "Detona las insignias de un objetivo a 20 m: daño en área (hasta 4) y Aturdimiento 3s. Más cargas = más daño."
+   },
+   "sp": [
+    [
+     8,
+     "Adds rotate effect",
+     "Adición de efecto giratorio"
+    ],
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     8,
+     "Keep 2 stacks of Insignias after [Insignia Explosion]",
+     "Después de «Explosión de insignia», mantenimiento de grabado de 2 acumulaciones de insignia"
+    ],
+    [
+     12,
+     "+1s Stun duration",
+     "Aumento de 1 s de duración de Aturdimiento"
+    ],
+    [
+     16,
+     "-3s cooldown",
+     "Reducción de 3 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Insignia nuke",
+    "es": "Nuke de insignias"
+   },
+   "tip": {
+    "en": "Fire at 5 Insignias; the 'keep 2 stacks' specialty makes refills fast.",
+    "es": "Lánzala con 5 insignias; la especialidad de 'mantener 2 cargas' acelera la recarga."
+   },
+   "pickLev": [
+    1,
+    2,
+    4
+   ],
+   "pickEnd": [
+    1,
+    2,
+    4
+   ]
+  },
+  {
+   "n": "Savage Roar",
+   "ne": "Rugido bestial",
+   "nk": "맹수의 포효",
+   "ic": "ICON_AS_SKILL_009",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Damage to up to 4 enemies within 4m and engraves 1 Insignia for 10s.",
+    "es": "Daño a hasta 4 enemigos en 4 m y graba 1 insignia durante 10s."
+   },
+   "sp": [
+    [
+     8,
+     "-20% MP consumed",
+     "Reducción del 20 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ],
+    [
+     8,
+     "Deals up to 12% more damage when less targets are hit",
+     "Aumento de daño de hasta un 12 % cuanto menor sea el número de objetivos acertados"
+    ],
+    [
+     12,
+     "-1s [Shadowstrike] cooldown on hit",
+     "Al acertar, reducción de 1s de Tiempo de Enfriamiento de «Ataque sigiloso»"
+    ],
+    [
+     16,
+     "Pulls nearby targets on using [Savage Smash]",
+     "Al usar «Azote bestial», atracción de objetivos alrededor de sí mismo"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Insignia builder",
+    "es": "Generador de insignias"
+   },
+   "tip": {
+    "en": "Main Insignia stacker before Insignia Explosion; also pulls packs at Lv16.",
+    "es": "Principal generador de insignias antes de la Explosión; a nivel 16 también agrupa enemigos."
+   },
+   "pickLev": [
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Ambush",
+   "ne": "Emboscada",
+   "nk": "기습",
+   "ic": "ICON_AS_SKILL_006",
+   "t": "active",
+   "un": 3,
+   "cd": 10,
+   "d": {
+    "en": "Damage to a target within 4m; +30% damage from behind.",
+    "es": "Daño a un objetivo en 4 m; +30 % de daño por la espalda."
+   },
+   "sp": [
+    [
+     8,
+     "Engraves 2 Insignias for 10s on landing as a Back attack",
+     "Al acertar por la parte trasera, grabación de 2 insignias durante 10s"
+    ],
+    [
+     8,
+     "Absorbs 3% HP",
+     "Absorción de Puntos de Vida del 3 %"
+    ],
+    [
+     8,
+     "Breaks Protective Shields on hit",
+     "Al acertar, destrucción de barreras"
+    ],
+    [
+     12,
+     "50% chance to trigger [Whirlwind Slice] on hit",
+     "Al acertar, activación de «Corte torbellino» con un 50 % de prob."
+    ],
+    [
+     16,
+     "+2 consecutive uses",
+     "Lanzamientos en cadena +2"
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "Back-attack hit",
+    "es": "Golpe por la espalda"
+   },
+   "tip": {
+    "en": "Always cast from behind; Lv16 gives 3 hits per cast.",
+    "es": "Lánzala siempre por la espalda; a nivel 16 da 3 golpes por uso."
+   },
+   "pickLev": [
+    0,
+    1,
+    4
+   ],
+   "pickEnd": [
+    1,
+    4,
+    3
+   ]
+  },
+  {
+   "n": "Shadowstrike",
+   "ne": "Ataque sigiloso",
+   "nk": "암습",
+   "ic": "ICON_AS_SKILL_007",
+   "t": "active",
+   "un": 1,
+   "cd": 20,
+   "d": {
+    "en": "Teleports behind a target within 20m, deals damage and Stuns 3s.",
+    "es": "Se teletransporta detrás de un objetivo a 20 m, inflige daño y aturde 3s."
+   },
+   "sp": [
+    [
+     8,
+     "+1s Stun duration",
+     "Aumento de 1 s de duración de Aturdimiento"
+    ],
+    [
+     8,
+     "+20% caster Critical Damage Boost for 10s on hit",
+     "Al acertar, aumento de un 20 % de Amplificación de Daño Crítico propia durante 10s"
+    ],
+    [
+     8,
+     "50% chance to inflict Seal for 5s on hit",
+     "Al acertar, Sellado durante 5s con un 50 % de prob."
+    ],
+    [
+     12,
+     "50% chance to inflict Root for 5s on hit",
+     "Al acertar, hay un 50 % de probabilidad de aplicar Atadura durante 5s"
+    ],
+    [
+     16,
+     "Changes to AoE Skill",
+     "Cambio a habilidad de área"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "Opener / crit buff",
+    "es": "Apertura / buff crítico"
+   },
+   "tip": {
+    "en": "Open with it for the +20% Crit Damage buff and to get behind the boss.",
+    "es": "Abre con ella por el +20 % de Daño Crítico y para ponerte detrás del jefe."
+   },
+   "pickLev": [
+    1,
+    4,
+    0
+   ],
+   "pickEnd": [
+    1,
+    4,
+    0
+   ]
+  },
+  {
+   "n": "Storm Rampage",
+   "ne": "Desenfreno de tormenta",
+   "nk": "폭풍 난무",
+   "ic": "ICON_AS_SKILL_034",
+   "t": "active",
+   "un": 5,
+   "cd": 0,
+   "d": {
+    "en": "Damage to a Staggered target within 4m.",
+    "es": "Daño a un objetivo en Tambaleo en 4 m."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 5% HP",
+     "Absorción de Puntos de Vida del 5 %"
+    ],
+    [
+     8,
+     "Restores 120 MP on hit",
+     "Al acertar, recuperación de 120 de Puntos de Maná"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     16,
+     "-1s all skill cooldowns on hit",
+     "Al acertar, reducción de 1s de Tiempo de Enfriamiento de todas las habilidades"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "Stagger burst",
+    "es": "Ráfaga en Tambaleo"
+   },
+   "tip": {
+    "en": "Spam during boss Stagger; Lv16 cuts every cooldown by 1s per hit.",
+    "es": "Úsala sin parar durante el Tambaleo del jefe; a nivel 16 reduce 1s todos los enfriamientos por golpe."
+   },
+   "pickLev": [
+    0,
+    3,
+    4
+   ],
+   "pickEnd": [
+    3,
+    4,
+    0
+   ]
+  },
+  {
+   "n": "Whirlwind Slice",
+   "ne": "Corte torbellino",
+   "nk": "회오리 베기",
+   "ic": "ICON_AS_SKILL_019",
+   "t": "active",
+   "un": 7,
+   "cd": 10,
+   "d": {
+    "en": "Usable after Evasion: damage to a target within 4m, 40% Stun 3s (100% on NPCs).",
+    "es": "Disponible tras evadir: daño a un objetivo en 4 m, 40 % de Aturdimiento 3s (100 % a PNJ)."
+   },
+   "sp": [
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     8,
+     "Changes to AoE damage",
+     "Cambio a daño de área"
+    ],
+    [
+     8,
+     "+16m range",
+     "Aumento de 16 m de alcance"
+    ],
+    [
+     12,
+     "+20% Stun Chance",
+     "Aumento del 20 % de prob. de Aturdimiento"
+    ],
+    [
+     16,
+     "25% chance to reset [Whirlwind Slice] cooldown on Evasion",
+     "Al evadir con éxito, restablecimiento de Tiempo de Enfriamiento de «Corte torbellino» con un 25 % de prob."
+    ]
+   ],
+   "rank": 8,
+   "tag": {
+    "en": "Proc follow-up",
+    "es": "Remate por evasión"
+   },
+   "tip": {
+    "en": "Press whenever it lights up after an evade or an Ambush proc.",
+    "es": "Úsala cuando se ilumine tras evadir o por la activación de Emboscada."
+   },
+   "pickLev": [
+    0,
+    1,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    4
+   ]
+  },
+  {
+   "n": "Flash Slice",
+   "ne": "Corte de destello",
+   "nk": "섬광 베기",
+   "ic": "ICON_AS_SKILL_005",
+   "t": "active",
+   "un": 8,
+   "cd": 10,
+   "d": {
+    "en": "Moves to the far side of a target within 4m, hits up to 4 enemies and Blinds 3s (100% on NPCs).",
+    "es": "Se mueve al otro lado de un objetivo en 4 m, golpea hasta 4 enemigos y ciega 3s (100 % a PNJ)."
+   },
+   "sp": [
+    [
+     8,
+     "+2s Blind duration",
+     "Aumento de 2 s de duración de Ceguera"
+    ],
+    [
+     8,
+     "+6m Range",
+     "Aumento de 6 m de alcance"
+    ],
+    [
+     8,
+     "Up to +20% damage when more targets hit",
+     "Cuantos más objetivos se acierten, aumento máx. del 20 % de daño"
+    ],
+    [
+     12,
+     "+1 consecutive use",
+     "Lanzamientos en cadena +1"
+    ],
+    [
+     16,
+     "50% chance to rotate and inflict Stun for 3s on hitting a target afflicted with Blind",
+     "Al acertar un objetivo con Ceguera, hace girar y provoca Aturdimiento durante 3s con un 50 % de prob."
+    ]
+   ],
+   "rank": 9,
+   "tag": {
+    "en": "Reposition / AoE",
+    "es": "Reposición / área"
+   },
+   "tip": {
+    "en": "Use it to slip behind a boss for back attacks; triggers Ambush Stance.",
+    "es": "Úsala para colocarte detrás del jefe; activa Postura de emboscada."
+   },
+   "pickLev": [
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    1,
+    3,
+    2
+   ]
+  },
+  {
+   "n": "Infiltrate",
+   "ne": "Infiltración",
+   "nk": "침투",
+   "ic": "ICON_AS_SKILL_036",
+   "t": "active",
+   "un": 10,
+   "cd": 20,
+   "d": {
+    "en": "After Dodge or while flying: teleports behind a target within 10m, deals damage, 50% Blind 3s.",
+    "es": "Tras Evasión urgente o en vuelo: se mueve detrás de un objetivo a 10 m, inflige daño, 50 % de Ceguera 3s."
+   },
+   "sp": [
+    [
+     8,
+     "Restores 300 Stamina on landing [Infiltrate]",
+     "Al acertar «Infiltración», recuperación de 300 de Vigor"
+    ],
+    [
+     8,
+     "+10m [Infiltrate] range",
+     "Aumento de 10 m de alcance de «Infiltración»"
+    ],
+    [
+     8,
+     "Breaks Protective Shields on landing [Infiltrate]",
+     "Al acertar «Infiltración», destrucción de barreras"
+    ],
+    [
+     12,
+     "Adds [Dark Strike] Chain Skill",
+     "Adición de hab. de cadena «Golpe oscuro» x2"
+    ],
+    [
+     16,
+     "+20% [Infiltrate] Blind Chance",
+     "Aumento del 20 % de prob. de Ceguera de «Infiltración»"
+    ]
+   ],
+   "rank": 10,
+   "tag": {
+    "en": "Dodge follow-up",
+    "es": "Tras esquivar"
+   },
+   "tip": {
+    "en": "Dodge out of a boss hit, then Infiltrate to land behind it again.",
+    "es": "Esquiva el golpe del jefe y usa Infiltración para volver a su espalda."
+   },
+   "pickLev": [
+    0,
+    1,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    3
+   ]
+  },
+  {
+   "n": "Shadow Fall",
+   "ne": "Caída sombría",
+   "nk": "그림자 낙하",
+   "ic": "ICON_AS_SKILL_020",
+   "t": "active",
+   "un": 12,
+   "cd": 20,
+   "d": {
+    "en": "Jumps to a Stunned target within 10m, deals damage and Knockdown 3s.",
+    "es": "Salta a un objetivo aturdido a 10 m, inflige daño y lo derriba 3s."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 10% HP",
+     "Absorción de Puntos de Vida del 10 %"
+    ],
+    [
+     8,
+     "Engraves 3 Insignias for 10s on hit",
+     "Al acertar, grabación de 3 insignias durante 10s"
+    ],
+    [
+     8,
+     "-5s cooldown",
+     "Reducción de 5 s del Tiempo de Enfriamiento"
+    ],
+    [
+     12,
+     "+1s Knockdown duration",
+     "Aumento de 1 s de duración de Derribo"
+    ],
+    [
+     16,
+     "Can be used on targets afflicted with Blind",
+     "Disponible con objetivos en estado de Ceguera"
+    ]
+   ],
+   "rank": 12,
+   "tag": {
+    "en": "Heal / CC",
+    "es": "Curación / control"
+   },
+   "tip": {
+    "en": "Keep at 8 with 10% HP absorb as a free potion; rarely usable on bosses.",
+    "es": "Déjala en 8 con absorción del 10 % como poción gratis; casi no sirve contra jefes."
+   },
+   "pickLev": [
+    0,
+    1,
+    2
+   ],
+   "pickEnd": [
+    0,
+    1,
+    4
+   ]
+  },
+  {
+   "n": "Defiance",
+   "ne": "Eliminación de impacto",
+   "nk": "충격 해제",
+   "ic": "ICON_CO_SKILL_002",
+   "t": "active",
+   "un": 16,
+   "cd": 60,
+   "d": {
+    "en": "Removes Stun, Knockdown, Airborne, Grab, Frost and Fear; Status Effect Immunity 5s.",
+    "es": "Elimina Aturdimiento, Derribo, Atadura aérea, Agarre, Congelación y Terror; inmunidad 5s."
+   },
+   "sp": [
+    [
+     8,
+     "Adds [Storm Slice] Chain Skill",
+     "Añade [Corte de tormenta] como segunda habilidad de cadena."
+    ],
+    [
+     8,
+     "Restores 1000 Stamina on using [Defiance]",
+     "Al lanzar [Eliminación de impacto], recupera 1000 de Vigor"
+    ],
+    [
+     8,
+     "Restores 20% HP on using [Defiance]",
+     "Al lanzar «Eliminación de impacto», recuperación del 20 % de Puntos de Vida"
+    ],
+    [
+     12,
+     "+2s Tenacity duration",
+     "Aumento de 2 s de duración de Robustez"
+    ],
+    [
+     16,
+     "+50% PvE Damage Tolerance and +25% PvP Damage Tolerance for Tenacity duration",
+     "Durante la duración de Robustez, la Tolerancia a Daño JcE aumenta un 50 % y la Tolerancia a Daño JcJ un 25 %"
+    ]
+   ],
+   "rank": 11,
+   "tag": {
+    "en": "CC break",
+    "es": "Romper control"
+   },
+   "tip": {
+    "en": "Save it for boss stuns; points beyond Lv1 are low value for PvE.",
+    "es": "Guárdala para aturdimientos del jefe; subirla aporta poco en JcE."
+   },
+   "pickLev": [
+    2,
+    0,
+    3
+   ],
+   "pickEnd": [
+    0,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Rear Smite",
+   "ne": "Impacto trasero",
+   "nk": "배후 강타",
+   "ic": "ICON_AS_SKILL_Passive_004",
+   "t": "passive",
+   "un": 11,
+   "cd": 0,
+   "d": {
+    "en": "+3% Back Attack Damage Boost, +3% PvE Damage Boost, +1.5% PvP Damage Boost.",
+    "es": "+3 % Amplificación de Daño por la Espalda, +3 % Amplificación de Daño JcE, +1.5 % JcJ."
+   },
+   "sp": [],
+   "rank": 1,
+   "tag": {
+    "en": "Top passive",
+    "es": "Pasiva clave"
+   },
+   "tip": {
+    "en": "First passive to max: flat damage that scales with back attacks.",
+    "es": "Primera pasiva a subir: daño directo que escala con ataques por la espalda."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Exploit Weakness",
+   "ne": "Explotar debilidades",
+   "nk": "빈틈 노리기",
+   "ic": "ICON_AS_SKILL_Passive_002",
+   "t": "passive",
+   "un": 6,
+   "cd": 0,
+   "d": {
+    "en": "+100 Critical Hit; on crit 25% chance of +5.5% Attack for 10s and 7% to summon up to 5 Insignia clones.",
+    "es": "+100 de Crítico; al críticar 25 % de +5.5 % Ataque 10s y 7 % de invocar hasta 5 clones con insignia."
+   },
+   "sp": [],
+   "rank": 2,
+   "tag": {
+    "en": "Crit + Attack",
+    "es": "Crítico + Ataque"
+   },
+   "tip": {
+    "en": "Level it early when skill levels are low; feeds Heart Gore.",
+    "es": "Súbela pronto si tus niveles de habilidad son bajos; alimenta Estocada al corazón."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Assault Stance",
+   "ne": "Postura de agresión",
+   "nk": "강습 자세",
+   "ic": "ICON_AS_SKILL_Passive_006",
+   "t": "passive",
+   "un": 13,
+   "cd": 0,
+   "d": {
+    "en": "+6% Critical Damage Boost.",
+    "es": "+6 % de Amplificación de Daño Crítico."
+   },
+   "sp": [],
+   "rank": 3,
+   "tag": {
+    "en": "Crit damage",
+    "es": "Daño crítico"
+   },
+   "tip": {
+    "en": "Third damage passive; better the more crits you land.",
+    "es": "Tercera pasiva de daño; mejor cuantos más críticos logres."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Impact Hit",
+   "ne": "Acierto de impacto",
+   "nk": "충격 적중",
+   "ic": "ICON_AS_SKILL_Passive_011",
+   "t": "passive",
+   "un": 15,
+   "cd": 0,
+   "d": {
+    "en": "+11.2% Impact-type Chance and +0.3% Double Chance.",
+    "es": "+11.2 % de Acierto de Tipo Impacto y +0.3 % de Golpe."
+   },
+   "sp": [],
+   "rank": 4,
+   "tag": {
+    "en": "Stun reliability",
+    "es": "Fiabilidad de aturdir"
+   },
+   "tip": {
+    "en": "Makes stuns land, which enables Shadow Fall and Defense Break.",
+    "es": "Hace que los aturdimientos entren, habilitando Caída sombría y Grieta defensiva."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Ambush Stance",
+   "ne": "Postura de emboscada",
+   "nk": "기습 자세",
+   "ic": "ICON_AS_SKILL_Passive_007",
+   "t": "passive",
+   "un": 17,
+   "cd": 0,
+   "d": {
+    "en": "After rush/movement skills: 10s buff, 50% chance per hit to deal extra damage (1s cooldown).",
+    "es": "Tras habilidades de acometida/movimiento: buff 10s, 50 % por golpe de daño extra (1s de enfriamiento)."
+   },
+   "sp": [],
+   "rank": 5,
+   "tag": {
+    "en": "Proc damage",
+    "es": "Daño extra"
+   },
+   "tip": {
+    "en": "Keep it up with Shadowstrike, Flash Slice and Infiltrate.",
+    "es": "Mantenla activa con Ataque sigiloso, Corte de destello e Infiltración."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Determination",
+   "ne": "Determinación",
+   "nk": "각오",
+   "ic": "ICON_AS_SKILL_Passive_010",
+   "t": "passive",
+   "un": 25,
+   "cd": 0,
+   "d": {
+    "en": "Extra damage on hits against targets at 30% HP or less (1s cooldown).",
+    "es": "Daño extra al golpear objetivos con 30 % de PV o menos (1s de enfriamiento)."
+   },
+   "sp": [],
+   "rank": 6,
+   "tag": {
+    "en": "Execute",
+    "es": "Remate"
+   },
+   "tip": {
+    "en": "Execute-phase damage; level after the core passives.",
+    "es": "Daño en fase final; súbela tras las pasivas clave."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Heightened Sixth Sense",
+   "ne": "Maximización de sexto sentido",
+   "nk": "육감 극대화",
+   "ic": "ICON_AS_SKILL_Passive_001",
+   "t": "passive",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "+200 Evasion, +150 HP, +6% Max HP; heals a little on Evasion (3s cooldown).",
+    "es": "+200 Evasión, +150 PV, +6 % PV máx.; cura un poco al evadir (3s de enfriamiento)."
+   },
+   "sp": [],
+   "rank": 7,
+   "tag": {
+    "en": "Survival",
+    "es": "Supervivencia"
+   },
+   "tip": {
+    "en": "Best survival passive; take it before Revitalization Contract.",
+    "es": "Mejor pasiva defensiva; antes que Pacto de resurrección."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Apply Poison",
+   "ne": "Aplicación de veneno",
+   "nk": "독 바르기",
+   "ic": "ICON_AS_SKILL_Passive_003",
+   "t": "passive",
+   "un": 9,
+   "cd": 0,
+   "d": {
+    "en": "15% chance on hit: Poison DoT for 10s and -12% Incoming Heal (1s cooldown).",
+    "es": "15 % al golpear: veneno 10s y -12 % de Curación recibida (1s de enfriamiento)."
+   },
+   "sp": [],
+   "rank": 8,
+   "tag": {
+    "en": "Minor DoT",
+    "es": "DoT menor"
+   },
+   "tip": {
+    "en": "Small damage; spend spare points only.",
+    "es": "Daño menor; solo con puntos sobrantes."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Revitalization Contract",
+   "ne": "Pacto de resurrección",
+   "nk": "회생의 계약",
+   "ic": "ICON_AS_SKILL_Passive_009",
+   "t": "passive",
+   "un": 23,
+   "cd": 0,
+   "d": {
+    "en": "+17% Status Effect Resist, more when CC'd; emergency 35% Max HP heal.",
+    "es": "+17 % Resistencia a efectos de estado, más al estar controlado; curación de emergencia del 35 % de PV."
+   },
+   "sp": [],
+   "rank": 9,
+   "tag": {
+    "en": "PvP survival",
+    "es": "Supervivencia JcJ"
+   },
+   "tip": {
+    "en": "Mostly PvP; helps avoid sudden deaths.",
+    "es": "Sobre todo JcJ; ayuda a evitar muertes repentinas."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Defense Break",
+   "ne": "Grieta defensiva",
+   "nk": "방어 균열",
+   "ic": "ICON_AS_SKILL_Passive_008",
+   "t": "passive",
+   "un": 21,
+   "cd": 0,
+   "d": {
+    "en": "Hitting a Staggered or Impact-afflicted target: -12% Defense, -11% Status Resist for 10s (20s cooldown).",
+    "es": "Al golpear un objetivo en Tambaleo o con efecto de Impacto: -12 % Defensa, -11 % Resistencia 10s (20s enfr.)."
+   },
+   "sp": [],
+   "rank": 10,
+   "tag": {
+    "en": "Debuff",
+    "es": "Debuff"
+   },
+   "tip": {
+    "en": "Low priority; only with leftover points.",
+    "es": "Baja prioridad; solo con puntos sobrantes."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Illusive Clone",
+   "ne": "Clon ilusorio",
+   "nk": "환영 분신",
+   "ic": "ICON_AS_SKILL_029",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Removes Heart Gore cooldown and deals 20% of damage dealt as extra damage for 10s.",
+    "es": "Elimina el enfriamiento de Estocada al corazón e inflige un 20 % extra de todo el daño durante 10s."
+   },
+   "sp": [
+    [
+     5,
+     "+10% Status Effect Chance for the duration",
+     "Aumento del 10 % de Acierto de Efectos de Estado durante la duración"
+    ],
+    [
+     10,
+     "+20% Critical Damage Boost for the duration",
+     "Aumento del 20 % de Amplificación de Daño Crítico durante el tiempo de duración"
+    ],
+    [
+     15,
+     "x1.5 [Exploit Weakness] effect for the duration",
+     "Aumento de efecto de «Explotar debilidades» x1,5 durante la duración"
+    ],
+    [
+     20,
+     "50% chance to deal extra damage on Critical Hit for the duration",
+     "50 % de probabilidad de infligir daño adicional al realizar un Golpe crítico mientras dura"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Burst window",
+    "es": "Ventana de ráfaga"
+   },
+   "tip": {
+    "en": "Most important stigma: pop it with Swift Contract and spam crits.",
+    "es": "Estigma más importante: úsalo junto a Pacto de celeridad y encadena críticos."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Swift Contract",
+   "ne": "Pacto de celeridad",
+   "nk": "신속의 계약",
+   "ic": "ICON_AS_SKILL_037",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "+20% Combat Speed for 10s.",
+    "es": "+20 % de Velocidad de combate durante 10s."
+   },
+   "sp": [
+    [
+     5,
+     "-20% MP Cost for the duration",
+     "Reducción del 20 % de Consumo de Puntos de Maná durante la duración"
+    ],
+    [
+     10,
+     "x1.5 [Rear Smite] effect for the duration",
+     "Aumento de efecto de «Impacto trasero» x1,5 durante la duración"
+    ],
+    [
+     15,
+     "x1.5 [Assault Stance] effect for the duration",
+     "Aumento de efecto de «Postura de agresión» x1,5 durante la duración"
+    ],
+    [
+     20,
+     "+10% additional Combat Speed",
+     "Aumento adicional de la Velocidad de combate en un 10 %"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Speed buff",
+    "es": "Buff de velocidad"
+   },
+   "tip": {
+    "en": "Pair with Illusive Clone; Lv10 boosts Rear Smite x1.5.",
+    "es": "Combínalo con Clon ilusorio; a nivel 10 potencia Impacto trasero x1,5."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Savage Fang",
+   "ne": "Colmillo salvaje",
+   "nk": "맹수의 송곳니",
+   "ic": "ICON_AS_SKILL_025",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Damage to up to 4 enemies within 4m and engraves 5 Insignias. 50 Stagger damage.",
+    "es": "Daño a hasta 4 enemigos en 4 m y graba 5 insignias. 50 de daño al Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "Up to +20% damage when more targets hit",
+     "Cuantos más objetivos se acierten, aumento máx. del 20 % de daño"
+    ],
+    [
+     10,
+     "+50 Stagger Gauge Damage",
+     "Aumento de 50 de daño al medidor de Tambaleo"
+    ],
+    [
+     15,
+     "+10% PvE Damage Boost and +5% PvP Damage Boost for 10s on hit",
+     "Al acertar, aumento del 10 % de Amplificación de Daño de JcE y 5 % de Amplificación de Daño JcJ durante 10s"
+    ],
+    [
+     20,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Insignia + Stagger",
+    "es": "Insignias + Tambaleo"
+   },
+   "tip": {
+    "en": "Instant 5 Insignias for Insignia Explosion and big boss Stagger damage.",
+    "es": "5 insignias al instante para la Explosión y mucho daño al Tambaleo del jefe."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Triniel's Dagger",
+   "ne": "Puñal de Triniel",
+   "nk": "트리니엘의 비수",
+   "ic": "ICON_AS_SKILL_028",
+   "t": "stigma",
+   "un": 22,
+   "cd": 45,
+   "d": {
+    "en": "Damage to a target within 4m (+30% from behind); raises target's cooldowns by 5%.",
+    "es": "Daño a un objetivo en 4 m (+30 % por la espalda); aumenta un 5 % los enfriamientos del objetivo."
+   },
+   "sp": [
+    [
+     5,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     10,
+     "-10% all skill cooldowns on hit",
+     "Al acertar, reducción del 10 % de Tiempo de Enfriamiento de todas las habilidades"
+    ],
+    [
+     15,
+     "Resets cooldown on defeating an enemy with [Triniel's Dagger]",
+     "Al derrotar a un enemigo con [Puñal de Triniel], se restablece el Tiempo de Enfriamiento"
+    ],
+    [
+     20,
+     "+3% all skill cooldowns",
+     "Aumento del 3 % de Tiempo de Enfriamiento de todas las habilidades"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Cooldown cut",
+    "es": "Reducción de enfr."
+   },
+   "tip": {
+    "en": "Level to 10 for -10% to all your cooldowns on hit; hit from behind.",
+    "es": "Súbelo a 10 para -10 % a todos tus enfriamientos al acertar; golpea por la espalda."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Evasion Stance",
+   "ne": "Postura de evasión",
+   "nk": "회피 자세",
+   "ic": "ICON_AS_SKILL_024",
+   "t": "stigma",
+   "un": 22,
+   "cd": 20,
+   "d": {
+    "en": "Brief guaranteed evasion of all damage; restores 110 MP and Stamina on Evasion.",
+    "es": "Evasión garantizada de todo el daño por un instante; recupera 110 PM y Vigor al evadir."
+   },
+   "sp": [
+    [
+     5,
+     "+1 consecutive use",
+     "Lanzamientos en cadena +1"
+    ],
+    [
+     10,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     15,
+     "+20% Move Speed for 3s on Evasion",
+     "Al evadir con éxito, aumenta un 20 % de la Velocidad de Movimiento durante 3s"
+    ],
+    [
+     20,
+     "Restore 10% HP once after successfully evading",
+     "Al evadir con éxito, recuperación del 10 % de Puntos de Vida x1"
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "Boss mechanic dodge",
+    "es": "Esquivar mecánicas"
+   },
+   "tip": {
+    "en": "Swap in for hard bosses; evading also enables Whirlwind Slice.",
+    "es": "Úsalo en jefes difíciles; evadir también habilita Corte torbellino."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Throw Shadowblade",
+   "ne": "Tiro de daga sombría",
+   "nk": "암검 투척",
+   "ic": "ICON_AS_SKILL_031",
+   "t": "stigma",
+   "un": 22,
+   "cd": 30,
+   "d": {
+    "en": "Ranged hit (20m) with 40% Slow for 5s.",
+    "es": "Golpe a distancia (20 m) con Ralentización del 40 % durante 5s."
+   },
+   "sp": [
+    [
+     5,
+     "Adds [Shadowblade Pursuit] Chain Skill",
+     "Adición de hab. de cadena «Persecución de daga sombría» x2"
+    ],
+    [
+     10,
+     "Resets cooldown on defeating an enemy",
+     "Al derrotar a enemigo, restablecimiento de Tiempo de Enfriamiento"
+    ],
+    [
+     15,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ],
+    [
+     20,
+     "Changes to AoE Skill",
+     "Cambio a habilidad de área"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "Field farming",
+    "es": "Farmeo en campo"
+   },
+   "tip": {
+    "en": "At Lv10 it resets on kills: great for field and Abyss mob quests.",
+    "es": "A nivel 10 se reinicia al matar: ideal para misiones de campo y Abismo."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Shadowstep",
+   "ne": "Paso sombrío",
+   "nk": "암영보",
+   "ic": "ICON_AS_SKILL_014",
+   "t": "stigma",
+   "un": 22,
+   "cd": 45,
+   "d": {
+    "en": "Damage to a target within 4m, then jumps back and gains Stealth 3s.",
+    "es": "Daño a un objetivo en 4 m, luego retrocede y entra en Sigilo 3s."
+   },
+   "sp": [
+    [
+     5,
+     "40% chance to rotate and inflict Stun for 3s on hit",
+     "Al acertar, hace girar y provoca Aturdimiento durante 3s con un 40 % de prob."
+    ],
+    [
+     10,
+     "Engraves 5 Insignias for 10s on hit",
+     "Al acertar, grabación de 5 insignias durante 10s"
+    ],
+    [
+     15,
+     "+200 Evasion for 10s on use",
+     "Al usar, aumento de 200 de Evasión propia durante 10s"
+    ],
+    [
+     20,
+     "-15s cooldown",
+     "Reducción de 15 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP escape",
+    "es": "Escape JcJ"
+   },
+   "tip": {
+    "en": "Mostly PvP; Lv10 gives 5 Insignias if you need a 2nd source.",
+    "es": "Sobre todo JcJ; a nivel 10 da 5 insignias si necesitas otra fuente."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Aerial Bind",
+   "ne": "Aprehensión aérea",
+   "nk": "공중 포박",
+   "ic": "ICON_AS_SKILL_026",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "Damage within 4m, 50% Airborne 3s (100% at 5 Insignias or on NPCs).",
+    "es": "Daño en 4 m, 50 % de Atadura aérea 3s (100 % con 5 insignias o a PNJ)."
+   },
+   "sp": [
+    [
+     5,
+     "+16m [Aerial Bind] range",
+     "Aumento de 16 m del alcance de [Aprehensión aérea]"
+    ],
+    [
+     10,
+     "Adds [Aerial Slaughter] Chain Skill",
+     "Adición de hab. de cadena «Principio aéreo» x2"
+    ],
+    [
+     15,
+     "x1.5 [Ambush Stance] effect for 10s on first strike of [Aerial Bind]",
+     "Al acertar con el primer golpe de [Aprehensión aérea], el efecto de [Postura de emboscada] aumenta 1,5 veces durante 10s"
+    ],
+    [
+     20,
+     "-30s cooldown",
+     "Reducción de 30 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP combo",
+    "es": "Combo JcJ"
+   },
+   "tip": {
+    "en": "PvP control; skip for PvE.",
+    "es": "Control JcJ; no lo uses en JcE."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Smoke Bomb",
+   "ne": "Bomba de humo",
+   "nk": "연막탄",
+   "ic": "ICON_AS_SKILL_023",
+   "t": "stigma",
+   "un": 22,
+   "cd": 30,
+   "d": {
+    "en": "Damage to a target within 10m and Blind 5s.",
+    "es": "Daño a un objetivo en 10 m y Ceguera 5s."
+   },
+   "sp": [
+    [
+     5,
+     "+10m range",
+     "Aumento de 10 m de alcance"
+    ],
+    [
+     10,
+     "Changes to AoE Skill",
+     "Cambio a habilidad de área"
+    ],
+    [
+     15,
+     "Inflicts Slow for 5s on hit",
+     "Al acertar, Ralentización durante 5s"
+    ],
+    [
+     20,
+     "+1 consecutive use",
+     "Lanzamientos en cadena +1"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP control",
+    "es": "Control JcJ"
+   },
+   "tip": {
+    "en": "PvP utility; skip for PvE.",
+    "es": "Utilidad JcJ; no lo uses en JcE."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Spiral Slice",
+   "ne": "Corte en espiral",
+   "nk": "나선 베기",
+   "ic": "ICON_AS_SKILL_022",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Rushes a target within 20m, removes 1 buff; extra damage per buff removed.",
+    "es": "Acomete a un objetivo a 20 m y elimina 1 mejora; daño extra por mejora eliminada."
+   },
+   "sp": [
+    [
+     5,
+     "Removes up to 2 buffs",
+     "Elimina hasta 2 magias fortalecedoras"
+    ],
+    [
+     10,
+     "Rotates and inflicts Stun for 3s when removing 2 or more buffs",
+     "Gira e inflige Aturdimiento durante 3s al eliminar 2 o más mejoras."
+    ],
+    [
+     15,
+     "Removes up to 3 buffs",
+     "Elimina hasta 3 magias fortalecedoras."
+    ],
+    [
+     20,
+     "-30s cooldown",
+     "Reducción de 30 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Buff strip",
+    "es": "Quitar mejoras"
+   },
+   "tip": {
+    "en": "PvP dispel tool.",
+    "es": "Herramienta de disipar para JcJ."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Shadow Walk",
+   "ne": "Desplazamiento sombrío",
+   "nk": "그림자 보행",
+   "ic": "ICON_AS_SKILL_016",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "Out-of-combat Stealth for 20s.",
+    "es": "Sigilo fuera de combate durante 20s."
+   },
+   "sp": [
+    [
+     5,
+     "Critical Hit on attack during Stealth",
+     "Al atacar con Sigilo, golpe Crítico garantizado"
+    ],
+    [
+     10,
+     "+20% Move Speed for the duration",
+     "Aumento del 20 % de Velocidad de Movimiento durante la duración"
+    ],
+    [
+     15,
+     "Available in combat",
+     "Disponible en combate"
+    ],
+    [
+     20,
+     "Resets cooldown on player kill assists",
+     "Restablece el tiempo de espera al asistir en la eliminación de jugadores"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Stealth travel",
+    "es": "Viaje en sigilo"
+   },
+   "tip": {
+    "en": "Open-world PvP / skipping mobs.",
+    "es": "JcJ en mundo abierto / evitar monstruos."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Evasion Contract",
+   "ne": "Pacto de evasión",
+   "nk": "회피의 계약",
+   "ic": "ICON_AS_SKILL_039",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Removes Slow/Root, +200 Evasion and Slow/Root immunity for 10s.",
+    "es": "Elimina Ralentización/Atadura, +200 Evasión e inmunidad a ellas durante 10s."
+   },
+   "sp": [
+    [
+     5,
+     "25% chance of Projectile Immunity for the duration",
+     "Inmunidad a proyectiles con un 25 % de prob. durante la duración"
+    ],
+    [
+     10,
+     "+30% Move Speed for the duration",
+     "Aumento del 30 % de Velocidad de Movimiento durante la duración"
+    ],
+    [
+     15,
+     "50% chance to reduce all skill cooldowns by 1s on Evasion for the duration",
+     "Al evadir durante la duración, reducción de 1s del Tiempo de Enfriamiento de todas las habilidades con un 50 % de prob."
+    ],
+    [
+     20,
+     "+100 Evasion increase",
+     "Aumento adicional de 100 de Evasión"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Defensive",
+    "es": "Defensivo"
+   },
+   "tip": {
+    "en": "PvP / kiting defense.",
+    "es": "Defensa en JcJ o al huir."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Assault Ambush",
+   "ne": "Asalto agresivo",
+   "nk": "강습 습격",
+   "ic": "ICON_CO_SKILL_003",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "AoE hit (up to 4) around a target within 20m, 30% Blind 5s (100% on NPCs), Defense up to +20%.",
+    "es": "Golpe en área (hasta 4) alrededor de un objetivo a 20 m, 30 % de Ceguera 5s (100 % a PNJ), Defensa hasta +20 %."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Attack for 5s on hit",
+     "Al acertar, aumento del 20 % de Ataque durante 5s"
+    ],
+    [
+     10,
+     "500 MP damage on hit",
+     "Al acertar, 500 de daño de Puntos de Maná"
+    ],
+    [
+     15,
+     "+10m range",
+     "Aumento de 10 m de alcance"
+    ],
+    [
+     20,
+     "+20% Blind Chance",
+     "Aumento del 20 % de prob. de Ceguera"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Gap closer",
+    "es": "Acercamiento"
+   },
+   "tip": {
+    "en": "Situational; Lv5 gives +20% Attack for 5s.",
+    "es": "Situacional; a nivel 5 da +20 % de Ataque durante 5s."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  }
+ ],
+ "points": [
+  [
+   "Quick Slice",
+   4
+  ],
+  [
+   "Savage Roar",
+   4
+  ],
+  [
+   "Heart Gore",
+   4
+  ],
+  [
+   "Ambush",
+   4
+  ],
+  [
+   "Shadowstrike",
+   4
+  ],
+  [
+   "Insignia Explosion",
+   4
+  ],
+  [
+   "Heart Gore",
+   7
+  ],
+  [
+   "Quick Slice",
+   7
+  ],
+  [
+   "Insignia Explosion",
+   7
+  ],
+  [
+   "Savage Roar",
+   7
+  ],
+  [
+   "Ambush",
+   7
+  ],
+  [
+   "Shadowstrike",
+   7
+  ],
+  [
+   "Storm Rampage",
+   4
+  ],
+  [
+   "Whirlwind Slice",
+   4
+  ],
+  [
+   "Flash Slice",
+   4
+  ],
+  [
+   "Infiltrate",
+   4
+  ],
+  [
+   "Heart Gore",
+   10
+  ],
+  [
+   "Insignia Explosion",
+   10
+  ],
+  [
+   "Quick Slice",
+   10
+  ],
+  [
+   "Savage Roar",
+   10
+  ],
+  [
+   "Ambush",
+   10
+  ],
+  [
+   "Shadowstrike",
+   10
+  ],
+  [
+   "Storm Rampage",
+   8
+  ],
+  [
+   "Whirlwind Slice",
+   8
+  ],
+  [
+   "Flash Slice",
+   8
+  ],
+  [
+   "Infiltrate",
+   8
+  ],
+  [
+   "Rear Smite",
+   7
+  ],
+  [
+   "Exploit Weakness",
+   7
+  ],
+  [
+   "Assault Stance",
+   4
+  ]
+ ],
+ "stigma": {
+  "loadouts": [
+   {
+    "id": "main",
+    "name": {
+     "en": "PvE main",
+     "es": "JcE principal"
+    },
+    "skills": [
+     "Illusive Clone",
+     "Swift Contract",
+     "Savage Fang",
+     "Triniel's Dagger"
+    ],
+    "note": {
+     "en": "Used by ~70-95% of top assassins. Clone + Contract = burst window.",
+     "es": "Lo usan ~70-95 % de los mejores asesinos. Clon + Pacto = ventana de ráfaga."
+    }
+   },
+   {
+    "id": "solo",
+    "name": {
+     "en": "Solo / leveling",
+     "es": "Solo / subir nivel"
+    },
+    "skills": [
+     "Illusive Clone",
+     "Swift Contract",
+     "Savage Fang",
+     "Throw Shadowblade"
+    ],
+    "note": {
+     "en": "Throw Shadowblade resets on kills: fast for field and Abyss mob quests.",
+     "es": "Tiro de daga sombría se reinicia al matar: rápido para misiones de campo y Abismo."
+    }
+   },
+   {
+    "id": "alt",
+    "name": {
+     "en": "Hard boss",
+     "es": "Jefe difícil"
+    },
+    "skills": [
+     "Illusive Clone",
+     "Swift Contract",
+     "Savage Fang",
+     "Evasion Stance"
+    ],
+    "note": {
+     "en": "Swap Triniel's Dagger for Evasion Stance to dodge deadly mechanics.",
+     "es": "Cambia Puñal de Triniel por Postura de evasión para esquivar mecánicas letales."
+    }
+   }
+  ],
+  "levelTips": {
+   "en": "Illusive Clone first, then Swift Contract and Savage Fang to 10+, then Triniel's Dagger to 10. Evasion Stance 5, Throw Shadowblade 10.",
+   "es": "Primero Clon ilusorio, luego Pacto de celeridad y Colmillo salvaje a 10+, después Puñal de Triniel a 10. Postura de evasión 5, Tiro de daga sombría 10."
+  }
+ },
+ "dvValues": {
+  "Heart Gore": 10,
+  "Rear Smite": 10,
+  "Exploit Weakness": 9,
+  "Assault Stance": 9,
+  "Insignia Explosion": 9,
+  "Quick Slice": 8,
+  "Savage Roar": 8,
+  "Ambush": 8,
+  "Shadowstrike": 7,
+  "Storm Rampage": 7,
+  "Impact Hit": 6,
+  "Ambush Stance": 6,
+  "Whirlwind Slice": 6,
+  "Flash Slice": 5,
+  "Infiltrate": 5,
+  "Determination": 5,
+  "Heightened Sixth Sense": 4,
+  "Defense Break": 3,
+  "Apply Poison": 3,
+  "Shadow Fall": 2,
+  "Revitalization Contract": 2,
+  "Defiance": 1
+ },
+ "dvSimple": {
+  "en": [
+   "Take every Heart Gore node first",
+   "Rear Smite nodes (back + PvE damage)",
+   "Exploit Weakness and Assault Stance nodes (crit)",
+   "Insignia Explosion nodes",
+   "Quick Slice and Savage Roar nodes",
+   "Ambush and Shadowstrike nodes",
+   "Storm Rampage nodes",
+   "Impact Hit and Ambush Stance nodes",
+   "Whirlwind Slice nodes",
+   "Flash Slice and Infiltrate nodes",
+   "Determination nodes",
+   "Heightened Sixth Sense for survival",
+   "Skip Shadow Fall, Revitalization Contract and Defiance"
+  ],
+  "es": [
+   "Toma primero todos los nodos de Estocada al corazón",
+   "Nodos de Impacto trasero (daño por la espalda y JcE)",
+   "Nodos de Explotar debilidades y Postura de agresión (crítico)",
+   "Nodos de Explosión de insignia",
+   "Nodos de Corte rápido y Rugido bestial",
+   "Nodos de Emboscada y Ataque sigiloso",
+   "Nodos de Desenfreno de tormenta",
+   "Nodos de Acierto de impacto y Postura de emboscada",
+   "Nodos de Corte torbellino",
+   "Nodos de Corte de destello e Infiltración",
+   "Nodos de Determinación",
+   "Maximización de sexto sentido para sobrevivir",
+   "Omite Caída sombría, Pacto de resurrección y Eliminación de impacto"
+  ]
+ },
+ "macro": {
+  "leveling": {
+   "slots": [
+    [
+     "1",
+     [
+      "Insignia Explosion",
+      "Ambush",
+      "Savage Roar"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Heart Gore",
+      "Whirlwind Slice",
+      "Quick Slice"
+     ],
+     "m"
+    ],
+    [
+     "3",
+     [
+      "Shadowstrike",
+      "Flash Slice"
+     ],
+     "m"
+    ],
+    [
+     "4",
+     [
+      "Storm Rampage"
+     ],
+     "h"
+    ],
+    [
+     "5",
+     [
+      "Shadow Fall"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "3",
+    "1",
+    "2",
+    "1",
+    "2"
+   ]
+  },
+  "endgame": {
+   "slots": [
+    [
+     "1",
+     [
+      "Insignia Explosion",
+      "Ambush",
+      "Savage Roar"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Heart Gore",
+      "Whirlwind Slice",
+      "Quick Slice"
+     ],
+     "m"
+    ],
+    [
+     "3",
+     [
+      "Shadowstrike",
+      "Flash Slice"
+     ],
+     "m"
+    ],
+    [
+     "Q",
+     [
+      "Illusive Clone",
+      "Swift Contract"
+     ],
+     "h"
+    ],
+    [
+     "E",
+     [
+      "Savage Fang"
+     ],
+     "h"
+    ],
+    [
+     "R",
+     [
+      "Triniel's Dagger"
+     ],
+     "h"
+    ],
+    [
+     "4",
+     [
+      "Storm Rampage"
+     ],
+     "h"
+    ],
+    [
+     "F",
+     [
+      "Infiltrate"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "3",
+    "E",
+    "Q",
+    "2",
+    "1",
+    "R",
+    "2",
+    "1"
+   ]
+  },
+  "notes": {
+   "en": "Heart Gore sits at the bottom of slot 2 so it fires the moment a crit enables it. Use burst stigmas and Storm Rampage (Stagger) by hand.",
+   "es": "Estocada al corazón va abajo en la ranura 2 para que salga en cuanto un crítico la habilite. Usa los estigmas de ráfaga y Desenfreno de tormenta (Tambaleo) a mano."
+  }
+ },
+ "rotation": {
+  "en": [
+   "Shadowstrike to get behind the boss (+20% Crit Damage)",
+   "Savage Fang for 5 Insignias and Stagger",
+   "Illusive Clone + Swift Contract",
+   "Spam Heart Gore on every crit; Quick Slice / Savage Roar between",
+   "Ambush from behind, then Insignia Explosion at 5 stacks",
+   "Triniel's Dagger to cut cooldowns; Storm Rampage during Stagger"
+  ],
+  "es": [
+   "Ataque sigiloso para ponerte detrás del jefe (+20 % Daño Crítico)",
+   "Colmillo salvaje para 5 insignias y Tambaleo",
+   "Clon ilusorio + Pacto de celeridad",
+   "Estocada al corazón en cada crítico; Corte rápido / Rugido bestial entre medio",
+   "Emboscada por la espalda y luego Explosión de insignia con 5 cargas",
+   "Puñal de Triniel para reducir enfriamientos; Desenfreno de tormenta en Tambaleo"
+  ]
+ },
+ "synergy": [
+  {
+   "a": "Illusive Clone",
+   "b": "Heart Gore",
+   "t": {
+    "en": "Reset + clone crits",
+    "es": "Reinicio + críticos del clon"
+   },
+   "s": {
+    "en": "Clone removes Heart Gore's cooldown and its crits can reset it too.",
+    "es": "El clon quita el enfriamiento de Estocada al corazón y sus críticos también la reinician."
+   }
+  },
+  {
+   "a": "Savage Fang",
+   "b": "Insignia Explosion",
+   "t": {
+    "en": "5 stacks, then detonate",
+    "es": "5 cargas y detonar"
+   },
+   "s": {
+    "en": "Savage Fang engraves 5 Insignias instantly for a full-power Explosion.",
+    "es": "Colmillo salvaje graba 5 insignias al instante para una Explosión al máximo."
+   }
+  },
+  {
+   "a": "Swift Contract",
+   "b": "Rear Smite",
+   "t": {
+    "en": "x1.5 back damage",
+    "es": "Daño trasero x1,5"
+   },
+   "s": {
+    "en": "At Lv10 Swift Contract boosts Rear Smite by 1.5x for 10s.",
+    "es": "A nivel 10, Pacto de celeridad potencia Impacto trasero x1,5 durante 10s."
+   }
+  },
+  {
+   "a": "Quick Slice",
+   "b": "Heart Gore",
+   "t": {
+    "en": "Guaranteed crit",
+    "es": "Crítico garantizado"
+   },
+   "s": {
+    "en": "Quick Slice Lv16 always crits, enabling Heart Gore.",
+    "es": "Corte rápido nivel 16 siempre es crítico y habilita Estocada al corazón."
+   }
+  },
+  {
+   "a": "Storm Rampage",
+   "b": "Triniel's Dagger",
+   "t": {
+    "en": "Cooldown flood",
+    "es": "Lluvia de enfriamientos"
+   },
+   "s": {
+    "en": "Both cut cooldowns; stack them in the Stagger window.",
+    "es": "Ambas reducen enfriamientos; combínalas en la ventana de Tambaleo."
+   }
+  }
+ ],
+ "stats": {
+  "order": [
+   {
+    "en": "Critical Hit",
+    "es": "Crítico",
+    "w": 100
+   },
+   {
+    "en": "Attack",
+    "es": "Ataque",
+    "w": 90
+   },
+   {
+    "en": "Critical Damage Boost",
+    "es": "Amplificación de Daño Crítico",
+    "w": 80
+   },
+   {
+    "en": "Combat Speed",
+    "es": "Velocidad de combate",
+    "w": 70
+   },
+   {
+    "en": "Back Attack / PvE Damage Boost",
+    "es": "Ampl. de daño por la espalda / JcE",
+    "w": 60
+   },
+   {
+    "en": "Accuracy",
+    "es": "Precisión",
+    "w": 45
+   }
+  ],
+  "notes": {
+   "en": "Crit fuels Heart Gore resets, so get enough Critical Hit first, then Attack and Crit Damage. Use Crit/Attack manastones.",
+   "es": "El Crítico alimenta los reinicios de Estocada al corazón: consigue Crítico suficiente primero, luego Ataque y Daño Crítico. Usa piedras de maná de Crítico/Ataque."
+  }
+ },
+ "genus": {
+  "s15": [
+   [
+    "Back Attack",
+    "Ataque por la espalda",
+    1
+   ],
+   [
+    "PvE Attack",
+    "Ataque JcE",
+    1
+   ],
+   [
+    "Critical Attack",
+    "Ataque crítico",
+    2
+   ],
+   [
+    "Boss Attack",
+    "Ataque a jefes",
+    3
+   ]
+  ],
+  "s369": [
+   [
+    "Back Attack Critical Hit",
+    "Crítico por la espalda",
+    1
+   ],
+   [
+    "Critical Hit",
+    "Crítico",
+    2
+   ],
+   [
+    "PvE Accuracy",
+    "Precisión JcE",
+    2
+   ],
+   [
+    "Power Shard Damage Bonus",
+    "Bonif. de daño de fragmento de poder",
+    3
+   ]
+  ],
+  "s278": [
+   [
+    "PvE Defense",
+    "Defensa JcE",
+    1
+   ],
+   [
+    "HP increase",
+    "Aumento de PV",
+    2
+   ],
+   [
+    "Back Defense",
+    "Defensa trasera",
+    3
+   ]
+  ],
+  "s4": {
+   "cogni": [
+    [
+     "Critical Damage Boost",
+     "Amplificación de Daño Crítico",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de Daño JcE",
+     2
+    ],
+    [
+     "Critical Hit",
+     "Crítico",
+     3
+    ]
+   ],
+   "fera": [
+    [
+     "Weapon Damage Boost",
+     "Amplificación de Daño de Arma",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de Daño JcE",
+     2
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de Daño",
+     3
+    ]
+   ],
+   "natura": [
+    [
+     "Multi-hit Chance",
+     "Prob. de Multigolpe",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de Daño JcE",
+     2
+    ],
+    [
+     "Perfect Chance",
+     "Prob. de Perfecto",
+     3
+    ]
+   ],
+   "varian": [
+    [
+     "Back Attack Damage Boost",
+     "Amplificación de Daño por la Espalda",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de Daño JcE",
+     2
+    ],
+    [
+     "Varian Damage Boost",
+     "Amplificación de Daño Varian",
+     3
+    ]
+   ],
+   "special": [
+    [
+     "Double Chance",
+     "Prob. de Golpe doble",
+     1
+    ],
+    [
+     "Critical Damage Boost",
+     "Amplificación de Daño Crítico",
+     1
+    ],
+    [
+     "Back Attack Damage Boost",
+     "Amplificación de Daño por la Espalda",
+     2
+    ]
+   ]
+  },
+  "notes": {
+   "en": "Assassins hit from behind, so Back Attack lines beat Front lines. Crit Damage Boost is a separate multiplier, worth more than another Damage Boost.",
+   "es": "El asesino golpea por la espalda, así que las líneas traseras valen más que las frontales. Ampl. de Daño Crítico es un multiplicador aparte: rinde más que otra Ampl. de Daño."
+  }
+ },
+ "leveling": {
+  "en": [
+   "Loop: Flash Slice (Blind) → Savage Roar stacks → Insignia Explosion to stun and finish.",
+   "Pull a pack, then Quick Slice / Heart Gore: multi-target crits reset Heart Gore often.",
+   "Ambush 'Absorbs 3% HP' and Shadow Fall's 10% absorb keep you alive without potions.",
+   "Level Exploit Weakness early while skill levels are low.",
+   "Throw Shadowblade stigma for mob kill quests."
+  ],
+  "es": [
+   "Ciclo: Corte de destello (Ceguera) → cargas con Rugido bestial → Explosión de insignia para aturdir y rematar.",
+   "Agrupa enemigos y usa Corte rápido / Estocada al corazón: los críticos múltiples la reinician a menudo.",
+   "La absorción del 3 % de Emboscada y del 10 % de Caída sombría te mantienen vivo sin pociones.",
+   "Sube pronto Explotar debilidades mientras tus niveles de habilidad son bajos.",
+   "Usa el estigma Tiro de daga sombría para misiones de matar monstruos."
+  ]
+ },
+ "kr": {
+  "en": "KR guides (살성) call Heart Gore 심장 찌르기 the core and rank 환영 분신 (Illusive Clone) as the #1 stigma. Passive order: 배후 강타 → 빈틈 노리기 → 강습 자세.",
+  "es": "Las guías coreanas (살성) llaman a Estocada al corazón (심장 찌르기) el núcleo y ponen 환영 분신 (Clon ilusorio) como estigma #1. Pasivas: 배후 강타 → 빈틈 노리기 → 강습 자세."
+ },
+ "sources": [
+  [
+   "Vortex Gaming – 살성 PvE 스킬 세팅 (KR)",
+   "https://vortexgaming.io/postdetail/854915"
+  ],
+  [
+   "Vortex Gaming – Assassin guide",
+   "https://vortexgaming.io/en/postdetail/601044"
+  ],
+  [
+   "Metabot – Assassin endgame PvE build (top players)",
+   "https://metabot.gg/en/aion-2/classes/assassin/build"
+  ],
+  [
+   "questlog.gg – Aion 2 skill database",
+   "https://questlog.gg/aion-2/en/db/skills"
+  ]
+ ]
+}

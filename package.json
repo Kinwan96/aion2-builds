@@ -1,0 +1,16 @@
+{
+  "name": "aion2-builds",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aion 2 class builds page (all 8 classes, EN/ES) for GitHub Pages",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "images": "node scripts/fetch-images.mjs",
+    "test": "node scripts/build.mjs && node tests/smoke.mjs",
+    "serve": "node scripts/build.mjs && npx --yes serve site"
+  },
+  "devDependencies": {
+    "playwright": "^1.47.0"
+  }
+}

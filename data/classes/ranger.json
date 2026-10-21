@@ -1,0 +1,2368 @@
+{
+ "id": "ranger",
+ "name": {
+  "en": "Ranger",
+  "es": "Arquero"
+ },
+ "classIcon": "UT_Class_Ranger_Large",
+ "color": "#3fbf7f",
+ "role": {
+  "en": "Ranged physical DPS",
+  "es": "DPS físico a distancia"
+ },
+ "weapon": {
+  "en": "Bow",
+  "es": "Arco"
+ },
+ "difficulty": 2,
+ "summary": {
+  "en": "Long-range bow DPS built around Critical Hits. Spam Snipe to shorten Deadshot, keep Gale and Precision up, and fire Drill Dart after each crit.",
+  "es": "DPS a distancia con arco basado en críticos. Usa Disparo certero para acortar Flecha al objetivo, mantén Vendaval y Precisión, y lanza Flecha punzante tras cada crítico."
+ },
+ "engine": {
+  "en": "Snipe hits → Deadshot cooldown; crits → Drill Dart",
+  "es": "Golpes de Disparo certero → enfriamiento de Flecha al objetivo; críticos → Flecha punzante"
+ },
+ "skills": [
+  {
+   "n": "Snipe",
+   "ne": "Disparo certero",
+   "nk": "저격",
+   "ic": "ICON_RA_SKILL_001",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Wind damage to a target within 20m and restores 120 MP.",
+    "es": "Daño de Viento a un objetivo a 20 m y recupera 120 PM."
+   },
+   "sp": [
+    [
+     8,
+     "+20% MP restored",
+     "Aumento del 20 % de Recuperación de Puntos de Maná"
+    ],
+    [
+     8,
+     "Absorbs 0.7% HP",
+     "Absorción de Puntos de Vida del 0.7 %"
+    ],
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     12,
+     "-1s [Deadshot] cooldown on hit",
+     "Al acertar, reducción de 1s del Tiempo de Enfriamiento de «Flecha al objetivo»"
+    ],
+    [
+     16,
+     "Adds [Tempest Arrow] Chain Skill",
+     "Adición de hab. de cadena «Flecha de vendaval» x4"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Core / MP",
+    "es": "Núcleo / PM"
+   },
+   "tip": {
+    "en": "Your basic attack. At Specialty 12 every hit cuts 1s off Deadshot.",
+    "es": "Tu ataque básico. Con la especialidad 12 cada golpe quita 1 s a Flecha al objetivo."
+   },
+   "pickLev": [
+    2,
+    0,
+    3
+   ],
+   "pickEnd": [
+    3,
+    2,
+    4
+   ]
+  },
+  {
+   "n": "Deadshot",
+   "ne": "Flecha al objetivo",
+   "nk": "조준 화살",
+   "ic": "ICON_RA_SKILL_002",
+   "t": "active",
+   "un": 14,
+   "cd": 20,
+   "charge": true,
+   "d": {
+    "en": "Charge up to 3 levels: Wind damage to a target within 20m. +35% damage while you have Precision.",
+    "es": "Carga hasta 3 fases: Daño de Viento a un objetivo a 20 m. +35 % de daño con Precisión."
+   },
+   "sp": [
+    [
+     8,
+     "Removes MP consumed",
+     "Eliminación de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "+30% Skill Speed",
+     "Aumento de la Velocidad de habilidad en un 30 %"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Ignores Block and Evasion and lands as Multi-Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con Multigolpe"
+    ],
+    [
+     16,
+     "[Deadshot] grants extra damage on hit",
+     "Daño adicional al acertar con [Flecha al objetivo]"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Main nuke",
+    "es": "Nuke principal"
+   },
+   "tip": {
+    "en": "Cast by hand at full charge, inside Precision.",
+    "es": "Lánzala a mano con carga completa y dentro de Precisión."
+   },
+   "pickLev": [
+    1,
+    2,
+    0
+   ],
+   "pickEnd": [
+    1,
+    2,
+    4
+   ]
+  },
+  {
+   "n": "Drill Dart",
+   "ne": "Flecha punzante",
+   "nk": "송곳 화살",
+   "ic": "ICON_RA_SKILL_005",
+   "t": "active",
+   "un": 4,
+   "cd": 5,
+   "d": {
+    "en": "After a Critical Hit: Fire damage to up to 4 enemies near a target (20m), +100 MP and a 6s Bleed.",
+    "es": "Tras un Crítico: Daño de Fuego a hasta 4 enemigos cerca del objetivo (20 m), +100 PM y Sangrado 6 s."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 3% HP",
+     "Absorción de Puntos de Vida del 3 %"
+    ],
+    [
+     8,
+     "+2s Bleed duration",
+     "Aumento de 2 s de duración de Sangrado"
+    ],
+    [
+     8,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ],
+    [
+     12,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     16,
+     "Activates [Drill Dart] 1 extra time",
+     "Activación de «Flecha punzante» +1"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Crit proc",
+    "es": "Tras crítico"
+   },
+   "tip": {
+    "en": "Only usable shortly after you crit; keep it at the bottom of the macro.",
+    "es": "Solo se usa justo después de un crítico; ponla abajo en la macro."
+   },
+   "pickLev": [
+    0,
+    2,
+    3
+   ],
+   "pickEnd": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Gale Arrow",
+   "ne": "Huracán de flechas",
+   "nk": "광풍 화살",
+   "ic": "ICON_RA_SKILL_011",
+   "t": "active",
+   "un": 7,
+   "cd": 20,
+   "d": {
+    "en": "Wind damage to up to 4 enemies (20m). Gale 10s: +7% Combat Speed, +7% PvE Damage Boost.",
+    "es": "Daño de Viento a hasta 4 enemigos (20 m). Vendaval 10 s: +7 % Velocidad de combate y +7 % daño JcE."
+   },
+   "sp": [
+    [
+     8,
+     "+5s duration",
+     "Aumento de duración en 5 s"
+    ],
+    [
+     8,
+     "50% chance to inflict Knock Back on hit",
+     "50 % de probabilidad de infligir Empuje al acertar"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Increases Combat Speed, PvE Damage Boost, and PvP Damage Boost when less targets hit",
+     "Aumenta la Velocidad de combate, la Amplificación del daño en JcE y la Amplificación del daño en JcJ cuando se alcanzan menos objetivos"
+    ],
+    [
+     16,
+     "-10s cooldown",
+     "Reducción de 10 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Self buff",
+    "es": "Buff propio"
+   },
+   "tip": {
+    "en": "Keep Gale up at all times; it boosts every other skill.",
+    "es": "Mantén Vendaval siempre activo; potencia todo lo demás."
+   },
+   "pickLev": [
+    0,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    2,
+    4
+   ]
+  },
+  {
+   "n": "Tempest Shot",
+   "ne": "Tiro rápido",
+   "nk": "속사",
+   "ic": "ICON_RA_SKILL_034",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Wind damage to up to 4 enemies near a target within 20m. No cooldown.",
+    "es": "Daño de Viento a hasta 4 enemigos cerca de un objetivo a 20 m. Sin enfriamiento."
+   },
+   "sp": [
+    [
+     8,
+     "-20% MP consumed",
+     "Reducción del 20 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "+10% skill Critical Hit",
+     "Aumento de un 10 % de Crítico de Habilidad"
+    ],
+    [
+     8,
+     "Deals up to 12% more damage when less targets are hit",
+     "Cuantos menos objetivos se acierten, aumento máx. del 12 % de daño"
+    ],
+    [
+     12,
+     "5% chance to inflict Knock Back on Critical Hit",
+     "5 % de probabilidad de infligir Empuje al realizar un Golpe crítico"
+    ],
+    [
+     16,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "Filler",
+    "es": "Relleno"
+   },
+   "tip": {
+    "en": "Spam between cooldowns; watch MP.",
+    "es": "Úsala entre enfriamientos; vigila los PM."
+   },
+   "pickLev": [
+    0,
+    2,
+    1
+   ],
+   "pickEnd": [
+    2,
+    4,
+    1
+   ]
+  },
+  {
+   "n": "Marking Shot",
+   "ne": "Flecha en el objetivo",
+   "nk": "표적 화살",
+   "ic": "ICON_RA_SKILL_031",
+   "t": "active",
+   "un": 3,
+   "cd": 10,
+   "d": {
+    "en": "Wind damage (20m), dash in input direction and gain Precision 10s: +300 Critical Hit.",
+    "es": "Daño de Viento (20 m), te desplazas y obtienes Precisión 10 s: +300 Crítico."
+   },
+   "sp": [
+    [
+     8,
+     "+5% Perfect Chance for the duration",
+     "Aumento del 5 % de Perforación durante la duración"
+    ],
+    [
+     8,
+     "30% chance to inflict Knock Back on hit",
+     "Al acertar, aplica Empuje con una probabilidad del 30 %"
+    ],
+    [
+     8,
+     "+5s duration",
+     "Aumento de duración en 5 s"
+    ],
+    [
+     12,
+     "+1 consecutive use",
+     "Lanzamientos en cadena +1"
+    ],
+    [
+     16,
+     "Ignores Block and Evasion and lands as a Critical Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con golpe Crítico"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "Crit buff",
+    "es": "Buff de crítico"
+   },
+   "tip": {
+    "en": "Use by hand before Deadshot; it also repositions you.",
+    "es": "Úsala a mano antes de Flecha al objetivo; también te reposiciona."
+   },
+   "pickLev": [
+    2,
+    0,
+    3
+   ],
+   "pickEnd": [
+    2,
+    0,
+    3
+   ]
+  },
+  {
+   "n": "Arrow Scattershot",
+   "ne": "Flecha sin puntería",
+   "nk": "화살 난사",
+   "ic": "ICON_RA_SKILL_033",
+   "t": "active",
+   "un": 5,
+   "cd": 0,
+   "d": {
+    "en": "Wind damage to a Staggered target within 20m.",
+    "es": "Daño de Viento a un objetivo en Tambaleo a 20 m."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 5% HP",
+     "Absorción de Puntos de Vida del 5 %"
+    ],
+    [
+     8,
+     "Restores 120 MP on hit",
+     "Al acertar, recuperación de 120 de Puntos de Maná"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     16,
+     "-1s all cooldowns on hit",
+     "Al acertar, reducción de 1s de Tiempo de Enfriamiento de todas las habilidades"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "Stagger window",
+    "es": "Ventana de tambaleo"
+   },
+   "tip": {
+    "en": "Only on a staggered boss; spam it then.",
+    "es": "Solo con el jefe en Tambaleo; ahí úsala sin parar."
+   },
+   "pickLev": [
+    0,
+    1,
+    3
+   ],
+   "pickEnd": [
+    3,
+    4,
+    1
+   ]
+  },
+  {
+   "n": "Snare Shot",
+   "ne": "Flecha de tentáculo",
+   "nk": "올가미 화살",
+   "ic": "ICON_RA_SKILL_013",
+   "t": "active",
+   "un": 1,
+   "cd": 15,
+   "d": {
+    "en": "Earth damage to up to 4 enemies (20m) and Slow -40% Move Speed for 5s.",
+    "es": "Daño de Tierra a hasta 4 enemigos (20 m) y Ralentización -40 % de movimiento 5 s."
+   },
+   "sp": [
+    [
+     8,
+     "+20% Move Speed reduction",
+     "La reducción de Velocidad de Movimiento de «Flecha de tentáculo» aumenta un 20 %"
+    ],
+    [
+     8,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Adds [Shackling Arrow] Chain Skill",
+     "Adición de hab. de cadena «Flecha de grilletes» x2"
+    ],
+    [
+     16,
+     "+2s Slow and Root duration",
+     "Aumento de 2 s de duración de Ralentización y Atadura"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Utility",
+    "es": "Utilidad"
+   },
+   "tip": {
+    "en": "Kiting tool; enables Explosive Arrow bonus while solo.",
+    "es": "Para kitear; activa el bonus de Flecha explosiva en solitario."
+   },
+   "pickLev": [
+    2,
+    1,
+    3
+   ],
+   "pickEnd": [
+    2,
+    1,
+    3
+   ]
+  },
+  {
+   "n": "Burst Arrow",
+   "ne": "Estallido de flechas",
+   "nk": "파열 화살",
+   "ic": "ICON_RA_SKILL_008",
+   "t": "active",
+   "un": 10,
+   "cd": 20,
+   "d": {
+    "en": "Wind damage to up to 4 enemies near a Slowed or Rooted target (20m).",
+    "es": "Daño de Viento a hasta 4 enemigos cerca de un objetivo Ralentizado o Atado (20 m)."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 10% HP",
+     "Absorción de Puntos de Vida del 10 %"
+    ],
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Up to +20% damage when less targets hit",
+     "Cuantos menos objetivos se acierten, aumento máx. del 20 % de daño"
+    ],
+    [
+     16,
+     "25% chance to reset cooldown on hit",
+     "25 % de prob. de restablecer el Tiempo de Enfriamiento al acertar con «Estallido de flechas»"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Situational",
+    "es": "Situacional"
+   },
+   "tip": {
+    "en": "Needs Slow/Root; most bosses are immune.",
+    "es": "Requiere Ralentización/Atadura; casi todos los jefes son inmunes."
+   },
+   "pickLev": [
+    0,
+    1,
+    3
+   ],
+   "pickEnd": [
+    1,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Suppressing Arrow",
+   "ne": "Flecha de supresión",
+   "nk": "제압 화살",
+   "ic": "ICON_RA_SKILL_007",
+   "t": "active",
+   "un": 12,
+   "cd": 20,
+   "d": {
+    "en": "Wind damage (20m); during Precision 40% chance to Stun 3s (100% on NPCs).",
+    "es": "Daño de Viento (20 m); con Precisión 40 % de Aturdir 3 s (100 % a PNJ)."
+   },
+   "sp": [
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     8,
+     "+1s Stun duration",
+     "Aumento de 1 s de duración de Aturdimiento"
+    ],
+    [
+     8,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ],
+    [
+     12,
+     "+20% Stun Chance",
+     "Aumento del 20 % de prob. de Aturdimiento"
+    ],
+    [
+     16,
+     "25% chance to reset cooldown on hit",
+     "25 % de probabilidad de restablecer el Tiempo de Enfriamiento al acertar con [Flecha de supresión]"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Control",
+    "es": "Control"
+   },
+   "tip": {
+    "en": "Stun for mobs and PvP; low value on bosses.",
+    "es": "Aturdimiento para mobs y JcJ; poco valor en jefes."
+   },
+   "pickLev": [
+    1,
+    3,
+    2
+   ],
+   "pickEnd": [
+    0,
+    2,
+    4
+   ]
+  },
+  {
+   "n": "Explosion Trap",
+   "ne": "Cepo explosivo",
+   "nk": "폭발의 덫",
+   "ic": "ICON_RA_SKILL_017",
+   "t": "active",
+   "un": 8,
+   "cd": 20,
+   "d": {
+    "en": "Trap at your feet (10s): Earth damage to up to 4 enemies in 5m, 40% Stun 3s.",
+    "es": "Trampa a tus pies (10 s): Daño de Tierra a hasta 4 enemigos en 5 m, 40 % Aturdir 3 s."
+   },
+   "sp": [
+    [
+     8,
+     "Pulls enemies on explosion",
+     "Arrastra a los enemigos al explotar"
+    ],
+    [
+     8,
+     "+1s Stun duration",
+     "Aumento de 1 s de duración de Aturdimiento"
+    ],
+    [
+     8,
+     "Extra damage after 3s on hit",
+     "Al acertar, daño adicional después de 3 s"
+    ],
+    [
+     12,
+     "+20% Stun Chance",
+     "Aumento del 20 % de prob. de Aturdimiento"
+    ],
+    [
+     16,
+     "+1 consecutive use",
+     "Lanzamientos en cadena +1"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Utility",
+    "es": "Utilidad"
+   },
+   "tip": {
+    "en": "Pull packs while leveling; skip in boss fights.",
+    "es": "Agrupa mobs al subir; no lo uses en jefes."
+   },
+   "pickLev": [
+    0,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    2,
+    4
+   ]
+  },
+  {
+   "n": "Defiance",
+   "ne": "Eliminación de impacto",
+   "nk": "충격 해제",
+   "ic": "ICON_CO_SKILL_002",
+   "t": "active",
+   "un": 16,
+   "cd": 60,
+   "d": {
+    "en": "Removes Stun, Knockdown, Airborne, Grab, Frost, Fear; Tenacity (status immunity) 5s.",
+    "es": "Elimina Aturdimiento, Derribo, Atadura aérea, Agarre, Congelación y Terror; Robustez (inmunidad) 5 s."
+   },
+   "sp": [
+    [
+     8,
+     "Adds [Lightning Arrow] Chain Skill",
+     "Añade [Flecha de rayo] como segunda habilidad de cadena."
+    ],
+    [
+     8,
+     "Restores 1000 Stamina on using [Defiance]",
+     "Al lanzar [Eliminación de impacto], recupera 1000 de Vigor"
+    ],
+    [
+     8,
+     "Restores 20% HP on using [Defiance]",
+     "Al lanzar «Eliminación de impacto», recuperación del 20 % de Puntos de Vida"
+    ],
+    [
+     12,
+     "+2s Tenacity duration",
+     "Aumento de 2 s de duración de Robustez"
+    ],
+    [
+     16,
+     "+50% PvE Damage Tolerance and +25% PvP Damage Tolerance for Tenacity duration",
+     "Durante la duración de Robustez, la Tolerancia a Daño JcE aumenta un 50 % y la Tolerancia a Daño JcJ un 25 %"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Break CC",
+    "es": "Romper CC"
+   },
+   "tip": {
+    "en": "Keep at 1 for PvE; press only when stunned.",
+    "es": "Déjala en 1 para JcE; úsala solo si te controlan."
+   },
+   "pickLev": [
+    2,
+    0,
+    3
+   ],
+   "pickEnd": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Focused Eye",
+   "ne": "Ojo concentrado",
+   "nk": "집중의 눈",
+   "ic": "ICON_RA_SKILL_Passive_001",
+   "t": "passive",
+   "un": 11,
+   "cd": 0,
+   "d": {
+    "en": "+100 Accuracy, +1% PvE Damage Boost, +0.2% Double Chance.",
+    "es": "+100 Precisión, +1 % daño JcE, +0.2 % Golpe."
+   },
+   "sp": [],
+   "rank": 1,
+   "tag": {
+    "en": "Damage",
+    "es": "Daño"
+   },
+   "tip": {
+    "en": "Max first; Vaizel's Authority boosts it.",
+    "es": "Súbelo primero; Poder de Vaizel lo potencia."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Hunter's Resolve",
+   "ne": "Determinación de cazador",
+   "nk": "사냥꾼의 결의",
+   "ic": "ICON_RA_SKILL_Passive_011",
+   "t": "passive",
+   "un": 13,
+   "cd": 0,
+   "d": {
+    "en": "+6% Critical Damage Boost.",
+    "es": "+6 % Amplificación de Daño Crítico."
+   },
+   "sp": [],
+   "rank": 2,
+   "tag": {
+    "en": "Crit damage",
+    "es": "Daño crítico"
+   },
+   "tip": {
+    "en": "Pure damage with a crit-heavy kit.",
+    "es": "Daño puro en un kit basado en críticos."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Hunter's Soul",
+   "ne": "Alma de cazador",
+   "nk": "사냥꾼의 혼",
+   "ic": "ICON_RA_SKILL_Passive_007",
+   "t": "passive",
+   "un": 25,
+   "cd": 0,
+   "d": {
+    "en": "50% chance on Critical Hit to deal extra Wind damage (1s CD).",
+    "es": "50 % de prob. al hacer Crítico de daño de Viento extra (1 s)."
+   },
+   "sp": [],
+   "rank": 3,
+   "tag": {
+    "en": "Crit proc",
+    "es": "Proc de crítico"
+   },
+   "tip": {
+    "en": "Procs constantly with Precision up.",
+    "es": "Se activa sin parar con Precisión."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Concentrated Fire",
+   "ne": "Fuego concentrado",
+   "nk": "집중 포화",
+   "ic": "ICON_RA_SKILL_Passive_003",
+   "t": "passive",
+   "un": 6,
+   "cd": 0,
+   "d": {
+    "en": "50% chance to deal Wind damage to a target taking Damage over Time (1s CD).",
+    "es": "50 % de prob. de daño de Viento a objetivos con Daño continuo (1 s)."
+   },
+   "sp": [],
+   "rank": 4,
+   "tag": {
+    "en": "DoT proc",
+    "es": "Proc de DoT"
+   },
+   "tip": {
+    "en": "Works with Drill Dart Bleed and Griffon Arrow.",
+    "es": "Funciona con Sangrado de Flecha punzante y Flecha de grifo."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Melee Fire",
+   "ne": "Disparo cercano",
+   "nk": "근접 사격",
+   "ic": "ICON_RA_SKILL_Passive_013",
+   "t": "passive",
+   "un": 21,
+   "cd": 0,
+   "d": {
+    "en": "25% chance on hit for extra Wind damage; 5% Knock Back within 5m (1s CD).",
+    "es": "25 % de prob. al acertar de daño de Viento extra; 5 % Repulsión a 5 m (1 s)."
+   },
+   "sp": [],
+   "rank": 5,
+   "tag": {
+    "en": "Damage proc",
+    "es": "Proc de daño"
+   },
+   "tip": {
+    "en": "Small extra damage; after the core three.",
+    "es": "Daño extra menor; después de los tres principales."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Rooting Eye",
+   "ne": "Ojo de atadura",
+   "nk": "속박의 눈",
+   "ic": "ICON_RA_SKILL_Passive_008",
+   "t": "passive",
+   "un": 17,
+   "cd": 0,
+   "d": {
+    "en": "50% chance for extra Wind damage on Slowed/Rooted targets (1s CD).",
+    "es": "50 % de prob. de daño de Viento extra a objetivos Ralentizados/Atados (1 s)."
+   },
+   "sp": [],
+   "rank": 6,
+   "tag": {
+    "en": "Solo proc",
+    "es": "Proc solo"
+   },
+   "tip": {
+    "en": "Good while leveling with Snare Shot.",
+    "es": "Útil al subir con Flecha de tentáculo."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Vigilant Eye",
+   "ne": "Ojo vigilante",
+   "nk": "경계의 눈",
+   "ic": "ICON_RA_SKILL_Passive_004",
+   "t": "passive",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "+200 Evasion, +6% Max HP, heal on Evasion (3s CD).",
+    "es": "+200 Evasión, +6 % PV máx., cura al evadir (3 s)."
+   },
+   "sp": [],
+   "rank": 7,
+   "tag": {
+    "en": "Survival",
+    "es": "Supervivencia"
+   },
+   "tip": {
+    "en": "Survival; level late.",
+    "es": "Supervivencia; súbelo al final."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Revitalization Contract",
+   "ne": "Pacto de resurrección",
+   "nk": "회생의 계약",
+   "ic": "ICON_AS_SKILL_Passive_009",
+   "t": "passive",
+   "un": 23,
+   "cd": 0,
+   "d": {
+    "en": "+17% Status Effect Resist; more when hit while CC'd; emergency heal.",
+    "es": "+17 % Resistencia a efectos de estado; más si te golpean controlado; cura de emergencia."
+   },
+   "sp": [],
+   "rank": 8,
+   "tag": {
+    "en": "Survival",
+    "es": "Supervivencia"
+   },
+   "tip": {
+    "en": "Survival; level late.",
+    "es": "Supervivencia; súbelo al final."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Unyielding Resolve",
+   "ne": "Determinación de resistencia",
+   "nk": "저항의 결의",
+   "ic": "ICON_RA_SKILL_Passive_012",
+   "t": "passive",
+   "un": 15,
+   "cd": 0,
+   "d": {
+    "en": "+11.2% Ailment-type and Impact-type Resist.",
+    "es": "+11.2 % resistencia Tipo corporal y Tipo impacto."
+   },
+   "sp": [],
+   "rank": 9,
+   "tag": {
+    "en": "Survival",
+    "es": "Supervivencia"
+   },
+   "tip": {
+    "en": "Mostly PvP value.",
+    "es": "Sobre todo para JcJ."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Wind Vigor",
+   "ne": "Vitalidad de viento",
+   "nk": "바람의 활력",
+   "ic": "ICON_RA_SKILL_Passive_006",
+   "t": "passive",
+   "un": 9,
+   "cd": 0,
+   "d": {
+    "en": "+15 Max Stamina; +10% Move Speed for 1s when attacked (5s CD).",
+    "es": "+15 Vigor máx.; +10 % movimiento 1 s al ser atacado (5 s)."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "Mobility",
+    "es": "Movilidad"
+   },
+   "tip": {
+    "en": "Low value; leave at 1.",
+    "es": "Poco valor; déjalo en 1."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Vaizel's Authority",
+   "ne": "Poder de Vaizel",
+   "nk": "바이젤의 권능",
+   "ic": "ICON_RA_SKILL_022",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "+20% Attack for 10s.",
+    "es": "+20 % Ataque durante 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "+10% Perfect Chance for the duration",
+     "Aumento del 10 % de Perforación durante la duración"
+    ],
+    [
+     10,
+     "x1.5 [Focused Eye] effect for the duration",
+     "Efecto de [Ojo de Concentración] ×1,5 mientras dura"
+    ],
+    [
+     15,
+     "x1.5 [Hunter's Soul] effect for the duration",
+     "Aumento del efecto de «Alma de cazador» x1,5 durante la duración"
+    ],
+    [
+     20,
+     "50% chance to reduce all skill cooldowns by 1s on Critical Hit for the duration",
+     "Al acertar un golpe Crítico, reducción de 1s de Tiempo de Enfriamiento de todas las habilidades con un 50 % de prob. durante la duración"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Burst buff",
+    "es": "Buff de ráfaga"
+   },
+   "tip": {
+    "en": "Best stigma; level it first.",
+    "es": "Mejor estigma; súbelo primero."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Bow of Blessing",
+   "ne": "Flecha de bendición",
+   "nk": "축복의 활",
+   "ic": "ICON_RA_SKILL_030",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "+200 Critical Hit and +100 Accuracy for 10s.",
+    "es": "+200 Crítico y +100 Precisión durante 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "+50% Multi-Hit Chance for duration",
+     "Aumento del 50 % del Acierto de Multigolpe durante la duración"
+    ],
+    [
+     10,
+     "Increases Attack proportional to Critical Hit for the duration",
+     "Aumento del Ataque en proporción al Crítico mientras dura"
+    ],
+    [
+     15,
+     "+20% Critical Damage Boost for the duration",
+     "Aumento del 20 % de Amplificación de Daño Crítico durante la duración"
+    ],
+    [
+     20,
+     "+7% Double Chance for the duration",
+     "Aumento del 7 % de Golpe durante la duración"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Burst buff",
+    "es": "Buff de ráfaga"
+   },
+   "tip": {
+    "en": "Stack with Vaizel's Authority and Precision.",
+    "es": "Combínala con Poder de Vaizel y Precisión."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Supporting Fire",
+   "ne": "Disparos de apoyo",
+   "nk": "지원 사격",
+   "ic": "ICON_RA_SKILL_038",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Orb for 15s: 25% chance per 0.5s to shoot Wind damage and absorb 1.5% HP.",
+    "es": "Esfera 15 s: 25 % de prob. cada 0,5 s de disparar daño de Viento y absorber 1,5 % PV."
+   },
+   "sp": [
+    [
+     5,
+     "+25% activation chance",
+     "Aumento del 25 % de prob. de activación"
+    ],
+    [
+     10,
+     "+15s duration",
+     "Aumento de 15 s de duración"
+    ],
+    [
+     15,
+     "-30s cooldown",
+     "Reducción de 30 s de Tiempo de Enfriamiento"
+    ],
+    [
+     20,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Pet DPS",
+    "es": "DPS de apoyo"
+   },
+   "tip": {
+    "en": "Free damage and sustain; great at 20.",
+    "es": "Daño y sustento gratis; muy bueno a 20."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Explosive Arrow",
+   "ne": "Flecha explosiva",
+   "nk": "폭발 화살",
+   "ic": "ICON_RA_SKILL_023",
+   "t": "stigma",
+   "un": 22,
+   "cd": 45,
+   "d": {
+    "en": "Fire damage to up to 4 enemies (20m); +20% vs Slowed/Rooted.",
+    "es": "Daño de Fuego a hasta 4 enemigos (20 m); +20 % contra Ralentizados/Atados."
+   },
+   "sp": [
+    [
+     5,
+     "-15s cooldown",
+     "Reducción de 15 s de Tiempo de Enfriamiento"
+    ],
+    [
+     10,
+     "+10% additional damage to targets afflicted with Slow or Root",
+     "+10 % de daño adicional a objetivos afectados por Lentitud o Atadura"
+    ],
+    [
+     15,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ],
+    [
+     20,
+     "+20% additional damage to targets afflicted with Slow or Root",
+     "+20 % de daño adicional a objetivos afectados por Lentitud o Atadura"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Nuke",
+    "es": "Nuke"
+   },
+   "tip": {
+    "en": "Guaranteed crit at 15 also enables Drill Dart.",
+    "es": "Crítico garantizado a 15; además habilita Flecha punzante."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Griffon Arrow",
+   "ne": "Flecha de grifo",
+   "nk": "그리폰 화살",
+   "ic": "ICON_RA_SKILL_006",
+   "t": "stigma",
+   "un": 22,
+   "cd": 45,
+   "d": {
+    "en": "Fire damage to up to 4 enemies (20m) + Crimson Flames DoT for 10s.",
+    "es": "Daño de Fuego a hasta 4 enemigos (20 m) + Llama carmesí (daño continuo) 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     10,
+     "+5s Damage over Time duration",
+     "Aumento de 5 s de la duración de daño continuo"
+    ],
+    [
+     15,
+     "Enhanced Crimson Flames - Extra damage when hit while afflicted with Crimson Flames",
+     "Mejora de estado de Llama carmesí - Al recibir un ataque en estado de Llama carmesí, daño adicional"
+    ],
+    [
+     20,
+     "-50% Damage over Time intervals",
+     "Reducción del intervalo de Daño continuo en un 50 %"
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "DoT",
+    "es": "DoT"
+   },
+   "tip": {
+    "en": "Alt for Explosive Arrow; feeds Concentrated Fire.",
+    "es": "Alternativa a Flecha explosiva; alimenta Fuego concentrado."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Arrow Storm",
+   "ne": "Tormenta de flechas",
+   "nk": "화살 폭풍",
+   "ic": "ICON_RA_SKILL_026",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Wind damage to up to 4 enemies (20m), 50% Stun 3s (100% NPC), 50 Stagger.",
+    "es": "Daño de Viento a hasta 4 enemigos (20 m), 50 % Aturdir 3 s (100 % PNJ), 50 de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "Up to +20% max damage when more targets hit",
+     "Cuantos más objetivos se acierten, aumento máx. del 20 % de daño"
+    ],
+    [
+     10,
+     "Inflicts Slow for 10s on hit",
+     "Al acertar, Ralentización durante 10s"
+    ],
+    [
+     15,
+     "+1s Stun duration",
+     "Aumento de 1 s de duración de Aturdimiento"
+    ],
+    [
+     20,
+     "+25% Stun Chance",
+     "Aumento del 25 % de prob. de Aturdimiento"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "AoE / Stagger",
+    "es": "Área / Tambaleo"
+   },
+   "tip": {
+    "en": "Great for packs and breaking boss Stagger.",
+    "es": "Ideal para grupos y romper el Tambaleo del jefe."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Mother Nature's Breath",
+   "ne": "Respiro de Madre Naturaleza",
+   "nk": "대자연의 숨결",
+   "ic": "ICON_RA_SKILL_035",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "6s: +20% PvE Damage Tolerance, +200 Crit Resist and chance to heal.",
+    "es": "6 s: +20 % Tolerancia a daño JcE, +200 Resistencia a críticos y prob. de curarte."
+   },
+   "sp": [
+    [
+     5,
+     "Removes and grants immunity to Damage over Time effects",
+     "Eliminación de EFECTOS DE ESTADO de daño continuo y adición del efecto de Inmune"
+    ],
+    [
+     10,
+     "x1.5 [Vigilant Eye] effect for the duration",
+     "Aumento de efecto de «Ojo vigilante» x1,5 durante la duración"
+    ],
+    [
+     15,
+     "x1.5 [Unyielding Resolve] effect for the duration",
+     "Durante su duración, el efecto de [Determinación de resistencia] aumenta 1,5 veces"
+    ],
+    [
+     20,
+     "+20% PvE Damage Tolerance increase and +10% PvP Damage Tolerance increase",
+     "Aumento adicional del 20 % de Tolerancia a Daño JcE y 10 % de Tolerancia a Daño JcJ"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "Defensive",
+    "es": "Defensivo"
+   },
+   "tip": {
+    "en": "Solo safety button.",
+    "es": "Botón de seguridad en solitario."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Sealing Arrow",
+   "ne": "Flecha sellada",
+   "nk": "봉인 화살",
+   "ic": "ICON_RA_SKILL_016",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Wind damage (20m), 75% chance to Seal 5s (100% NPC).",
+    "es": "Daño de Viento (20 m), 75 % de Sellar 5 s (100 % PNJ)."
+   },
+   "sp": [
+    [
+     5,
+     "50% chance to inflict Root for 5s on hit",
+     "Al acertar, hay un 50 % de probabilidad de aplicar Atadura durante 5s"
+    ],
+    [
+     10,
+     "-1000 enemy Max Stamina for 5s on hit",
+     "Al acertar, reduce el Vigor máx. en 1000 durante 5s"
+    ],
+    [
+     15,
+     "+2s Seal duration",
+     "Aumento de 2 s de duración de Sellado"
+    ],
+    [
+     20,
+     "+25% Seal chance",
+     "Aumento del 25 % de prob. de Sellado"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP control",
+    "es": "Control JcJ"
+   },
+   "tip": {
+    "en": "PvP only.",
+    "es": "Solo JcJ."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Illusory Arrow",
+   "ne": "Flecha de ilusión",
+   "nk": "환영 화살",
+   "ic": "ICON_RA_SKILL_015",
+   "t": "stigma",
+   "un": 22,
+   "cd": 30,
+   "d": {
+    "en": "Wind damage (20m) and Blind 3s.",
+    "es": "Daño de Viento (20 m) y Ceguera 3 s."
+   },
+   "sp": [
+    [
+     5,
+     "+1s Blind duration",
+     "Aumento de 1 s de duración de Ceguera"
+    ],
+    [
+     10,
+     "Changes to AoE Skill",
+     "Cambio a habilidad de área"
+    ],
+    [
+     15,
+     "Inflicts Slow for 5s on hit",
+     "Al acertar, Ralentización durante 5s"
+    ],
+    [
+     20,
+     "+1 consecutive use",
+     "Lanzamientos en cadena +1"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP control",
+    "es": "Control JcJ"
+   },
+   "tip": {
+    "en": "PvP only.",
+    "es": "Solo JcJ."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Ensnaring Trap",
+   "ne": "Cepo de amarre",
+   "nk": "결박의 덫",
+   "ic": "ICON_RA_SKILL_018",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Trap (30s): Earth damage to up to 4 enemies in 5m and Airborne 3s.",
+    "es": "Trampa (30 s): Daño de Tierra a hasta 4 enemigos en 5 m y Atadura aérea 3 s."
+   },
+   "sp": [
+    [
+     5,
+     "Adds [Guerilla Strike] Chain Skill",
+     "Adición de hab. de cadena «Corte retrógrado» x2"
+    ],
+    [
+     10,
+     "Removes up to 2 buffs",
+     "Elimina hasta 2 magias fortalecedoras"
+    ],
+    [
+     15,
+     "+1s Airborne duration",
+     "Aumento de 1 s de la duración de Atadura aérea"
+    ],
+    [
+     20,
+     "-30s cooldown",
+     "Reducción de 30 s de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP control",
+    "es": "Control JcJ"
+   },
+   "tip": {
+    "en": "PvP only.",
+    "es": "Solo JcJ."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Ambush Kick",
+   "ne": "Próximo ataque sorpresa",
+   "nk": "기습 차기",
+   "ic": "ICON_RA_SKILL_012",
+   "t": "stigma",
+   "un": 22,
+   "cd": 30,
+   "d": {
+    "en": "Move behind a target within 5m, Wind damage, Knock Back, then jump back.",
+    "es": "Te mueves detrás de un objetivo a 5 m, daño de Viento, Retroceso y saltas atrás."
+   },
+   "sp": [
+    [
+     5,
+     "+5m Range",
+     "Aumento de 5 m de alcance"
+    ],
+    [
+     10,
+     "10% Max HP Protective Shield for 5s on hit",
+     "Al acertar, barrera del 10 % de los Puntos de Vida Máximos durante 5s"
+    ],
+    [
+     15,
+     "50% chance to inflict Stun for 3s on hit",
+     "Al acertar, Aturdimiento durante 3s con un 50 % de prob."
+    ],
+    [
+     20,
+     "+50% Stun Chance",
+     "Aumento del 50 % de prob. de Aturdimiento"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP escape",
+    "es": "Escape JcJ"
+   },
+   "tip": {
+    "en": "PvP only.",
+    "es": "Solo JcJ."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Stealth",
+   "ne": "Sigilo",
+   "nk": "은신",
+   "ic": "ICON_RA_SKILL_019",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "Stealth for 10s; out of combat only.",
+    "es": "Sigilo 10 s; solo fuera de combate."
+   },
+   "sp": [
+    [
+     5,
+     "Critical Hit on attack during Stealth",
+     "Al atacar en estado de Sigilo, inflige Crítico"
+    ],
+    [
+     10,
+     "+20% Move Speed for the duration",
+     "Aumento del 20 % de Velocidad de Movimiento durante la duración"
+    ],
+    [
+     15,
+     "Available in combat",
+     "Disponible en combate"
+    ],
+    [
+     20,
+     "+10s Stealth duration",
+     "Aumento de 10 s de la duración de Sigilo"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Utility",
+    "es": "Utilidad"
+   },
+   "tip": {
+    "en": "Skip mobs or PvP openers.",
+    "es": "Para evitar mobs o abrir en JcJ."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  },
+  {
+   "n": "Assault Smite",
+   "ne": "Golpe de agresión",
+   "nk": "강습 강타",
+   "ic": "ICON_CO_SKILL_003",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "Wind damage to up to 4 enemies (20m), 30% Stun 3s (100% NPC), +Defense.",
+    "es": "Daño de Viento a hasta 4 enemigos (20 m), 30 % Aturdir 3 s (100 % PNJ), +Defensa."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Attack for 5s on hit",
+     "Al acertar, aumenta un 20 % del Ataque durante 5s"
+    ],
+    [
+     10,
+     "500 MP damage on hit",
+     "Al acertar, 500 de daño de Puntos de Maná"
+    ],
+    [
+     15,
+     "+10m range",
+     "Aumento de 10 m de alcance"
+    ],
+    [
+     20,
+     "+20% Stun Chance",
+     "Aumento del 20 % de prob. de Aturdimiento"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Situational",
+    "es": "Situacional"
+   },
+   "tip": {
+    "en": "Long cooldown; rarely worth a slot.",
+    "es": "Enfriamiento largo; rara vez vale el hueco."
+   },
+   "pickLev": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    2,
+    3
+   ]
+  }
+ ],
+ "points": [
+  [
+   "Snipe",
+   3
+  ],
+  [
+   "Tempest Shot",
+   3
+  ],
+  [
+   "Drill Dart",
+   3
+  ],
+  [
+   "Marking Shot",
+   3
+  ],
+  [
+   "Gale Arrow",
+   3
+  ],
+  [
+   "Snipe",
+   5
+  ],
+  [
+   "Drill Dart",
+   5
+  ],
+  [
+   "Focused Eye",
+   3
+  ],
+  [
+   "Deadshot",
+   4
+  ],
+  [
+   "Hunter's Resolve",
+   3
+  ],
+  [
+   "Gale Arrow",
+   5
+  ],
+  [
+   "Tempest Shot",
+   5
+  ],
+  [
+   "Marking Shot",
+   5
+  ],
+  [
+   "Deadshot",
+   7
+  ],
+  [
+   "Snipe",
+   8
+  ],
+  [
+   "Drill Dart",
+   8
+  ],
+  [
+   "Focused Eye",
+   7
+  ],
+  [
+   "Hunter's Resolve",
+   7
+  ],
+  [
+   "Hunter's Soul",
+   5
+  ],
+  [
+   "Deadshot",
+   10
+  ],
+  [
+   "Snipe",
+   10
+  ],
+  [
+   "Drill Dart",
+   10
+  ],
+  [
+   "Gale Arrow",
+   8
+  ],
+  [
+   "Marking Shot",
+   8
+  ],
+  [
+   "Tempest Shot",
+   8
+  ],
+  [
+   "Focused Eye",
+   10
+  ],
+  [
+   "Hunter's Resolve",
+   10
+  ],
+  [
+   "Hunter's Soul",
+   10
+  ],
+  [
+   "Gale Arrow",
+   10
+  ],
+  [
+   "Tempest Shot",
+   10
+  ],
+  [
+   "Marking Shot",
+   10
+  ],
+  [
+   "Concentrated Fire",
+   5
+  ],
+  [
+   "Defiance",
+   5
+  ]
+ ],
+ "stigma": {
+  "loadouts": [
+   {
+    "id": "main",
+    "name": {
+     "en": "PvE main",
+     "es": "JcE principal"
+    },
+    "skills": [
+     "Vaizel's Authority",
+     "Bow of Blessing",
+     "Supporting Fire",
+     "Explosive Arrow"
+    ],
+    "note": {
+     "en": "Two burst buffs, free orb damage and a crit nuke. Swap Explosive for Griffon Arrow if you like DoTs.",
+     "es": "Dos buffs de ráfaga, daño gratis de la esfera y un nuke crítico. Cambia Flecha explosiva por Flecha de grifo si prefieres DoT."
+    }
+   },
+   {
+    "id": "solo",
+    "name": {
+     "en": "Solo / leveling",
+     "es": "Solo / subir nivel"
+    },
+    "skills": [
+     "Explosive Arrow",
+     "Griffon Arrow",
+     "Supporting Fire",
+     "Mother Nature's Breath"
+    ],
+    "note": {
+     "en": "More damage on packs plus sustain; Snare Shot makes Explosive Arrow hit harder.",
+     "es": "Más daño en grupos y sustento; Flecha de tentáculo potencia Flecha explosiva."
+    }
+   },
+   {
+    "id": "alt",
+    "name": {
+     "en": "Packs / Stagger",
+     "es": "Grupos / Tambaleo"
+    },
+    "skills": [
+     "Vaizel's Authority",
+     "Arrow Storm",
+     "Explosive Arrow",
+     "Supporting Fire"
+    ],
+    "note": {
+     "en": "Arrow Storm breaks Stagger fast, opening Arrow Scattershot windows.",
+     "es": "Tormenta de flechas rompe el Tambaleo rápido y abre ventanas para Flecha sin puntería."
+    }
+   }
+  ],
+  "levelTips": {
+   "en": "Level Vaizel's Authority first (Focused Eye/Hunter's Soul x1.5), then Bow of Blessing and Supporting Fire.",
+   "es": "Sube primero Poder de Vaizel (Ojo concentrado/Alma de cazador x1,5), luego Flecha de bendición y Disparos de apoyo."
+  }
+ },
+ "dvValues": {
+  "Snipe": 10,
+  "Deadshot": 10,
+  "Drill Dart": 9,
+  "Gale Arrow": 8,
+  "Tempest Shot": 8,
+  "Marking Shot": 7,
+  "Focused Eye": 9,
+  "Hunter's Resolve": 9,
+  "Hunter's Soul": 8,
+  "Concentrated Fire": 6,
+  "Melee Fire": 5,
+  "Arrow Scattershot": 4,
+  "Rooting Eye": 3,
+  "Vigilant Eye": 3,
+  "Revitalization Contract": 3,
+  "Unyielding Resolve": 2,
+  "Defiance": 2,
+  "Wind Vigor": 1,
+  "Burst Arrow": 1,
+  "Suppressing Arrow": 1,
+  "Snare Shot": 1,
+  "Explosion Trap": 0
+ },
+ "dvSimple": {
+  "en": [
+   "Take every Snipe and Deadshot node first",
+   "Then Drill Dart nodes",
+   "Focused Eye and Hunter's Resolve nodes",
+   "Hunter's Soul nodes",
+   "Gale Arrow and Tempest Shot nodes",
+   "Marking Shot nodes",
+   "Concentrated Fire and Melee Fire",
+   "Arrow Scattershot if you raid staggerable bosses",
+   "Survival passives (Vigilant Eye, Revitalization Contract) last",
+   "Skip Snare Shot, Burst Arrow, Suppressing Arrow and Explosion Trap nodes"
+  ],
+  "es": [
+   "Toma primero todos los nodos de Disparo certero y Flecha al objetivo",
+   "Luego los de Flecha punzante",
+   "Nodos de Ojo concentrado y Determinación de cazador",
+   "Nodos de Alma de cazador",
+   "Nodos de Huracán de flechas y Tiro rápido",
+   "Nodos de Flecha en el objetivo",
+   "Fuego concentrado y Disparo cercano",
+   "Flecha sin puntería si haces jefes con Tambaleo",
+   "Pasivas de supervivencia (Ojo vigilante, Pacto de resurrección) al final",
+   "Ignora Flecha de tentáculo, Estallido de flechas, Flecha de supresión y Cepo explosivo"
+  ]
+ },
+ "macro": {
+  "leveling": {
+   "slots": [
+    [
+     "1",
+     [
+      "Drill Dart",
+      "Gale Arrow",
+      "Snare Shot"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Tempest Shot"
+     ],
+     "m"
+    ],
+    [
+     "LMB",
+     [
+      "Snipe"
+     ],
+     "m"
+    ],
+    [
+     "E",
+     [
+      "Deadshot"
+     ],
+     "h"
+    ],
+    [
+     "R",
+     [
+      "Marking Shot"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "R",
+    "1",
+    "E",
+    "2",
+    "LMB"
+   ]
+  },
+  "endgame": {
+   "slots": [
+    [
+     "Q",
+     [
+      "Drill Dart",
+      "Gale Arrow",
+      "Explosive Arrow"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Vaizel's Authority",
+      "Bow of Blessing",
+      "Supporting Fire"
+     ],
+     "m"
+    ],
+    [
+     "3",
+     [
+      "Tempest Shot"
+     ],
+     "m"
+    ],
+    [
+     "LMB",
+     [
+      "Snipe"
+     ],
+     "m"
+    ],
+    [
+     "E",
+     [
+      "Deadshot"
+     ],
+     "h"
+    ],
+    [
+     "R",
+     [
+      "Marking Shot"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "R",
+    "2",
+    "E",
+    "Q",
+    "3",
+    "LMB"
+   ]
+  },
+  "notes": {
+   "en": "Hold one key; set delay to 10–20 ms. Keep Deadshot and Marking Shot by hand so Deadshot gets full charge inside Precision.",
+   "es": "Mantén una tecla; retardo de 10–20 ms. Usa a mano Flecha al objetivo y Flecha en el objetivo para cargar completo dentro de Precisión."
+  }
+ },
+ "rotation": {
+  "en": [
+   "Marking Shot for Precision (+300 crit)",
+   "Gale Arrow, then burst buffs (Vaizel's Authority, Bow of Blessing, Supporting Fire)",
+   "Fully charged Deadshot",
+   "Drill Dart right after any crit",
+   "Snipe/Tempest Shot to fill; Snipe hits shave Deadshot cooldown",
+   "Arrow Scattershot spam when the boss is Staggered"
+  ],
+  "es": [
+   "Flecha en el objetivo para Precisión (+300 crítico)",
+   "Huracán de flechas y luego buffs (Poder de Vaizel, Flecha de bendición, Disparos de apoyo)",
+   "Flecha al objetivo con carga completa",
+   "Flecha punzante justo tras un crítico",
+   "Rellena con Disparo certero/Tiro rápido; cada Disparo certero acorta Flecha al objetivo",
+   "Spamea Flecha sin puntería cuando el jefe está en Tambaleo"
+  ]
+ },
+ "synergy": [
+  {
+   "a": "Snipe",
+   "b": "Deadshot",
+   "t": {
+    "en": "Cooldown engine",
+    "es": "Motor de enfriamiento"
+   },
+   "s": {
+    "en": "Each Snipe hit cuts 1s off Deadshot (Specialty 12).",
+    "es": "Cada golpe de Disparo certero quita 1 s a Flecha al objetivo (especialidad 12)."
+   }
+  },
+  {
+   "a": "Marking Shot",
+   "b": "Deadshot",
+   "t": {
+    "en": "Precision burst",
+    "es": "Ráfaga con Precisión"
+   },
+   "s": {
+    "en": "Precision gives +300 crit and +35% Deadshot damage.",
+    "es": "Precisión da +300 crítico y +35 % de daño a Flecha al objetivo."
+   }
+  },
+  {
+   "a": "Explosive Arrow",
+   "b": "Drill Dart",
+   "t": {
+    "en": "Crit → proc",
+    "es": "Crítico → proc"
+   },
+   "s": {
+    "en": "Guaranteed crit (Lv15) unlocks Drill Dart instantly.",
+    "es": "El crítico garantizado (Nv15) habilita Flecha punzante al instante."
+   }
+  },
+  {
+   "a": "Drill Dart",
+   "b": "Concentrated Fire",
+   "t": {
+    "en": "Bleed procs",
+    "es": "Procs de sangrado"
+   },
+   "s": {
+    "en": "Bleed counts as DoT for extra Wind damage procs.",
+    "es": "El Sangrado cuenta como DoT para procs de daño de Viento."
+   }
+  },
+  {
+   "a": "Vaizel's Authority",
+   "b": "Hunter's Soul",
+   "t": {
+    "en": "x1.5 passives",
+    "es": "Pasivas x1,5"
+   },
+   "s": {
+    "en": "Boosts Focused Eye and Hunter's Soul while active.",
+    "es": "Potencia Ojo concentrado y Alma de cazador mientras dura."
+   }
+  }
+ ],
+ "stats": {
+  "order": [
+   {
+    "en": "Attack",
+    "es": "Ataque",
+    "w": 100
+   },
+   {
+    "en": "Critical Hit",
+    "es": "Crítico",
+    "w": 90
+   },
+   {
+    "en": "Critical Damage",
+    "es": "Daño crítico",
+    "w": 75
+   },
+   {
+    "en": "Accuracy",
+    "es": "Precisión",
+    "w": 65
+   },
+   {
+    "en": "Combat Speed",
+    "es": "Velocidad de combate",
+    "w": 55
+   },
+   {
+    "en": "Multi-Hit",
+    "es": "Multigolpe",
+    "w": 45
+   }
+  ],
+  "notes": {
+   "en": "Attack and Critical Hit manastones; reach the Accuracy cap for your content before more crit.",
+   "es": "Piedras de maná de Ataque y Crítico; alcanza el tope de Precisión de tu contenido antes de más crítico."
+  }
+ },
+ "genus": {
+  "s15": [
+   [
+    "PvE Attack",
+    "Ataque PvE",
+    1
+   ],
+   [
+    "Critical Attack",
+    "Ataque crítico",
+    1
+   ],
+   [
+    "Back Attack",
+    "Ataque por la espalda",
+    2
+   ],
+   [
+    "Boss Attack",
+    "Ataque a jefes",
+    2
+   ]
+  ],
+  "s369": [
+   [
+    "Power Shard Damage Bonus",
+    "Bono de daño de fragmento de poder",
+    1
+   ],
+   [
+    "Critical Hit",
+    "Golpe crítico",
+    1
+   ],
+   [
+    "Back Attack Critical Hit",
+    "Golpe crítico por la espalda",
+    2
+   ],
+   [
+    "PvE Accuracy",
+    "Precisión JcE",
+    3
+   ]
+  ],
+  "s278": [
+   [
+    "PvE Defense",
+    "Defensa JcE",
+    1
+   ],
+   [
+    "HP increase",
+    "Aumento de PV",
+    2
+   ],
+   [
+    "Critical Damage Defense",
+    "Defensa contra daño crítico",
+    3
+   ]
+  ],
+  "s4": {
+   "cogni": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     1
+    ],
+    [
+     "Critical Damage Boost",
+     "Amplificación de daño crítico",
+     1
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     2
+    ]
+   ],
+   "fera": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     1
+    ],
+    [
+     "Weapon Damage Boost",
+     "Amplificación de daño de arma",
+     1
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     2
+    ]
+   ],
+   "natura": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     1
+    ],
+    [
+     "Multi-hit Chance",
+     "Probabilidad de multigolpe",
+     2
+    ],
+    [
+     "Perfect Chance",
+     "Probabilidad de Perforación",
+     3
+    ]
+   ],
+   "varian": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     1
+    ],
+    [
+     "Back Attack Damage Boost",
+     "Amplificación de daño por la espalda",
+     2
+    ],
+    [
+     "Varian Damage Boost",
+     "Amplificación de daño Varian",
+     3
+    ]
+   ],
+   "special": [
+    [
+     "Double Chance",
+     "Probabilidad de Golpe",
+     1
+    ],
+    [
+     "Critical Damage Boost",
+     "Amplificación de daño crítico",
+     1
+    ],
+    [
+     "Back Attack Damage Boost",
+     "Amplificación de daño por la espalda",
+     2
+    ]
+   ]
+  },
+  "notes": {
+   "en": "PvE Damage Boost in slot 4. As a ranged class you can stand behind bosses, so Back Attack options are fine.",
+   "es": "Amplificación de daño JcE en la ranura 4. Al ser a distancia puedes ponerte detrás del jefe, así que las opciones de espalda sirven."
+  }
+ },
+ "leveling": {
+  "en": [
+   "Rush Snipe, Tempest Shot and Drill Dart early",
+   "Use Snare Shot + Explosive Arrow on packs",
+   "Kite: most damage skills can become mobile via Specialties",
+   "Take Snipe +20% MP while MP is tight",
+   "Unlock Deadshot at Lv14 and build around it"
+  ],
+  "es": [
+   "Sube pronto Disparo certero, Tiro rápido y Flecha punzante",
+   "Usa Flecha de tentáculo + Flecha explosiva en grupos",
+   "Kitea: muchas habilidades pueden usarse en movimiento con especialidades",
+   "Toma +20 % de PM en Disparo certero mientras falte maná",
+   "Desbloquea Flecha al objetivo a Nv14 y construye en torno a ella"
+  ]
+ },
+ "kr": {
+  "en": "KR guides (궁성) build around 저격 shortening 조준 화살 and fire 송곳 화살 on crit; they hand-cast 조준 화살 and 표적 화살 and macro the rest.",
+  "es": "Las guías coreanas (궁성) giran en torno a que 저격 acorta 조준 화살 y lanzan 송곳 화살 tras crítico; usan a mano 조준 화살 y 표적 화살 y el resto en macro."
+ },
+ "sources": [
+  [
+   "questlog.gg Aion 2 skill database",
+   "https://questlog.gg/aion-2/en/db/skills"
+  ]
+ ]
+}

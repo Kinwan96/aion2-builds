@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Aion 2 Sorcerer Build</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0c13; --card:#161a27; --card2:#1c2133; --line:#2a3046;
+  --text:#e7e9f1; --muted:#9aa1b8; --gold:#e3b766; --gold2:#f5d9a0;
+  --fire:#ff7a3d; --fire2:#ffb36b; --ice:#6fd0ff; --ice2:#a9e6ff;
+  --green:#5fd49a; --violet:#b48cff; --crim:#e2536b; --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 Inter,system-ui,sans-serif}
+a{color:var(--ice)}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:Cinzel,serif;letter-spacing:.02em;margin:0}
+h2{font-size:clamp(24px,3.4vw,34px);color:var(--gold2)}
+h3{font-size:18px;color:var(--gold2)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+section{padding:56px 0;border-top:1px solid #1a1f2e}
+.kicker{font:600 12px Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--fire2)}
+.lead{color:var(--muted);max-width:800px;margin:10px 0 24px}
+.muted{color:var(--muted)} .small{font-size:13px} .tiny{font-size:12px}
+b{font-weight:600}
+kbd{background:#252b3f;border:1px solid #3a4260;border-bottom-width:2px;border-radius:5px;padding:0 6px;font:600 12px Inter}
+
+nav{position:sticky;top:0;z-index:60;background:rgba(10,12,19,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:18px;align-items:center;overflow-x:auto;white-space:nowrap;padding-top:10px;padding-bottom:10px}
+nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600}
+nav a:hover{color:var(--gold2)}
+nav .brand{font-family:Cinzel;color:var(--fire2);font-size:16px;margin-right:6px}
+
+/* stage bar */
+.stagebar{position:sticky;top:45px;z-index:55;background:rgba(14,17,27,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.stagebar .wrap{display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding-top:10px;padding-bottom:10px}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:9px;padding:6px 11px;font:600 13px Inter;cursor:pointer}
+.seg button.on{color:#1b1407;background:linear-gradient(135deg,var(--gold2),var(--gold));border-color:var(--gold)}
+.ctl{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+.ctl input[type=range]{width:140px;accent-color:var(--fire)}
+.ctl output{font:700 16px Cinzel;color:var(--gold2);min-width:34px;display:inline-block}
+.pill{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:3px 9px;color:var(--muted)}
+
+.hero{position:relative;min-height:74vh;display:flex;align-items:flex-end;overflow:hidden;border:0;background:#05070c url("https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/50b3fefe4800488a7bbd483790676e7fb38b1b09/ss_50b3fefe4800488a7bbd483790676e7fb38b1b09.1920x1080.jpg") center/cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,12,19,.15) 0%,rgba(10,12,19,.55) 50%,var(--bg) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:44px;width:100%}
+.hero .row{display:flex;gap:22px;align-items:flex-end;flex-wrap:wrap}
+.hero .cls{width:120px;height:120px;border-radius:20px;border:1px solid #6a4a3a;background:#120d0b;padding:6px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.hero h1{font-size:clamp(34px,6vw,66px);line-height:1.04;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.7)}
+.hero h1 span{background:linear-gradient(90deg,var(--fire2),var(--ice2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{max-width:700px;color:#d6d9e6;font-size:16px;margin:12px 0 0}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.chip{background:rgba(22,26,39,.85);border:1px solid var(--line);border-radius:12px;padding:8px 14px}
+.chip b{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.chip span{font-weight:700}
+
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;overflow:hidden}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:3px 9px;margin:0 6px 6px 0;border:1px solid}
+.t-fire{color:var(--fire2);border-color:rgba(255,122,61,.45);background:rgba(255,122,61,.08)}
+.t-ice{color:var(--ice);border-color:rgba(111,208,255,.4);background:rgba(111,208,255,.08)}
+.t-gold{color:var(--gold);border-color:rgba(227,183,102,.45);background:rgba(227,183,102,.08)}
+.t-green{color:var(--green);border-color:rgba(95,212,154,.4);background:rgba(95,212,154,.08)}
+.t-violet{color:var(--violet);border-color:rgba(180,140,255,.45);background:rgba(180,140,255,.08)}
+.t-dim{color:#7d849c;border-color:#323850;background:transparent}
+.tip{border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(227,183,102,.1),transparent);padding:12px 16px;border-radius:0 10px 10px 0;margin:16px 0}
+.warn{border-left-color:var(--crim);background:linear-gradient(90deg,rgba(226,83,107,.1),transparent)}
+.good{border-left-color:var(--green);background:linear-gradient(90deg,rgba(95,212,154,.1),transparent)}
+ul.clean{margin:8px 0 0;padding-left:18px} ul.clean li{margin:4px 0}
+
+/* icons */
+.ico{width:56px;height:56px;border-radius:12px;background:radial-gradient(circle at 50% 35%,#343c58,#161a26);border:1px solid #3b4462;flex:none;overflow:hidden;position:relative}
+.ico img{width:100%;height:100%;object-fit:cover}
+.ico.lg{width:72px;height:72px;border-radius:14px}
+.ico.sm{width:40px;height:40px;border-radius:9px}
+.ico.xs{width:32px;height:32px;border-radius:7px}
+.ico.gold{border-color:#d9a54a;box-shadow:0 0 0 1px rgba(217,165,74,.3),0 0 16px rgba(217,165,74,.18)}
+.ico.off{filter:grayscale(1) brightness(.5)}
+
+/* skill cards */
+.sk{display:flex;gap:14px}
+.sk h3{font-family:Inter;font-size:16px;font-weight:700;color:#fff}
+.lvbar{height:10px;border-radius:99px;background:#232840;margin:10px 0 4px;position:relative;overflow:hidden;display:flex}
+.lvbar i{display:block;height:100%}
+.lvbar .p{background:linear-gradient(90deg,var(--fire),var(--fire2))}
+.lvbar .p.ice{background:linear-gradient(90deg,#3aa8e8,var(--ice2))}
+.lvbar .b{background:repeating-linear-gradient(45deg,var(--gold),var(--gold) 4px,#b88a3c 4px,#b88a3c 8px)}
+.lvbar .mark{position:absolute;top:0;bottom:0;width:2px;background:rgba(255,255,255,.35)}
+.lvlab{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);gap:8px}
+.specs{display:flex;flex-direction:column;gap:4px;margin-top:10px}
+.spec{display:flex;gap:8px;align-items:flex-start;font-size:12.5px;line-height:1.35;padding:5px 8px;border-radius:8px;background:#11141f;border:1px solid #232a3d;color:#7d849c}
+.spec .lv{flex:none;font:700 10px Inter;border-radius:5px;padding:1px 5px;background:#232a3d;color:#9aa1b8;margin-top:1px}
+.spec.eq{color:#fff;border-color:rgba(227,183,102,.55);background:linear-gradient(90deg,rgba(227,183,102,.14),rgba(227,183,102,.03))}
+.spec.eq .lv{background:var(--gold);color:#1b1407}
+.spec.lock{opacity:.55}
+.spec .st{margin-left:auto;flex:none;font-size:10px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.spec.eq .st{color:var(--gold)}
+
+/* tables */
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.tbl th{color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;white-space:nowrap}
+.who{display:flex;gap:10px;align-items:center;font-weight:600;white-space:nowrap}
+
+/* synergy diagram */
+.syn{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.flow{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px}
+.flow .arr{color:var(--gold);font:700 18px Cinzel}
+.flow .txt{font-size:12.5px;color:var(--muted);line-height:1.35}
+.flow .txt b{color:#fff;display:block;font-size:13px}
+.mpbar{position:relative;height:34px;border-radius:10px;background:linear-gradient(90deg,#1b2f5a 0%,#2c63c7 50%,#4aa3ff 100%);border:1px solid #3a4f80;margin:34px 0 46px}
+.mpbar .th{position:absolute;top:-30px;bottom:-40px;width:2px;background:rgba(255,255,255,.75)}
+.mpbar .th span{position:absolute;white-space:nowrap;font-size:12px;font-weight:600;left:8px}
+@media (max-width:700px){.mpbar .th span{white-space:normal;width:38vw;line-height:1.2}.mpbar{margin:44px 0 56px}}
+.mpbar .th span.t{top:0}
+.mpbar .th span.bt{bottom:0;color:var(--muted);font-weight:500}
+
+/* stigmas */
+.stg{display:flex;gap:14px;align-items:flex-start}
+.stg .lv{font:700 22px Cinzel;color:var(--gold);min-width:46px}
+.stg .lv small{display:block;font:500 10px Inter;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.stg h3{font-family:Inter;font-size:16px;color:#fff;font-weight:700}
+.stg.locked{opacity:.4}
+
+/* daevanion */
+.dvtabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.dvtabs button{background:var(--card);border:1px solid var(--line);color:var(--muted);border-radius:10px;padding:8px 12px;font:600 13px Inter;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;gap:2px;min-width:120px}
+.dvtabs button small{font:500 11px Inter;color:#7d849c}
+.dvtabs button.on{border-color:var(--gold);color:var(--gold2);box-shadow:0 0 0 1px rgba(227,183,102,.25)}
+.dvtabs button.closed{opacity:.45}
+.dvwrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;align-items:start}
+.boardbox{background:radial-gradient(ellipse at 50% 45%,#1a2236 0%,#0d1018 75%);border:1px solid #2b3550;border-radius:16px;padding:14px;position:relative}
+.boardtitle{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:10px;padding:0 4px}
+.boardtitle b{font:700 18px Cinzel;color:#fff}
+.board{position:relative;width:100%;aspect-ratio:1/1}
+.board svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.node{position:absolute;display:grid;place-items:center;border-radius:14%;cursor:default}
+.node .bg{position:absolute;inset:0;border-radius:14%;background-size:cover;background-position:center;opacity:.3;filter:grayscale(.6) brightness(.7)}
+.node .fb{position:absolute;inset:6%;border-radius:14%;border:2px solid var(--c);background:rgba(0,0,0,.35);opacity:.35}
+.node.on .bg{opacity:1;filter:none}
+.node.on .fb{opacity:1;box-shadow:0 0 12px var(--c)}
+.node .sic{position:absolute;right:-8%;top:-8%;width:46%;height:46%;border-radius:22%;overflow:hidden;border:1px solid rgba(255,255,255,.35);opacity:.35}
+.node.on .sic{opacity:1}
+.node .num{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);min-width:56%;height:44%;padding:0 4%;border-radius:999px;display:grid;place-items:center;font:800 clamp(8px,1.25vw,12px) Inter;color:#fff;background:rgba(9,11,18,.85);border:2px solid var(--pc);z-index:2}
+.node.start .bg{opacity:1;filter:none}
+.node:hover{z-index:5;outline:2px solid #fff;outline-offset:1px}
+.c1{--c:#8d93a6}.c2{--c:#3fcf86}.c3{--c:#4aa3ff}.c4{--c:#ff8a3d}
+.dvside .card{margin-bottom:12px}
+.paylist{display:flex;flex-direction:column;gap:6px;max-height:520px;overflow:auto;padding-right:4px}
+.pay{display:flex;gap:10px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:13px}
+.pay .n{font:800 12px Inter;min-width:26px;height:22px;border-radius:999px;display:grid;place-items:center;background:#0d1018;border:2px solid var(--pc)}
+.pay .bd{margin-left:auto;font-size:11px;color:var(--muted);white-space:nowrap}
+.pay.off{opacity:.4}
+.crbar{display:flex;height:12px;border-radius:99px;overflow:hidden;background:#232840;margin:8px 0}
+.crbar i{display:block;height:100%}
+.tipbox{position:fixed;z-index:100;pointer-events:none;background:#0d1018;border:1px solid #3a4462;border-radius:10px;padding:8px 10px;font-size:12.5px;max-width:240px;display:none;box-shadow:0 8px 30px rgba(0,0,0,.5)}
+.tipbox b{color:#fff}
+
+/* game-ui hotbar */
+.gameui{background:linear-gradient(180deg,#2a2f3b,#1d212b);border:1px solid #3c4352;border-radius:14px;padding:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.hb{display:flex;gap:8px;flex-wrap:wrap;align-items:flex-end}
+.hslot{width:78px;display:flex;flex-direction:column;align-items:center;gap:4px}
+.hstack{display:flex;flex-direction:column-reverse;gap:3px}
+.hcell{position:relative;width:64px;height:64px;border-radius:4px;background:#343a47;border:1px solid #4a5263;overflow:hidden}
+.hcell img{width:100%;height:100%;object-fit:cover}
+.hcell .k{position:absolute;left:2px;top:1px;font:700 12px Inter;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000}
+.hcell .l{position:absolute;right:3px;bottom:1px;font:700 11px Inter;color:#fff;text-shadow:0 0 3px #000,0 0 3px #000}
+.hcell .p{position:absolute;left:2px;bottom:1px;font:800 10px Inter;color:#1b1407;background:var(--gold);border-radius:4px;padding:0 4px}
+.hcell.mini{width:44px;height:44px}
+.hcell.empty{background:#2c313c}
+.hcell.empty::after{content:"✦";position:absolute;inset:0;display:grid;place-items:center;color:#4b5263;font-size:14px}
+.hslot .cap{font-size:11px;color:#c9cdd8;text-align:center;line-height:1.2}
+.hslot .cap.m{color:var(--green);font-weight:700}
+.hslot .cap.h{color:var(--violet);font-weight:700}
+.macrowin{background:#1f232c;border:1px solid #3c4352;border-radius:12px;padding:8px 14px;max-width:460px}
+.mstep{display:grid;grid-template-columns:40px 1fr 30px;align-items:center;padding:10px 0}
+.mstep .no{font:500 30px Cinzel;color:#d9d0bf}
+.mstep .mid{display:flex;flex-direction:column;align-items:center;gap:6px}
+.mstep .mid .icos{display:flex;gap:4px}
+.mstep .mid .nm{font-weight:600;color:#fff;font-size:14px;text-align:center}
+.mstep .mid .sub{font-size:11px;color:#9aa1b8;margin-top:-4px;text-align:center}
+.mstep .trash{color:#9aa1b8;font-size:18px;text-align:right}
+.mdelay{display:flex;align-items:center;gap:10px;justify-content:center;font-weight:600;font-size:14px;color:#e8e8ea}
+.mdelay::before,.mdelay::after{content:"";flex:1;height:1px;background:#3c4352}
+.mdelay .box{background:#14171e;border:1px solid #4a5263;border-radius:4px;padding:2px 22px;font-weight:600}
+.mloop{margin-top:6px;border:1px dashed var(--gold);border-radius:10px;padding:6px 12px;color:var(--gold2);font-size:13px;text-align:center}
+
+.steps{counter-reset:s;display:grid;gap:10px;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.steps li::before{content:counter(s);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 14px Cinzel;color:#1b1407;background:linear-gradient(135deg,var(--gold2),var(--gold))}
+.btn{background:transparent;color:var(--gold);border:1px solid rgba(227,183,102,.5);border-radius:8px;padding:8px 14px;font:600 13px Inter;cursor:pointer}
+.btn:hover{background:rgba(227,183,102,.1)}
+
+/* gantt */
+.gantt{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 8px}
+.lane{display:grid;grid-template-columns:160px 1fr;gap:12px;align-items:center;margin-bottom:10px}
+.lane .nm{font-size:12px;font-weight:600;color:var(--muted);line-height:1.25}
+.lane .nm b{display:block;color:var(--text)}
+.track{position:relative;height:30px;background:#0f121b;border-radius:8px;overflow:hidden}
+.blk{position:absolute;top:4px;bottom:4px;border-radius:6px;font:700 10px Inter;color:#10131d;display:flex;align-items:center;padding:0 6px;white-space:nowrap;overflow:hidden}
+.dot{position:absolute;top:50%;width:24px;height:24px;margin:-12px 0 0 -12px;border-radius:6px;border:2px solid #fff;overflow:hidden;background:#222}
+.dot img{width:100%;height:100%;object-fit:cover}
+.axis{display:grid;grid-template-columns:160px 1fr;gap:12px}
+.axis .ticks{position:relative;height:20px;font-size:11px;color:var(--muted)}
+.axis .ticks span{position:absolute;transform:translateX(-50%)}
+
+/* leveling */
+.now{display:grid;gap:10px}
+.lvrow{display:grid;grid-template-columns:64px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.lvrow.cur{border-color:var(--gold);box-shadow:0 0 0 1px rgba(227,183,102,.3)}
+.lvrow.done{opacity:.45}
+.lvrow .L{font:700 24px Cinzel;color:var(--gold);text-align:center;line-height:1}
+.lvrow .L small{display:block;font:500 10px Inter;color:var(--muted);letter-spacing:.1em;margin-top:2px}
+.buys{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.buy{display:flex;gap:6px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:9px;padding:3px 9px 3px 3px;font-size:12.5px}
+.buy b{color:var(--gold2)}
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;margin-top:14px}
+summary{cursor:pointer;font-weight:600;color:var(--gold2)}
+footer{padding:40px 0 60px;color:var(--muted);font-size:13px;border-top:1px solid #1a1f2e}
+footer li{margin:3px 0}
+
+@media (max-width:900px){.dvwrap{grid-template-columns:1fr}}
+@media (max-width:700px){
+  .wrap{padding:0 16px} section{padding:42px 0}
+  .stagebar{position:relative;top:0}
+  .lane,.axis{grid-template-columns:1fr;gap:4px}
+  .axis>div:first-child{display:none}
+  .hero .cls{width:84px;height:84px}
+  .ctl input[type=range]{width:110px}
+  .hslot{width:66px}.hcell{width:56px;height:56px}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <span class="brand">SORCERER</span>
+  <a href="#core">Core loop</a><a href="#skills">Skills</a><a href="#passives">Passives</a><a href="#stigmas">Stigmas</a><a href="#daevanion">Daevanion</a><a href="#macro">Hotbar &amp; macro</a><a href="#rotation">Rotation</a><a href="#leveling">Leveling</a><a href="#gear">Stats &amp; gear</a><a href="#korea">KR ↔ Global</a>
+</div></nav>
+
+<div class="stagebar"><div class="wrap">
+  <div class="seg" id="stageSeg"></div>
+  <div class="ctl">Level <input type="range" id="lvR" min="1" max="45" value="45"><output id="lvO">45</output></div>
+  <div class="ctl">Crystals <input type="range" id="crR" min="0" max="570" value="136"><output id="crO">136</output></div>
+  <div class="seg" id="crSeg"></div>
+</div></div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="row">
+      <img class="cls" src="https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon/UT_Class_Sorcerer_Large.webp" alt="Sorcerer class icon">
+      <div>
+        <div class="kicker">Aion 2 · Global · Level 1 → 45</div>
+        <h1>Sorcerer <span>Fire &amp; Ice DPS</span></h1>
+      </div>
+    </div>
+    <p>Global skill names and data, cross-checked with Korean builds from a year of live play. Use the <b>Level</b> and <b>Crystals</b> controls in the bar above. Every section below (skill levels, Specialties, Stigmas, Daevanion routes, hotbar and macro) updates to match.</p>
+    <div class="chips">
+      <div class="chip"><b>Role</b><span>Ranged magic DPS · 20 m</span></div>
+      <div class="chip"><b>Weapon</b><span>Spellbook + Guard</span></div>
+      <div class="chip"><b>Engine</b><span>Firestorm → Hellfire cooldown</span></div>
+      <div class="chip"><b>Resource</b><span>MP: keep it above 50%</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- CORE -->
+<section id="core"><div class="wrap">
+  <div class="kicker">How the class works</div>
+  <h2>The core loop in six pictures</h2>
+  <p class="lead">The Sorcerer does damage through skill interactions. Each skill sets up another, and your MP decides whether your passives are switched on.</p>
+  <div class="syn" id="synGrid"></div>
+  <h3 style="margin:30px 0 4px">Your MP bar is a damage switch</h3>
+  <div class="mpbar" id="mpbar"></div>
+  <div class="small muted">Keep MP above <b style="color:#fff">50%</b> for Robe of Earth's Critical Hit, and never let it drop below <b style="color:#fff">25%</b>, where Grace of Enhancement's +20% PvE damage turns off. Flame Arrow restores MP on every cast, and Blaze restores more on a marked target.</div>
+</div></section>
+
+<!-- SKILLS -->
+<section id="skills"><div class="wrap">
+  <div class="kicker">Active skills</div>
+  <h2>Skill levels &amp; Specialties at <span class="lvTxt">Lv 45</span></h2>
+  <p class="lead">The orange bar is the level you buy with skill points at this character level. The striped gold bar is the extra levels from the Daevanion nodes in the route below, at your crystal count. Specialty options unlock at skill level <b>8</b>, <b>12</b> and <b>16</b>. The <span class="tag t-gold" style="margin:0">gold</span> rows are the ones to equip now.</p>
+  <div class="grid g3" id="skillCards"></div>
+  <div class="tip"><b>Leveling vs endgame Specialties.</b> Before 45 the picks lean toward MP and lifesteal so you can farm without potions (the Korean leveling build uses Blaze lifesteal). At 45, reset your points for free and swap to the damage picks. Drag the level to 45 to see the endgame set.</div>
+  <h3 style="margin:30px 0 10px">Leave these at low level</h3>
+  <div id="skipRow" style="display:flex;gap:10px;flex-wrap:wrap"></div>
+</div></section>
+
+<!-- PASSIVES -->
+<section id="passives"><div class="wrap">
+  <div class="kicker">Passive skills</div>
+  <h2>Passives, in priority order</h2>
+  <p class="lead">Passives cost skill points like actives, and some Daevanion nodes raise them too.</p>
+  <div class="grid g3" id="passCards"></div>
+</div></section>
+
+<!-- STIGMAS -->
+<section id="stigmas"><div class="wrap">
+  <div class="kicker">Stigmas</div>
+  <h2>Four Stigma slots</h2>
+  <p class="lead">Stigmas open at Lv 22, after the Ascension quest "Opening the Way to a New Ascension". Global has 4 slots, opening at Lv 22, 27, 32 and 37. Switch the loadout for the content you're running.</p>
+  <div class="seg" id="loadSeg" style="margin-bottom:14px"></div>
+  <div class="grid g2" id="stigGrid"></div>
+  <div class="tip">Element Enhancement level 10 multiplies <b>Robe of Flame ×1.5</b>, and level 15 multiplies <b>Grace of Enhancement ×1.5</b>. That makes it the first Stigma to level, and Korean players take every damage Stigma to 20.</div>
+</div></section>
+
+<!-- DAEVANION -->
+<section id="daevanion"><div class="wrap">
+  <div class="kicker">Daevanion boards</div>
+  <h2>Board routes for <span class="crTxt">136</span> crystals</h2>
+  <p class="lead">These are the real board layouts from the global client, drawn with the game's own node art. Numbers are the buy order, and lit nodes are the ones you buy. Change <b>Crystals</b> in the bar above (or tap a preset) and the route redraws. Hover or tap a node to see what it gives.</p>
+  <div class="dvtabs" id="dvTabs"></div>
+  <div class="dvwrap">
+    <div class="boardbox">
+      <div class="boardtitle"><b id="bdName">Nezekan</b><span class="small muted" id="bdInfo"></span></div>
+      <div class="board" id="board"></div>
+      <div class="legend small muted" style="display:flex;gap:14px;flex-wrap:wrap;margin-top:12px">
+        <span><span class="tag t-dim" style="border-color:#8d93a6;color:#c9cdd8">1</span>stat</span>
+        <span><span class="tag t-green">2</span>passive +1</span>
+        <span><span class="tag t-ice">3</span>active skill +1</span>
+        <span><span class="tag t-fire">4</span>big % node</span>
+        <span>(number in tag = crystal cost)</span>
+      </div>
+    </div>
+    <div class="dvside">
+      <div class="card">
+        <h3>Where the crystals go</h3>
+        <div class="crbar" id="crBar"></div>
+        <div class="small" id="crLegend"></div>
+      </div>
+      <div class="card">
+        <h3>Buy order across all boards</h3>
+        <p class="tiny muted" style="margin:4px 0 8px">Only the payoff nodes are listed. Buy the filler nodes along the line to reach each one.</p>
+        <div class="paylist" id="payList"></div>
+      </div>
+    </div>
+  </div>
+  <div class="tip warn"><b>Skipped on purpose:</b> Defiance, Frost, Frost Burst and Flame Scattershot nodes, defensive passives (Robe of Cold, Grace of Resistance, Revitalization Contract), and the defensive corners (Damage Tolerance, Critical Damage Tolerance, Multi-hit Resist). Azphel is the PvP board and uses its own Azphel crystals, so it isn't routed here.</div>
+</div></section>
+
+<!-- MACRO -->
+<section id="macro"><div class="wrap">
+  <div class="kicker">Hotbar &amp; macro</div>
+  <h2>One held key for the rotation (<span class="lvTxt">Lv 45</span>)</h2>
+  <p class="lead">The in-game macro loops through the hotbar slots you give it while you hold the Macro key. In each slot, the <b>bottom skill is checked first</b>, anything on cooldown is skipped, and up to 4 skills can share a slot. Skills with no cooldown (Flame Arrow, Ice Chain) sit at the top of a slot or alone in their own step, otherwise the skills above them never fire.</p>
+  <div class="grid g2">
+    <div class="gameui">
+      <div class="small" style="color:#c9cdd8;margin-bottom:10px"><b style="color:#fff">Hotbar</b>: stacks read bottom → top (bottom = checked first). <span style="color:var(--green)">Green</span> = the macro presses it. <span style="color:var(--violet)">Purple</span> = you press it.</div>
+      <div class="hb" id="hotbar"></div>
+    </div>
+    <div>
+      <div class="macrowin" id="macroWin"></div>
+      <div class="mloop">↻ After the last step it loops back to step 1 while you hold the key</div>
+    </div>
+  </div>
+  <h3 style="margin:30px 0 10px">Setup</h3>
+  <ol class="steps">
+    <li><div><b>Bind the Macro key.</b> Settings → Key Settings → General → Gameplay → Macro. Mouse buttons don't work as the macro key in AION 1 control mode.</div></li>
+    <li><div><b>Build the stacks.</b> Skills window (<kbd>K</kbd>) → quick slots. Place each stack exactly as shown, with the bottom skill placed first.</div></li>
+    <li><div><b>Add the steps.</b> Skills window → Macro → <b>Add Macro</b> once per step, in the order shown. A new step starts as the basic attack, so change it.</div></li>
+    <li><div><b>Delay 10 ms per step</b>, which is what most class guides use. If keys get dropped, use 20 ms, and at 80–100 ms ping use 40–50 ms.</div></li>
+    <li><div><b>Hellfire stays manual.</b> It's a charge skill (3 levels). Charge it fully on packs and tap it on single targets. Korean players bind it to a mouse side button.</div></li>
+    <li><div><b>Test on a training scarecrow</b> for 30 s, and watch your MP. If it sinks, add one more Flame Arrow step.</div></li>
+  </ol>
+  <div class="tip warn"><b>Outside macro software:</b> this setup uses only the in-game macro. Mouse-driver or AutoHotkey macros are a ban risk, so check NC's rules first.</div>
+  <div style="margin-top:6px"><button class="btn" id="copyBtn">Copy macro cheat sheet</button> <span class="small muted" id="copyMsg"></span></div>
+</div></section>
+
+<!-- ROTATION -->
+<section id="rotation"><div class="wrap">
+  <div class="kicker">Boss opener</div>
+  <h2>The first 30 seconds</h2>
+  <p class="lead">Set up the debuffs, then the buffs, then burst. This is the Korean opener translated to global names, and it needs all 4 Stigmas (Lv 37+).</p>
+  <div class="gantt" id="gantt"></div>
+  <p class="tiny muted" style="margin-top:8px">Illustrative timing, not measured. Wish of Concentration lasts 14.5 s at level 10. Delayed Explosion's cooldown drops to 20 s at Stigma level 10. Element Enhancement lasts 10 s.</p>
+  <ol class="steps" style="margin-top:14px" id="rotSteps"></ol>
+</div></section>
+
+<!-- LEVELING -->
+<section id="leveling"><div class="wrap">
+  <div class="kicker">Skill points, level by level</div>
+  <h2>What to buy at each level</h2>
+  <p class="lead">This plan follows the <b>Level</b> slider in the bar above. It shows the level you're at plus the next three, and the full 1–45 plan is underneath. Points income follows the same schedule as the Ranger guide, so treat exact numbers as approximate.</p>
+  <div class="now" id="nowList"></div>
+  <details><summary>Show the full 1–45 plan</summary><div class="now" id="allList" style="margin-top:12px"></div></details>
+  <div class="tip"><b>Leveling tips from Korea:</b> use target mode so your basic attack (Flame Arrow) keeps firing and refilling MP. On packs, root with Bittercold Wind (its Pull Specialty groups them), then Ice Chain spam or a full Hellfire charge. On elites, Flame Arrow applies Fire Mark, then Blaze and Firestorm, and kite with slows. Keep Steel Barrier in a Stigma slot while solo leveling.</div>
+</div></section>
+
+<!-- GEAR -->
+<section id="gear"><div class="wrap">
+  <div class="kicker">Stats &amp; gear</div>
+  <h2>What to stack</h2>
+  <div class="grid g3">
+    <div class="card"><h3>Stat priority</h3><div id="statBars" style="margin-top:10px"></div></div>
+    <div class="card"><h3>Manastones &amp; enchanting</h3>
+      <ul class="clean small muted">
+        <li><b style="color:#fff">Manastones:</b> Attack, then Critical Hit, then Accuracy (bosses dodge spells without it).</li>
+        <li><b style="color:#fff">Spellbook to +10</b> first, since it's the biggest single jump. Then the Guard.</li>
+        <li>Watch <b style="color:#fff">Max MP and MP regen</b>. The rotation runs dry without them, and Robe of Earth scales with Max MP.</li>
+        <li><b style="color:#fff">Back attacks:</b> Korean guides stress standing behind bosses so back-attack crits land.</li>
+      </ul></div>
+    <div class="card"><h3>Weapon &amp; Arcana</h3>
+      <div style="display:flex;gap:10px;margin:10px 0" id="gearIcons"></div>
+      <ul class="clean small muted">
+        <li><b style="color:#fff">Fire Temple</b> (expedition) drops the Kromede weapon line. The spellbook icon here is from that set.</li>
+        <li><b style="color:#fff">Arcana:</b> aim for fire-skill-level Arcana (up to 3). Crafted rings give an extra soul-mark slot.</li>
+        <li>Skill levels from gear and Arcana stack on top of the boards. That's how you reach the <b style="color:#fff">level 16</b> Specialties after 45.</li>
+      </ul></div>
+  </div>
+</div></section>
+
+<!-- KOREA -->
+<section id="korea"><div class="wrap">
+  <div class="kicker">Reading Korean guides</div>
+  <h2>Korean ↔ global skill names</h2>
+  <p class="lead">Korean guides and fan translations use different English names. This table maps the Korean name to the global client name (matched through game IDs on questlog.gg).</p>
+  <div class="scroll"><table class="tbl" id="krTbl"></table></div>
+  <div class="tip warn"><b>Korea has had a year of patches.</b> The Korean build used here is from the PvE guides of Jan–Mar 2026 (Inven and the post-balance-patch guides). Korea later raised skills to level 16–20 and adjusted some Specialties. Everything on this page uses the <b>global</b> skill text, and Korean advice is only kept where it fits global data.</div>
+</div></section>
+
+<footer><div class="wrap">
+  <b style="color:var(--gold2)">Sources</b>
+  <ul>
+    <li>Global skill text, Specialties and Daevanion layouts: <a href="https://wikily.gg/aion-2/classes/sorcerer">Wikily: Sorcerer</a> · <a href="https://wikily.gg/aion-2/daevanion/sorcerer">Wikily: Sorcerer Daevanion</a> (node art from the game client, via Wikily)</li>
+    <li>Korean names and icons: <a href="https://questlog.gg/aion-2/en/db/skills">questlog.gg skill database</a> (EN/KO)</li>
+    <li>Korean builds: <a href="https://www.inven.co.kr/board/aion2/6453/66">Inven: 마도성 PvE 공략</a> · <a href="https://vortexgaming.io/en/postdetail/724101">Vortex: Sorcerer PvE after the balance patch</a> · <a href="https://game.savetip.co.kr/%EC%95%84%EC%9D%B4%EC%98%A82-%EB%A7%88%EB%8F%84%EC%84%B1-%EB%B9%8C%EB%93%9C-%EA%B3%B5%EB%9E%B5-%EC%8A%A4%ED%82%AC%ED%8A%B8%EB%A6%AC-%EC%8A%A4%ED%8B%B0%EA%B7%B8%EB%A7%88-%EB%8D%B0%EB%B0%94%EB%8B%88/">Savetip: 마도성 빌드</a></li>
+    <li>Global guides: <a href="https://couga54.github.io/aion2-guides/en/sorcerer/">AION 2 Guides: Sorcerer</a> · <a href="https://expcarry.com/aion-2-sorcerer-guide">ExpCarry: Sorcerer</a> · <a href="https://aion2maps.com/guides/sorcerer/">Aion 2 Maps: Sorcerer</a></li>
+    <li>Macro mechanics: <a href="https://allthings.how/aion-2-how-to-use-macros-and-pick-the-right-delay/">allthings.how</a> · <a href="https://mein-mmo.de/en/aion-2-macro-this-trick-instantly-increases-your-damage-while-you-only-hold-down-2-keys,1590032/">Mein-MMO</a></li>
+    <li>Background: <a href="https://store.steampowered.com/app/3393110/AION_2/">AION 2 on Steam</a>. All game art © NCSOFT.</li>
+  </ul>
+</div></footer>
+<div class="tipbox" id="tipbox"></div>
+<script>
+const DV={"nezekan":["0,0,4,Combat Speed +1.5%","1,0,1,Attack Bonus +3","2,0,1,Critical Hit Resist +5","4,0,2,Robe of Earth +1~Earth Robe","5,0,1,Critical Hit Resist +5","6,0,3,Wish of Concentration +1","8,0,2,Cold Snap +1","9,0,1,Critical Hit +5","10,0,4,Cooldown Reduction +1.5%","0,1,1,Critical Hit +5","2,1,3,Blaze +1~Flame Explosion","3,1,1,MP +50","4,1,1,Defense Bonus +30","6,1,1,MP +50","7,1,1,Defense Bonus +30","8,1,1,Critical Hit Resist +5","10,1,1,MP +50","0,2,2,Fire Mark +1","1,2,1,Defense Bonus +30","2,2,1,HP +100","4,2,1,Critical Hit +5","5,2,3,Firestorm +1","6,2,1,HP +100","8,2,3,Winter's Shackles +1","9,2,1,HP +100","10,2,2,Robe of Flame +1~Flame Robe","1,3,1,HP +100","4,3,1,Critical Hit Resist +5","6,3,1,Defense Bonus +30","8,3,1,Attack Bonus +3","10,3,1,Defense Bonus +30","0,4,1,MP +50","1,4,1,Attack Bonus +3","2,4,3,Ice Chain +1","3,4,1,HP +100","4,4,1,MP +50","5,4,1,Attack Bonus +3","6,4,1,Critical Hit Resist +5","7,4,2,Absorb Essence +1","8,4,1,MP +50","9,4,1,Critical Hit +5","10,4,1,Critical Hit Resist +5","0,5,3,Defiance +1","3,5,1,Defense Bonus +30","5,5,0,START","7,5,1,Attack Bonus +3","10,5,3,Flame Scattershot +1","0,6,1,Critical Hit +5","1,6,1,Critical Hit Resist +5","2,6,1,HP +100","3,6,2,Robe of Flame +1~Flame Robe","4,6,1,Critical Hit +5","5,6,1,Defense Bonus +30","6,6,1,HP +100","7,6,1,MP +50","8,6,3,Flame Arrow +1","9,6,1,Defense Bonus +30","10,6,1,HP +100","0,7,1,Attack Bonus +3","2,7,1,Defense Bonus +30","4,7,1,Attack Bonus +3","6,7,1,Critical Hit +5","9,7,1,MP +50","0,8,2,Absorb Essence +1","1,8,1,MP +50","2,8,3,Frost Burst +1","4,8,1,MP +50","5,8,3,Bittercold Wind +1","6,8,1,Critical Hit Resist +5","8,8,1,MP +50","9,8,1,Attack Bonus +3","10,8,2,Robe of Earth +1~Earth Robe","0,9,1,HP +100","2,9,1,Critical Hit +5","3,9,1,Attack Bonus +3","4,9,1,HP +100","6,9,1,Attack Bonus +3","7,9,1,HP +100","8,9,3,Frost +1","10,9,1,Critical Hit Resist +5","0,10,4,Cooldown Reduction +1.5%","1,10,1,Critical Hit Resist +5","2,10,2,Cold Snap +1","4,10,3,Hellfire +1","5,10,1,Critical Hit +5","6,10,2,Fire Mark +1","8,10,1,Critical Hit +5","9,10,1,Defense Bonus +30","10,10,4,Combat Speed +1.5%"],"zikel":["0,0,4,Damage Tolerance +1.5%","1,0,1,Critical Hit +5","2,0,1,MP +50","3,0,1,Critical Hit Resist +5","4,0,3,Flame Scattershot +1","5,0,1,Defense Bonus +30","6,0,2,Grace of Resistance +1","7,0,1,Attack Bonus +3","8,0,3,Hellfire +1","9,0,1,Defense Bonus +30","10,0,4,Damage Boost +1.5%","0,1,1,Attack Bonus +3","2,1,2,Vitality Evaporation +1","4,1,1,HP +100","7,1,1,MP +50","10,1,1,Critical Hit +5","0,2,3,Flame Arrow +1","1,2,1,HP +100","2,2,1,Defense Bonus +30","4,2,1,Attack Bonus +3","5,2,1,MP +50","6,2,3,Firestorm +1","7,2,1,Critical Hit Resist +5","8,2,1,MP +50","9,2,2,Revitalization Contract +1","10,2,1,Attack Bonus +3","0,3,1,Critical Hit +5","2,3,1,MP +50","3,3,1,Critical Hit Resist +5","4,3,2,Grace of Enhancement +1","6,3,1,Critical Hit +5","8,3,1,Critical Hit +5","10,3,1,Critical Hit Resist +5","0,4,1,Defense Bonus +30","1,4,1,HP +100","2,4,3,Bittercold Wind +1","4,4,1,Critical Hit +5","6,4,1,MP +50","7,4,2,Robe of Cold +1","8,4,1,HP +100","9,4,1,Attack Bonus +3","10,4,3,Ice Chain +1","1,5,1,Attack Bonus +3","4,5,1,Defense Bonus +30","5,5,0,START","6,5,1,Attack Bonus +3","9,5,1,Defense Bonus +30","0,6,3,Winter's Shackles +1","1,6,1,Defense Bonus +30","2,6,1,MP +50","3,6,2,Revitalization Contract +1","4,6,1,HP +100","6,6,1,Critical Hit Resist +5","8,6,3,Wish of Concentration +1","9,6,1,MP +50","10,6,1,Attack Bonus +3","0,7,1,Critical Hit +5","2,7,1,Critical Hit Resist +5","4,7,1,Critical Hit Resist +5","6,7,2,Vitality Evaporation +1","7,7,1,Critical Hit +5","8,7,1,HP +100","10,7,1,Critical Hit Resist +5","0,8,1,Defense Bonus +30","1,8,2,Robe of Cold +1","2,8,1,HP +100","3,8,1,Critical Hit +5","4,8,3,Frost Burst +1","5,8,1,HP +100","6,8,1,Defense Bonus +30","8,8,1,Attack Bonus +3","9,8,1,MP +50","10,8,3,Frost +1","0,9,1,Critical Hit Resist +5","3,9,1,MP +50","6,9,1,MP +50","8,9,2,Grace of Enhancement +1","10,9,1,Defense Bonus +30","0,10,4,Damage Boost +1.5%","1,10,1,Attack Bonus +3","2,10,3,Blaze +1~Flame Explosion","3,10,1,Defense Bonus +30","4,10,2,Grace of Resistance +1","5,10,1,Attack Bonus +3","6,10,3,Defiance +1","7,10,1,Critical Hit +5","8,10,1,HP +100","9,10,1,Critical Hit Resist +5","10,10,4,Damage Tolerance +1.5%"],"vaizel":["0,0,4,Critical Damage Boost +1.5%","1,0,1,Critical Hit Resist +5","2,0,2,Fire Mark +1","4,0,1,Critical Hit Resist +5","5,0,3,Flame Scattershot +1","6,0,1,Attack Bonus +3","7,0,2,Cold Snap +1","8,0,1,Critical Hit Resist +5","9,0,1,HP +100","10,0,4,Critical Damage Tolerance +1.5%","0,1,1,Critical Hit +5","2,1,1,Attack Bonus +3","3,1,1,Critical Hit +5","4,1,1,MP +50","6,1,1,Defense Bonus +30","8,1,1,Defense Bonus +30","10,1,1,MP +50","0,2,1,Defense Bonus +30","1,2,3,Firestorm +1","2,2,1,HP +100","4,2,3,Wish of Concentration +1","5,2,1,Critical Hit +5","6,2,1,MP +50","7,2,1,HP +100","8,2,3,Winter's Shackles +1","9,2,1,Attack Bonus +3","10,2,2,Absorb Essence +1","1,3,1,Critical Hit Resist +5","4,3,1,Critical Hit +5","6,3,2,Grace of Enhancement +1","9,3,1,Critical Hit Resist +5","0,4,1,Attack Bonus +3","1,4,1,MP +50","2,4,1,Defense Bonus +30","3,4,2,Revitalization Contract +1","4,4,1,HP +100","5,4,1,Attack Bonus +3","6,4,1,Critical Hit Resist +5","7,4,1,Defense Bonus +30","8,4,3,Blaze +1~Flame Explosion","9,4,1,HP +100","10,4,1,Critical Hit +5","0,5,3,Frost +1","3,5,1,MP +50","5,5,0,START","7,5,1,HP +100","10,5,3,Flame Arrow +1","0,6,1,Critical Hit Resist +5","1,6,1,MP +50","2,6,3,Hellfire +1","3,6,1,Attack Bonus +3","4,6,1,Critical Hit +5","5,6,1,Defense Bonus +30","6,6,1,MP +50","7,6,2,Vitality Evaporation +1","8,6,1,Attack Bonus +3","9,6,1,HP +100","10,6,1,Defense Bonus +30","1,7,1,Critical Hit +5","4,7,2,Grace of Resistance +1","6,7,1,Critical Hit Resist +5","9,7,1,Critical Hit +5","0,8,2,Robe of Cold +1","1,8,1,Defense Bonus +30","2,8,3,Ice Chain +1","3,8,1,Critical Hit Resist +5","4,8,1,HP +100","5,8,1,MP +50","6,8,3,Bittercold Wind +1","8,8,1,MP +50","9,8,3,Frost Burst +1","10,8,1,Attack Bonus +3","0,9,1,HP +100","2,9,1,Attack Bonus +3","4,9,1,Attack Bonus +3","6,9,1,HP +100","7,9,1,Critical Hit Resist +5","8,9,1,Defense Bonus +30","10,9,1,Critical Hit Resist +5","0,10,4,Critical Damage Tolerance +1.5%","1,10,1,MP +50","2,10,1,Critical Hit +5","3,10,2,Robe of Flame +1~Flame Robe","4,10,1,Defense Bonus +30","5,10,3,Defiance +1","6,10,1,Critical Hit +5","8,10,2,Robe of Earth +1~Earth Robe","9,10,1,Critical Hit +5","10,10,4,Critical Damage Boost +1.5%"],"triniel":["0,0,4,Multi-hit Resist +1.5%","1,0,1,Attack Bonus +3","2,0,1,Critical Hit +5","5,0,1,Attack Bonus +3","6,0,4,Multi-hit Chance +1.5%","7,0,1,Defense Bonus +30","10,0,1,Defense Bonus +30","11,0,1,HP +100","12,0,4,Multi-hit Resist +1.5%","0,1,1,MP +50","2,1,3,Bittercold Wind +1","3,1,1,MP +50","4,1,1,HP +100","5,1,2,Vitality Evaporation +1","7,1,2,Grace of Resistance +1","8,1,1,MP +50","9,1,1,Critical Hit +5","10,1,3,Ice Chain +1","12,1,1,Critical Hit +5","0,2,1,Critical Hit +5","2,2,1,HP +100","5,2,1,Defense Bonus +30","6,2,1,HP +100","7,2,1,Critical Hit Resist +5","10,2,1,Attack Bonus +3","12,2,1,Critical Hit Resist +5","0,3,3,Flame Scattershot +1","1,3,1,Critical Hit Resist +5","2,3,1,MP +50","3,3,2,Robe of Earth +1~Earth Robe","4,3,1,Critical Hit Resist +5","5,3,1,Attack Bonus +3","7,3,1,Defense Bonus +30","8,3,3,Frost Burst +1","9,3,1,Critical Hit +5","10,3,1,HP +100","11,3,1,MP +50","12,3,2,Robe of Flame +1~Flame Robe","2,4,1,Defense Bonus +30","4,4,1,Critical Hit +5","8,4,1,HP +100","11,4,1,Critical Hit Resist +5","0,5,1,Critical Hit Resist +5","1,5,1,Critical Hit +5","2,5,1,HP +100","3,5,1,Attack Bonus +3","4,5,3,Winter's Shackles +1","5,5,1,MP +50","6,5,1,Defense Bonus +30","7,5,1,Critical Hit Resist +5","8,5,1,MP +50","9,5,1,Critical Hit +5","10,5,2,Robe of Cold +1","11,5,1,Defense Bonus +30","12,5,1,MP +50","0,6,3,Wish of Concentration +1","2,6,1,Defense Bonus +30","4,6,1,Defense Bonus +30","6,6,0,START","8,6,1,Attack Bonus +3","10,6,1,Attack Bonus +3","12,6,3,Hellfire +1","0,7,1,HP +100","1,7,1,Attack Bonus +3","2,7,2,Absorb Essence +1","3,7,1,Critical Hit Resist +5","4,7,1,HP +100","5,7,1,Critical Hit +5","6,7,1,Attack Bonus +3","7,7,1,HP +100","8,7,3,Blaze +1~Flame Explosion","9,7,1,Defense Bonus +30","10,7,1,MP +50","11,7,1,Critical Hit Resist +5","12,7,1,Critical Hit +5","1,8,1,Critical Hit +5","4,8,1,MP +50","8,8,1,Critical Hit Resist +5","10,8,1,Attack Bonus +3","0,9,2,Cold Snap +1","1,9,1,HP +100","2,9,1,MP +50","3,9,1,Critical Hit Resist +5","4,9,3,Frost +1","5,9,1,Attack Bonus +3","7,9,1,Defense Bonus +30","8,9,1,Critical Hit +5","9,9,2,Fire Mark +1","10,9,1,HP +100","11,9,1,Critical Hit +5","12,9,3,Defiance +1","0,10,1,Critical Hit +5","2,10,1,Defense Bonus +30","5,10,1,Critical Hit +5","6,10,1,MP +50","7,10,1,Attack Bonus +3","10,10,1,MP +50","12,10,1,Critical Hit Resist +5","0,11,1,Critical Hit Resist +5","2,11,3,Firestorm +1","3,11,1,Critical Hit Resist +5","4,11,1,HP +100","5,11,2,Grace of Enhancement +1","7,11,2,Revitalization Contract +1","8,11,1,MP +50","9,11,1,HP +100","10,11,3,Flame Arrow +1","12,11,1,HP +100","0,12,4,Multi-hit Chance +1.5%","1,12,1,MP +50","2,12,1,Attack Bonus +3","5,12,1,Attack Bonus +3","6,12,4,Multi-hit Resist +1.5%","7,12,1,Defense Bonus +30","10,12,1,Critical Hit Resist +5","11,12,1,Defense Bonus +30","12,12,4,Multi-hit Chance +1.5%"]};
+
+const KB='https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Skill/';
+const IB='https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/';
+const WK='https://img.wikily.gg/unsafe/w:96/';
+const SPR={1:WK+'aHR0cHM6Ly9tZWRpYS53aWtpbHkuZ2cvZDllZjllMmItY2RiZi00M2NiLWE0MjMtMjk0N2U2OWQ1MzhkLzIwMjYtMDktMzAvM2I4OGY2MDMtOTczOC00OGY2LWI5OTgtMzRkOWM5ZGIyOGE0LXV0X2Z3aW5kb3dfZGFldmFuaW9uX25vZGVfY29tbW9uX3Nwcml0ZS5wbmc',
+ 2:WK+'aHR0cHM6Ly9tZWRpYS53aWtpbHkuZ2cvZDllZjllMmItY2RiZi00M2NiLWE0MjMtMjk0N2U2OWQ1MzhkLzIwMjYtMDktMzAvYTY5NDlhNWMtMGY5YS00M2VjLTg3MjMtMzYwMDRiZDQ2NzRiLXV0X2Z3aW5kb3dfZGFldmFuaW9uX25vZGVfcmFyZV9zcHJpdGUucG5n',
+ 3:WK+'aHR0cHM6Ly9tZWRpYS53aWtpbHkuZ2cvZDllZjllMmItY2RiZi00M2NiLWE0MjMtMjk0N2U2OWQ1MzhkLzIwMjYtMDktMzAvMjRmNjhmZmQtZDIyNi00MjBkLTg0OTEtYTQ5ZmRiZmQwNGFhLXV0X2Z3aW5kb3dfZGFldmFuaW9uX25vZGVfbGVnZW5kX3Nwcml0ZS5wbmc',
+ 4:WK+'aHR0cHM6Ly9tZWRpYS53aWtpbHkuZ2cvZDllZjllMmItY2RiZi00M2NiLWE0MjMtMjk0N2U2OWQ1MzhkLzIwMjYtMDktMzAvNzA4ZWViMzMtYjFmZi00ZmQ3LTkxYjAtODM2MGU2ZGYxMjBiLXV0X2Z3aW5kb3dfZGFldmFuaW9uX25vZGVfdW5pcXVlX3Nwcml0ZS5wbmc',
+ 0:WK+'aHR0cHM6Ly9tZWRpYS53aWtpbHkuZ2cvZDllZjllMmItY2RiZi00M2NiLWE0MjMtMjk0N2U2OWQ1MzhkLzIwMjYtMDktMzAvZDg0ZDY2YmMtMjRlMC00ODYyLWFkY2YtMzNmNzJmMDVhYjM5LXV0X2Z3aW5kb3dfZGFldmFuaW9uX25vZGVfc3RhcnRfc3ByaXRlLnBuZw'};
+
+/* ---------- skill data (global client text via Wikily) ---------- */
+const S={
+ 'Flame Arrow':{ic:'ICON_SO_SKILL_020',t:'A',el:'fire',un:1,cd:'—',kr:'불꽃 화살',role:'Basic attack · MP engine',tx:'Fire damage at 20 m, restores 100 MP. Chains into Burst → Pyroclasm (120 MP). Applies Fire Mark through the passive.',
+  sp:[[8,'+20% MP restored'],[8,'Absorbs 1% HP'],[8,'+50% Multi-Hit on hit'],[12,'+5% Fire Damage Boost for 10 s on Pyroclasm'],[16,'Resets Blaze cooldown on landing Pyroclasm']],lev:[0,3,4],end:[3,4,2]},
+ 'Firestorm':{ic:'ICON_SO_SKILL_004',t:'A',el:'fire',un:1,cd:'5 s',kr:'불꽃 작살',role:'Main nuke · Hellfire engine',tx:'Fire damage at 20 m, 5 s cooldown, mobile. At Specialty 12 every fireball takes 2 s off Hellfire, so spamming it is the whole engine.',
+  sp:[[8,'−50% MP Cost'],[8,'+20% Skill Speed'],[8,'−60% Incoming Heal on hit (PvP)'],[12,'−2 s Hellfire cooldown per fireball'],[16,'+15% damage per fireball, up to +75%']],lev:[0,3,4],end:[3,4,1]},
+ 'Blaze':{ic:'ICON_SO_SKILL_005',t:'A',el:'fire',un:4,cd:'5 s',kr:'불꽃 폭발',ig:'Flame Explosion',role:'Burst on marked target',tx:'Hits a target with Fire Mark for heavy Fire damage and restores 100 MP. 5 s cooldown, mobile. The in-game node name is "Flame Explosion".',
+  sp:[[8,'Absorbs 3% HP'],[8,'+50% MP restored'],[8,'Delayed Damage after 3 s'],[12,'Multi-Hit on hit'],[16,'−3 s Wish of Concentration cooldown on hit']],lev:[0,3,4],end:[2,3,4]},
+ 'Hellfire':{ic:'ICON_SO_SKILL_006',t:'A',el:'fire',un:14,cd:'45 s',kr:'지옥의 화염',role:'Charge AoE nuke (manual)',tx:'Charge skill, 3 levels. Fire damage to up to 4 enemies within 4 m of the target. Korean players put it on a mouse side button.',
+  sp:[[8,'+30% Skill Speed'],[8,'Fire Damage over Time for 10 s'],[8,'Changes to mobile skill'],[12,'Ignores Block/Evasion, lands as Multi-Hit'],[16,'−15 s cooldown']],lev:[0,3,4],end:[1,3,4]},
+ 'Bittercold Wind':{ic:'ICON_SO_SKILL_025',t:'A',el:'ice',un:3,cd:'15 s',kr:'혹한의 바람',role:'AoE root · crit setup',tx:'Summons a 2 s wind: Water damage to 4 enemies, Root on NPCs (100%). Korean guides call it Blizzard. It gets a guaranteed crit at Specialty 12.',
+  sp:[[8,'+1 s summon duration'],[8,'Changes to mobile skill'],[8,'Pull effect'],[12,'Ignores Block/Evasion, lands as Critical Hit'],[16,'−1 s Frost cooldown on hit']],lev:[2,3,0],end:[3,1,0]},
+ 'Ice Chain':{ic:'ICON_SO_SKILL_009',t:'A',el:'ice',un:1,cd:'—',kr:'얼음 사슬',role:'AoE filler · Slow',tx:'Water damage to 4 enemies and Slow (−40% speed) for 5 s, which switches on Cold Snap. Chains into Cold Wave. 120 MP and no cooldown.',
+  sp:[[8,'−20% MP Cost'],[8,'+20% Skill Speed'],[8,'Up to +12% damage on fewer targets'],[12,'−1 s Winter\'s Shackles cooldown on hit'],[16,'5% chance to Frost on Cold Wave']],lev:[0,3,1],end:[1,2,3]},
+ 'Wish of Concentration':{ic:'ICON_SO_SKILL_028',t:'A',el:'buff',un:12,cd:'60 s',kr:'집중의 기원',role:'Self buff',tx:'+10% Attack and +100 Accuracy for 10 s (14.5 s at level 10). The Specialties turn it into +20% Attack, +10% Combat Speed and −10 s on every cooldown.',
+  sp:[[8,'−10% MP Cost'],[8,'+10% additional Attack'],[8,'+500 Max MP'],[12,'+10% Combat Speed'],[16,'−10 s all skill cooldowns']],lev:[1,3,4],end:[1,3,4]},
+ "Winter's Shackles":{ic:'ICON_SO_SKILL_011',t:'A',el:'ice',un:8,cd:'45 s',kr:'겨울의 속박',role:'Damage window',tx:'Water damage to 4 enemies plus Slow. Its Specialty gives +20% PvE Damage Boost for 5 s, so cast it right before your burst.',
+  sp:[[8,'Changes to mobile skill'],[8,'30% chance to Frost'],[8,'+20% PvE / +10% PvP Damage Boost for 5 s'],[12,'Adds Winter\'s Illusion chain skill'],[16,'−15 s cooldown']],lev:[2,3,4],end:[2,3,4]},
+ 'Flame Scattershot':{ic:'ICON_SO_SKILL_001',t:'A',el:'fire',un:5,cd:'—',kr:'화염 난사',role:'Stagger finisher',tx:'Fire damage, but only on a Staggered target. Put it last in the macro. It fires only when a boss is staggered.',
+  sp:[[8,'Absorbs 5% HP'],[8,'Restores 120 MP'],[8,'Changes to mobile skill'],[12,'Multi-Hit on hit'],[16,'−1 s all skill cooldowns on hit']],lev:[1,3,4],end:[1,3,4]},
+ 'Frost':{ic:'ICON_SO_SKILL_015',t:'A',el:'ice',un:7,cd:'30 s',kr:'빙결',role:'Leveling CC',tx:'Water AoE with Frost (100% on NPCs). Its Specialty resets Frost Burst. Good for leveling packs, and drops off the bar at endgame.',
+  sp:[[8,'Restores 200 MP'],[8,'−5 s cooldown'],[8,'Resets Frost Burst cooldown on landing Frost'],[12,'+25% PC Frost chance'],[16,'+1 s Frost duration']],lev:[2,0,1],end:[0,1,2]},
+ 'Frost Burst':{ic:'ICON_SO_SKILL_022',t:'A',el:'ice',un:10,cd:'10 s',kr:'빙결 폭발',role:'Leveling follow-up',tx:'Hits a Frosted target and 4 enemies around it. Pairs with Frost while leveling.',
+  sp:[[8,'Absorbs 7% HP'],[8,'Changes to mobile skill'],[8,'75% chance to Knock Back'],[12,'Ignores Block/Evasion, lands as Critical Hit'],[16,'50% chance to reset cooldown']],lev:[0,3,4],end:[0,3,4]},
+ 'Defiance':{ic:'ICON_CO_SKILL_002',t:'A',el:'buff',un:16,cd:'60 s',kr:'저항',role:'CC break',tx:'Removes Stun, Knockdown, Airborne, Grab, Frost and Fear, and grants Tenacity. Always press it by hand.',
+  sp:[[8,'Adds Curse: Old Tree chain skill'],[8,'Restores 1,000 Stamina'],[8,'Restores 20% HP'],[12,'+2 s Tenacity'],[16,'+50% PvE Damage Tolerance during Tenacity']],lev:[2,3,4],end:[2,3,4]},
+ /* passives */
+ 'Robe of Flame':{ic:'ICON_SO_SKILL_Passive_004',t:'P',un:11,kr:'불꽃의 로브',ig:'Flame Robe',tx:'+1% PvE Damage Boost per level (+10% at 10), +100 Accuracy, and Double Chance. Element Enhancement level 10 boosts it ×1.5.'},
+ 'Grace of Enhancement':{ic:'ICON_SO_SKILL_Passive_007',t:'P',un:21,kr:'강화의 은혜',tx:'+20% PvE Damage Boost while MP ≥ 25%, plus a 50% chance of an extra hit. Element Enhancement level 15 boosts it ×1.5.'},
+ 'Robe of Earth':{ic:'ICON_SO_SKILL_Passive_006',t:'P',un:6,kr:'대지의 로브',ig:'Earth Robe',tx:'+7–25% Max MP and MP regen, and +105–150 Critical Hit while MP ≥ 50%.'},
+ 'Fire Mark':{ic:'ICON_SO_SKILL_Passive_002',t:'P',un:1,kr:'불의 표식',tx:'Fire attacks apply Fire Mark (5 s), and marked targets have a 20% chance to take extra Fire damage. Blaze needs the mark.'},
+ 'Cold Snap':{ic:'ICON_SO_SKILL_Passive_003',t:'P',un:9,kr:'냉기 소환',tx:'50% chance to deal extra damage on Slowed targets. Ice Chain and Winter\'s Shackles keep bosses slowed.'},
+ 'Absorb Essence':{ic:'ICON_SO_SKILL_Passive_001',t:'P',un:13,kr:'정기 흡수',tx:'Restores MP on hit and raises Ailment/Mental-type chance. A Korean ★ pick for MP stability.'},
+ 'Vitality Evaporation':{ic:'ICON_SO_SKILL_Passive_008',t:'P',un:25,kr:'생기 증발',tx:'Extra damage on targets above 70% HP. Good for packs and the start of fights.'},
+ 'Robe of Cold':{ic:'ICON_SO_SKILL_Passive_005',t:'P',un:17,kr:'냉기의 로브',tx:'Defense and Crit Resist, and slows attackers. Raid defense only.'},
+ 'Grace of Resistance':{ic:'ICON_SO_SKILL_038',t:'P',un:15,kr:'저항의 은혜',tx:'Mental/Impact-type resist. PvP.'},
+ 'Revitalization Contract':{ic:'ICON_SO_SKILL_Passive_001',t:'P',un:23,kr:'재생의 계약',tx:'Status resist, and a heal at 10% HP. Survival only.'},
+ /* stigmas */
+ 'Element Enhancement':{ic:'ICON_SO_SKILL_040',t:'S',kr:'원소 강화',cd:'60 s',tx:'+20% Fire and Water Attack for 10 s. Lv 10: Robe of Flame ×1.5 · Lv 15: Grace of Enhancement ×1.5 · Lv 20: +10% more.'},
+ 'Delayed Explosion':{ic:'ICON_SO_SKILL_032',t:'S',kr:'지연 폭발',cd:'30 s',tx:'Fire damage after 4 s, and the target takes +15% damage from you meanwhile. Lv 10: −10 s cooldown · Lv 15: AoE · Lv 20: +10% more.'},
+ 'Fire Wall':{ic:'ICON_SO_SKILL_039',t:'S',kr:'불의 장벽',cd:'60 s',tx:'1×10 m wall applying Embers (Fire DoT for 10 s, stronger if targets move). Lv 5: extra damage on hit · Lv 10: +2 m width.'},
+ 'Cold Storm':{ic:'ICON_SO_SKILL_019',t:'S',kr:'냉기 폭풍',cd:'60 s',tx:'Water damage plus Slow (switches on Cold Snap), and a 7 s storm applying Frostbite DoT. Lv 10: 30% Root · Lv 20: +10 s Frostbite.'},
+ 'Steel Barrier':{ic:'ICON_SO_SKILL_016',t:'S',kr:'강철 보호막',cd:'60 s',tx:'Shield worth 16–35% of Max HP for 60 s, plus 10% PvE Damage Tolerance. The solo-leveling pick.'},
+ 'Divine Burst':{ic:'ICON_SO_SKILL_036',t:'S',kr:'신성 폭발',cd:'60 s',tx:'Fire hit with 50 Stagger damage. Lv 20: knockback and stun. Good for stagger checks.'},
+ 'Glacial Smite':{ic:'ICON_SO_SKILL_012',t:'S',kr:'빙하 강타',cd:'90 s',tx:'Water AoE, up to +20% damage on more targets. A pack-clear option.'},
+ 'Arctic Armor':{ic:'ICON_SO_SKILL_021',t:'S',kr:'빙설의 갑주',cd:'90 s',tx:'+20% PvE Damage Tolerance, and splits damage into MP while MP ≥ 50%. Hard-boss safety.'},
+ 'Soul Freeze':{ic:'ICON_SO_SKILL_013',t:'S',kr:'영혼 동결',cd:'60 s',tx:'Water hit with Seal (5 s). PvP.'},
+ 'Hibernation':{ic:'ICON_SO_SKILL_041',t:'S',kr:'동면',cd:'180 s',tx:'5 s immunity, then heals 20% when cancelled. PvP / emergency.'}
+};
+const PRI_A=['Firestorm','Blaze','Hellfire','Bittercold Wind','Wish of Concentration','Ice Chain',"Winter's Shackles",'Flame Arrow'];
+const SKIP=['Flame Scattershot','Frost','Frost Burst','Defiance'];
+const PRI_P=['Robe of Flame','Grace of Enhancement','Robe of Earth','Absorb Essence','Cold Snap','Fire Mark','Vitality Evaporation'];
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+const iurl=n=>KB+(S[n]?S[n].ic:'ICON_CO_SKILL_002')+'.webp';
+const ico=(n,cls='')=>`<div class="ico ${cls}" title="${esc(n)}"><img loading="lazy" src="${iurl(n)}" alt="" onerror="this.style.visibility='hidden'"></div>`;
+
+/* ---------- skill-point simulator ---------- */
+const COST=[0,0,1,1,1,2,2,2,4,4,4]; // cost to reach level L
+const inc=L=>L<4?0:L===4?1:L<=7?2:L<=10?3:L<=15?4:L<=30?5:6;
+const gate=(n,L)=>(S[n].un||1)+Math.max(0,3*(L-2));
+const MIL=[['Firestorm',4],['Flame Arrow',3],['Ice Chain',3],['Blaze',4],['Bittercold Wind',3],['Firestorm',6],['Blaze',6],['Robe of Flame',3],['Wish of Concentration',4],['Hellfire',4],['Ice Chain',6],['Bittercold Wind',6],['Firestorm',8],['Blaze',8],["Winter's Shackles",4],['Hellfire',6],['Wish of Concentration',6],['Robe of Flame',6],['Grace of Enhancement',4],['Firestorm',10],['Blaze',10],['Hellfire',8],['Bittercold Wind',8],['Wish of Concentration',8],['Ice Chain',8],['Robe of Flame',10],['Grace of Enhancement',8],['Flame Arrow',8],['Hellfire',10],['Wish of Concentration',10],['Bittercold Wind',10],['Grace of Enhancement',10],['Flame Arrow',6],["Winter's Shackles",8],['Ice Chain',10],['Robe of Earth',6],["Winter's Shackles",10],['Flame Arrow',10],['Robe of Earth',10],['Absorb Essence',6]];
+function simulate(){
+  const lv={};Object.keys(S).forEach(n=>{if(S[n].t!=='S')lv[n]=0});
+  const log=[];let pts=0;
+  for(let L=1;L<=45;L++){
+    const g=inc(L);pts+=g;const buys=[];const nu=[];
+    Object.keys(lv).forEach(n=>{if(S[n].un===L){lv[n]=1;nu.push(n)}});
+    let guard=0;
+    while(guard++<200){
+      let bought=false,blocked=false;
+      for(const [n,tg] of MIL){
+        if(lv[n]===0||lv[n]>=tg)continue;
+        const nx=lv[n]+1;
+        if(gate(n,nx)>L)continue;
+        if(COST[nx]>pts){blocked=true;break}
+        pts-=COST[nx];lv[n]=nx;buys.push([n,nx]);bought=true;break;
+      }
+      if(!bought||blocked)break;
+    }
+    const merged={};buys.forEach(([n,l])=>merged[n]=l);
+    log.push({L,g,nu,buys:Object.entries(merged),left:pts,snap:{...lv}});
+  }
+  return log;
+}
+const SIM=simulate();
+
+/* ---------- Daevanion planner ---------- */
+const BOARDS=Object.fromEntries(Object.entries(DV).map(([b,l])=>{
+  const nodes={};let start;
+  l.forEach(s=>{const p=s.split(',');const x=+p[0],y=+p[1],c=+p[2];const rest=p.slice(3).join(',');
+    if(rest==='START'){start=x+','+y;nodes[start]={x,y,c:0,nm:'START'};return}
+    const [full,ig]=rest.split('~');const base=full.replace(/ \+[\d.]+%?$/,'');nodes[x+','+y]={x,y,c,nm:full,base,ig};});
+  const n=Math.max(...Object.values(nodes).map(o=>o.x))+1;
+  return [b,{nodes,start,n}];
+}));
+const OPEN={nezekan:12,zikel:20,vaizel:30,triniel:40};
+const VAL={'Blaze':10,'Firestorm':10,'Hellfire':9,'Bittercold Wind':9,'Wish of Concentration':8,'Ice Chain':8,"Winter's Shackles":7,'Flame Arrow':7,'Flame Scattershot':1.5,'Frost':0.8,'Frost Burst':0.8,'Defiance':0,
+ 'Robe of Flame':10,'Grace of Enhancement':9,'Robe of Earth':7,'Cold Snap':5,'Fire Mark':5,'Absorb Essence':4,'Vitality Evaporation':3,'Robe of Cold':0.4,'Grace of Resistance':0.3,'Revitalization Contract':0.4,
+ 'Damage Boost':14,'Critical Damage Boost':12,'Combat Speed':12,'Cooldown Reduction':10,'Multi-hit Chance':9,'Attack Bonus':0.9,'Critical Hit':0.7,'MP':0.45};
+const val=b=>VAL[b]??0.1;
+function nb(B,k){const [x,y]=k.split(',').map(Number);return [[1,0],[-1,0],[0,1],[0,-1]].map(([dx,dy])=>(x+dx)+','+(y+dy)).filter(q=>B.nodes[q]);}
+function plan(budget,lvl){
+  const open=Object.keys(BOARDS).filter(b=>lvl>=OPEN[b]);
+  const st={};Object.keys(BOARDS).forEach(b=>st[b]={owned:new Set([BOARDS[b].start]),order:[],par:{},spent:0});
+  let left=budget,seq=0;const global=[];
+  while(true){
+    let best=null;
+    for(const b of open){
+      const B=BOARDS[b],O=st[b].owned;
+      const dist={},prev={},done=new Set();const pq=[];
+      O.forEach(o=>nb(B,o).forEach(q=>{if(O.has(q))return;const c=B.nodes[q].c;if(dist[q]===undefined||c<dist[q]){dist[q]=c;prev[q]=o;pq.push([c,q])}}));
+      while(pq.length){pq.sort((a,b)=>a[0]-b[0]);const [d,p]=pq.shift();if(done.has(p))continue;done.add(p);
+        nb(B,p).forEach(q=>{if(O.has(q))return;const nd=d+B.nodes[q].c;if(dist[q]===undefined||nd<dist[q]){dist[q]=nd;prev[q]=p;pq.push([nd,q])}});}
+      done.forEach(t=>{const path=[];let p=t;while(!O.has(p)){path.push(p);p=prev[p]}
+        const cost=path.reduce((s,k)=>s+B.nodes[k].c,0);if(cost>left)return;
+        const v=path.reduce((s,k)=>s+val(B.nodes[k].base),0);const r=v/cost;
+        if(!best||r>best.r)best={r,b,path:path.reverse(),cost,t};});
+    }
+    if(!best||best.r<0.35)break;
+    const {b,path}=best;const B=BOARDS[b],X=st[b];
+    path.forEach(k=>{const p=nb(B,k).find(q=>X.owned.has(q));X.par[k]=p;X.owned.add(k);X.order.push(k);X.spent+=B.nodes[k].c;left-=B.nodes[k].c;seq++;
+      if(B.nodes[k].c>1)global.push({b,k,seq,local:X.order.length});});
+  }
+  const bonus={};Object.keys(st).forEach(b=>st[b].order.forEach(k=>{const nm=BOARDS[b].nodes[k].base;if(BOARDS[b].nodes[k].c>=2&&BOARDS[b].nodes[k].c<=3)bonus[nm]=(bonus[nm]||0)+1;}));
+  return {st,global,bonus,left,open};
+}
+
+/* ---------- state ---------- */
+let LV=45,CR=136,crAuto=true,BOARD='nezekan',LOAD='boss',P=null;
+const crAt=L=>L<12?0:Math.round((L-11)/34*136);
+const STAGES=[['Lv 1–19',15],['Lv 20–29',25],['Lv 30–39',35],['Lv 40–44',42],['Lv 45',45]];
+const CRP=[[136,'136 · levels only'],[316,'316 · + side content'],[365,'365 · + Nightmare shop'],[570,'570 · all 4 full']];
+try{const s=JSON.parse(localStorage.getItem('a2sorc')||'{}');if(s.LV)LV=s.LV;if(s.CR!=null){CR=s.CR;crAuto=!!s.auto}}catch(e){}
+function save(){try{localStorage.setItem('a2sorc',JSON.stringify({LV,CR,auto:crAuto}))}catch(e){}}
+
+/* ---------- renderers ---------- */
+function renderBar(){
+  const si=LV<20?0:LV<30?1:LV<40?2:LV<45?3:4;
+  $('stageSeg').innerHTML=STAGES.map(([t,l],i)=>`<button data-l="${l}" class="${i===si?'on':''}">${t}</button>`).join('');
+  $('crSeg').innerHTML=CRP.map(([v,t])=>`<button data-c="${v}" class="${CR===v&&!crAuto?'on':''}" title="${t}">${v}</button>`).join('')+`<button data-c="auto" class="${crAuto?'on':''}" title="Approximate crystals from leveling alone">auto</button>`;
+  $('lvR').value=LV;$('lvO').textContent=LV;$('crR').value=CR;$('crO').textContent=CR;
+  document.querySelectorAll('.lvTxt').forEach(e=>e.textContent='Lv '+LV);
+  document.querySelectorAll('.crTxt').forEach(e=>e.textContent=CR);
+}
+function synergy(){
+  const f=(a,b,t,s)=>`<div class="flow">${ico(a,'sm gold')}<span class="arr">→</span>${ico(b,'sm gold')}<div class="txt"><b>${t}</b>${s}</div></div>`;
+  $('synGrid').innerHTML=[
+    f('Flame Arrow','Blaze','Mark, then detonate','Fire hits apply Fire Mark (passive). Blaze only works on a marked target, and refunds 100 MP.'),
+    f('Firestorm','Hellfire','Spam to recharge','At Specialty 12, each fireball takes 2 s off Hellfire\'s cooldown. Korean guides call this the class\'s core.'),
+    f('Ice Chain','Cold Snap','Keep them slowed','Ice Chain\'s Slow switches on Cold Snap: a 50% chance of extra damage on every hit.'),
+    f('Element Enhancement','Robe of Flame','Stigma multiplies passives','Level 10 makes Robe of Flame ×1.5, and level 15 makes Grace of Enhancement ×1.5.'),
+    f("Winter's Shackles",'Hellfire','Open a damage window','The Specialty gives +20% PvE Damage Boost for 5 s, so line up Hellfire and Blaze inside it.'),
+    f('Blaze','Wish of Concentration','Cooldowns feed cooldowns','Blaze 16 takes 3 s off Wish, and Wish 16 takes 10 s off every cooldown.')
+  ].join('');
+  $('mpbar').innerHTML=[[25,'Grace of Enhancement ON','+20% PvE damage','#ffd27a'],[50,'Robe of Earth crit ON','+105–150 Critical Hit','#fff'],[50,'','Arctic Armor MP split','#fff']].slice(0,2).map(([p,t,s,c])=>`<div class="th" style="left:${p}%"><span class="t" style="color:${c}">${p}% · ${t}</span><span class="bt">${s}</span></div>`).join('')+'<div style="position:absolute;right:10px;top:7px;font:700 13px Inter;color:#fff">MP 100%</div>';
+}
+function eqSpecs(n,eff,endgame){
+  const s=S[n];const rank=endgame?s.end:s.lev;const slots=eff>=16?3:eff>=12?2:eff>=8?1:0;
+  const unlocked=i=>eff>=s.sp[i][0];
+  const eq=rank.filter(unlocked).slice(0,slots);
+  return {eq,slots};
+}
+function renderSkills(){
+  const snap=SIM[LV-1].snap;const endgame=LV>=45;
+  const card=n=>{const s=S[n];const pl=snap[n]||0;const bo=s.un<=LV?(P.bonus[n]||0):0;const eff=pl+bo;
+    const {eq,slots}=eqSpecs(n,eff,endgame);const max=16;
+    const specs=s.sp.map((sp,i)=>{const on=eq.includes(i);const lock=eff<sp[0];return `<div class="spec ${on?'eq':''} ${lock?'lock':''}"><span class="lv">${sp[0]}</span><span>${esc(sp[1])}</span><span class="st">${on?'equip':lock?'locked':''}</span></div>`}).join('');
+    const unlocked=s.un<=LV;
+    return `<div class="card"><div class="sk">${ico(n,'lg '+(unlocked?'gold':'off'))}<div style="flex:1"><div class="tiny muted">${s.role} · ${s.cd==='—'?'no cooldown':s.cd}</div><h3>${n}</h3><span class="tag ${s.el==='ice'?'t-ice':s.el==='fire'?'t-fire':'t-violet'}">${s.el}</span>${unlocked?'':`<span class="tag t-dim">unlocks Lv ${s.un}</span>`}</div></div>
+     <div class="lvbar"><i class="p ${s.el==='ice'?'ice':''}" style="width:${pl/max*100}%"></i><i class="b" style="width:${bo/max*100}%"></i>${[8,12].map(m=>`<span class="mark" style="left:${m/max*100}%"></span>`).join('')}</div>
+     <div class="lvlab"><span>Level <b style="color:#fff">${eff}</b> (${pl} points${bo?` + ${bo} boards`:''})</span><span>${slots} Specialty slot${slots===1?'':'s'}</span></div>
+     <div class="small muted" style="margin-top:8px">${s.tx}</div><div class="specs">${specs}</div></div>`;};
+  $('skillCards').innerHTML=PRI_A.map(card).join('');
+  $('skipRow').innerHTML=SKIP.map(n=>`<div style="display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 12px 6px 6px;max-width:360px">${ico(n,'sm')}<div><b class="small">${n}</b><div class="tiny muted">${S[n].role}. ${n==='Defiance'?'Press it by hand.':n==='Flame Scattershot'?'Last macro step. It fires only on a staggered target.':'Leveling packs only.'}</div></div></div>`).join('');
+  $('passCards').innerHTML=PRI_P.map((n,i)=>{const s=S[n];const pl=snap[n]||0;const bo=s.un<=LV?(P.bonus[n]||0):0;return `<div class="card"><div class="sk">${ico(n,s.un<=LV?'gold':'off')}<div style="flex:1"><div class="tiny muted">#${i+1}${s.ig?` · in-game node: "${s.ig}"`:''}</div><h3>${n}</h3>${s.un<=LV?'':`<span class="tag t-dim">unlocks Lv ${s.un}</span>`}</div></div><div class="lvbar"><i class="p" style="width:${pl/14*100}%"></i><i class="b" style="width:${bo/14*100}%"></i></div><div class="lvlab"><span>Level <b style="color:#fff">${pl+bo}</b> (${pl} pts${bo?` + ${bo} boards`:''})</span><span>${pl>=10?'max from points':''}</span></div><div class="small muted" style="margin-top:6px">${s.tx}</div></div>`}).join('');
+}
+const LOADS={boss:['Boss DPS',['Element Enhancement','Delayed Explosion','Fire Wall','Cold Storm'],'Korean PvE standard (all to 20 there). Delayed Explosion is the must-have party debuff.'],
+ solo:['Solo / leveling',['Element Enhancement','Steel Barrier','Fire Wall','Cold Storm'],'Steel Barrier replaces Delayed Explosion while you solo.'],
+ safe:['Hard boss (safety)',['Element Enhancement','Delayed Explosion','Steel Barrier','Arctic Armor'],'For progression bosses you keep dying on. Swap back once you learn the fight.'],
+ stag:['Stagger checks',['Element Enhancement','Delayed Explosion','Divine Burst','Fire Wall'],'Divine Burst does 50 Stagger damage. Bring it when your party struggles to break bosses.']};
+const SLOTLV=[22,27,32,37];
+function renderStig(){
+  $('loadSeg').innerHTML=Object.entries(LOADS).map(([k,v])=>`<button data-k="${k}" class="${k===LOAD?'on':''}">${v[0]}</button>`).join('');
+  const L=LOADS[LOAD];const tgt=n=>n==='Element Enhancement'?'Level 10 by 45, then 15 → 20':n==='Delayed Explosion'?'Level 10 (cooldown 30 → 20 s)':'Level 5–10';
+  $('stigGrid').innerHTML=L[1].map((n,i)=>{const locked=LV<SLOTLV[i];return `<div class="card"><div class="stg ${locked?'locked':''}"><div class="lv"><small>Lv</small>${SLOTLV[i]}</div>${ico(n,'lg '+(locked?'off':'gold'))}<div><span class="tag t-gold">Slot ${i+1}</span>${locked?'<span class="tag t-dim">locked at your level</span>':''}<span class="tag t-dim">${S[n].cd}</span><h3>${n}</h3><div class="small muted">${S[n].tx}</div><div class="small" style="margin-top:6px;color:var(--gold2)">${tgt(n)}</div></div></div></div>`}).join('')+`<div class="card" style="grid-column:1/-1"><div class="small muted">${L[2]}</div></div>`;
+}
+function renderDV(){
+  const tabs=Object.keys(BOARDS).map(b=>{const X=P.st[b];const op=P.open.includes(b);return `<button data-b="${b}" class="${b===BOARD?'on':''} ${op?'':'closed'}"><span>${b[0].toUpperCase()+b.slice(1)}</span><small>${op?`${X.spent} crystals · ${X.order.length} nodes`:'opens Lv '+OPEN[b]}</small></button>`}).join('');
+  $('dvTabs').innerHTML=tabs;
+  const B=BOARDS[BOARD],X=P.st[BOARD],n=B.n;const idx={};X.order.forEach((k,i)=>idx[k]=i+1);
+  const half=Math.ceil(X.order.length/2);const pc=i=>i<=half?'#5fd0ff':'#ffc163';
+  const pad=.09;let svg=`<svg viewBox="0 0 ${n} ${n}" preserveAspectRatio="none"><defs><filter id="gl"><feGaussianBlur stdDeviation=".08"/></filter></defs>`;
+  X.order.forEach(k=>{const a=B.nodes[X.par[k]],b=B.nodes[k];const c=pc(idx[k]);svg+=`<line x1="${a.x+.5}" y1="${a.y+.5}" x2="${b.x+.5}" y2="${b.y+.5}" stroke="${c}" stroke-width=".2" stroke-linecap="round" opacity=".55" filter="url(#gl)"/><line x1="${a.x+.5}" y1="${a.y+.5}" x2="${b.x+.5}" y2="${b.y+.5}" stroke="${c}" stroke-width=".09" stroke-linecap="round"/>`;});
+  svg+='</svg>';
+  const sz=100/n;
+  const nodes=Object.entries(B.nodes).map(([k,o])=>{const on=idx[k]||o.c===0;const skill=S[o.base]&&o.c>=2&&o.c<=3;
+    return `<div class="node c${o.c||1} ${on?'on':''} ${o.c===0?'start':''}" data-k="${k}" style="left:${o.x*sz+sz*pad}%;top:${o.y*sz+sz*pad}%;width:${sz*(1-2*pad)}%;height:${sz*(1-2*pad)}%">
+      <div class="bg" style="background-image:url('${SPR[o.c]}')"></div>${o.c===0?'':'<div class="fb"></div>'}
+      ${skill?`<div class="sic"><img src="${iurl(o.base)}" alt="" style="width:100%;height:100%" onerror="this.style.display='none'"></div>`:''}
+      ${idx[k]?`<span class="num" style="--pc:${pc(idx[k])}">${idx[k]}</span>`:''}</div>`}).join('');
+  $('board').innerHTML=svg+nodes;
+  $('bdName').textContent=BOARD[0].toUpperCase()+BOARD.slice(1);
+  $('bdInfo').textContent=P.open.includes(BOARD)?`${X.spent} crystals · opens Lv ${OPEN[BOARD]} · blue = first half, gold = second half`:`Opens at Lv ${OPEN[BOARD]}: raise the Level slider to plan it`;
+  // crystal bar
+  const cols={nezekan:'#ff8a3d',zikel:'#4aa3ff',vaizel:'#b48cff',triniel:'#5fd49a'};
+  const tot=Math.max(CR,1);
+  $('crBar').innerHTML=Object.keys(BOARDS).map(b=>`<i style="width:${P.st[b].spent/tot*100}%;background:${cols[b]}"></i>`).join('')+`<i style="width:${P.left/tot*100}%;background:#3a4260"></i>`;
+  $('crLegend').innerHTML=Object.keys(BOARDS).map(b=>`<span style="color:${cols[b]};font-weight:700">■</span> ${b[0].toUpperCase()+b.slice(1)} ${P.st[b].spent}`).join(' &nbsp; ')+` &nbsp; <span class="muted">unspent ${P.left}${P.left>0&&P.open.length<4?' (more boards open later)':P.left>0?' (only defensive nodes left)':''}</span>`;
+  const bn={nezekan:'NEZ',zikel:'ZIK',vaizel:'VAI',triniel:'TRI'};
+  $('payList').innerHTML=P.global.length?P.global.map((g,i)=>{const o=BOARDS[g.b].nodes[g.k];const lo=P.st[g.b].order.length;const pcc=g.local<=Math.ceil(lo/2)?'#5fd0ff':'#ffc163';const isS=S[o.base];return `<div class="pay">${isS?ico(o.base,'xs'):`<div class="ico xs" style="display:grid;place-items:center;font:800 10px Inter;color:#ff8a3d">%</div>`}<span class="n" style="--pc:${pcc}">${g.local}</span><span>${esc(o.nm)}${o.ig?` <span class="tiny muted">("${esc(o.ig)}")</span>`:''}</span><span class="bd">${bn[g.b]} · ${o.c}✦</span></div>`}).join(''):'<div class="small muted">No boards open yet (Nezekan opens at Lv 12).</div>';
+}
+function renderMacro(){
+  const has=n=>S[n].t==='S'?stigOn(n):(S[n].un||1)<=LV;
+  const endgame=LV>=22;let slots,steps;
+  if(!endgame){
+    slots=[['1',['Blaze','Firestorm'],'m'],['2',['Bittercold Wind','Ice Chain'],'m'],['3',['Frost Burst','Frost'],'m'],['4',["Winter's Shackles"],'m'],['5',['Wish of Concentration'],'m'],['LMB',['Flame Arrow'],'m'],['Q',['Hellfire'],'h'],['F',['Defiance'],'h']];
+    steps=[['1'],['LMB'],['2'],['5'],['3'],['LMB'],['4']];
+  }else{
+    slots=[['1',['Element Enhancement','Bittercold Wind','Delayed Explosion'],'m'],['2',['Wish of Concentration','Cold Storm','Fire Wall'],'m'],['3',['Blaze','Firestorm'],'m'],['4',["Winter's Shackles",'Ice Chain'],'m'],['LMB',['Flame Arrow'],'m'],['E',['Flame Scattershot'],'m'],['Q',['Hellfire'],'h'],['F',['Defiance'],'h'],['G',['Steel Barrier'],'h']];
+    steps=[['1'],['2'],['LMB'],['3'],['LMB'],['4'],['E']];
+  }
+  const snap=SIM[LV-1].snap;
+  const SL={};slots.forEach(s=>SL[s[0]]=s);
+  const live=slots.map(([k,arr,ty])=>[k,arr.filter(has),ty]).filter(s=>s[1].length);
+  const LIVE={};live.forEach(s=>LIVE[s[0]]=s);
+  const cell=(n,k,top)=>`<div class="hcell"><img src="${iurl(n)}" alt="" onerror="this.style.visibility='hidden'">${k?`<span class="k">${k}</span>`:''}<span class="l">${S[n].t==='S'?'Stg':'Lv. '+((snap[n]||0)+(P.bonus[n]||0))}</span></div>`;
+  $('hotbar').innerHTML=live.map(([k,arr,ty])=>{const stepNo=steps.findIndex(s=>s[0]===k);return `<div class="hslot"><div class="hstack">${arr.map((n,i)=>cell(n,i===0?k:'')).join('')}</div><div class="cap ${ty==='m'?'m':'h'}">${ty==='m'&&stepNo>=0?'macro step '+(steps.filter((s,i)=>i<=stepNo&&LIVE[s[0]]).length):'by hand'}</div><div class="cap">${arr.length>1?'↑ fills gaps<br>↓ first':esc(arr[0])}</div></div>`}).join('');
+  const ms=steps.filter(s=>LIVE[s[0]]);
+  $('macroWin').innerHTML=ms.map((s,i)=>{const [k,arr]=LIVE[s[0]];return `<div class="mstep"><div class="no">${i+1}</div><div class="mid"><div class="icos">${arr.slice().reverse().map(n=>`<div class="hcell mini"><img src="${iurl(n)}" alt="" onerror="this.style.visibility='hidden'"></div>`).join('')}</div><div class="nm">${k==='LMB'?'Flame Arrow (basic attack)':'Hotbar '+k}</div><div class="sub">${arr.length>1?arr.join(' → ')+' (bottom first)':arr[0]}</div></div><div class="trash">🗑</div></div>${i<ms.length-1?'<div class="mdelay">Delay <span class="box">10</span> ms</div>':''}`}).join('');
+  window._macro=ms.map((s,i)=>`Step ${i+1}: ${s[0]==='LMB'?'Flame Arrow':'Hotbar '+s[0]+' = '+LIVE[s[0]][1].join(' (bottom) > ')}`).join('\n');
+}
+function stigOn(n){const L=LOADS.boss[1];const i=L.indexOf(n);if(n==='Steel Barrier')return LV>=22;return i>=0&&LV>=SLOTLV[i];}
+function renderGantt(){
+  const END=30,pct=s=>(s/END*100).toFixed(2)+'%';
+  const blk=(s,e,c,t)=>`<div class="blk" style="left:${pct(s)};width:${pct(e-s)};background:${c}">${t||''}</div>`;
+  const dot=(s,n)=>`<div class="dot" style="left:${pct(s)}" title="${esc(n)}"><img src="${iurl(n)}" alt="" onerror="this.style.visibility='hidden'"></div>`;
+  let g='';
+  g+=`<div class="lane"><div class="nm"><b>1 · Debuff</b>Delayed Explosion</div><div class="track">${blk(0,4,'rgba(255,122,61,.55)','+15% taken')}${blk(20,24,'rgba(255,122,61,.55)','+15%')}${dot(0,'Delayed Explosion')}${dot(20,'Delayed Explosion')}</div></div>`;
+  g+=`<div class="lane"><div class="nm"><b>2 · Buffs</b>Element Enh. + Wish</div><div class="track">${blk(0.5,10.5,'#e3b766','Element Enhancement 10 s')}${blk(10.5,25,'rgba(180,140,255,.7)','Wish of Concentration 14.5 s')}${dot(0.5,'Element Enhancement')}${dot(10.5,'Wish of Concentration')}</div></div>`;
+  g+=`<div class="lane"><div class="nm"><b>3 · Zones</b>Fire Wall + Cold Storm</div><div class="track">${blk(1,11,'rgba(255,138,61,.4)','Embers DoT')}${blk(1.5,11.5,'rgba(111,208,255,.35)','')}${dot(1,'Fire Wall')}${dot(2,'Cold Storm')}</div></div>`;
+  g+=`<div class="lane"><div class="nm"><b>4 · Root &amp; window</b>Bittercold → Shackles</div><div class="track">${dot(3,'Bittercold Wind')}${blk(4,9,'rgba(111,208,255,.6)','+20% PvE 5 s')}${dot(4,"Winter's Shackles")}${dot(18,'Bittercold Wind')}</div></div>`;
+  g+=`<div class="lane"><div class="nm"><b>5 · Nuke</b>Hellfire (charged)</div><div class="track">${blk(5,7,'#ff7a3d','charge')}${dot(7,'Hellfire')}${dot(21,'Hellfire')}</div></div>`;
+  g+=`<div class="lane"><div class="nm"><b>6 · Loop</b>Blaze · Firestorm · Flame Arrow</div><div class="track" style="background:repeating-linear-gradient(90deg,#2a1a14 0 14px,#3a2418 14px 28px)">${[8,13,18,23,28].map(t=>dot(t,'Firestorm')).join('')}${[9,14,19,24,29].map(t=>dot(t,'Blaze')).join('')}</div></div>`;
+  g+=`<div class="axis"><div></div><div class="ticks">${[0,5,10,15,20,25,30].map(t=>`<span style="left:${pct(t)}">${t}s</span>`).join('')}</div></div>`;
+  $('gantt').innerHTML=g;
+  $('rotSteps').innerHTML=['<b>Delayed Explosion</b> first. The boss takes +15% damage from you for 4 s.','<b>Element Enhancement + Wish of Concentration</b> (step 1 and 2 of the macro do this for you).','Drop <b>Fire Wall</b> and <b>Cold Storm</b> under the boss (DoTs, and the Slow switches on Cold Snap).','<b>Bittercold Wind</b>, then <b>Winter\'s Shackles</b>, which opens the +20% damage window.','Inside the window: a charged <b>Hellfire</b>, then <b>Blaze</b>.','Hold the macro. Firestorm keeps knocking down Hellfire\'s cooldown, and Flame Arrow keeps MP above 50%. Re-apply Delayed Explosion every 20 s.'].map(t=>`<li><div>${t}</div></li>`).join('');
+}
+function renderLv(){
+  const row=(r,cls,cur)=>`<div class="lvrow ${cls}"><div class="L">${r.L}<small>${cur?'YOU':'LEVEL'}</small></div><div><div class="small muted">${r.g?`+${r.g} skill point${r.g>1?'s':''}`:'no points'}${r.left?` · ${r.left} saved`:''}</div>${r.nu.length?`<div class="buys">${r.nu.map(n=>`<div class="buy">${ico(n,'xs')}<span><b>New:</b> ${n}</span></div>`).join('')}</div>`:''}${r.buys.length?`<div class="buys">${r.buys.map(([n,l])=>`<div class="buy">${ico(n,'xs')}<span>${n} → <b>${l}</b></span></div>`).join('')}</div>`:''}${extra(r.L)?`<div class="small" style="margin-top:6px;color:var(--gold2)">${extra(r.L)}</div>`:''}</div></div>`;
+  const cur=SIM[LV-1];const nxt=SIM.slice(LV,LV+3);
+  $('nowList').innerHTML=row(cur,'cur',true)+nxt.map(r=>row(r,'',false)).join('');
+  $('allList').innerHTML=SIM.filter(r=>r.buys.length||r.nu.length||extra(r.L)).map(r=>row(r,r.L<LV?'done':r.L===LV?'cur':'',r.L===LV)).join('');
+}
+function extra(L){return ({4:'Start a macro: Blaze above Firestorm on one slot, plus Flame Arrow.',8:'First Specialties at skill level 8: Firestorm −50% MP, Blaze lifesteal.',12:'Nezekan board opens: follow the Daevanion route.',14:'Hellfire unlocks. Bind it to its own key (manual charge).',20:'Zikel board opens.',21:'Grace of Enhancement unlocks: keep MP above 25%.',22:'Stigma slot 1: Element Enhancement (do the Ascension quest).',27:'Stigma slot 2: Delayed Explosion (or Steel Barrier while solo).',30:'Vaizel board opens.',32:'Stigma slot 3: Fire Wall.',37:'Stigma slot 4: Cold Storm.',40:'Triniel board opens.',45:'Reset skill points (free) and switch to the endgame Specialties. Ariel and Azphel boards open.'})[L]||'';}
+function renderGear(){
+  const st=[['Attack / Fire & Water Attack',100],['Critical Hit',86],['Accuracy (bosses)',74],['Combat Speed & cooldown',66],['Max MP / MP regen',55],['PvE Damage Boost',50]];
+  $('statBars').innerHTML=st.map(s=>`<div style="margin:8px 0"><div class="lvlab"><span style="color:var(--text)">${s[0]}</span></div><div class="lvbar"><i class="p" style="width:${s[1]}%"></i></div></div>`).join('')+'<div class="tiny muted">Bar length shows priority, not values.</div>';
+  $('gearIcons').innerHTML=`<div class="ico lg gold" title="Fire Temple spellbook (Kromede set)"><img src="${IB}Weapon/Icon_WP_MB_0056_T06.webp" alt="" onerror="this.style.visibility='hidden'"></div><div class="ico lg gold" title="Arcana: Parchment of Vigor"><img src="${IB}ETC/Icon_Arcana_Parchment_u_PveSet2.webp" alt=""></div><div class="ico lg gold" title="Arcana: Chalice of Vigor"><img src="${IB}ETC/Icon_Arcana_Grail_u_PveSet2.webp" alt=""></div><div class="ico lg" title="Daevanion Crystal"><img src="${IB}ETC/Icon_Item_Usable_Potion_Skillpoint_004.webp" alt=""></div>`;
+}
+function renderKR(){
+  const alias={'Firestorm':'Fire Lance / Flame Harpoon','Blaze':'Flame Burst / "Flame Explosion"','Hellfire':'Infernal Flame / Hell\'s Flame','Bittercold Wind':'Blizzard / Bitter Wind','Wish of Concentration':'Prayer of Focus / Concentration',"Winter's Shackles":"Winter's Grasp / Winter's Binding",'Flame Scattershot':'Flame Barrage','Frost Burst':'Ice Explosion','Cold Snap':'Cold Summon','Absorb Essence':'Spirit Absorption','Grace of Enhancement':'Reinforcement Grace','Element Enhancement':'Elemental Boost','Fire Wall':'Flame Barrier','Cold Storm':'Frost Storm','Steel Barrier':'Iron Shield','Divine Burst':'Holy Burst','Glacial Smite':'Glacial Strike'};
+  const list=[...PRI_A,...SKIP,...PRI_P.slice(0,5),'Element Enhancement','Delayed Explosion','Fire Wall','Cold Storm','Steel Barrier','Divine Burst','Glacial Smite'];
+  $('krTbl').innerHTML='<tr><th>Global name</th><th>Korean</th><th>Names in KR guides / translations</th></tr>'+list.map(n=>`<tr><td><div class="who">${ico(n,'xs')}${n}</div></td><td>${S[n].kr}</td><td class="muted">${alias[n]||'—'}</td></tr>`).join('');
+}
+function renderAll(){
+  if(crAuto)CR=crAt(LV);
+  P=plan(CR,LV);
+  renderBar();renderSkills();renderStig();renderDV();renderMacro();renderLv();save();
+}
+/* events */
+$('lvR').oninput=e=>{LV=+e.target.value;renderAll()};
+$('crR').oninput=e=>{CR=+e.target.value;crAuto=false;renderAll()};
+$('stageSeg').onclick=e=>{const b=e.target.closest('button');if(!b)return;LV=+b.dataset.l;renderAll()};
+$('crSeg').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.c==='auto'){crAuto=true}else{CR=+b.dataset.c;crAuto=false;if(LV<40&&CR>136){}}renderAll()};
+$('loadSeg').onclick=e=>{const b=e.target.closest('button');if(!b)return;LOAD=b.dataset.k;renderStig()};
+$('dvTabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;BOARD=b.dataset.b;renderDV()};
+const tb=$('tipbox');
+$('board').addEventListener('mousemove',e=>{const nd=e.target.closest('.node');if(!nd){tb.style.display='none';return}
+  const o=BOARDS[BOARD].nodes[nd.dataset.k];const X=P.st[BOARD];const i=X.order.indexOf(nd.dataset.k);
+  tb.innerHTML=o.c===0?'<b>Start</b>':`<b>${esc(o.nm)}</b>${o.ig?`<br><span class="muted">In game: "${esc(o.ig)}"</span>`:''}<br>${o.c} crystal${o.c>1?'s':''} · ${i>=0?`<span style="color:var(--gold2)">buy #${i+1}</span>`:'<span class="muted">not in route</span>'}`;
+  tb.style.display='block';tb.style.left=Math.min(e.clientX+14,innerWidth-250)+'px';tb.style.top=(e.clientY+14)+'px';});
+$('board').addEventListener('mouseleave',()=>tb.style.display='none');
+$('board').addEventListener('click',e=>{const nd=e.target.closest('.node');if(!nd)return;const r=nd.getBoundingClientRect();$('board').dispatchEvent(new MouseEvent('mousemove',{clientX:r.right,clientY:r.top,bubbles:true}))});
+$('copyBtn').onclick=async()=>{const t=`AION 2 SORCERER MACRO (Lv ${LV}) - hold Macro key, delay 10 ms/step\n${window._macro}\nBY HAND: Hellfire (charge), Defiance${LV>=22?', Steel Barrier':''}\nSkill Queue ON. Test on a training scarecrow.`;try{await navigator.clipboard.writeText(t);$('copyMsg').textContent='Copied.'}catch(e){$('copyMsg').textContent='Copy blocked here. Select the steps instead.'}};
+synergy();renderGantt();renderGear();renderKR();renderAll();
+
+</script>
+</body>
+</html>

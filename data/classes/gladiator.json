@@ -1,0 +1,2289 @@
+{
+ "id": "gladiator",
+ "name": {
+  "en": "Gladiator",
+  "es": "Gladiador"
+ },
+ "classIcon": "UT_Class_Gladiator_Large",
+ "color": "#e0483e",
+ "role": {
+  "en": "Melee DPS / off-tank",
+  "es": "DPS cuerpo a cuerpo / tanque secundario"
+ },
+ "weapon": {
+  "en": "Greatsword",
+  "es": "Mandoble"
+ },
+ "difficulty": 2,
+ "summary": {
+  "en": "Front-line greatsword bruiser with AoE cleave and strong self-heal. Burst windows of Rage Burst into spammed Overhead Slam, backed by party buffs from blocking.",
+  "es": "Luchador de mandoble en primera línea con daño en área y buena autocuración. Ventanas de Explosión de furia seguidas de Punzada descendente sin parar, con buffs de grupo al bloquear."
+ },
+ "engine": {
+  "en": "Ruinous Blow + Rage Burst → Overhead Slam spam (no cooldown) with Rending Blow filler",
+  "es": "Embestida de perdición + Explosión de furia → Punzada descendente sin parar (sin enfriamiento) con Embestida desgarradora de relleno"
+ },
+ "skills": [
+  {
+   "n": "Rending Blow",
+   "ne": "Embestida desgarradora",
+   "nk": "절단의 맹타",
+   "ic": "ICON_GL_SKILL_001",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Hits up to 4 enemies within 4m and increases Enmity. 2 Stagger damage.",
+    "es": "Golpea hasta 4 enemigos en 4 m y aumenta la Hostilidad. 2 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "-20% MP consumed",
+     "Reducción del 20 % de Consumo de Puntos de Maná"
+    ],
+    [
+     8,
+     "+200 Block while using skill",
+     "Aumento de 200 de Bloqueo durante el uso de la habilidad"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Deals up to 12% more damage when less targets are hit",
+     "Cuantos menos objetivos se acierten, aumento máx. del 12 % de daño"
+    ],
+    [
+     16,
+     "Restores 50 MP on landing a Critical Hit",
+     "Al acertar un golpe Crítico, recuperación de 50 de Puntos de Maná"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Core filler",
+    "es": "Relleno principal"
+   },
+   "tip": {
+    "en": "Your main spender. Lv16 MP-on-crit lets you drop Keen Strike.",
+    "es": "Tu gasto principal. Con el especial Lv16 (MP al crítico) ya no necesitas Estacazo punzante."
+   },
+   "pickLev": [
+    0,
+    3
+   ],
+   "pickEnd": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Keen Strike",
+   "ne": "Estacazo punzante",
+   "nk": "예리한 일격",
+   "ic": "ICON_GL_SKILL_002",
+   "t": "active",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "Hits up to 4 enemies within 4m, increases Enmity and restores 100 MP.",
+    "es": "Golpea hasta 4 enemigos en 4 m, aumenta la Hostilidad y recupera 100 MP."
+   },
+   "sp": [
+    [
+     8,
+     "+20% MP restored",
+     "Aumento del 20 % de Recuperación de Puntos de Maná"
+    ],
+    [
+     8,
+     "Absorbs 1% HP",
+     "Absorción de Puntos de Vida del 1 %"
+    ],
+    [
+     8,
+     "+50% Multi-Hit on hit",
+     "Al acertar, aumento del 50 % de Multigolpe"
+    ],
+    [
+     12,
+     "-1s [Ruinous Blow] cooldown on hit",
+     "Al acertar, reducción de 1s de Tiempo de Enfriamiento de «Embestida de perdición»"
+    ],
+    [
+     16,
+     "Adds [Reckless Strike] Chain Skill",
+     "Adición de hab. de cadena «Estacazo temerario» x4"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "MP builder",
+    "es": "Genera MP"
+   },
+   "tip": {
+    "en": "Leveling MP fix; mostly dropped once Rending Blow has MP-on-crit.",
+    "es": "Arregla el MP al subir; casi no se usa cuando Embestida desgarradora recupera MP."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    1,
+    3
+   ]
+  },
+  {
+   "n": "Leaping Slam",
+   "ne": "Perforación con salto",
+   "nk": "도약 찍기",
+   "ic": "ICON_GL_SKILL_019",
+   "t": "active",
+   "un": 1,
+   "cd": 15,
+   "d": {
+    "en": "Leaps to a target within 20m and deals damage. 10 Stagger damage.",
+    "es": "Salta hacia un objetivo a 20 m e inflige daño. 10 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "Prepare for Battle effect on the caster for 3s",
+     "Efecto de Sangría para sí mismo durante 3s"
+    ],
+    [
+     8,
+     "50% chance to trigger [Ankle Slice] on hit",
+     "Al acertar «Perforación con salto», activación de «Corte de tobillo» con un 50 % de prob."
+    ],
+    [
+     8,
+     "Resets cooldown on defeating an enemy",
+     "Al derrotar a enemigo, restablecimiento de Tiempo de Enfriamiento de «Perforación con salto»"
+    ],
+    [
+     12,
+     "+20% PvE Damage Tolerance and +10 PvP Damage Tolerance for 3s",
+     "Aumento del 20 % de Tolerancia a Daño JcE y 10 % de Tolerancia a Daño JcJ durante 3s"
+    ],
+    [
+     16,
+     "Changes to AoE skill and pulls in enemies",
+     "Cambio a habilidad de área y atracción"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "Gap closer",
+    "es": "Acercamiento"
+   },
+   "tip": {
+    "en": "Opener and mob-to-mob mover; the kill reset makes farming fast.",
+    "es": "Para abrir y saltar entre mobs; el reinicio al matar acelera el farmeo."
+   },
+   "pickLev": [
+    2
+   ],
+   "pickEnd": [
+    2,
+    4,
+    1
+   ]
+  },
+  {
+   "n": "Mocking Blade",
+   "ne": "Espada devastadora",
+   "nk": "유린의 검",
+   "ic": "ICON_GL_SKILL_028",
+   "t": "active",
+   "un": 3,
+   "cd": 20,
+   "d": {
+    "en": "Hits a target within 4m and inflicts Knockdown for 3s. 15 Stagger damage.",
+    "es": "Golpea a un objetivo a 4 m y lo derriba 3 s. 15 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 4% HP, absorbs 15% HP of target with Incapacitated Immunity",
+     "Absorbe un 4 % de los Puntos de Vida y un 15 % de los Puntos de Vida de objetivo con inmunidad a Incapacitación"
+    ],
+    [
+     8,
+     "Changes to AoE damage on down strike",
+     "Al lanzar un golpe descendente, cambio a daño de área"
+    ],
+    [
+     8,
+     "Adds 2 additional strikes",
+     "Ataques adicionales +2"
+    ],
+    [
+     12,
+     "+1s Knockdown duration",
+     "Aumento de 1 s de duración de Derribo"
+    ],
+    [
+     16,
+     "Ignores Block and Evasion and lands as Multi-Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con Multigolpe"
+    ]
+   ],
+   "rank": 8,
+   "tag": {
+    "en": "Knockdown, heal",
+    "es": "Derribo, curación"
+   },
+   "tip": {
+    "en": "Knocks mobs down for Overhead Slam; on bosses it is an emergency heal.",
+    "es": "Derriba mobs para Punzada descendente; en jefes es una curación de emergencia."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    0,
+    2
+   ]
+  },
+  {
+   "n": "Overhead Slam",
+   "ne": "Punzada descendente",
+   "nk": "내려찍기",
+   "ic": "ICON_GL_SKILL_017",
+   "t": "active",
+   "un": 4,
+   "cd": 5,
+   "d": {
+    "en": "Hits a Knocked Down target within 4m and increases Enmity. 7% proc vs CC-immune targets.",
+    "es": "Golpea a un objetivo derribado a 4 m y aumenta la Hostilidad. 7 % de prob. contra inmunes a control."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 0.7% HP",
+     "Absorción de Puntos de Vida del 0.7 %"
+    ],
+    [
+     8,
+     "Changes to AoE Skill",
+     "Cambio a habilidad de área"
+    ],
+    [
+     8,
+     "Adds [Upward Strike] Chain Skill",
+     "Adición de hab. de cadena «Golpeo elevado» x2"
+    ],
+    [
+     12,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ],
+    [
+     16,
+     "Remove cooldown",
+     "Eliminación de Tiempo de Enfriamiento"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Main damage",
+    "es": "Daño principal"
+   },
+   "tip": {
+    "en": "Rage Burst unlocks it for 10s; with no cooldown (Lv16) spam it in that window.",
+    "es": "Explosión de furia la habilita 10 s; sin enfriamiento (Lv16) úsala sin parar en esa ventana."
+   },
+   "pickLev": [
+    2
+   ],
+   "pickEnd": [
+    2,
+    4,
+    3
+   ]
+  },
+  {
+   "n": "Sword Aura Rampage",
+   "ne": "Desenfreno de aura de espada",
+   "nk": "검기 난무",
+   "ic": "ICON_TE_SKILL_034",
+   "t": "active",
+   "un": 5,
+   "cd": 0,
+   "d": {
+    "en": "Hits a Staggered target within 4m.",
+    "es": "Golpea a un objetivo en Tambaleo a 4 m."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 5% HP",
+     "Absorción de Puntos de Vida del 5 %"
+    ],
+    [
+     8,
+     "Restores 120 MP",
+     "Recuperación de 120 de Puntos de Maná"
+    ],
+    [
+     8,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     12,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     16,
+     "-1s all skill cooldowns on hit",
+     "Al acertar, reducción de 1s de Tiempo de Enfriamiento de todas las habilidades"
+    ]
+   ],
+   "rank": 5,
+   "tag": {
+    "en": "Stagger burst",
+    "es": "Ráfaga en Tambaleo"
+   },
+   "tip": {
+    "en": "Spam during boss Stagger: every hit cuts all cooldowns by 1s.",
+    "es": "Úsala sin parar con el jefe en Tambaleo: cada golpe reduce 1 s todos los enfriamientos."
+   },
+   "pickLev": [
+    1
+   ],
+   "pickEnd": [
+    3,
+    4,
+    2
+   ]
+  },
+  {
+   "n": "Ankle Slice",
+   "ne": "Corte de tobillo",
+   "nk": "발목 베기",
+   "ic": "ICON_GL_SKILL_020",
+   "t": "active",
+   "un": 7,
+   "cd": 10,
+   "d": {
+    "en": "After a Block, hits up to 4 enemies near a target and Roots (100% on NPCs). 10 Stagger damage.",
+    "es": "Tras bloquear, golpea hasta 4 enemigos y los ata (100 % en PNJ). 10 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "30% chance to inflict Knockdown for 3s on landing [Ankle Slice]",
+     "«Corte de tobillo» provoca Derribo durante 3 s con un 30 % de prob."
+    ],
+    [
+     8,
+     "Adds [Ankle Smash] Chain Skill",
+     "Adición de hab. de cadena «Trituración de tobillo» x2"
+    ],
+    [
+     8,
+     "+16m [Ankle Slice] range",
+     "Aumento de 16 m del alcance de [Corte de tobillo]"
+    ],
+    [
+     12,
+     "Ignores Block and Evasion and lands as Multi-Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con Multigolpe"
+    ],
+    [
+     16,
+     "25% chance to reset [Ankle Slice] cooldown on Block",
+     "Al bloquear con éxito, restablecimiento de Tiempo de Enfriamiento de «Corte de tobillo» con un 25 % de prob."
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "Utility",
+    "es": "Utilidad"
+   },
+   "tip": {
+    "en": "Leave at Lv1; the +16m range pick turns it into a gap closer.",
+    "es": "Déjala en Lv1; el especial de +16 m la vuelve un acercamiento."
+   },
+   "pickLev": [
+    2
+   ],
+   "pickEnd": [
+    2
+   ]
+  },
+  {
+   "n": "Crushing Wave",
+   "ne": "Onda pulverizadora",
+   "nk": "분쇄 파동",
+   "ic": "ICON_GL_SKILL_005",
+   "t": "active",
+   "un": 8,
+   "cd": 20,
+   "d": {
+    "en": "Hits up to 4 enemies within 5m around you. 5 Stagger damage.",
+    "es": "Golpea hasta 4 enemigos a 5 m a tu alrededor. 5 de Tambaleo."
+   },
+   "sp": [
+    [
+     8,
+     "Absorbs 2% HP",
+     "Absorción de Puntos de Vida del 2 %"
+    ],
+    [
+     8,
+     "Restores 50 MP on landing a Critical Hit",
+     "Al acertar un golpe Crítico, recuperación de 50 de Puntos de Maná"
+    ],
+    [
+     8,
+     "Up to +20% damage when more targets hit",
+     "Cuantos más objetivos se acierten, aumento máx. del 20 % de daño"
+    ],
+    [
+     12,
+     "Resets cooldown on landing a Critical Hit",
+     "Al acertar un golpe Crítico, restablecimiento de Tiempo de Enfriamiento"
+    ],
+    [
+     16,
+     "50% chance to pull",
+     "Tira y atrae con un 50 % de prob."
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Main AoE",
+    "es": "AoE principal"
+   },
+   "tip": {
+    "en": "Your trash-pack skill; the crit reset makes it near spammable.",
+    "es": "Tu habilidad para grupos de mobs; el reinicio al crítico la hace casi spameable."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    2,
+    3,
+    4
+   ]
+  },
+  {
+   "n": "Rush Strike",
+   "ne": "Estacazo de acometida",
+   "nk": "돌진 일격",
+   "ic": "ICON_GL_SKILL_036",
+   "t": "active",
+   "un": 10,
+   "cd": 20,
+   "d": {
+    "en": "After Dodge or while flying, dashes 10m to a target and hits; may Knockdown (100% on NPCs).",
+    "es": "Tras Evasión urgente o en vuelo, carga 10 m y golpea; puede derribar (100 % en PNJ)."
+   },
+   "sp": [
+    [
+     8,
+     "Restores 300 Stamina on hit",
+     "Al acertar, recuperación de 300 de Vigor"
+    ],
+    [
+     8,
+     "+10m range",
+     "Aumento de 10 m de alcance"
+    ],
+    [
+     8,
+     "Changes to Charge Skill and deals AoE damage",
+     "Cambio a habilidad de carga y daño de área"
+    ],
+    [
+     12,
+     "-10s cooldown",
+     "Reducción de 10 s de Tiempo de Enfriamiento de «Estacazo de acometida»"
+    ],
+    [
+     16,
+     "+25% Knockdown Chance",
+     "Aumento del 25 % de prob. de Derribo"
+    ]
+   ],
+   "rank": 9,
+   "tag": {
+    "en": "Mobility",
+    "es": "Movilidad"
+   },
+   "tip": {
+    "en": "Dodge then Rush Strike to stay glued to the boss.",
+    "es": "Esquiva y luego Estacazo de acometida para seguir pegado al jefe."
+   },
+   "pickLev": [
+    1
+   ],
+   "pickEnd": [
+    0,
+    1,
+    3
+   ]
+  },
+  {
+   "n": "Aerial Snare",
+   "ne": "Amarre aéreo",
+   "nk": "공중 결박",
+   "ic": "ICON_GL_SKILL_015",
+   "t": "active",
+   "un": 12,
+   "cd": 45,
+   "d": {
+    "en": "Hits a Knocked Down target within 4m and makes it Airborne (100% on NPCs).",
+    "es": "Golpea a un objetivo derribado a 4 m y lo eleva (100 % en PNJ)."
+   },
+   "sp": [
+    [
+     8,
+     "Multi-Hit on hit",
+     "Al acertar, Multigolpe garantizado"
+    ],
+    [
+     8,
+     "+25% [Aerial Snare] Airborne Chance",
+     "Aumento del 25 % de prob. de Atadura aérea con «Amarre aéreo»"
+    ],
+    [
+     8,
+     "+100% damage to targets with Incapacitated Immunity",
+     "Al atacar a un objetivo con Inmune a Incapacitación, aumento del 100 % de daño"
+    ],
+    [
+     12,
+     "Adds [Forced Fall] Chain Skill",
+     "Adición de hab. de cadena «Caída forzada» x2"
+    ],
+    [
+     16,
+     "-50% [Aerial Snare] cooldown",
+     "Reducción del 50 % de Tiempo de Enfriamiento de «Amarre aéreo»"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "CC chain",
+    "es": "Cadena de control"
+   },
+   "tip": {
+    "en": "Low value in PvE; skip unless a boss can be Staggered often.",
+    "es": "Poco valor en JcE; sáltala salvo que el jefe entre seguido en Tambaleo."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    2,
+    4
+   ]
+  },
+  {
+   "n": "Ruinous Blow",
+   "ne": "Embestida de perdición",
+   "nk": "파멸의 맹타",
+   "ic": "ICON_GL_SKILL_010",
+   "t": "active",
+   "un": 14,
+   "cd": 45,
+   "d": {
+    "en": "Rushes 7.5m, hits up to 4 enemies and grants Prepare for Battle 20s (+20% PvE dmg, +100 Crit).",
+    "es": "Carga 7,5 m, golpea hasta 4 enemigos y da Preparación para el Combate 20 s (+20 % daño JcE, +100 Crít.)."
+   },
+   "sp": [
+    [
+     8,
+     "+20% Skill Speed",
+     "Aumento del 20 % de velocidad de habilidad"
+    ],
+    [
+     8,
+     "+12.5m Range",
+     "Aumento de 12,5 m de alcance"
+    ],
+    [
+     8,
+     "+30% Skill Critical Hit",
+     "Aumento de un 30 % del Crítico de la habilidad"
+    ],
+    [
+     12,
+     "Extra damage on hit",
+     "Daño adicional al acertar"
+    ],
+    [
+     16,
+     "Ignores Block and Evasion and lands as Multi-Hit",
+     "Ignora el Bloqueo y Evasión / Acierto con Multigolpe"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Burst buff",
+    "es": "Buff de ráfaga"
+   },
+   "tip": {
+    "en": "Open every fight with it and recast on cooldown to keep the buff up.",
+    "es": "Abre cada pelea con ella y reúsala al recargar para mantener el buff."
+   },
+   "pickLev": [
+    0,
+    3
+   ],
+   "pickEnd": [
+    0,
+    1,
+    3
+   ]
+  },
+  {
+   "n": "Defiance",
+   "ne": "Eliminación de impacto",
+   "nk": "충격 해제",
+   "ic": "ICON_CO_SKILL_002",
+   "t": "active",
+   "un": 16,
+   "cd": 60,
+   "d": {
+    "en": "Removes Stun, Knockdown, Airborne, Grab, Frost and Fear; Tenacity (CC immunity) for 5s.",
+    "es": "Elimina Aturdimiento, Derribo, Atadura aérea, Agarre, Congelación y Terror; Robustez 5 s."
+   },
+   "sp": [
+    [
+     8,
+     "Adds [Wrath Burst] Chain Skill",
+     "Añade [Explosión de ira] como segunda habilidad de cadena."
+    ],
+    [
+     8,
+     "Restores 1000 Stamina on using [Defiance]",
+     "Al lanzar [Eliminación de impacto], recupera 1000 de Vigor"
+    ],
+    [
+     8,
+     "Restores 20% HP on using [Defiance]",
+     "Al lanzar «Eliminación de impacto», recuperación del 20 % de Puntos de Vida"
+    ],
+    [
+     12,
+     "+2s Tenacity duration",
+     "Aumento de 2 s de duración de Robustez"
+    ],
+    [
+     16,
+     "+50% PvE Damage Tolerance and +25% PvP Damage Tolerance for Tenacity duration",
+     "Durante la duración de Robustez, la Tolerancia a Daño JcE aumenta un 50 % y la Tolerancia a Daño JcJ un 25 %"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "CC break",
+    "es": "Romper control"
+   },
+   "tip": {
+    "en": "Keep on its own key; press only when controlled.",
+    "es": "Ponla en su propia tecla; úsala solo cuando te controlen."
+   },
+   "pickLev": [
+    2
+   ],
+   "pickEnd": [
+    2,
+    4
+   ]
+  },
+  {
+   "n": "Survival Stance",
+   "ne": "Postura de supervivencia",
+   "nk": "생존 자세",
+   "ic": "ICON_GL_SKILL_Passive_001",
+   "t": "passive",
+   "un": 1,
+   "cd": 0,
+   "d": {
+    "en": "+200 HP, +7% Max HP, +20 HP regen, +5.5% PvE Damage Tolerance.",
+    "es": "+200 PV, +7 % PV máx., +20 regen. de PV, +5,5 % Tolerancia a Daño JcE."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "Survival",
+    "es": "Supervivencia"
+   },
+   "tip": {
+    "en": "Only if you die a lot or off-tank.",
+    "es": "Solo si mueres mucho o haces de tanque secundario."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Protection Armor",
+   "ne": "Armadura de protección",
+   "nk": "보호의 갑옷",
+   "ic": "ICON_GL_SKILL_Passive_002",
+   "t": "passive",
+   "un": 6,
+   "cd": 0,
+   "d": {
+    "en": "+200 Block; heals 53-64 HP on Block (1s cooldown).",
+    "es": "+200 Bloqueo; cura 53-64 PV al bloquear (1 s de enfriamiento)."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "Block",
+    "es": "Bloqueo"
+   },
+   "tip": {
+    "en": "Skip for DPS.",
+    "es": "Sáltala si eres DPS."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Blood Absorption",
+   "ne": "Absorción de sangre",
+   "nk": "피의 흡수",
+   "ic": "ICON_GL_SKILL_Passive_003",
+   "t": "passive",
+   "un": 9,
+   "cd": 0,
+   "d": {
+    "en": "50% chance to heal on hit; heals 26% Max HP at 50% HP (60s cooldown).",
+    "es": "50 % de prob. de curarte al golpear; cura 26 % PV máx. al bajar a 50 % (60 s)."
+   },
+   "sp": [],
+   "rank": 8,
+   "tag": {
+    "en": "Sustain",
+    "es": "Sustento"
+   },
+   "tip": {
+    "en": "Great while leveling solo.",
+    "es": "Muy buena al subir solo."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Identify Weakness",
+   "ne": "Identificación de debilidades",
+   "nk": "약점 파악",
+   "ic": "ICON_GL_SKILL_Passive_004",
+   "t": "passive",
+   "un": 11,
+   "cd": 0,
+   "d": {
+    "en": "+100 Critical Hit and +0.5% Perfect Chance.",
+    "es": "+100 Crítico y +0,5 % de Perforación."
+   },
+   "sp": [],
+   "rank": 3,
+   "tag": {
+    "en": "Crit, Perfect",
+    "es": "Crítico, Perforación"
+   },
+   "tip": {
+    "en": "Rises in value if you build Perfect.",
+    "es": "Vale más si construyes Perforación."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Attack Preparation",
+   "ne": "Preparación de ataque",
+   "nk": "공격 준비",
+   "ic": "ICON_GL_SKILL_Passive_005",
+   "t": "passive",
+   "un": 13,
+   "cd": 0,
+   "d": {
+    "en": "+5.5% PvE Damage Boost, +2% Defense, +100 Accuracy.",
+    "es": "+5,5 % Amplificación de Daño JcE, +2 % Defensa, +100 Precisión."
+   },
+   "sp": [],
+   "rank": 4,
+   "tag": {
+    "en": "PvE damage",
+    "es": "Daño JcE"
+   },
+   "tip": {
+    "en": "Flat PvE damage, always max it.",
+    "es": "Daño JcE fijo, súbela siempre."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Impact Hit",
+   "ne": "Acierto de impacto",
+   "nk": "충격 적중",
+   "ic": "ICON_GL_SKILL_Passive_006",
+   "t": "passive",
+   "un": 15,
+   "cd": 0,
+   "d": {
+    "en": "+11.2% Impact-type Chance and +0.3% Double Chance.",
+    "es": "+11,2 % Acierto de Tipo Impacto y +0,3 % de Golpe."
+   },
+   "sp": [],
+   "rank": 1,
+   "tag": {
+    "en": "Smite",
+    "es": "Golpe"
+   },
+   "tip": {
+    "en": "Double Chance (Smite) is the core stat of the class.",
+    "es": "El Golpe (doble daño) es la estadística clave de la clase."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Destructive Impulse",
+   "ne": "Impulso de destrucción",
+   "nk": "파괴 충동",
+   "ic": "ICON_GL_SKILL_Passive_007",
+   "t": "passive",
+   "un": 17,
+   "cd": 0,
+   "d": {
+    "en": "Extra damage to targets in Stagger or an Impact-type status.",
+    "es": "Daño adicional a objetivos en Tambaleo o estado tipo impacto."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "Situational",
+    "es": "Situacional"
+   },
+   "tip": {
+    "en": "Low value; leave at Lv1.",
+    "es": "Poco valor; déjala en Lv1."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Experienced Counterstrike",
+   "ne": "Contraataque experimentado",
+   "nk": "노련한 반격",
+   "ic": "ICON_GL_SKILL_Passive_008",
+   "t": "passive",
+   "un": 21,
+   "cd": 0,
+   "d": {
+    "en": "+0.4% Front Attack Dmg; on Block, +5.4% PvE Damage Boost to you and party for 20s.",
+    "es": "+0,4 % daño frontal; al bloquear, +5,4 % Amplificación de Daño JcE al grupo 20 s."
+   },
+   "sp": [],
+   "rank": 5,
+   "tag": {
+    "en": "Party buff",
+    "es": "Buff de grupo"
+   },
+   "tip": {
+    "en": "Fight from the front and use Focused Block to proc it.",
+    "es": "Pelea de frente y usa Bloqueo concentrado para activarla."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Survival Willpower",
+   "ne": "Voluntad de supervivencia",
+   "nk": "생존 의지",
+   "ic": "ICON_GL_SKILL_Passive_009",
+   "t": "passive",
+   "un": 23,
+   "cd": 0,
+   "d": {
+    "en": "+17% Status Effect Resist; +12% PvE Damage Tolerance for 5s when hard-CC'd.",
+    "es": "+17 % Resistencia a efectos de estado; +12 % Tolerancia JcE 5 s al ser controlado."
+   },
+   "sp": [],
+   "rank": 0,
+   "tag": {
+    "en": "PvP",
+    "es": "JcJ"
+   },
+   "tip": {
+    "en": "Mostly PvP; skip for PvE.",
+    "es": "Más para JcJ; sáltala en JcE."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Murderous Burst",
+   "ne": "Estallido de sed de sangre",
+   "nk": "살기 파열",
+   "ic": "ICON_GL_SKILL_Passive_010",
+   "t": "passive",
+   "un": 25,
+   "cd": 0,
+   "d": {
+    "en": "Hits build Menace; at 5 stacks deals AoE damage and +5.5% Crit Damage Boost for 3s.",
+    "es": "Los golpes acumulan Sed de sangre; a 5 cargas hace daño en área y +5,5 % daño crítico 3 s."
+   },
+   "sp": [],
+   "rank": 1,
+   "tag": {
+    "en": "Top passive",
+    "es": "Pasiva top"
+   },
+   "tip": {
+    "en": "Highest damage passive in KR guides; max it ASAP.",
+    "es": "La pasiva de más daño según guías KR; súbela al máximo cuanto antes."
+   },
+   "pickLev": [],
+   "pickEnd": []
+  },
+  {
+   "n": "Lunge Stance",
+   "ne": "Postura de asalto",
+   "nk": "돌격 자세",
+   "ic": "ICON_GL_SKILL_024",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "+20% Combat Speed for 10s.",
+    "es": "+20 % Velocidad de Combate durante 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "+5% Double Chance for the duration",
+     "Aumento del 5 % de Golpe durante la duración"
+    ],
+    [
+     10,
+     "Increases Move Speed by 20% for the duration",
+     "Aumento del 20 % de Velocidad de Movimiento durante la duración"
+    ],
+    [
+     15,
+     "x1.5 [Identify Weakness] effect for the duration",
+     "Aumento de efecto de «Identificación de debilidades» x1,5 durante la duración"
+    ],
+    [
+     20,
+     "50% chance to reduce all skill cooldowns by 1s on Critical Hit for the duration",
+     "Al acertar un golpe Crítico, reducción de 1 s de Tiempo de Enfriamiento de todas las habilidades con un 50 % de prob. durante la duración"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Burst window",
+    "es": "Ventana de ráfaga"
+   },
+   "tip": {
+    "en": "Top stigma: speed, crit and cooldown cuts. Level it first.",
+    "es": "Estigma top: velocidad, crítico y menos enfriamiento. Súbelo primero."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    0,
+    2,
+    3,
+    1
+   ]
+  },
+  {
+   "n": "Zikel's Blessing",
+   "ne": "Bendición de Zikel",
+   "nk": "지켈의 축복",
+   "ic": "ICON_GL_SKILL_040",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "+20% Attack and +100 Accuracy for 10s.",
+    "es": "+20 % Ataque y +100 Precisión durante 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "+50% Stagger Gauge Damage",
+     "Aumento del 50 % de daño al medidor de Tambaleo"
+    ],
+    [
+     10,
+     "+10% PvE Damage Boost and +5% PvP Damage Boost",
+     "Aumento de Amplificación de Daño de JcE en 10 %, Amplificación de Daño de JcJ en 5 %"
+    ],
+    [
+     15,
+     "+50% Multi-Hit chance",
+     "Aumento del 50 % de Acierto de Multigolpe"
+    ],
+    [
+     20,
+     "+20% Status Effect Chance",
+     "Aumento del 20 % de prob. de Acierto de Efectos de Estado"
+    ]
+   ],
+   "rank": 2,
+   "tag": {
+    "en": "Attack buff",
+    "es": "Buff de ataque"
+   },
+   "tip": {
+    "en": "Pop with Lunge Stance before Ruinous Blow.",
+    "es": "Actívalo con Postura de asalto antes de Embestida de perdición."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    1,
+    2,
+    0
+   ]
+  },
+  {
+   "n": "Rage Burst",
+   "ne": "Explosión de furia",
+   "nk": "격노 폭발",
+   "ic": "ICON_GL_SKILL_039",
+   "t": "stigma",
+   "un": 22,
+   "cd": 45,
+   "d": {
+    "en": "Hits a target, -10% enemy Attack, +10% PvE Damage Boost 10s; enables Overhead Slam.",
+    "es": "Golpea, -10 % Ataque enemigo, +10 % Amplificación JcE 10 s; habilita Punzada descendente."
+   },
+   "sp": [
+    [
+     5,
+     "-15s [Rage Burst] cooldown",
+     "Reducción de 15 s de Tiempo de Enfriamiento de «Explosión de furia»"
+    ],
+    [
+     10,
+     "+10% Attack reduction",
+     "Reducción adicional del 10 % de Ataque"
+    ],
+    [
+     15,
+     "Critical Hit on hit",
+     "Al acertar, Crítico garantizado"
+    ],
+    [
+     20,
+     "+10% PvE Damage Boost increase and +5% PvP Damage Boost increase",
+     "+10 % de Amplificación del daño en JcE y +5 % de Amplificación del daño en JcJ"
+    ]
+   ],
+   "rank": 1,
+   "tag": {
+    "en": "Engine",
+    "es": "Motor"
+   },
+   "tip": {
+    "en": "Starts the Overhead Slam window. Lv5 early, Lv20 last.",
+    "es": "Abre la ventana de Punzada descendente. Lv5 pronto, Lv20 al final."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    0,
+    3,
+    2,
+    1
+   ]
+  },
+  {
+   "n": "Focused Block",
+   "ne": "Bloqueo concentrado",
+   "nk": "집중 막기",
+   "ic": "ICON_GL_SKILL_011",
+   "t": "stigma",
+   "un": 22,
+   "cd": 20,
+   "d": {
+    "en": "Briefly +100% Block reduction and guaranteed Parry; restores 110 MP and Stamina once.",
+    "es": "Por un instante +100 % reducción por Bloqueo y Parada garantizada; recupera 110 MP y Vigor."
+   },
+   "sp": [
+    [
+     5,
+     "+1 consecutive use",
+     "Lanzamientos en cadena +1"
+    ],
+    [
+     10,
+     "Changes to mobile skill",
+     "Cambio a habilidad disponible en movimiento"
+    ],
+    [
+     15,
+     "+20% Move Speed for 3s on Parry",
+     "Al realizar una Parada con éxito, aumenta un 20 % la Velocidad de Movimiento durante 3s"
+    ],
+    [
+     20,
+     "Restores 10% HP once on Parry",
+     "Al bloquear con arma con éxito, recuperación del 10 % de Puntos de Vida x1"
+    ]
+   ],
+   "rank": 4,
+   "tag": {
+    "en": "Party buff proc",
+    "es": "Activa buff de grupo"
+   },
+   "tip": {
+    "en": "Time it on a boss hit to proc Experienced Counterstrike.",
+    "es": "Úsalo justo al golpe del jefe para activar Contraataque experimentado."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    0,
+    1,
+    3
+   ]
+  },
+  {
+   "n": "Lifestealing Blade",
+   "ne": "Espada de drenaje de sangre",
+   "nk": "흡혈의 검",
+   "ic": "ICON_GL_SKILL_034",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Hits up to 4 enemies within 4m and absorbs 10% HP. 20 Stagger damage.",
+    "es": "Golpea hasta 4 enemigos a 4 m y absorbe 10 % PV. 20 de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "Up to +20% damage when more targets hit",
+     "Cuantos más objetivos se acierten, aumento máx. del 20 % de daño"
+    ],
+    [
+     10,
+     "Predation effect on party members for 20s",
+     "Efecto de Expolio para miembros del grupo durante 20s"
+    ],
+    [
+     15,
+     "-30s cooldown",
+     "Reducción de 30 s de Tiempo de Enfriamiento"
+    ],
+    [
+     20,
+     "+5% HP absorbed",
+     "Aumento adicional de un 5 % de la absorción de Puntos de Vida"
+    ]
+   ],
+   "rank": 3,
+   "tag": {
+    "en": "Party buff, heal",
+    "es": "Buff de grupo, cura"
+   },
+   "tip": {
+    "en": "KR raid pick: Lv10 gives the party Predation.",
+    "es": "Elección KR en grupo: a Lv10 da Expolio al grupo."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    1,
+    2,
+    0
+   ]
+  },
+  {
+   "n": "Wrath Wave",
+   "ne": "Onda de ira",
+   "nk": "분노의 파동",
+   "ic": "ICON_GL_SKILL_007",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Hits up to 4 enemies within 5m; Knockdown 3s (100% on NPCs). 50 Stagger damage.",
+    "es": "Golpea hasta 4 enemigos a 5 m; Derribo 3 s (100 % en PNJ). 50 de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "Up to +20% damage when more targets hit",
+     "Cuantos más objetivos se acierten, aumento máx. del 20 % de daño"
+    ],
+    [
+     10,
+     "Reduces Attack by 20% for 5s",
+     "Reducción del 20 % de Ataque durante 5 s"
+    ],
+    [
+     15,
+     "Deals damage 1 additional time",
+     "Daño adicional x1"
+    ],
+    [
+     20,
+     "+25% Knockdown Chance",
+     "Aumento del 25 % de prob. de Derribo"
+    ]
+   ],
+   "rank": 6,
+   "tag": {
+    "en": "AoE knockdown",
+    "es": "Derribo en área"
+   },
+   "tip": {
+    "en": "Solo farming: knocks packs down so Overhead Slam hits.",
+    "es": "Para farmear solo: derriba grupos para que entre Punzada descendente."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    0,
+    2
+   ]
+  },
+  {
+   "n": "Tenaciousness",
+   "ne": "Perseverancia",
+   "nk": "근성",
+   "ic": "ICON_GL_SKILL_038",
+   "t": "stigma",
+   "un": 22,
+   "cd": 150,
+   "d": {
+    "en": "Immune to damage and status effects for 3s, then +50% PvE Damage Tolerance for 3s.",
+    "es": "Inmune a daño y estados 3 s; luego +50 % Tolerancia JcE 3 s."
+   },
+   "sp": [
+    [
+     5,
+     "+100% Incoming Heal",
+     "Aumento del 100 % de Curación Recibida"
+    ],
+    [
+     10,
+     "Restores 20% Max HP when the effect ends",
+     "Al finalizar efecto de «Perseverancia», recuperación del 20 % de Puntos de Vida Máximos"
+    ],
+    [
+     15,
+     "+20% Attack",
+     "Aumento del 20 % de Ataque"
+    ],
+    [
+     20,
+     "Trigger [Tenaciousness] when afflicted with Impact-type status",
+     "Al estar en estado tipo impacto, activación de «Perseverancia»"
+    ]
+   ],
+   "rank": 7,
+   "tag": {
+    "en": "Immunity",
+    "es": "Inmunidad"
+   },
+   "tip": {
+    "en": "Off-tank / hard content panic button.",
+    "es": "Botón de pánico para tanque secundario o contenido difícil."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    1,
+    0,
+    2
+   ]
+  },
+  {
+   "n": "Armor of Balance",
+   "ne": "Armadura de equilibrio",
+   "nk": "균형의 갑옷",
+   "ic": "ICON_GL_SKILL_013",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "+50% Impact-type Resist for 10s.",
+    "es": "+50 % Resistencia de Tipo Impacto durante 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Ailment-type and Mental-type Resist",
+     "Aumento del 20 % de Resistencia de Tipo Corporal Y Mental"
+    ],
+    [
+     10,
+     "x1.5 [Blood Absorption] effect for the duration",
+     "Durante su duración, el efecto de [Armadura de protección] aumenta 1,5 veces"
+    ],
+    [
+     15,
+     "x1.5 [Protection Armor] effect for the duration",
+     "Durante su duración, el efecto de [Armadura de protección] aumenta 1,5 veces"
+    ],
+    [
+     20,
+     "+50% Impact-type Resist",
+     "Aumento adicional del 50 % de Resistencia de Tipo Impacto"
+    ]
+   ],
+   "rank": 9,
+   "tag": {
+    "en": "Anti-CC",
+    "es": "Anti-control"
+   },
+   "tip": {
+    "en": "PvP or CC-heavy bosses.",
+    "es": "JcJ o jefes con mucho control."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    0,
+    3
+   ]
+  },
+  {
+   "n": "Wave Armor",
+   "ne": "Blindaje de onda",
+   "nk": "파동의 갑주",
+   "ic": "ICON_GL_SKILL_041",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Damage over Time to up to 4 enemies within 3m for 10s.",
+    "es": "Daño continuo a hasta 4 enemigos a 3 m durante 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "Absorbs 2% HP",
+     "Absorción de Puntos de Vida del 2 %"
+    ],
+    [
+     10,
+     "x1.5 [Experienced Counterstrike] effect for the duration",
+     "Durante su duración, el efecto de [Contraataque experimentado] aumenta 1,5 veces"
+    ],
+    [
+     15,
+     "x1.5 [Murderous Burst] effect for the duration",
+     "Aumento de efecto de «Estallido de sed de sangre» x1,5 durante la duración"
+    ],
+    [
+     20,
+     "Reflects 10% of damage taken",
+     "Reflexión del 10 % de daño recibido"
+    ]
+   ],
+   "rank": 8,
+   "tag": {
+    "en": "Swap option",
+    "es": "Opción de cambio"
+   },
+   "tip": {
+    "en": "Swap in on bosses with few block windows if you have spare shards.",
+    "es": "Cámbialo en jefes con pocos bloqueos si te sobran fragmentos."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    2,
+    1,
+    0
+   ]
+  },
+  {
+   "n": "Blade Toss",
+   "ne": "Vuelo de cuchillas",
+   "nk": "칼날 날리기",
+   "ic": "ICON_GL_SKILL_008",
+   "t": "stigma",
+   "un": 22,
+   "cd": 20,
+   "d": {
+    "en": "20m ranged hit; -30% Defense and -50% Incoming Heal for 10s.",
+    "es": "Golpe a 20 m; -30 % Defensa y -50 % Curación Recibida 10 s."
+   },
+   "sp": [
+    [
+     5,
+     "+20% [Blade Toss] Incoming Heal reduction",
+     "[Vuelo de cuchillas]: reducción adicional de un 20 % de la Curación Recibida"
+    ],
+    [
+     10,
+     "[Blade Toss] inflicts Slow for 5s",
+     "Efecto de Ralentización durante 5 s con «Vuelo de cuchillas»"
+    ],
+    [
+     15,
+     "[Blade Toss] breaks Protective Shields",
+     "Destrucción de barreras con «Vuelo de cuchillas»"
+    ],
+    [
+     20,
+     "[Blade Dance] has 30% chance to inflict Knockdown for 3s",
+     "Estado de Derribo durante 3 s con un 30 % de prob. con «Danza de cuchillas»"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP",
+    "es": "JcJ"
+   },
+   "tip": {
+    "en": "PvP anti-heal.",
+    "es": "Antícuración para JcJ."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    0,
+    2
+   ]
+  },
+  {
+   "n": "Forced Restraint",
+   "ne": "Amarre forzado",
+   "nk": "강제 결박",
+   "ic": "ICON_GL_SKILL_043",
+   "t": "stigma",
+   "un": 22,
+   "cd": 60,
+   "d": {
+    "en": "Hits a target within 4m and Seals 5s (100% on NPCs). 20 Stagger damage.",
+    "es": "Golpea a 4 m y Sella 5 s (100 % en PNJ). 20 de Tambaleo."
+   },
+   "sp": [
+    [
+     5,
+     "50% chance to inflict Root for 5s",
+     "Efecto de Atadura con un 50 % de prob. durante 5 s"
+    ],
+    [
+     10,
+     "-1,000 Stamina",
+     "Reducción de 1000 de Vigor"
+    ],
+    [
+     15,
+     "+2s Seal duration",
+     "Aumento de 2 s de duración de Sellado"
+    ],
+    [
+     20,
+     "+25% Seal chance",
+     "Aumento del 25 % de prob. de Sellado"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP",
+    "es": "JcJ"
+   },
+   "tip": {
+    "en": "PvP lockdown.",
+    "es": "Control para JcJ."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    0,
+    2
+   ]
+  },
+  {
+   "n": "Fracturing Rush",
+   "ne": "Acometida pulverizadora",
+   "nk": "분쇄 돌진",
+   "ic": "ICON_GL_SKILL_045",
+   "t": "stigma",
+   "un": 22,
+   "cd": 90,
+   "d": {
+    "en": "Rushes 10m, hits up to 4 enemies on the path and Roots 3s (100% on NPCs).",
+    "es": "Carga 10 m, golpea hasta 4 enemigos y los ata 3 s (100 % en PNJ)."
+   },
+   "sp": [
+    [
+     5,
+     "+2 max targets hit",
+     "Aumento de objetivos máx. impactados +2"
+    ],
+    [
+     10,
+     "Adds [Destructive Rush] Chain Skill",
+     "Adición de hab. de cadena «Acometida destructora» x2"
+    ],
+    [
+     15,
+     "+20% Root Chance",
+     "Aumento del 20 % de prob. de Atadura"
+    ],
+    [
+     20,
+     "50% chance to inflict Airborne for 3s",
+     "Adición de efecto de Atadura aérea con un 50 % de prob. durante 3 s"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP engage",
+    "es": "Entrada JcJ"
+   },
+   "tip": {
+    "en": "PvP / mob gathering.",
+    "es": "JcJ o juntar mobs."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    0,
+    1
+   ]
+  },
+  {
+   "n": "Assault Strike",
+   "ne": "Estacazo agresivo",
+   "nk": "강습 일격",
+   "ic": "ICON_CO_SKILL_003",
+   "t": "stigma",
+   "un": 22,
+   "cd": 120,
+   "d": {
+    "en": "20m leap hitting up to 4 enemies; may Knockdown (100% on NPCs); up to +20% Defense.",
+    "es": "Salto de 20 m que golpea hasta 4 enemigos; puede derribar (100 % en PNJ); hasta +20 % Defensa."
+   },
+   "sp": [
+    [
+     5,
+     "+20% Attack for 5s on hit",
+     "Al acertar, aumento del 20 % de Ataque durante 5s"
+    ],
+    [
+     10,
+     "500 MP damage on hit",
+     "Al acertar, 500 de daño de Puntos de Maná"
+    ],
+    [
+     15,
+     "+10m range",
+     "Aumento de 10 m de alcance"
+    ],
+    [
+     20,
+     "+20% Knockdown Chance",
+     "Aumento del 20 % de prob. de Derribo"
+    ]
+   ],
+   "rank": 0,
+   "tag": {
+    "en": "PvP",
+    "es": "JcJ"
+   },
+   "tip": {
+    "en": "Mostly PvP.",
+    "es": "Más para JcJ."
+   },
+   "pickLev": [
+    0
+   ],
+   "pickEnd": [
+    0,
+    2
+   ]
+  }
+ ],
+ "points": [
+  [
+   "Rending Blow",
+   3
+  ],
+  [
+   "Keen Strike",
+   3
+  ],
+  [
+   "Overhead Slam",
+   4
+  ],
+  [
+   "Rending Blow",
+   5
+  ],
+  [
+   "Leaping Slam",
+   3
+  ],
+  [
+   "Mocking Blade",
+   2
+  ],
+  [
+   "Crushing Wave",
+   4
+  ],
+  [
+   "Overhead Slam",
+   7
+  ],
+  [
+   "Rending Blow",
+   7
+  ],
+  [
+   "Blood Absorption",
+   2
+  ],
+  [
+   "Identify Weakness",
+   4
+  ],
+  [
+   "Attack Preparation",
+   4
+  ],
+  [
+   "Ruinous Blow",
+   4
+  ],
+  [
+   "Impact Hit",
+   5
+  ],
+  [
+   "Overhead Slam",
+   10
+  ],
+  [
+   "Rending Blow",
+   10
+  ],
+  [
+   "Ruinous Blow",
+   7
+  ],
+  [
+   "Crushing Wave",
+   7
+  ],
+  [
+   "Experienced Counterstrike",
+   4
+  ],
+  [
+   "Murderous Burst",
+   7
+  ],
+  [
+   "Impact Hit",
+   10
+  ],
+  [
+   "Murderous Burst",
+   10
+  ],
+  [
+   "Ruinous Blow",
+   10
+  ],
+  [
+   "Attack Preparation",
+   10
+  ],
+  [
+   "Identify Weakness",
+   10
+  ],
+  [
+   "Experienced Counterstrike",
+   10
+  ],
+  [
+   "Crushing Wave",
+   10
+  ],
+  [
+   "Keen Strike",
+   4
+  ],
+  [
+   "Leaping Slam",
+   4
+  ],
+  [
+   "Sword Aura Rampage",
+   4
+  ],
+  [
+   "Rush Strike",
+   2
+  ]
+ ],
+ "stigma": {
+  "loadouts": [
+   {
+    "id": "main",
+    "name": {
+     "en": "PvE main",
+     "es": "JcE principal"
+    },
+    "skills": [
+     "Lunge Stance",
+     "Zikel's Blessing",
+     "Rage Burst",
+     "Focused Block"
+    ],
+    "note": {
+     "en": "Global meta (most top players). Focused Block procs Experienced Counterstrike for the party.",
+     "es": "Meta global. Bloqueo concentrado activa Contraataque experimentado para el grupo."
+    }
+   },
+   {
+    "id": "solo",
+    "name": {
+     "en": "Solo / leveling",
+     "es": "Solo / subir nivel"
+    },
+    "skills": [
+     "Rage Burst",
+     "Lunge Stance",
+     "Wrath Wave",
+     "Lifestealing Blade"
+    ],
+    "note": {
+     "en": "AoE knockdown into Overhead Slam plus big lifesteal; no need to block.",
+     "es": "Derribo en área para Punzada descendente y gran robo de vida; no necesitas bloquear."
+    }
+   },
+   {
+    "id": "alt",
+    "name": {
+     "en": "Raid (KR style)",
+     "es": "Banda (estilo KR)"
+    },
+    "skills": [
+     "Lunge Stance",
+     "Zikel's Blessing",
+     "Rage Burst",
+     "Lifestealing Blade"
+    ],
+    "note": {
+     "en": "KR guides add Lifestealing Blade for the party Predation buff (Lv10). Swap Focused Block back if bosses have clear block windows.",
+     "es": "Las guías KR usan Espada de drenaje de sangre por el buff Expolio al grupo (Lv10). Vuelve a Bloqueo concentrado si el jefe tiene ventanas de bloqueo claras."
+    }
+   }
+  ],
+  "levelTips": {
+   "en": "Lunge Stance first, then Zikel's Blessing and Lifestealing Blade to 15. Get Rage Burst and Focused Block to 5 early; Rage Burst to 20 last.",
+   "es": "Primero Postura de asalto, luego Bendición de Zikel y Espada de drenaje de sangre a 15. Explosión de furia y Bloqueo concentrado a 5 pronto; Explosión de furia a 20 al final."
+  }
+ },
+ "dvValues": {
+  "Overhead Slam": 10,
+  "Rending Blow": 10,
+  "Ruinous Blow": 10,
+  "Murderous Burst": 9,
+  "Impact Hit": 9,
+  "Identify Weakness": 8,
+  "Attack Preparation": 8,
+  "Experienced Counterstrike": 7,
+  "Crushing Wave": 7,
+  "Sword Aura Rampage": 5,
+  "Leaping Slam": 4,
+  "Rush Strike": 4,
+  "Blood Absorption": 4,
+  "Keen Strike": 3,
+  "Mocking Blade": 3,
+  "Survival Stance": 3,
+  "Ankle Slice": 2,
+  "Defiance": 2,
+  "Aerial Snare": 2,
+  "Protection Armor": 1,
+  "Destructive Impulse": 1,
+  "Survival Willpower": 1
+ },
+ "dvSimple": {
+  "en": [
+   "Take every Overhead Slam node (Nezekan, Zikel)",
+   "Take every Rending Blow node",
+   "Take every Ruinous Blow node",
+   "Murderous Burst and Impact Hit nodes",
+   "Identify Weakness and Attack Preparation nodes",
+   "Experienced Counterstrike nodes",
+   "Crushing Wave nodes for trash packs",
+   "Sword Aura Rampage nodes",
+   "Fill Nezekan, then Zikel, then Vaizel; Triniel last",
+   "Skip Protection Armor, Destructive Impulse, Survival Willpower"
+  ],
+  "es": [
+   "Toma todos los nodos de Punzada descendente (Nezekan, Zikel)",
+   "Toma todos los nodos de Embestida desgarradora",
+   "Toma todos los nodos de Embestida de perdición",
+   "Nodos de Estallido de sed de sangre y Acierto de impacto",
+   "Nodos de Identificación de debilidades y Preparación de ataque",
+   "Nodos de Contraataque experimentado",
+   "Nodos de Onda pulverizadora para grupos de mobs",
+   "Nodos de Desenfreno de aura de espada",
+   "Llena Nezekan, luego Zikel, luego Vaizel; Triniel al final",
+   "Salta Armadura de protección, Impulso de destrucción y Voluntad de supervivencia"
+  ]
+ },
+ "macro": {
+  "leveling": {
+   "slots": [
+    [
+     "1",
+     [
+      "Overhead Slam",
+      "Rending Blow",
+      "Keen Strike"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Crushing Wave",
+      "Mocking Blade"
+     ],
+     "m"
+    ],
+    [
+     "3",
+     [
+      "Leaping Slam"
+     ],
+     "h"
+    ],
+    [
+     "4",
+     [
+      "Defiance"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "3",
+    "2",
+    "1"
+   ]
+  },
+  "endgame": {
+   "slots": [
+    [
+     "1",
+     [
+      "Overhead Slam",
+      "Rending Blow"
+     ],
+     "m"
+    ],
+    [
+     "2",
+     [
+      "Lunge Stance",
+      "Zikel's Blessing"
+     ],
+     "h"
+    ],
+    [
+     "3",
+     [
+      "Ruinous Blow"
+     ],
+     "h"
+    ],
+    [
+     "4",
+     [
+      "Rage Burst"
+     ],
+     "h"
+    ],
+    [
+     "5",
+     [
+      "Focused Block"
+     ],
+     "h"
+    ],
+    [
+     "6",
+     [
+      "Defiance"
+     ],
+     "h"
+    ]
+   ],
+   "steps": [
+    "2",
+    "3",
+    "4",
+    "1",
+    "5"
+   ]
+  },
+  "notes": {
+   "en": "Overhead Slam only fires on knocked-down targets or after Rage Burst, so it sits at the bottom and Rending Blow fills. Keep buffs and Ruinous Blow manual to sync them.",
+   "es": "Punzada descendente solo sale con objetivos derribados o tras Explosión de furia, así que va abajo y Embestida desgarradora rellena. Buffs y Embestida de perdición a mano para sincronizarlos."
+  }
+ },
+ "rotation": {
+  "en": [
+   "Pop Zikel's Blessing + Lunge Stance",
+   "Ruinous Blow to engage (Prepare for Battle)",
+   "Rage Burst ~1s later to unlock Overhead Slam",
+   "Spam Overhead Slam / Rending Blow for 10s",
+   "Focused Block on boss hits; Sword Aura Rampage during Stagger",
+   "Re-sync Ruinous Blow + Rage Burst every 45s"
+  ],
+  "es": [
+   "Activa Bendición de Zikel + Postura de asalto",
+   "Embestida de perdición para entrar (Preparación para el Combate)",
+   "Explosión de furia ~1 s después para habilitar Punzada descendente",
+   "Spamea Punzada descendente / Embestida desgarradora 10 s",
+   "Bloqueo concentrado en golpes del jefe; Desenfreno de aura de espada en Tambaleo",
+   "Resincroniza Embestida de perdición + Explosión de furia cada 45 s"
+  ]
+ },
+ "synergy": [
+  {
+   "a": "Rage Burst",
+   "b": "Overhead Slam",
+   "t": {
+    "en": "Unlock, then spam",
+    "es": "Habilita y spamea"
+   },
+   "s": {
+    "en": "Rage Burst enables Overhead Slam for 10s; with its Lv16 no-cooldown pick it becomes your top damage.",
+    "es": "Explosión de furia habilita Punzada descendente 10 s; con su especial Lv16 sin enfriamiento es tu mayor daño."
+   }
+  },
+  {
+   "a": "Ruinous Blow",
+   "b": "Rage Burst",
+   "t": {
+    "en": "Stack damage buffs",
+    "es": "Acumula buffs de daño"
+   },
+   "s": {
+    "en": "Both have 45s cooldowns: cast them together so +20% and +10% PvE damage overlap.",
+    "es": "Ambas tienen 45 s: úsalas juntas para que +20 % y +10 % de daño JcE coincidan."
+   }
+  },
+  {
+   "a": "Focused Block",
+   "b": "Experienced Counterstrike",
+   "t": {
+    "en": "Block for party buff",
+    "es": "Bloquea para buff de grupo"
+   },
+   "s": {
+    "en": "A guaranteed Parry triggers +5.4% PvE damage for the whole party for 20s.",
+    "es": "Una Parada garantizada da +5,4 % de daño JcE a todo el grupo 20 s."
+   }
+  },
+  {
+   "a": "Mocking Blade",
+   "b": "Overhead Slam",
+   "t": {
+    "en": "Knockdown combo",
+    "es": "Combo de derribo"
+   },
+   "s": {
+    "en": "Knockdown lets Overhead Slam hit outside the Rage Burst window.",
+    "es": "El derribo permite usar Punzada descendente fuera de la ventana de Explosión de furia."
+   }
+  },
+  {
+   "a": "Sword Aura Rampage",
+   "b": "Ruinous Blow",
+   "t": {
+    "en": "Stagger reset",
+    "es": "Reinicio en Tambaleo"
+   },
+   "s": {
+    "en": "During Stagger each Rampage hit cuts 1s from all cooldowns, bringing burst back sooner.",
+    "es": "En Tambaleo cada golpe de Desenfreno quita 1 s a todos los enfriamientos y adelanta la ráfaga."
+   }
+  }
+ ],
+ "stats": {
+  "order": [
+   {
+    "en": "Attack / Max Attack",
+    "es": "Ataque / Ataque máx.",
+    "w": 100
+   },
+   {
+    "en": "Double Chance (Smite)",
+    "es": "Golpe (doble daño)",
+    "w": 90
+   },
+   {
+    "en": "Perfect",
+    "es": "Perforación",
+    "w": 80
+   },
+   {
+    "en": "Weapon Damage Boost",
+    "es": "Amplificación de daño de arma",
+    "w": 70
+   },
+   {
+    "en": "Accuracy (to cap)",
+    "es": "Precisión (hasta el tope)",
+    "w": 60
+   },
+   {
+    "en": "Critical Hit (to cap) / Combat Speed",
+    "es": "Crítico (hasta el tope) / Vel. de combate",
+    "w": 45
+   }
+  ],
+  "notes": {
+   "en": "Cap Crit and Accuracy for current content, then put manastones into Attack, Weapon Damage Boost and Crit Damage Boost.",
+   "es": "Llega al tope de Crítico y Precisión del contenido actual; luego piedras de maná en Ataque, Amplificación de daño de arma y daño crítico."
+  }
+ },
+ "genus": {
+  "s15": [
+   [
+    "Max Attack",
+    "Ataque máx.",
+    1
+   ],
+   [
+    "PvE Attack",
+    "Ataque JcE",
+    1
+   ],
+   [
+    "Boss Attack",
+    "Ataque contra jefes",
+    2
+   ],
+   [
+    "Front Attack",
+    "Ataque frontal",
+    3
+   ]
+  ],
+  "s369": [
+   [
+    "Power Shard Damage Bonus",
+    "Bonificación de daño de fragmento de poder",
+    1
+   ],
+   [
+    "PvE Accuracy",
+    "Precisión JcE",
+    2
+   ],
+   [
+    "Accuracy Bonus",
+    "Bonificación de Precisión",
+    2
+   ],
+   [
+    "Front Attack Critical Hit",
+    "Crítico frontal",
+    3
+   ]
+  ],
+  "s278": [
+   [
+    "PvE Defense",
+    "Defensa JcE",
+    1
+   ],
+   [
+    "HP increase",
+    "Aumento de PV",
+    2
+   ],
+   [
+    "Boss Defense",
+    "Defensa contra jefes",
+    2
+   ],
+   [
+    "Front Defense",
+    "Defensa frontal",
+    3
+   ]
+  ],
+  "s4": {
+   "cogni": [
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     1
+    ],
+    [
+     "Critical Damage Boost",
+     "Amplificación de daño crítico",
+     2
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     3
+    ]
+   ],
+   "fera": [
+    [
+     "Weapon Damage Boost",
+     "Amplificación de daño de arma",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     2
+    ],
+    [
+     "Damage Boost",
+     "Amplificación de daño",
+     3
+    ]
+   ],
+   "natura": [
+    [
+     "Perfect Chance",
+     "Prob. de Perforación",
+     1
+    ],
+    [
+     "Multi-hit Chance",
+     "Prob. de Multigolpe",
+     2
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     3
+    ]
+   ],
+   "varian": [
+    [
+     "Front Attack Damage Boost",
+     "Amplificación de daño frontal",
+     1
+    ],
+    [
+     "PvE Damage Boost",
+     "Amplificación de daño JcE",
+     2
+    ],
+    [
+     "Varian Damage Boost",
+     "Amplificación de daño Varian",
+     3
+    ]
+   ],
+   "special": [
+    [
+     "Double Chance",
+     "Prob. de Golpe",
+     1
+    ],
+    [
+     "Critical Damage Boost",
+     "Amplificación de daño crítico",
+     2
+    ],
+    [
+     "Front Attack Damage Boost",
+     "Amplificación de daño frontal",
+     3
+    ]
+   ]
+  },
+  "notes": {
+   "en": "KR Gladiators stack Max Attack and Perfect, and treat Smite as a must; they skip Crit in Genus slots. You fight from the front, so Front stats beat Back.",
+   "es": "Los Gladiadores KR acumulan Ataque máx. y Perforación, y el Golpe es obligatorio; no usan Crítico en Genus. Peleas de frente, así que lo frontal vale más que lo trasero."
+  }
+ },
+ "leveling": {
+  "en": [
+   "Macro Overhead Slam > Rending Blow > Keen Strike on one key.",
+   "Use Mocking Blade and Wrath Wave to knock packs down for Overhead Slam.",
+   "Leaping Slam's kill-reset pick makes jumping between mobs fast.",
+   "Blood Absorption and Lifestealing Blade remove most downtime.",
+   "Get Overhead Slam to 16 (no cooldown) as early as gear allows."
+  ],
+  "es": [
+   "Macro Punzada descendente > Embestida desgarradora > Estacazo punzante en una tecla.",
+   "Usa Espada devastadora y Onda de ira para derribar grupos y meter Punzada descendente.",
+   "El reinicio al matar de Perforación con salto agiliza saltar entre mobs.",
+   "Absorción de sangre y Espada de drenaje de sangre quitan casi todo el descanso.",
+   "Lleva Punzada descendente a 16 (sin enfriamiento) en cuanto tu equipo lo permita."
+  ]
+ },
+ "kr": {
+  "en": "KR players (검성) call the core skills 내찍 (Overhead Slam), 절맹 (Rending Blow) and 파맹 (Ruinous Blow), and push those three to skill Lv20 first. They favour 돌격 자세, 지켈, 흡혈의 검 and 격노 stigmas and a Smite/Perfect stat build.",
+  "es": "Los jugadores KR (검성) llaman 내찍 a Punzada descendente, 절맹 a Embestida desgarradora y 파맹 a Embestida de perdición, y suben esas tres a Lv20 primero. Prefieren Postura de asalto, Zikel, Espada de drenaje de sangre y Explosión de furia, con build de Golpe/Perforación."
+ },
+ "sources": [
+  [
+   "Inven KR – 검성 PvE 가이드",
+   "https://www.inven.co.kr/board/aion2/6448/16354"
+  ],
+  [
+   "MetaBot.gg – Gladiator build",
+   "https://metabot.gg/en/aion-2/classes/gladiator/build"
+  ],
+  [
+   "GamesFuze – Gladiator build",
+   "https://gamesfuze.com/guides/aion-2-gladiator-build-best-skills-stigmas-stats-and-macro/"
+  ],
+  [
+   "Destructoid – Best Gladiator build",
+   "https://www.destructoid.com/best-gladiator-build-in-aion-2/"
+  ],
+  [
+   "Vortex Gaming – Gladiator",
+   "https://vortexgaming.io/en/postdetail/728097"
+  ],
+  [
+   "questlog.gg – Skills DB",
+   "https://questlog.gg/aion-2/en/db/skills"
+  ]
+ ]
+}

@@ -1,0 +1,805 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Aion 2 Ranger Build</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d14; --card:#171b28; --card2:#1d2233; --line:#2a3046;
+  --text:#e7e9f1; --muted:#9aa1b8; --gold:#e3b766; --gold2:#f5d9a0; --sky:#6fc3ff;
+  --crim:#e2536b; --green:#5fd49a; --violet:#b48cff; --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 Inter,system-ui,sans-serif}
+a{color:var(--sky)}
+img{display:block;max-width:100%}
+h1,h2,h3{font-family:Cinzel,serif;letter-spacing:.02em;margin:0}
+h2{font-size:clamp(24px,3.4vw,34px);color:var(--gold2)}
+h3{font-size:18px;color:var(--gold2)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+section{padding:60px 0;border-top:1px solid #1a1f2e}
+.kicker{font:600 12px Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.lead{color:var(--muted);max-width:780px;margin:10px 0 26px}
+.muted{color:var(--muted)} .small{font-size:13px} .tiny{font-size:12px}
+b{font-weight:600}
+
+nav{position:sticky;top:0;z-index:50;background:rgba(11,13,20,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:18px;align-items:center;overflow-x:auto;white-space:nowrap;padding-top:10px;padding-bottom:10px}
+nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600}
+nav a:hover{color:var(--gold2)}
+nav .brand{font-family:Cinzel;color:var(--gold);font-size:16px;margin-right:6px}
+
+.hero{position:relative;min-height:78vh;display:flex;align-items:flex-end;overflow:hidden;border:0;background:#05070c url("https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/a2f4f44f1d3b0b68ae450f2d5f4a08877186d78e/ss_a2f4f44f1d3b0b68ae450f2d5f4a08877186d78e.1920x1080.jpg") center/cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,20,.2) 0%,rgba(11,13,20,.55) 50%,var(--bg) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:48px;width:100%}
+.hero .row{display:flex;gap:22px;align-items:flex-end;flex-wrap:wrap}
+.hero .cls{width:120px;height:120px;border-radius:20px;border:1px solid #4a5478;background:#10131d;padding:6px;box-shadow:0 10px 40px rgba(0,0,0,.5)}
+.hero h1{font-size:clamp(34px,6vw,68px);line-height:1.04;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.7)}
+.hero h1 span{color:var(--gold)}
+.hero p{max-width:680px;color:#d6d9e6;font-size:16px;margin:12px 0 0}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.chip{background:rgba(23,27,40,.85);border:1px solid var(--line);border-radius:12px;padding:8px 14px}
+.chip b{display:block;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.chip span{font-weight:700}
+
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;overflow:hidden}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:3px 9px;margin:0 6px 6px 0;border:1px solid}
+.t-sky{color:var(--sky);border-color:rgba(111,195,255,.4);background:rgba(111,195,255,.08)}
+.t-crim{color:var(--crim);border-color:rgba(226,83,107,.45);background:rgba(226,83,107,.08)}
+.t-gold{color:var(--gold);border-color:rgba(227,183,102,.45);background:rgba(227,183,102,.08)}
+.t-green{color:var(--green);border-color:rgba(95,212,154,.4);background:rgba(95,212,154,.08)}
+.t-violet{color:var(--violet);border-color:rgba(180,140,255,.45);background:rgba(180,140,255,.08)}
+kbd{background:#252b3f;border:1px solid #3a4260;border-bottom-width:2px;border-radius:5px;padding:0 6px;font:600 12px Inter}
+.tip{border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(227,183,102,.1),transparent);padding:12px 16px;border-radius:0 10px 10px 0;margin:16px 0}
+.warn{border-left-color:var(--crim);background:linear-gradient(90deg,rgba(226,83,107,.1),transparent)}
+.good{border-left-color:var(--green);background:linear-gradient(90deg,rgba(95,212,154,.1),transparent)}
+ul.clean{margin:8px 0 0;padding-left:18px} ul.clean li{margin:4px 0}
+
+/* icons */
+.ico{width:56px;height:56px;border-radius:12px;background:radial-gradient(circle at 50% 35%,#343c58,#161a26);border:1px solid #3b4462;flex:none;overflow:hidden;position:relative}
+.ico img{width:100%;height:100%;object-fit:cover}
+.ico.lg{width:72px;height:72px;border-radius:14px}
+.ico.sm{width:40px;height:40px;border-radius:9px}
+.ico.xs{width:34px;height:34px;border-radius:8px}
+.ico.gold{border-color:#d9a54a;box-shadow:0 0 0 1px rgba(217,165,74,.3),0 0 18px rgba(217,165,74,.2)}
+.ico .n{position:absolute;left:-1px;top:-1px;background:var(--gold);color:#1b1407;font:700 11px Inter;padding:1px 6px;border-radius:9px 0 8px 0}
+
+/* skill cards */
+.sk{display:flex;gap:14px}
+.sk h3{font-family:Inter;font-size:16px;font-weight:700;color:#fff}
+.lvbar{height:10px;border-radius:99px;background:#232840;margin:10px 0 4px;position:relative;overflow:hidden;display:flex}
+.lvbar i{display:block;height:100%}
+.lvbar .p{background:linear-gradient(90deg,var(--sky),#8fd3ff)}
+.lvbar .b{background:repeating-linear-gradient(45deg,var(--gold),var(--gold) 4px,#b88a3c 4px,#b88a3c 8px)}
+.lvlab{display:flex;justify-content:space-between;font-size:12px;color:var(--muted)}
+
+/* tables */
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl th{color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:700;white-space:nowrap}
+.tbl td.rec{background:rgba(227,183,102,.1);color:var(--gold2);font-weight:600}
+.tbl td.later{color:#7d849c}
+.who{display:flex;gap:10px;align-items:center;font-weight:600;white-space:nowrap}
+
+/* stigma */
+.stg{display:flex;gap:14px;align-items:flex-start}
+.stg .lv{font:700 22px Cinzel;color:var(--gold);min-width:46px}
+.stg .lv small{display:block;font:500 10px Inter;color:var(--muted);letter-spacing:.1em;text-transform:uppercase}
+.stg h3{font-family:Inter;font-size:16px;color:#fff;font-weight:700}
+
+/* boards */
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 18px;font-size:13px}
+.legend span{display:flex;gap:6px;align-items:center}
+.legend i{width:14px;height:14px;border-radius:4px;display:inline-block}
+.pA{--c:#6fc3ff}.pB{--c:#e3b766}.pC{--c:#b48cff}
+.legend .pA i{background:var(--c)}.legend .pB i{background:var(--c)}.legend .pC i{background:var(--c)}
+.board h3{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.board h3 small{font:500 12px Inter;color:var(--muted)}
+.nodes{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.node{position:relative;width:52px;height:52px;border-radius:12px;border:2px solid var(--c);background:#10131d;overflow:hidden;display:grid;place-items:center}
+.node img{width:100%;height:100%;object-fit:cover}
+.node .no{position:absolute;right:-1px;bottom:-1px;background:var(--c);color:#10131d;font:800 10px Inter;padding:0 5px;border-radius:7px 0 9px 0}
+.node.stat{font:800 11px Inter;color:var(--c);text-align:center;line-height:1.05}
+.node.stat small{display:block;font:600 9px Inter;opacity:.8}
+.crys{display:flex;height:12px;border-radius:99px;overflow:hidden;margin:6px 0}
+.crys i{display:block;height:100%}
+.crys .a{background:var(--sky)}.crys .b{background:var(--gold)}.crys .c{background:var(--violet)}
+
+/* macro */
+.keys{display:flex;gap:14px;flex-wrap:wrap;align-items:stretch;margin:6px 0 14px}
+.key{background:linear-gradient(180deg,#2b3350,#1c2236);border:1px solid #4a5478;border-bottom-width:4px;border-radius:14px;padding:12px 16px;min-width:170px;text-align:center}
+.key b{display:block;font:700 12px Inter;letter-spacing:.1em;text-transform:uppercase;color:var(--gold)}
+.key span{display:block;font-size:13px;color:var(--text);margin-top:2px}
+.plus{align-self:center;font:700 22px Cinzel;color:var(--muted)}
+.stack{display:flex;flex-direction:column;gap:8px}
+.slot{display:flex;gap:12px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:8px 12px}
+.slot.first{border-color:var(--gold);box-shadow:0 0 0 1px rgba(227,183,102,.25)}
+.slot .t small{display:block;color:var(--muted);font-size:12px}
+.steps{counter-reset:s;display:grid;gap:10px;padding:0;margin:0;list-style:none}
+.steps li{counter-increment:s;display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.steps li::before{content:counter(s);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 14px Cinzel;color:#1b1407;background:linear-gradient(135deg,var(--gold2),var(--gold))}
+.btn{background:transparent;color:var(--gold);border:1px solid rgba(227,183,102,.5);border-radius:8px;padding:8px 14px;font:600 13px Inter;cursor:pointer}
+.btn:hover{background:rgba(227,183,102,.1)}
+
+/* gantt */
+.gantt{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px 16px 8px}
+.lane{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;margin-bottom:10px}
+.lane .nm{font-size:12px;font-weight:600;color:var(--muted);line-height:1.25}
+.lane .nm b{display:block;color:var(--text)}
+.track{position:relative;height:30px;background:#10131d;border-radius:8px;overflow:hidden}
+.track.tall{height:56px}
+.blk{position:absolute;top:4px;bottom:4px;border-radius:6px;font:700 10px Inter;color:#10131d;display:flex;align-items:center;padding:0 6px;white-space:nowrap;overflow:hidden}
+.track.tall .blk{top:auto;bottom:auto;height:14px}
+.axis{display:grid;grid-template-columns:150px 1fr;gap:12px}
+.axis .ticks{position:relative;height:20px;font-size:11px;color:var(--muted)}
+.axis .ticks span{position:absolute;transform:translateX(-50%)}
+.dot{position:absolute;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;border:2px solid #fff;overflow:hidden;background:#222}
+.dot img{width:100%;height:100%;object-fit:cover}
+
+/* leveling */
+.slider{width:100%;accent-color:var(--gold)}
+.now{display:grid;gap:12px}
+.lvrow{display:grid;grid-template-columns:64px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.lvrow.cur{border-color:var(--gold);box-shadow:0 0 0 1px rgba(227,183,102,.3)}
+.lvrow.done{opacity:.45}
+.lvrow .L{font:700 24px Cinzel;color:var(--gold);text-align:center;line-height:1}
+.lvrow .L small{display:block;font:500 10px Inter;color:var(--muted);letter-spacing:.1em;margin-top:2px}
+.newic{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+details{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px;margin-top:14px}
+summary{cursor:pointer;font-weight:600;color:var(--gold2)}
+footer{padding:40px 0 60px;color:var(--muted);font-size:13px;border-top:1px solid #1a1f2e}
+footer li{margin:3px 0}
+
+@media (max-width:700px){
+  .wrap{padding:0 16px} section{padding:44px 0}
+  .lane,.axis{grid-template-columns:1fr;gap:4px}
+  .axis>div:first-child{display:none}
+  .hero .cls{width:84px;height:84px}
+  .key{min-width:0;flex:1 1 140px}
+  .plus{display:none}
+}
+.seg{display:flex;gap:8px;flex-wrap:wrap}
+.seg button{background:var(--card);color:var(--muted);border:1px solid var(--line);border-radius:10px;padding:10px 16px;font:600 14px Inter;cursor:pointer}
+.seg button.on{color:#1b1407;background:linear-gradient(135deg,var(--gold2),var(--gold));border-color:var(--gold)}
+.mmap{display:flex;gap:6px;align-items:stretch;flex-wrap:wrap}
+.mstep{flex:1 1 200px;min-width:200px;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.mhead{display:flex;gap:10px;align-items:center}
+.mhead small{display:block;color:var(--muted);font-size:11px}
+.mnum{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font:700 13px Cinzel;color:#1b1407;background:linear-gradient(135deg,var(--gold2),var(--gold));flex:none}
+.mstack{display:flex;flex-direction:column;gap:5px}
+.mrow{display:flex;gap:8px;align-items:center;background:#10131d;border:1px solid var(--line);border-radius:9px;padding:4px 8px 4px 4px;font-size:13px}
+.mrow.first{border-color:var(--gold)}
+.mrow .pri{margin-left:auto;font-size:10px;color:var(--muted);white-space:nowrap}
+.mrow.first .pri{color:var(--gold)}
+.marrow{align-self:center;font:700 20px Cinzel;color:var(--gold);text-align:center;line-height:1}
+.marrow small{display:block;font:600 10px Inter;color:var(--muted)}
+.mloop{margin-top:14px;border:1px dashed var(--gold);border-radius:10px;padding:8px 14px;color:var(--gold2);font-size:13px}
+.mloop span{font-size:18px;margin-right:6px}
+.phase{margin-top:14px}
+.phl{font:700 11px Inter;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+.path{display:flex;flex-wrap:wrap;margin-top:8px;row-gap:8px}
+.pn{width:64px;display:flex;flex-direction:column;align-items:center;position:relative}
+.pn::after{content:"";position:absolute;top:25px;left:58px;width:12px;height:3px;background:var(--c);opacity:.7}
+.pn.last::after{display:none}
+.cap{font-size:9.5px;line-height:1.15;color:var(--muted);text-align:center;margin-top:3px;max-width:62px;word-break:break-word}
+.dvt{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap;margin-bottom:16px}
+.tl{flex:1 1 140px;display:flex;gap:10px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+.tlL{font:700 18px Cinzel;color:var(--gold)}
+.tlB small{display:block;color:var(--muted);font-size:11px}
+.tlA{align-self:center;color:var(--gold);font-weight:700}
+@media (max-width:700px){.mstep{flex-basis:100%}.marrow{flex-basis:100%;transform:rotate(90deg);margin:2px 0}}
+.ba{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap;margin-top:12px}
+.ba>div:not(.baarr){flex:1 1 260px}
+.baarr{align-self:center;font-size:28px;color:var(--gold)}
+.bah{font:700 12px Inter;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.bah.bad{color:var(--crim)}.bah.good2{color:var(--green)}
+.bacol{display:flex;flex-direction:column;gap:6px}
+.bs{display:flex;gap:10px;align-items:center;background:var(--card2);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:10px;padding:6px 10px}
+.bs .no{font:700 14px Cinzel;color:var(--gold);width:16px}
+.bs small{display:block;color:var(--muted);font-size:11px}
+.bs .tag{margin:0 0 0 auto;font-size:10px}
+.bs.rm{--c:var(--crim)}.bs.ch{--c:var(--gold)}.bs.ok{--c:var(--green)}.bs.hd{--c:var(--violet)}
+.bs.rm b{text-decoration:line-through;opacity:.7}
+.bar{display:flex;gap:8px;flex-wrap:wrap}
+.hs{width:112px;background:var(--card2);border:1px solid var(--line);border-top:4px solid var(--c,#3a4260);border-radius:10px;padding:8px 6px;display:flex;flex-direction:column;gap:5px;align-items:center}
+.hs.m{--c:var(--green)}.hs.h{--c:var(--violet)}
+.hs .key{all:unset;font:700 13px Inter;color:#fff;background:#252b3f;border:1px solid #3a4260;border-radius:6px;padding:1px 9px}
+.hs .st{font:700 11px Inter;color:var(--c)}
+.hs .stk{display:flex;flex-direction:column-reverse;gap:3px;width:100%}
+.hs .it{display:flex;gap:5px;align-items:center;font-size:11px;line-height:1.1;background:#10131d;border-radius:7px;padding:2px 4px 2px 2px}
+.hs .it.f{outline:1px solid var(--gold)}
+.hs .none{font-size:11px;color:var(--muted);padding:12px 0}
+.hs .why{font-size:10px;color:var(--muted);text-align:center;line-height:1.2}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <span class="brand">RANGER</span>
+  <a href="#glance">The build</a><a href="#skills">Skills</a><a href="#points">Level-up plan</a><a href="#stigmas">Stigmas</a><a href="#daevanion">Daevanion</a><a href="#macro">Macro</a><a href="#rotation">Rotation</a><a href="#stats">Stats &amp; gear</a><a href="#leveling">Leveling</a><a href="#notes">Notes</a>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="row">
+      <img class="cls" src="https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon/UT_Class_Ranger_Large.webp" alt="Ranger class icon">
+      <div>
+        <div class="kicker">Aion 2 · Global launch · Level 45</div>
+        <h1>Ranger <span>DPS build</span></h1>
+      </div>
+    </div>
+    <p>Skill order, a level-by-level point plan, Specialties, Stigmas, Daevanion routes and a one-button macro map. Hold one key and the full rotation runs.</p>
+    <div class="chips">
+      <div class="chip"><b>Role</b><span>Ranged DPS · Bow · 20 m</span></div>
+      <div class="chip"><b>Engine</b><span>Snipe chain → Deadshot</span></div>
+      <div class="chip"><b>Hold</b><span>One Macro key (full rotation)</span></div>
+      <div class="chip"><b>Resets</b><span>Skills &amp; Stigmas are free to re-do</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- GLANCE -->
+<section id="glance"><div class="wrap">
+  <div class="kicker">The build on one screen</div>
+  <h2>At a glance</h2>
+  <p class="lead">Rangers bring no party buffs, so your damage comes from keeping your own buffs and Precision up while a held-key macro does the spam. Deadshot is the engine: once Snipe is level 12, <b>every Snipe-chain hit takes 1 s off Deadshot's cooldown</b>.</p>
+
+  <div class="grid g3">
+    <div class="card"><h3>Skill points</h3><div id="gSkills" style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0"></div><div class="small muted">Snipe → Deadshot → Drill Dart → Gale Arrow → Tempest Shot → Marking Shot</div></div>
+    <div class="card"><h3>Stigmas</h3><div id="gStig" style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0"></div><div class="small muted">Slots at Lv 22 / 27 / 32 / 37. Vaizel's Authority first.</div></div>
+    <div class="card"><h3>Passives</h3><div id="gPass" style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0"></div><div class="small muted">Focused Eye → Hunter's Resolve → Hunter's Soul</div></div>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card">
+      <h3>Stat priority</h3>
+      <div id="statBars" style="margin-top:12px"></div>
+    </div>
+    <div class="card">
+      <h3>Daevanion priority</h3>
+      <ol class="clean" style="margin:8px 0 0;padding-left:20px">
+        <li><b>While levelling:</b> Snipe and Deadshot on every board, Tempest Shot and Drill Dart on Nezekan and Zikel, plus the Combat Speed and Damage Boost core nodes.</li>
+        <li><b>By 45:</b> Cooldown Reduction, Gale Arrow, Focused Eye and Hunter's Resolve, Critical Damage Boost, Multi-Hit Chance, then Attack nodes.</li>
+        <li><b>Nightmare shop crystals:</b> Hunter's Soul, then the survival passives.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="tip"><b>Safe to experiment.</b> Skill and Stigma resets are free (per datamine), so nothing you pick while levelling is permanent. At 45 you reset your points and rebuild to the order on this page.</div>
+</div></section>
+
+<!-- SKILLS -->
+<section id="skills"><div class="wrap">
+  <div class="kicker">Skill points</div>
+  <h2>Skills, in the order to level them</h2>
+  <p class="lead">Blue = levels from skill points at 45. Striped gold = the extra levels available from Daevanion nodes for that skill (one level per node, counted from the board routes below).</p>
+  <div class="grid g3" id="skillCards"></div>
+
+  <h3 style="margin:36px 0 10px">Specialties</h3>
+  <p class="small muted" style="margin-bottom:12px">A skill's first Specialty slot opens at skill level 8, the next at 12 and 16. <span class="tag t-gold" style="margin:0">Highlighted</span> = take at 45. Until a skill reaches level 20 you only have two slots, so the level-16 options replace one pick. Reaching level 16 realistically comes after 45.</p>
+  <div class="scroll"><table class="tbl" id="specTbl"></table></div>
+
+  <h3 style="margin:36px 0 10px">Passives</h3>
+  <div class="grid g3" id="passCards"></div>
+
+  <h3 style="margin:36px 0 10px">Leave at level 1 (or skip)</h3>
+  <div id="skipRow" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center"></div>
+  <p class="small muted" style="margin-top:8px">Snare Shot and Burst Arrow are only worth it later, and Arrow Scattershot pays off at level 16 on a staggered boss. Suppressing Arrow, Explosion Trap and Defiance are filler or PvP. Explosion Trap's pull is handy for gathering packs while questing.</p>
+</div></section>
+
+<!-- POINTS -->
+<section id="points"><div class="wrap">
+  <div class="kicker">Level-up plan</div>
+  <h2>Which skills and passives to raise, and when</h2>
+  <p class="lead">Numbers are skill levels you should have at each milestone, taken from the level-by-level plan further down. Spend points in this order: Snipe and Tempest Shot first, Deadshot last of the actives, then the passives.</p>
+  <div class="scroll"><table class="tbl" id="ptsTbl"></table></div>
+  <div class="tip" style="margin-top:16px"><b>How to read it.</b> Raise the skills in the order shown. The cell is how many points that skill should hold at that level, and the bar shows how close it is to its final target. The three passive skills are Focused Eye, Hunter's Resolve and (from Daevanion) Hunter's Soul. Survival passives are last.</div>
+</div></section>
+
+<!-- STIGMAS -->
+<section id="stigmas"><div class="wrap">
+  <div class="kicker">Stigmas</div>
+  <h2>Four slots, four buttons</h2>
+  <p class="lead">A slot opens at Lv 22, 27, 32 and 37. The first needs the Ascension quest that follows the first story lock. Level only the Stigmas you have slotted, taking each to 5 as you slot it and Vaizel's Authority to 10 by 45. Points come at about one a level.</p>
+  <div class="grid g2" id="stigGrid"></div>
+  <div class="tip good"><b>After 45, with Stigma Shards:</b> take <b>Vaizel's Authority to 20 first</b>. Its buff lasts 20 s and crits get a 50% chance to cut <i>all</i> cooldowns by 1 s. Then Bow of Blessing and Supporting Fire to 15, then either one to 20.</div>
+  <div class="grid g2" style="margin-top:14px">
+    <div class="card"><h3>Situational swaps</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin:12px 0" id="swapIcons"></div>
+      <ul class="clean small muted">
+        <li><b>Stagger checks:</b> Arrow Storm does 50 stagger damage at any Stigma level, the most of any Ranger skill. If your party runs out of time in a stagger check, put it in your fourth slot.</li>
+        <li><b>PvP swaps:</b> Mother Nature's Breath, Ambush Kick, Stealth, Illusory Arrow or Sealing Arrow.</li>
+      </ul>
+    </div>
+    <div class="card"><h3>Quick picks</h3>
+      <ul class="clean small muted">
+        <li><b>Bow of Blessing vs Supporting Fire:</b> guides disagree on which comes first. Take both, since you have the slots.</li>
+        <li><b>Explosive vs Griffon Arrow:</b> both are area Fire hits. Explosive Arrow at Stigma level 5 drops its cooldown from 45 s to 30 s, so it's the default.</li>
+      </ul>
+    </div>
+  </div>
+</div></section>
+
+<!-- DAEVANION -->
+<section id="daevanion"><div class="wrap">
+  <div class="kicker">Daevanion boards</div>
+  <h2>Board routes: what to buy, in what order</h2>
+  <p class="lead">Each board is a path: the numbers are the purchase order and the line links one node to the next. Blue nodes are taken as the board opens while levelling, gold by 45, purple with Nightmare-shop crystals. Routes already include the filler nodes you step through. These are routes in buy order, not the in-game board layout.</p>
+  <div class="dvt" id="dvTimeline"></div>
+  <div class="legend">
+    <span class="pA"><i></i> While levelling</span>
+    <span class="pB"><i></i> By 45</span>
+    <span class="pC"><i></i> Nightmare-shop crystals</span>
+  </div>
+  <div class="card" style="margin-bottom:16px">
+    <h3>Crystal budget</h3>
+    <div class="crys"><i class="a" style="width:36.4%"></i><i class="b" style="width:50.1%"></i><i class="c" style="width:13.4%"></i></div>
+    <div class="lvlab"><span>133 · while levelling</span><span>+183 = 316 by 45 (after district quests &amp; sealed dungeons)</span><span>+49 = 365 with the Nightmare shop</span></div>
+    <div class="small muted" style="margin-top:8px">You only get about 136 crystals from levels alone by 45. The rest comes from your faction's district quests, sealed dungeons and the Nightmare shop.</div>
+  </div>
+  <div class="grid g2" id="boardGrid"></div>
+  <div class="tip warn"><b>Skip:</b> Arrow Scattershot, Suppressing Arrow, Explosion Trap, Snare Shot, Burst Arrow and Defiance, plus Damage Tolerance, Multi-Hit Resist, Critical Damage Tolerance and MP nodes. Where a board forces a path through one of them, the route above already steps through it.</div>
+  <div class="small muted">Ariel (PvE damage) and Azphel (PvP damage) boards also unlock at 45 and use their own crystals. I didn't find a Ranger-specific route for them, so take Ariel's damage nodes after the four boards above.</div>
+</div></section>
+
+<!-- MACRO -->
+<section id="macro"><div class="wrap">
+  <div class="kicker">The macro</div>
+  <h2>One button: the full rotation</h2>
+  <p class="lead">The in-game macro loops through the hotbar slots you give it for as long as you hold the Macro key. Each slot can stack several skills, the bottom one is checked first, and anything on cooldown is skipped. That is how one held key can run every skill.</p>
+
+  <div class="seg" id="modeSeg">
+    <button data-m="one" class="on">One button · everything</button>
+    <button data-m="two">Max damage · Deadshot on its own held key</button>
+  </div>
+  <div id="modeNote" class="small muted" style="margin:10px 0 16px"></div>
+
+  <div class="card">
+    <h3>Macro map</h3>
+    <p class="small muted" style="margin:6px 0 14px">Read left to right. Inside a card, the skill at the bottom is checked first. If it's on cooldown the macro tries the one above it, and if none are ready it moves to the next step.</p>
+    <div class="mmap" id="mmap"></div>
+    <div class="mloop"><span>↻</span> After step 4 the macro goes straight back to step 1 and repeats while you hold the key.</div>
+  </div>
+
+  <div class="card" style="margin-top:16px" id="fixCard">
+    <h3>Your macro: before → after</h3>
+    <div class="ba">
+      <div><div class="bah bad">Before</div><div class="bacol" id="baBefore"></div></div>
+      <div class="baarr">➜</div>
+      <div><div class="bah good2">After (best path)</div><div class="bacol" id="baAfter"></div></div>
+    </div>
+    <div class="legend" style="margin:14px 0 0"><span><i style="background:var(--crim)"></i> remove</span><span><i style="background:var(--gold)"></i> change</span><span><i style="background:var(--green)"></i> keep / add</span><span><i style="background:var(--violet)"></i> by hand</span></div>
+  </div>
+
+  <div class="card" style="margin-top:16px" id="barCard">
+    <h3>Your hotbar: what goes in each slot</h3>
+    <p class="small muted" style="margin:6px 0 12px">Each slot can hold several skills. Pressing it fires the <b>bottom</b> one that is ready, and the macro just presses the slot's key. Green slots are what the macro presses, in the number order shown. Purple slots are yours to press.</p>
+    <div class="bar" id="hotbar"></div>
+    <div class="legend" style="margin:14px 0 0"><span><i style="background:var(--green)"></i> macro presses it (step number)</span><span><i style="background:var(--violet)"></i> you press it</span><span><i style="background:#3a4260"></i> empty / leave as is</span></div>
+  </div>
+
+  <h3 style="margin:30px 0 8px">What you hold</h3>
+  <div class="keys" id="heldKeys"></div>
+
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card">
+      <h3>One loop, in plain words</h3>
+      <ol class="clean small muted" id="loopWords" style="margin:8px 0 0;padding-left:20px"></ol>
+    </div>
+    <div class="card">
+      <h3>Why it's built this way</h3>
+      <ul class="clean small muted" id="whyList"></ul>
+    </div>
+  </div>
+
+  <h3 style="margin:34px 0 10px">Setup, step by step</h3>
+  <ol class="steps">
+    <li><div><b>Bind the Macro key.</b> Settings → Key Settings → General → Gameplay → Macro. It's unbound by default. A mouse button is the usual choice, but mouse buttons don't work as the macro key in the AION 1 control mode, so pick a keyboard key there.</div></li>
+    <li><div><b>Build the stacks on your hotbar.</b> Skills window (<kbd>K</kbd>), quick-slot grid. Put each card from the map above into its own hotbar slot and stack the skills with the bottom one first. Up to four skills share a slot, which is exactly what the cards use.</div></li>
+    <li><div><b>Build the macro.</b> Skills window → Macro (top right). Press <b>Add Macro</b> once per step in the map and choose that step's hotbar slot. A new step starts as the basic attack, so change or delete it. Step 4 is the basic attack, which is Snipe.</div></li>
+    <li><div><b>Turn off the standard delay and set 20 ms between steps.</b> Sources disagree between 10 and 20 ms. One Ranger guide warns that 1 to 10 ms can swallow other keypresses. Start at 20 ms. At 80–100 ms ping go to 40–50 ms.</div></li>
+    <li><div><b>Set the macro to repeat while the key is held.</b> If a guide tells you to remove the "release Left Click" command, do that too. It lets the basic attack cancel animations while you hold Left Click.</div></li>
+    <li><div><b>Turn on Skill Queue.</b> Settings → Combat → Controls → General Control Mode Settings → Skill Queue. Without it, Marking Shot and charged Deadshots get eaten.</div></li>
+    <li><div><b>Test on a training scarecrow.</b> Hold the key for 30 seconds and watch that every skill fires. Then repeat the setup on every skill preset you use, because each preset keeps its own macro.</div></li>
+  </ol>
+
+  <div class="tip warn" style="margin-top:20px"><b>Two things I couldn't confirm.</b> First, how a macro treats Deadshot's charge. If it fires at the first, weakest stage, use the <b>Max damage</b> layout above. Second, how long Marking Shot's cooldown is, which decides how often step 1 re-fires it. Both show up in the first minute on a scarecrow.</div>
+
+  <div class="tip"><b>Leveling version:</b> start with just Tempest Shot and Drill Dart in one slot and the basic attack. Add Gale Arrow at Lv 7, Deadshot at Lv 14, and your stigma slots as they unlock (Lv 22, 27, 32, 37).</div>
+
+  <div class="tip warn"><b>Outside macro tools:</b> everything here uses only the in-game macro. Many guides add mouse software on top, and I haven't verified NC's global rules on that. Read NC's policy before using any of it, because bans are the risk.</div>
+
+  <div style="margin:10px 0 24px"><button class="btn" id="copyBtn">Copy macro cheat sheet</button> <span class="small muted" id="copyMsg"></span></div>
+
+  <h3 style="margin:10px 0 10px">If it isn't working</h3>
+  <div class="scroll"><table class="tbl" id="fixTbl"></table></div>
+</div></section>
+
+<!-- ROTATION -->
+<section id="rotation"><div class="wrap">
+  <div class="kicker">What it looks like in a fight</div>
+  <h2>The first 45 seconds</h2>
+  <p class="lead">Hold the Macro key. The macro fires burst and Precision first, then Deadshot and your cooldown skills as they come ready, and the loop runs itself.</p>
+  <div class="gantt" id="gantt"></div>
+  <p class="tiny muted" style="margin-top:8px">Illustrative timing, not measured DPS. Deadshot's base cooldown is 20 s, but the Snipe chain shortens it, so the 12 s spacing shown here is an example. Vaizel's Authority comes back every 60 s and Bow of Blessing every 120 s (Stigma level 20 buffs last about twice as long as level 1).</p>
+  <ol class="steps" style="margin-top:16px" id="rotSteps"></ol>
+</div></section>
+
+<!-- STATS -->
+<section id="stats"><div class="wrap">
+  <div class="kicker">Gear &amp; stats</div>
+  <h2>What to stack</h2>
+  <div class="grid g2">
+    <div class="card"><h3>Stat priority</h3>
+      <ol class="clean" style="padding-left:20px">
+        <li><b>Front Damage Boost</b>: its own multiplier, so it stacks with everything else.</li>
+        <li><b>Weapon Damage Boost</b>: also counted separately.</li>
+        <li><b>Critical Damage Boost ≈ Damage Boost</b></li>
+        <li><b>Critical Hit only up to the cap.</b> With your buffs up, Precision (+300) and Bow of Blessing (+200) already add 500.</li>
+      </ol>
+      <div class="small muted" style="margin-top:8px">Bosses resist 30% of Smite. It mostly comes from Focused Eye, Bow of Blessing and your pet, so don't chase it. On the pet board, top Rangers favor Front Damage Boost over Smite, though sources conflict.</div>
+    </div>
+    <div class="card"><h3>Passive priority</h3>
+      <p class="small muted">Focused Eye first (it counts ×1.5 under Vaizel's Authority at Stigma level 10, a source inference), then Hunter's Resolve. One Focused Eye level is worth roughly 1.2–2 Hunter's Resolve levels.</p>
+      <div id="passRow" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:12px"></div>
+    </div>
+  </div>
+  <div class="grid g2" style="margin-top:16px">
+    <div class="card"><h3>Arcana (from 45)</h3>
+      <div style="display:flex;gap:10px;margin:12px 0" id="arcRow"></div>
+      <ul class="clean small muted">
+        <li><b>Chalice and Mirror</b> → Focused Eye (sources conflict on Chalice)</li>
+        <li><b>Bell</b> → Hunter's Resolve</li>
+        <li><b>Parchment</b> → Drill Dart, Snipe or Tempest Shot</li>
+        <li><b>Compass</b> → Deadshot or Gale Arrow</li>
+      </ul>
+    </div>
+    <div class="card"><h3>Weapon target</h3>
+      <div class="stg" style="margin-top:12px"><div class="ico lg gold" id="bowIcon"></div><div class="small muted"><b style="color:#fff">Kromede Longbow</b>: dropped by the <b>Fire Temple</b> expedition, which also drops Kromede Wings. Fire Temple, Vakron Sky Island and the other expeditions are covered in the main launch guide.<br><br>No Global wing carries Front Damage Boost.</div></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- LEVELING -->
+<section id="leveling"><div class="wrap">
+  <div class="kicker">Level 1 → 45</div>
+  <h2>Where are you now?</h2>
+  <p class="lead">Slide to your level to see what to do now and what's coming. At 45 reset your points and rebuild to the order above.</p>
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:baseline"><b>Your level</b><span class="stat" style="font:700 28px Cinzel;color:var(--gold)" id="lvNum">17</span></div>
+    <input class="slider" id="lvSlider" type="range" min="1" max="45" value="17">
+  </div>
+  <div class="now" id="nowList" style="margin-top:14px"></div>
+  <details><summary>Show the full 1–45 table</summary><div class="now" id="allList" style="margin-top:12px"></div></details>
+  <p class="tiny muted" style="margin-top:10px">Skill levels here come from skill points only. Each Daevanion skill node adds one more level, so a skill with a node reaches 8 three levels sooner. Wisdom Stones aren't counted. Points may run short between Lv 22 and 30, so keep the order and put spare points into Focused Eye, then Hunter's Resolve.</p>
+</div></section>
+
+<!-- NOTES -->
+<section id="notes"><div class="wrap">
+  <div class="kicker">Read this</div>
+  <h2>Caveats</h2>
+  <ul class="clean">
+    <li>This build follows the <b>Asian release's kit after its September 16 patch</b>, adapted to the Global launch client. It includes a 10 s Precision, elemental types on Ranger skills and Deadshot's extra-damage pick. Numbers and Specialty options may differ slightly on your client, so trust what the game shows.</li>
+    <li>Sources disagree on a few things: Bow of Blessing vs Supporting Fire first, Explosive vs Griffon Arrow, whether core Daevanion nodes come before or after skill nodes, and Arcana Chalice. One guide mentions five Stigma slots, but the launch-client data I found shows four by Lv 45.</li>
+    <li>Several Specialty and Daevanion details come from datamining and community research. Cooldowns and percentages can change in patches.</li>
+    <li>Skill and Stigma resets are free, so test the macro on a training dummy and adjust the delay.</li>
+  </ul>
+</div></section>
+
+<footer><div class="wrap">
+  <p><b style="color:var(--gold2)">Sources</b></p>
+  <ul>
+    <li><a href="https://aion2maps.com/guides/ranger/">Aion 2 Maps: Ranger build and macro guide</a> (skill order, Specialties, Stigma plan, Daevanion routes, macro layout)</li>
+    <li><a href="https://aion2maps.com/guides/auto-attack-cancel-and-macros/">Aion 2 Maps: Auto-attack cancel and macros</a> (macro mechanics and settings)</li>
+    <li><a href="https://aionbuilds.com/en/guides/stigma-daevanion-guide">Aion Builds: Stigma &amp; Daevanion guide</a> (board unlock levels)</li>
+    <li><a href="https://questlog.gg/aion-2/en/classes/ranger">questlog.gg: Ranger class</a> (skill icons and in-game skill descriptions)</li>
+    <li>Class icon, skill icons and item icons from questlog.gg's database. Background art from the <a href="https://store.steampowered.com/app/3393110/AION_2/">AION 2 Steam page</a>. All game art © NCSOFT.</li>
+  </ul>
+</div></footer>
+
+<script>
+const KB='https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Skill/';
+const IB='https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/';
+const SK={
+ 'Snipe':'ICON_RA_SKILL_001','Deadshot':'ICON_RA_SKILL_002','Drill Dart':'ICON_RA_SKILL_005','Gale Arrow':'ICON_RA_SKILL_011',
+ 'Tempest Shot':'ICON_RA_SKILL_034','Marking Shot':'ICON_RA_SKILL_031','Burst Arrow':'ICON_RA_SKILL_008','Snare Shot':'ICON_RA_SKILL_013',
+ 'Arrow Scattershot':'ICON_RA_SKILL_033','Suppressing Arrow':'ICON_RA_SKILL_007','Explosion Trap':'ICON_RA_SKILL_017','Defiance':'ICON_CO_SKILL_002',
+ "Vaizel's Authority":'ICON_RA_SKILL_022','Bow of Blessing':'ICON_RA_SKILL_030','Supporting Fire':'ICON_RA_SKILL_038',
+ 'Explosive Arrow':'ICON_RA_SKILL_023','Griffon Arrow':'ICON_RA_SKILL_006','Arrow Storm':'ICON_RA_SKILL_026',
+ 'Focused Eye':'ICON_RA_SKILL_Passive_001',"Hunter's Resolve":'ICON_RA_SKILL_Passive_011',"Hunter's Soul":'ICON_RA_SKILL_Passive_007',
+ 'Vigilant Eye':'ICON_RA_SKILL_Passive_004','Unyielding Resolve':'ICON_RA_SKILL_Passive_012','Revitalization Contract':'ICON_AS_SKILL_Passive_009','Wind Vigor':'ICON_RA_SKILL_Passive_006'
+};
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+const ico=(n,cls='')=>`<div class="ico ${cls}" title="${esc(n)}"><img loading="lazy" src="${KB}${SK[n]}.webp" alt="${esc(n)}" onerror="this.style.visibility='hidden'"></div>`;
+const itemIco=(p,t,cls='')=>`<div class="ico ${cls}" title="${esc(t)}"><img loading="lazy" src="${IB}${p}.webp" alt="${esc(t)}" onerror="this.style.visibility='hidden'"></div>`;
+
+/* glance */
+$('gSkills').innerHTML=['Snipe','Deadshot','Drill Dart','Gale Arrow','Tempest Shot','Marking Shot'].map((n,i)=>`<div class="ico gold" title="${n}"><span class="n">${i+1}</span><img src="${KB}${SK[n]}.webp" alt="${n}" onerror="this.style.visibility='hidden'"></div>`).join('');
+$('gStig').innerHTML=["Vaizel's Authority",'Bow of Blessing','Supporting Fire','Explosive Arrow'].map(n=>ico(n,'gold')).join('');
+$('gPass').innerHTML=['Focused Eye',"Hunter's Resolve","Hunter's Soul"].map(n=>ico(n,'gold')).join('');
+const stats=[['Front Damage Boost',100],['Weapon Damage Boost',86],['Critical Damage Boost',68],['Damage Boost',68],['Critical Hit (to the cap only)',40]];
+$('statBars').innerHTML=stats.map(s=>`<div style="margin:8px 0"><div class="lvlab"><span style="color:var(--text)">${s[0]}</span></div><div class="lvbar"><i class="p" style="width:${s[1]}%"></i></div></div>`).join('')+'<div class="tiny muted">Bar length shows priority order, not exact values.</div>';
+
+/* skills */
+const SKILLS=[
+ {n:'Snipe',pts:10,bon:4,role:'Chain · your engine',tx:'Wind damage at 20 m and restores 120 MP. At level 12 every hit of the chain takes 1 s off Deadshot\'s cooldown, so keep it firing between skills.'},
+ {n:'Deadshot',pts:8,tgt:10,bon:4,role:'Biggest hit',tx:'Up to 3 charge levels, so hold the key. Deals 35% more damage while you have Precision. Hits three times as hard at full charge.'},
+ {n:'Drill Dart',pts:8,tgt:10,bon:4,role:'Short-cooldown hit',tx:'Fire damage to up to 4 enemies, restores 100 MP on a crit and applies Bleed. A 5 s cooldown hit that top players max. It only fires within 3 s of one of your crits (datamine).'},
+ {n:'Gale Arrow',pts:8,bon:4,role:'Damage + buff',tx:'Wind damage to up to 4 enemies and grants Gale for 10 s: higher Combat Speed and PvE Damage Boost.'},
+ {n:'Tempest Shot',pts:8,bon:4,role:'No-cooldown filler',tx:'Hits up to 4 enemies with no cooldown, so it fills every gap in the macro. It also gathers packs after an Explosion Trap pull.'},
+ {n:'Marking Shot',pts:8,bon:2,role:'Precision refresh',tx:'Grants Precision: +300 Critical Hit for 10 s. Its Specialty stretches that to 15 s. Cast it standing still, about 2 s before Precision runs out.'}
+];
+const MAXL=18;
+$('skillCards').innerHTML=SKILLS.map((s,i)=>`
+ <div class="card"><div class="sk">${ico(s.n,'lg gold').replace('<div class="ico lg gold"','<div class="ico lg gold"')}
+  <div style="flex:1"><div class="tiny muted">#${i+1} · ${s.role}</div><h3>${s.n}</h3></div></div>
+  <div class="lvbar"><i class="p" style="width:${(s.pts/MAXL*100).toFixed(1)}%"></i>${s.tgt?`<i class="p" style="width:${((s.tgt-s.pts)/MAXL*100).toFixed(1)}%;opacity:.45"></i>`:''}<i class="b" style="width:${(s.bon/MAXL*100).toFixed(1)}%"></i></div>
+  <div class="lvlab"><span>${s.n==='Snipe'?'Level 10 from points':s.tgt?`Level ${s.pts}, then ${s.tgt}+`:`Level ${s.pts}`}</span><span>+${s.bon} possible from boards</span></div>
+  <div class="small muted" style="margin-top:8px">${s.tx}</div></div>`).join('');
+
+const SPEC=[
+ ['Snipe',['+50% Multi-Hit (endgame swap; +20% MP restored while levelling)',1],['−1 s Deadshot cooldown on hit',1],['Adds Tempest Arrow to the chain',0]],
+ ['Deadshot',['+30% Skill Speed',1],['Cast while moving, charging included',1],['Extra hit worth half of Deadshot\'s; Precision boosts it too',0]],
+ ['Drill Dart',['+20% Skill Speed (or lifesteal: 3% HP absorb while levelling)',1],['Multi-Hit on hit',1],['Fires twice',0]],
+ ['Gale Arrow',['+5 s buff duration',1],['Cast while moving',1],['−10 s cooldown (drop the duration pick)',0]],
+ ['Tempest Shot',['+12% damage on fewer targets (−20% MP consumed while levelling)',1],['—',0],['+20% Skill Speed',0]],
+ ['Marking Shot',['+5 s Precision (10 s → 15 s)',1],['+5% Perfect while it lasts',1],['—',0]]
+];
+$('specTbl').innerHTML='<tr><th>Skill</th><th>Level 8</th><th>Level 12</th><th>Level 16 (after 45)</th></tr>'+SPEC.map(r=>`<tr><td><div class="who">${ico(r[0],'xs')}${r[0]}</div></td>${r.slice(1).map((c,i)=>`<td class="${c[1]?'rec':(i===2?'later':'')}">${c[1]?'★ ':''}${c[0]}</td>`).join('')}</tr>`).join('');
+
+const PASS=[
+ ['Focused Eye','Raise to 10. Counts ×1.5 under Vaizel\'s Authority (source inference). Levels 1→10 land between Lv 27 and 35.'],
+ ["Hunter's Resolve",'Raise to 10 right after Focused Eye. Lv 31 to 37 while levelling.'],
+ ["Hunter's Soul",'Take it from Daevanion with Nightmare-shop crystals, and keep the survival passives (Vigilant Eye, Unyielding Resolve, Revitalization Contract) for last.']
+];
+$('passCards').innerHTML=PASS.map(p=>`<div class="card"><div class="sk">${ico(p[0],'gold')}<div><h3>${p[0]}</h3></div></div><div class="small muted" style="margin-top:8px">${p[1]}</div></div>`).join('');
+$('passRow').innerHTML=['Focused Eye',"Hunter's Resolve","Hunter's Soul"].map(n=>ico(n,'gold')).join('');
+$('skipRow').innerHTML=['Snare Shot','Burst Arrow','Arrow Scattershot','Suppressing Arrow','Explosion Trap','Defiance'].map(n=>`<div style="display:flex;gap:8px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px">${ico(n,'xs')}<span class="small">${n}</span></div>`).join('');
+
+/* stigmas */
+const STG=[
+ [22,"Vaizel's Authority",'Slot 1','+20% Attack for 10 s, every 60 s. At Stigma level 5 it adds +10% Perfect Chance.','Level 5 now, then 10 by 45 (and first to 20 after 45).'],
+ [27,'Bow of Blessing','Slot 2','+200 Critical Hit and +100 Accuracy for 10 s, every 120 s. At level 5 it adds +50% Multi-Hit.','Take to 5. (Supporting Fire is the other pick for slots 2 and 3.)'],
+ [32,'Supporting Fire','Slot 3','An orb that follows you for 15 s and fires shots with a 25% chance, absorbing HP. At level 5 it adds +25% activation.','Take to 5.'],
+ [37,'Explosive Arrow','Slot 4','Fire damage to up to 4 enemies, +20% against Slowed or Rooted targets. 20 stagger damage. Level 5 cuts its cooldown from 45 s to 30 s.','Take to 5. Griffon Arrow is the alternative.']
+];
+$('stigGrid').innerHTML=STG.map(s=>`<div class="card"><div class="stg"><div class="lv"><small>Lv</small>${s[0]}</div>${ico(s[1],'lg gold')}<div><span class="tag t-gold">${s[2]}</span><h3>${s[1]}</h3><div class="small muted">${s[3]}</div><div class="small" style="margin-top:6px;color:var(--gold2)">${s[4]}</div></div></div></div>`).join('');
+$('swapIcons').innerHTML=['Arrow Storm','Griffon Arrow'].map(n=>ico(n,'sm')).join('');
+
+/* boards */
+const A='A',B='B',C='C';
+const ST=(l,s)=>['stat',l,s];
+const BOARDS=[
+ {n:'Nezekan',open:12,cr:[44,42,5],nodes:[
+  [A,'Snipe'],[A,'Deadshot'],[A,...ST('Combat Speed +1.5%','CS')],[A,...ST('Combat Speed +1.5%','CS')],[A,'Tempest Shot'],[A,'Drill Dart'],
+  [B,...ST('Cooldown Reduction +1.5%','CDR')],[B,...ST('Cooldown Reduction +1.5%','CDR')],[B,'Gale Arrow'],[B,'Focused Eye'],[B,'Focused Eye'],[B,"Hunter's Resolve"],[B,"Hunter's Resolve"],[B,'Marking Shot'],
+  [C,'Vigilant Eye'],[C,'Vigilant Eye']]},
+ {n:'Zikel',open:20,cr:[56,13,14],nodes:[
+  [A,'Snipe'],[A,'Deadshot'],[A,'Tempest Shot'],[A,'Drill Dart'],[A,...ST('Damage Boost +1.5%','DMG')],[A,...ST('Damage Boost +1.5%','DMG')],
+  [B,'Gale Arrow'],[B,'Marking Shot'],
+  [C,"Hunter's Soul"],[C,"Hunter's Soul"],[C,'Unyielding Resolve'],[C,'Unyielding Resolve'],[C,'Revitalization Contract'],[C,'Revitalization Contract']]},
+ {n:'Vaizel',open:30,cr:[15,54,13],note:'Route passes through Burst Arrow and Snare Shot as steps only.',nodes:[
+  [A,'Snipe'],[A,'Deadshot'],
+  [B,'Tempest Shot'],[B,'Drill Dart'],[B,'Gale Arrow'],[B,'Focused Eye'],[B,"Hunter's Resolve"],[B,...ST('Critical Damage Boost +1.5%','CRD')],[B,...ST('Critical Damage Boost +1.5%','CRD')],
+  [C,"Hunter's Soul"],[C,'Vigilant Eye'],[C,'Unyielding Resolve'],[C,'Revitalization Contract']]},
+ {n:'Triniel',open:40,cr:[18,74,17],note:'Route passes through Wind Vigor as a step only.',nodes:[
+  [A,'Snipe'],[A,'Deadshot'],
+  [B,'Tempest Shot'],[B,'Drill Dart'],[B,'Gale Arrow'],[B,'Focused Eye'],[B,"Hunter's Resolve"],[B,...ST('Multi-Hit Chance +1.5%','MHC')],[B,...ST('Multi-Hit Chance +1.5%','MHC')],[B,...ST('Multi-Hit Chance +1.5%','MHC')],
+  [C,"Hunter's Soul"],[C,'Vigilant Eye'],[C,'Unyielding Resolve'],[C,'Revitalization Contract']]}
+];
+const PH={A:'Take while levelling',B:'Take by level 45',C:'Nightmare-shop crystals'};
+const cap=nd=>nd[1]==='stat'?nd[2].replace(' +1.5%',''):nd[1];
+$('boardGrid').innerHTML=BOARDS.map(b=>{
+  const tot=b.cr[0]+b.cr[1]+b.cr[2];
+  let idx=0;
+  const groups=['A','B','C'].map(ph=>{
+    const ns=b.nodes.filter(n=>n[0]===ph);
+    if(!ns.length) return '';
+    const nodes=ns.map((nd,k)=>{
+      idx++;
+      const last=k===ns.length-1;
+      const tile=nd[1]==='stat'?`<div class="node stat p${ph}" title="${esc(nd[2])}">${nd[3]}<small>+1.5%</small><span class="no">${idx}</span></div>`
+        :`<div class="node p${ph}" title="${esc(nd[1])} +1"><img loading="lazy" src="${KB}${SK[nd[1]]}.webp" alt="${esc(nd[1])}" onerror="this.style.visibility='hidden'"><span class="no">${idx}</span></div>`;
+      return `<div class="pn p${ph}${last?' last':''}">${tile}<div class="cap">${esc(cap(nd))}</div></div>`;
+    }).join('');
+    return `<div class="phase p${ph}"><div class="phl">${PH[ph]} · ${ns.length} nodes</div><div class="path">${nodes}</div></div>`;
+  }).join('');
+  return `<div class="card board"><h3>${b.n}<small>opens at Lv ${b.open}</small></h3>
+   <div class="crys"><i class="a" style="width:${b.cr[0]/tot*100}%"></i><i class="b" style="width:${b.cr[1]/tot*100}%"></i><i class="c" style="width:${b.cr[2]/tot*100}%"></i></div>
+   <div class="lvlab"><span>${b.cr[0]} levelling</span><span>${b.cr[1]} by 45</span><span>${b.cr[2]} Nightmare</span></div>
+   ${groups}${b.note?`<div class="tiny muted" style="margin-top:10px">${b.note}</div>`:''}</div>`;
+}).join('');
+$('dvTimeline').innerHTML=[...BOARDS.map(b=>[b.open,b.n,`${b.cr[0]} crystals while levelling`]),[45,'Ariel + Azphel','take Ariel damage nodes']].map((x,i)=>`<div class="tl"><div class="tlL">Lv ${x[0]}</div><div class="tlB"><b>${x[1]}</b><small>${x[2]}</small></div></div>`).join('<div class="tlA">→</div>');
+
+/* macro */
+let MODE='one';
+const MODES={
+ one:{note:'Press and hold one key. Buffs, Deadshot, your cooldown hits and the fillers all fire in priority order. The cost: buff stigmas fire on trash too, and Deadshot may fire before it is fully charged.',
+  held:[['Macro key','the whole rotation']],
+  steps:[
+   {t:'Burst & Precision',sl:'Hotbar slot 1',st:['Marking Shot',"Vaizel's Authority",'Bow of Blessing','Supporting Fire'],note:'Buffs fire as soon as they are ready, then drop out while on cooldown.'},
+   {t:'Heavy hitters',sl:'Hotbar slot 2',st:['Deadshot','Drill Dart','Explosive Arrow','Gale Arrow'],note:'Deadshot first, then your cooldown skills.'},
+   {t:'No-cooldown filler',sl:'Hotbar slot 3',st:['Tempest Shot'],note:'Always ready, so it sits alone in its own slot.'},
+   {t:'Basic attack',sl:'Basic attack',st:['Snipe'],note:'The Snipe chain: refills MP and shortens Deadshot.'}
+  ],
+  words:['Slot 1: checks Marking Shot first. If it is ready it fires, otherwise Vaizel\'s Authority, Bow of Blessing, Supporting Fire. If all are cooling down, nothing is wasted.','Slot 2: Deadshot if it is ready, otherwise Drill Dart, Explosive Arrow, Gale Arrow.','Slot 3: Tempest Shot, which is always usable.','Step 4: a basic attack (Snipe), then back to the top.'],
+  why:['<b>Everything in the stack has a cooldown.</b> If you put a no-cooldown skill at the bottom of a stack, the ones above it never get used. Tempest Shot and Snipe have no cooldown, so they sit in their own steps.','<b>Priority runs from the bottom up.</b> The skill you want most often goes at the bottom. The big, rare skills are bottom of their slot, the common ones above.','<b>Save buffs for bosses:</b> delete step 1 from the macro and press Marking Shot, Vaizel\'s Authority, Bow of Blessing and Supporting Fire by hand.']},
+ two:{note:'Hold the Macro key and a separate Deadshot key. Deadshot gets its full 3× charge, and the macro does everything else. Slightly more work, more damage per Deadshot.',
+  held:[['Macro key','everything except Deadshot'],['Deadshot key','its own key, hold to fully charge']],
+  steps:[
+   {t:'Burst & Precision',sl:'Hotbar slot 1',st:['Marking Shot',"Vaizel's Authority",'Bow of Blessing','Supporting Fire'],note:'Buffs fire as soon as they are ready, then drop out while on cooldown.'},
+   {t:'Cooldown hitters',sl:'Hotbar slot 2',st:['Drill Dart','Explosive Arrow','Gale Arrow'],note:'Your 5 s Drill Dart first, then the longer cooldowns.'},
+   {t:'No-cooldown filler',sl:'Hotbar slot 3',st:['Tempest Shot'],note:'Always ready, so it sits alone in its own slot.'},
+   {t:'Basic attack',sl:'Basic attack',st:['Snipe'],note:'The Snipe chain: refills MP and shortens Deadshot.'}
+  ],
+  words:['Slot 1: checks Marking Shot first, then Vaizel\'s Authority, Bow of Blessing, Supporting Fire.','Slot 2: Drill Dart if it is ready, otherwise Explosive Arrow, then Gale Arrow.','Slot 3: Tempest Shot, always usable.','Step 4: a basic attack (Snipe), then back to the top. Deadshot is on its own key, held the whole fight.'],
+  why:['<b>Deadshot gets its own key.</b> Holding the key charges it fully (0.5 / 1 / 1.5 s; 0.35 / 0.7 / 1.05 s with the Skill Speed Specialty), and a full charge hits three times as hard.','<b>Everything in a stack has a cooldown.</b> Tempest Shot and Snipe have none, so they sit in their own steps.','<b>Save buffs for bosses:</b> delete step 1 and press the four buff skills by hand.']}
+};
+function renderMacro(){
+ const m=MODES[MODE];
+ $('modeNote').textContent=m.note;
+ [...$('modeSeg').children].forEach(b=>b.classList.toggle('on',b.dataset.m===MODE));
+ $('mmap').innerHTML=m.steps.map((s,i)=>{
+  const n=s.st.length;
+  const rows=s.st.map((k,j)=>{const pr=j+1;return `<div class="mrow ${pr===1?'first':''}">${ico(k,'xs gold')}<div><b>${k}</b></div><span class="pri">${pr===1?'checked 1st':pr===2?'2nd':pr===3?'3rd':'4th'}</span></div>`;}).reverse().join('');
+  return `<div class="mstep"><div class="mhead"><span class="mnum">${i+1}</span><div><b>${s.t}</b><small>${s.sl}</small></div></div><div class="mstack">${rows}</div><div class="tiny muted">${s.note}</div></div>${i<m.steps.length-1?'<div class="marrow">→<small>20 ms</small></div>':''}`;
+ }).join('');
+ $('heldKeys').innerHTML=m.held.map((h,i)=>`${i?'<div class="plus">+</div>':''}<div class="key"><b>${h[0]}</b><span>${h[1]}</span></div>`).join('');
+ $('loopWords').innerHTML=m.words.map(w=>`<li>${w}</li>`).join('');
+ $('whyList').innerHTML=m.why.map(w=>`<li>${w}</li>`).join('');
+}
+$('modeSeg').onclick=e=>{const b=e.target.closest('button');if(!b)return;MODE=b.dataset.m;renderMacro();};
+renderMacro();
+const bs=(k,i,n,sub,tag,tc)=>`<div class="bs ${k}"><span class="no">${i}</span>${ico(n,'xs')}<div><b>${n}</b><small>${sub}</small></div>${tag?`<span class="tag ${tc}">${tag}</span>`:''}</div>`;
+$('baBefore').innerHTML=
+ bs('ch',1,'Marking Shot','10 ms','buffs on trash','t-gold')+
+ bs('ch',2,'Drill Dart','10 ms · Q','alone','t-gold')+
+ bs('rm',3,'Arrow Scattershot','Lv 1 · boss stagger only','remove','t-crim')+
+ bs('ok',4,'Tempest Shot','10 ms · no cooldown','','')+
+ bs('ch',5,'(blue skill)','unknown icon','check','t-gold');
+$('baAfter').innerHTML=
+ bs('ok',1,'Drill Dart','bottom of Q stack · checked 1st','keep','t-green')+
+ bs('ok','↳','Gale Arrow','Q stack · checked 2nd','add','t-green')+
+ bs('ok',2,'Tempest Shot','own step · no cooldown','keep','t-green')+
+ bs('ok',3,'Snipe','basic attack · refills MP','last','t-green')+
+ bs('hd','✋','Marking Shot','press by hand, ~2 s before Precision ends','manual','t-violet')+
+ bs('hd','✋','Deadshot','hold to charge','manual','t-violet')+
+ '<div class="tiny muted">All delays 20 ms.</div>';
+
+const HB=[
+ ['1',['Marking Shot'],'h','by hand','~2 s before Precision ends'],
+ ['2',['Vaizel\'s Authority','Bow of Blessing','Supporting Fire'],'h','burst','press 3 times, one fires each'],
+ ['3',['Deadshot'],'h','hold','hold to charge'],
+ ['4',['Arrow Scattershot'],'h','boss only','during stagger'],
+ ['5',[],'','',''],['6',[],'','',''],['7',[],'','',''],['8',[],'','',''],
+ ['Q',['Drill Dart','Gale Arrow','Explosive Arrow'],'m','step 1','bottom fires first'],
+ ['E',[],'','','free'],
+ ['Mouse A',['Tempest Shot'],'m','step 2','no cooldown: alone'],
+ ['Mouse B',['Snipe'],'m','step 3','basic attack']
+];
+$('hotbar').innerHTML=HB.map(h=>`<div class="hs ${h[2]}"><span class="key">${h[0]}</span>${h[3]?`<span class="st">${h[3]}</span>`:''}<div class="stk">${h[1].length?h[1].map((n,i)=>`<div class="it ${i===0?'f':''}">${ico(n,'xs')}<span>${n}</span></div>`).join(''):`<div class="none">empty</div>`}</div>${h[4]?`<div class="why">${h[4]}</div>`:''}</div>`).join('');
+const FIX=[
+ ['Deadshot fires rarely or at low damage','The macro fires it at its first charge stage, or the Snipe chain isn\'t cycling.','Switch to the Max damage layout (Deadshot on its own key) and hold left click with the macro key.'],
+ ['A skill never fires','A no-cooldown skill sits at the bottom of a stack, which blocks everything above it.','Move Tempest Shot and Snipe into their own steps.'],
+ ['Drill Dart doesn\'t fire','It only works within 3 s of one of your crits.','Wait for your first crit. It\'s not broken.'],
+ ['Buffs burn on trash','Slot 1 fires buffs as soon as they are ready.','Delete step 1 and press buffs by hand on bosses.'],
+ ['Low hit count on the scarecrow','The delay doesn\'t suit your PC.','Try 15–20 ms. Don\'t go as low as 1–10 ms.'],
+ ['Skills skip at high ping','The delay is too short.','At 80–100 ms ping raise each delay to 40–50 ms.'],
+ ['Macro key does nothing','A mouse button bound while in AION 1 control mode.','Bind a keyboard key instead.'],
+ ['Basic attacks stop while a key is held','Alt (or an Alt combo) is bound to a skill.','Don\'t bind skills to Alt combinations.'],
+ ['Macro changed after switching presets','Each preset keeps its own macro, and switching stops it.','Set it up on every preset you use and hold the key again.'],
+ ['Marking Shot or charged Deadshot gets eaten','Skill Queue is off.','Turn Skill Queue on.']
+];
+$('fixTbl').innerHTML='<tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr>'+FIX.map(f=>`<tr><td><b>${f[0]}</b></td><td class="muted">${f[1]}</td><td>${f[2]}</td></tr>`).join('');
+$('copyBtn').onclick=async()=>{
+ const m=MODES[MODE];
+ const t=`ARROW RANGER MACRO (Aion 2, Lv 45 DPS) - ${MODE==='one'?'ONE BUTTON':'MAX DAMAGE'} layout
+HOLD: ${m.held.map(h=>h[0]).join(' + ')}
+MACRO (in-game, standard delay OFF, 20 ms between steps, repeat while key held):
+${m.steps.map((s,i)=>` Step ${i+1} = ${s.sl}: `+(s.sl==='Basic attack'?'basic attack (Snipe)':'stack bottom -> top: '+s.st.join(', '))).join('\n')}
+${MODE==='two'?'BY HAND (held): Deadshot key\n':''}SETTINGS: Skill Queue ON. Macro key = keyboard key (mouse buttons don't work in AION 1 control mode). Test on a training scarecrow.
+SKILL ORDER: Snipe 10 -> Deadshot 8 -> Drill Dart 8 -> Gale Arrow 8 -> Tempest Shot 8 -> Marking Shot 8 -> Deadshot/Drill Dart 10
+STIGMAS: Vaizel's Authority (22), Bow of Blessing (27), Supporting Fire (32), Explosive Arrow (37)`;
+ try{await navigator.clipboard.writeText(t);$('copyMsg').textContent='Copied.';}catch(e){$('copyMsg').textContent='Copy is blocked here. Select the steps above instead.';}
+};
+
+/* gantt */
+const END=45;
+const pct=s=>(s/END*100).toFixed(2)+'%';
+const blk=(s,e,c,t)=>`<div class="blk" style="left:${pct(s)};width:${pct(e-s)};background:${c}">${t||''}</div>`;
+const dotAt=(s,n)=>`<div class="dot" style="left:${pct(s)}" title="${n}"><img src="${KB}${SK[n]}.webp" alt="${n}" onerror="this.style.visibility='hidden'"></div>`;
+let g='';
+g+=`<div class="lane"><div class="nm"><b>1 · Burst buffs</b>macro step 1</div><div class="track tall"><div class="blk" style="top:4px;left:0;width:${pct(10)};background:#e3b766">Vaizel's Authority 10 s</div><div class="blk" style="top:21px;left:0;width:${pct(10)};background:#b48cff">Bow of Blessing 10 s</div><div class="blk" style="top:38px;left:0;width:${pct(15)};background:#6fc3ff">Supporting Fire 15 s</div></div></div>`;
+g+=`<div class="lane"><div class="nm"><b>2 · Marking Shot</b>macro step 1</div><div class="track">${blk(1,45,'rgba(95,212,154,.35)','Precision up (15 s each, refreshed about 2 s early)')}${[1,14,27,40].map(t=>dotAt(t,'Marking Shot')).join('')}</div></div>`;
+g+=`<div class="lane"><div class="nm"><b>3 · Deadshot</b>macro step 2 / own key</div><div class="track">${[3,15,27,39].map(t=>blk(t,t+2,'#ff8f5a','')).join('')}${[3,15,27,39].map(t=>dotAt(t+1,'Deadshot')).join('')}</div></div>`;
+g+=`<div class="lane"><div class="nm"><b>4 · Macro loop</b>steps 2, 3 and 4</div><div class="track" style="background:repeating-linear-gradient(90deg,#1b2740 0 14px,#26365a 14px 28px)"><div class="blk" style="left:${pct(2)};right:0;background:transparent;color:#cfe3ff;font-size:11px">fires on its own the whole fight</div></div></div>`;
+g+=`<div class="lane"><div class="nm"><b>5 · Snipe chain</b>held left click, refills MP</div><div class="track">${blk(0,45,'rgba(111,195,255,.45)','Snipe hits shave 1 s off Deadshot each (at Snipe 12)')}</div></div>`;
+g+=`<div class="axis"><div></div><div class="ticks">${[0,10,20,30,40].map(t=>`<span style="left:${pct(t)}">${t}s</span>`).join('')}</div></div>`;
+$('gantt').innerHTML=g;
+$('rotSteps').innerHTML=[
+ 'Pull and <b>hold the Macro key</b>. Step 1 fires Marking Shot, Vaizel\'s Authority, Bow of Blessing and Supporting Fire as they come ready.',
+ 'In the Max damage layout, also hold the <b>Deadshot key</b> so it fully charges.',
+ 'Keep the key held and let the macro loop.',
+ 'Deadshot fires as soon as it\'s ready. The Snipe chain keeps shortening its cooldown.',
+ 'The macro loop keeps Drill Dart, Gale Arrow, Explosive Arrow and Tempest Shot going.',
+ 'Buffs come back around by themselves when their cooldowns finish (Vaizel every 60 s, Bow every 120 s).'
+].map(t=>`<li><div>${t}</div></li>`).join('');
+
+/* leveling */
+const LV=[
+ [1,['Snipe','Snare Shot','Tempest Shot','Vigilant Eye'],'You start with these. Put early points into Snipe and Tempest Shot.',''],
+ [3,['Marking Shot'],'',''],
+ [4,['Drill Dart'],'+1 point → Snipe 2.','Start the macro: Tempest Shot + Drill Dart on Hotkey A.'],
+ [5,['Arrow Scattershot'],'+2 points → Tempest Shot 2, Snipe 3.',''],
+ [6,['Concentrated Fire'],'+2 points → Tempest Shot 3, Drill Dart 2.',''],
+ [7,['Gale Arrow'],'+2 points → Snipe 4, Tempest Shot 4.','Add Gale Arrow to the macro as Hotkey B.'],
+ [8,['Explosion Trap'],'+3 points → Drill Dart 3, Gale Arrow 2, Marking Shot 2.',''],
+ [9,['Wind Vigor'],'+3 points: keep them for level 10.',''],
+ [10,['Burst Arrow'],'+3 points → Snipe 5, Tempest Shot 5, Drill Dart 4, Gale Arrow 3.',''],
+ [11,['Focused Eye'],'+4 points → Marking Shot 4. Keep 2 for level 13.',''],
+ [12,['Suppressing Arrow'],'+4 points → Marking Shot 5. Keep 4 for level 13.','Nezekan board opens: take its "while levelling" nodes.'],
+ [13,["Hunter's Resolve"],'+4 points → Snipe 6, Tempest Shot 6, Drill Dart 5, Gale Arrow 4.',''],
+ [14,['Deadshot'],'+4 points → Deadshot 2.','Put Deadshot on its own held key.'],
+ [15,['Unyielding Resolve'],'+4 points → Marking Shot 6.',''],
+ [16,['Defiance'],'+5 points → Snipe 7, Tempest Shot 7, Drill Dart 6, Gale Arrow 5.',''],
+ [17,[],'+5 points → Deadshot 3.','Rooting Eye unlocks (leave it).'],
+ [18,[],'+5 points → Marking Shot 7.',''],
+ [19,[],'+5 points → Snipe 8, Tempest Shot 8, Drill Dart 7, Gale Arrow 6.','First Specialties: Snipe +20% MP restored (or 0.7% HP absorb if HP is your problem) and Tempest Shot −20% MP consumed.'],
+ [20,[],'+5 points → Deadshot 4.','Zikel board opens: take its "while levelling" nodes.'],
+ [21,[],'Melee Fire unlocks (leave it).',''],
+ [22,[],'+5 points → Snipe 9, Tempest Shot 9, Drill Dart 8, Gale Arrow 7. Keep 3 for Marking Shot 8.','Stigma slot 1: Vaizel\'s Authority. Drill Dart 8 Specialty: absorbs 3% HP.'],
+ [23,['Revitalization Contract'],'+5 points → Deadshot 5, Marking Shot 8.','Marking Shot 8 opens its first Specialty slot.'],
+ [25,["Hunter's Soul"],'+5 points → Snipe 10, Tempest Shot 10, Gale Arrow 8.','Gale Arrow 8 Specialty: +5 s duration. Two board nodes take Snipe from 10 to 12, so add its −1 s Deadshot cooldown on hit.'],
+ [26,[],'+5 points → Deadshot 6.',''],
+ [27,[],'+5 points → Drill Dart 9, Focused Eye 4.','Stigma slot 2: Bow of Blessing (or Supporting Fire).'],
+ [28,[],'+5 points → Drill Dart 10, Focused Eye 5.',''],
+ [29,[],'+5 points → Deadshot 7, Focused Eye 6.',''],
+ [30,[],'+5 points → Focused Eye 8.','Vaizel board opens: take its "while levelling" nodes.'],
+ [31,[],'+6 points → Hunter\'s Resolve 4.',''],
+ [32,[],'+6 points → Deadshot 8, Focused Eye 9.','Stigma slot 3. Deadshot 8 Specialty: +30% Skill Speed.'],
+ [33,[],'+6 points → Hunter\'s Resolve 7.',''],
+ [34,[],'+6 points → Hunter\'s Resolve 8.',''],
+ [35,[],'+6 points → Deadshot 9, Focused Eye 10.',''],
+ [36,[],'+6 points → Hunter\'s Resolve 9.',''],
+ [37,[],'+6 points → Hunter\'s Resolve 10.','Stigma slot 4: Explosive Arrow (or Griffon Arrow).'],
+ [38,[],'+6 points → Deadshot 10.','Nothing left in the plan to raise. Extra points go to the 45 build.'],
+ [40,[],'Points pile up for the 45 build.','Triniel board opens: take its "while levelling" nodes.'],
+ [45,[],'<b>Reset your points (free)</b> and rebuild to the skill order on this page. Then swap Snipe\'s MP pick for +50% Multi-Hit beside its −1 s Deadshot, and Tempest Shot\'s for the +12% damage pick.','Ariel and Azphel boards open.']
+];
+const rowHtml=(r,cls,cur)=>`<div class="lvrow ${cls}"><div class="L">${r[0]}<small>${cur?'YOU':'LEVEL'}</small></div><div>${r[1].length?`<div class="newic">${r[1].map(n=>`<div style="display:flex;gap:6px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:4px 10px 4px 4px">${ico(n,'xs')}<span class="small"><b>New:</b> ${n}</span></div>`).join('')}</div>`:''}<div class="small">${r[2]||''}</div>${r[3]?`<div class="small" style="margin-top:6px;color:var(--gold2)">${r[3]}</div>`:''}</div></div>`;
+function renderLv(L){
+  $('lvNum').textContent=L;
+  const cur=[...LV].reverse().find(r=>r[0]<=L)||LV[0];
+  const nxt=LV.filter(r=>r[0]>L).slice(0,3);
+  $('nowList').innerHTML=rowHtml(cur,'cur',true)+nxt.map(r=>rowHtml(r,'',false)).join('');
+  $('allList').innerHTML=LV.map(r=>rowHtml(r,r[0]<L?'done':(r===cur?'cur':''),r===cur)).join('');
+  try{localStorage.setItem('a2rangerLv',String(L));}catch(e){}
+}
+let startLv=17;try{const v=parseInt(localStorage.getItem('a2rangerLv'));if(v>=1&&v<=45)startLv=v;}catch(e){}
+$('lvSlider').value=startLv;renderLv(startLv);
+$('lvSlider').oninput=e=>renderLv(parseInt(e.target.value));
+
+/* level-up plan */
+const PLAN=[
+ ['Snipe',[6,9,10,10],10],['Tempest Shot',[6,9,10,10],10],['Drill Dart',[5,8,10,10],10],['Gale Arrow',[4,7,8,8],8],
+ ['Marking Shot',[6,7,8,8],8],['Deadshot',[2,4,7,10],10],
+ ['Focused Eye',[1,1,8,10],10],["Hunter's Resolve",[1,1,1,10],10]
+];
+const MS=[15,22,30,38];
+$('ptsTbl').innerHTML='<tr><th>Skill</th>'+MS.map(l=>`<th>By Lv ${l}</th>`).join('')+'<th>Final target</th></tr>'+PLAN.map((r,i)=>`<tr><td><div class="who"><span class="tiny muted">${i<6?'#'+(i+1):'passive'}</span>${ico(r[0],'xs')}${r[0]}</div></td>${r[1].map(v=>`<td><b>${v}</b><div class="lvbar" style="height:6px;margin:6px 0 0;min-width:60px"><i class="p" style="width:${v/r[2]*100}%"></i></div></td>`).join('')}<td class="rec">${r[2]}</td></tr>`).join('')+`<tr><td><div class="who"><span class="tiny muted">passive</span>${ico("Hunter's Soul",'xs')}Hunter's Soul</div></td><td colspan="4" class="muted">Comes from Daevanion nodes (Zikel and later), not skill points.</td><td class="rec">Nodes</td></tr><tr><td><div class="who"><span class="tiny muted">last</span>${ico('Vigilant Eye','xs')}Survival passives</div></td><td colspan="4" class="muted">Vigilant Eye, Unyielding Resolve, Revitalization Contract: only after everything above.</td><td class="later">Last</td></tr>`;
+
+/* misc icons */
+$('arcRow').innerHTML=itemIco('ETC/Icon_Arcana_Parchment_u_PveSet2','Arcana: Parchment of Vigor','lg gold')+itemIco('ETC/Icon_Arcana_Grail_u_PveSet2','Arcana: Chalice of Vigor','lg gold');
+$('bowIcon').innerHTML=`<img src="${IB}Weapon/Icon_WP_BW_0056_T06.webp" alt="Kromede Longbow" onerror="this.style.visibility='hidden'">`;
+</script>
+</body>
+</html>

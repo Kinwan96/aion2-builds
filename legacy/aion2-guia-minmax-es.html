@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Guía Min-Max Aion 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0d14; --bg2:#12151f; --card:#171b28; --card2:#1d2233; --line:#2a3046;
+  --text:#e7e9f1; --muted:#9aa1b8; --gold:#e3b766; --gold2:#f5d9a0; --sky:#6fc3ff;
+  --crim:#e2536b; --green:#5fd49a; --violet:#b48cff;
+  --r:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:15px/1.6 Inter,system-ui,sans-serif}
+a{color:var(--sky)}
+img,video{display:block;max-width:100%}
+h1,h2,h3{font-family:Cinzel,serif;letter-spacing:.02em;margin:0}
+h2{font-size:clamp(24px,3.4vw,34px);color:var(--gold2)}
+h3{font-size:18px;color:var(--gold2)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+section{padding:64px 0;border-top:1px solid #1a1f2e}
+.kicker{font:600 12px Inter;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.lead{color:var(--muted);max-width:760px;margin:10px 0 28px}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(11,13,20,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:18px;align-items:center;overflow-x:auto;white-space:nowrap;padding-top:10px;padding-bottom:10px}
+nav a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:600}
+nav a:hover{color:var(--gold2)}
+nav .brand{font-family:Cinzel;color:var(--gold);font-size:16px;margin-right:6px}
+
+/* hero */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;border:0}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.1)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,13,20,.15) 0%,rgba(11,13,20,.35) 45%,var(--bg) 100%)}
+.hero .wrap{position:relative;z-index:2;padding-bottom:56px}
+.hero h1{font-size:clamp(38px,7vw,78px);line-height:1.02;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.6)}
+.hero h1 span{color:var(--gold)}
+.hero p{max-width:640px;color:#d6d9e6;font-size:17px}
+.count{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+.pill{background:rgba(23,27,40,.82);border:1px solid var(--line);border-radius:12px;padding:10px 14px;min-width:200px}
+.pill b{display:block;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold)}
+.pill span{font-size:20px;font-weight:700;font-variant-numeric:tabular-nums}
+.pill em{display:block;font-style:normal;color:var(--muted);font-size:12px}
+
+/* grids & cards */
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g4{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px;overflow:hidden}
+.card.pad0{padding:0}
+.card .body{padding:16px 18px}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border-radius:999px;padding:3px 9px;margin:0 6px 6px 0;border:1px solid}
+.t-main{color:var(--sky);border-color:rgba(111,195,255,.4);background:rgba(111,195,255,.08)}
+.t-alt{color:var(--crim);border-color:rgba(226,83,107,.45);background:rgba(226,83,107,.08)}
+.t-gold{color:var(--gold);border-color:rgba(227,183,102,.45);background:rgba(227,183,102,.08)}
+.t-green{color:var(--green);border-color:rgba(95,212,154,.4);background:rgba(95,212,154,.08)}
+ul.clean{margin:8px 0 0;padding-left:18px}
+ul.clean li{margin:4px 0}
+.tip{border-left:3px solid var(--gold);background:linear-gradient(90deg,rgba(227,183,102,.1),transparent);padding:12px 16px;border-radius:0 10px 10px 0;margin:16px 0}
+.warn{border-left-color:var(--crim);background:linear-gradient(90deg,rgba(226,83,107,.1),transparent)}
+kbd{background:#252b3f;border:1px solid #3a4260;border-bottom-width:2px;border-radius:5px;padding:0 6px;font:600 12px Inter}
+
+/* media */
+.media{position:relative;aspect-ratio:16/9;background:#000;overflow:hidden}
+.media img,.media video{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:hover .media img,.card:hover .media video{transform:scale(1.04)}
+.media .cap{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 10px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:13px;font-weight:600}
+.media .cap small{display:block;color:#bfc4d6;font-weight:400}
+.src{font-size:11px;color:#7c849c;margin-top:6px}
+
+/* icons */
+.ico{width:56px;height:56px;border-radius:10px;background:radial-gradient(circle at 50% 35%,#343c58,#161a26);border:1px solid #3b4462;flex:none;display:grid;place-items:center;overflow:hidden}
+.ico img{width:100%;height:100%;object-fit:contain}
+.ico.lg{width:76px;height:76px}
+.ico.g41{border-color:#d9a54a;box-shadow:0 0 0 1px rgba(217,165,74,.3),0 0 18px rgba(217,165,74,.18)}
+.ico.g31{border-color:#9c6cff;box-shadow:0 0 14px rgba(156,108,255,.2)}
+.res{display:flex;gap:14px;align-items:flex-start}
+.res h3{font-family:Inter;font-size:16px;font-weight:700;color:#fff}
+.stat{font-variant-numeric:tabular-nums;color:var(--gold2);font-weight:700}
+.iconrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.iconrow .ico{width:44px;height:44px}
+
+/* steps */
+.steps{counter-reset:s;display:grid;gap:14px}
+.step{counter-increment:s;display:grid;grid-template-columns:48px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.step::before{content:counter(s);width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font:700 18px Cinzel;color:#1b1407;background:linear-gradient(135deg,var(--gold2),var(--gold))}
+.step h3{font-family:Inter;font-size:16px;color:#fff;margin-bottom:2px}
+
+/* ladder */
+.ladder{position:relative;margin-top:10px}
+.rung{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:start;margin-bottom:14px}
+.il{font:700 20px Cinzel;color:var(--gold);text-align:right;padding-top:14px}
+.il small{display:block;font:500 11px Inter;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.bar{height:8px;border-radius:99px;background:#232840;overflow:hidden;margin:8px 0 2px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--sky),var(--gold))}
+
+/* dungeon cards */
+.dg .media{aspect-ratio:16/8}
+.dg .meta{display:flex;gap:6px;flex-wrap:wrap;margin:8px 0}
+.dg .bosses{font-size:13px;color:var(--muted)}
+.dg .bosses b{color:#fff;font-weight:600}
+
+/* tables */
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th,.tbl td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle}
+.tbl th{color:var(--gold);font-size:12px;text-transform:uppercase;letter-spacing:.1em;font-weight:700}
+.tbl tr:hover td{background:rgba(255,255,255,.02)}
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:var(--card)}
+.tier{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:8px;font:700 14px Cinzel;color:#111}
+.S{background:#ffcf6b}.A{background:#8fd3ff}.B{background:#a7e8b8}.C{background:#c9c9d6}
+
+/* checklist */
+.chk{display:grid;gap:8px}
+.chk label{display:flex;gap:12px;align-items:center;background:var(--card2);border:1px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer;transition:.2s}
+.chk label:hover{border-color:#46507a}
+.chk input{appearance:none;width:22px;height:22px;border-radius:6px;border:2px solid #56608a;flex:none;display:grid;place-items:center;margin:0}
+.chk input:checked{background:var(--gold);border-color:var(--gold)}
+.chk input:checked::after{content:"✓";color:#1b1407;font-weight:900;font-size:14px}
+.chk input:checked ~ .txt{opacity:.5;text-decoration:line-through}
+.chk .ico{width:36px;height:36px;border-radius:8px}
+.chk .txt{flex:1}
+.chk .txt small{display:block;color:var(--muted)}
+.btn{background:transparent;color:var(--gold);border:1px solid rgba(227,183,102,.5);border-radius:8px;padding:6px 12px;font:600 12px Inter;cursor:pointer}
+.btn:hover{background:rgba(227,183,102,.1)}
+.progress{font-size:13px;color:var(--muted)}
+
+/* timeline */
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabs button{background:var(--card);border:1px solid var(--line);color:var(--muted);border-radius:999px;padding:8px 16px;font:600 13px Inter;cursor:pointer}
+.tabs button.on{color:#1b1407;background:var(--gold);border-color:var(--gold)}
+.tl{display:none;gap:12px}
+.tl.on{display:grid}
+.day{display:grid;grid-template-columns:110px 1fr;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.day .d{font:700 15px Cinzel;color:var(--gold)}
+.day .d small{display:block;font:500 12px Inter;color:var(--muted)}
+
+footer{padding:40px 0 60px;color:var(--muted);font-size:13px;border-top:1px solid #1a1f2e}
+footer li{margin:3px 0}
+
+@media (max-width:640px){
+  .wrap{padding:0 16px}
+  section{padding:44px 0}
+  .rung{grid-template-columns:1fr}
+  .il{text-align:left;padding:0}
+  .day{grid-template-columns:1fr}
+  .pill{min-width:0;flex:1 1 140px}
+  .chk .tag{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <span class="brand">AION 2</span>
+  <a href="#start">Antes de jugar</a><a href="#level">Nivel 1–45</a><a href="#world">Mundo</a><a href="#energy">Energía</a><a href="#check">Checklist</a><a href="#alts">Main vs alts</a><a href="#dungeons">Mazmorras</a><a href="#power">Sistemas de poder</a><a href="#week1">Plan semana 1</a><a href="#abyss">Abismo</a><a href="#mistakes">Errores</a>
+</div></nav>
+
+<header class="hero">
+  <video autoplay muted loop playsinline poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/extras/acc21381e08a7b9341842ec99750409f.poster.avif" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/extras/acc21381e08a7b9341842ec99750409f.webm"></video>
+  <div class="wrap">
+    <div class="kicker">Guía min-max para el lanzamiento global</div>
+    <h1>Asciende <span>con eficiencia.</span></h1>
+    <p>Todo lo de los tres videos de lanzamiento (Kanon, Grobs y Aragon), contrastado con bases de datos y guías de la comunidad, en un solo lugar. Incluye la ruta de nivelación, los topes de energía, qué hacer en tu main y qué en tus alts, la progresión de mazmorras y un plan día por día para la primera semana.</p>
+    <div class="count">
+      <div class="pill"><b>Acceso anticipado</b><span id="c1">—</span><em>Mié 30 sep · 9:00 AM ET (13:00 UTC)</em></div>
+      <div class="pill"><b>Lanzamiento free-to-play</b><span id="c2">—</span><em>Lun 5 oct · 9:00 AM ET (13:00 UTC)</em></div>
+      <div class="pill"><b>Primer reinicio semanal*</b><span id="c3">—</span><em>Mié 7 oct (supuesto, como en KR/TW)</em></div>
+    </div>
+  </div>
+</header>
+
+<!-- DATOS RÁPIDOS -->
+<section id="facts"><div class="wrap">
+  <div class="grid g4">
+    <div class="card"><div class="kicker">Nivel máximo</div><div class="stat" style="font-size:30px">45</div><div class="muted small">Solo sigue la misión principal amarilla (MSQ) hasta llegar.</div></div>
+    <div class="card"><div class="kicker">Clases</div><div class="stat" style="font-size:30px">8</div><div class="muted small">Gladiator, Templar, Assassin, Ranger, Sorcerer, Spiritmaster, Cleric, Chanter</div></div>
+    <div class="card"><div class="kicker">Tamaño de grupo (global)</div><div class="stat" style="font-size:30px">5 / 10</div><div class="muted small">Mazmorras de 5 jugadores y raid de 10 (en Corea son 4 y 8)</div></div>
+    <div class="card"><div class="kicker">Plataforma</div><div class="stat" style="font-size:30px">PC</div><div class="muted small">Steam + PURPLE, free-to-play. Los Founder's Packs dan acceso anticipado.</div></div>
+  </div>
+</div></section>
+
+<!-- ANTES DE JUGAR -->
+<section id="start"><div class="wrap">
+  <div class="kicker">Paso 0</div>
+  <h2>Antes de darle a "Jugar"</h2>
+  <p class="lead">Estos son los temas de los "10 consejos esenciales" de Aragon, más el meta de clases. Casi todo son decisiones que tomas una sola vez, así que tómalas antes de que abran los servidores.</p>
+  <div class="grid g2">
+    <div class="card">
+      <h3>Facción y servidor</h3>
+      <ul class="clean">
+        <li>Elige <b>Elyos</b> o <b>Asmodian</b> junto con tus amigos. Tu grupo tiene que compartir facción <i>y</i> servidor.</li>
+        <li>Las misiones de deber (duties), las "daily dungeons" y las llaves Shugo se comparten <b>por servidor</b>. Los alts solo ayudan con esto si están en el servidor de tu main.</li>
+      </ul>
+      <h3 style="margin-top:16px">Interfaz y combate</h3>
+      <ul class="clean">
+        <li>No hay combate automático. Configura <b>macros de un botón</b> para tus cadenas de buffs y de apertura, pero deja esquivar, interrumpir y aturdir ("groggy") en teclas manuales.</li>
+        <li>Ajusta desde el principio la distancia de cámara y la mira. El posicionamiento y los i-frames al esquivar importan mucho.</li>
+        <li>Organiza tu inventario y almacén desde ya. Al subir de nivel te llueve equipo, y casi todo conviene desmantelarlo.</li>
+      </ul>
+    </div>
+    <div class="card pad0">
+      <div class="media"><video muted loop playsinline preload="metadata" class="lazyplay" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/extras/0f10240b3d6741b24113de2aaf19455e.webm" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/extras/0f10240b3d6741b24113de2aaf19455e.poster.avif"></video><div class="cap">Combate: precisión, timing y posicionamiento<small>Clip oficial de gameplay · Steam</small></div></div>
+      <div class="body small muted">Encadena tus habilidades. La misma tecla puede lanzar distintos seguimientos, y cada pelea depende del timing, no de repetir una rotación.</div>
+    </div>
+  </div>
+
+  <h3 style="margin:34px 0 12px">Tier list de clases (meta de lanzamiento)</h3>
+  <div class="scroll"><table class="tbl" id="tiers"></table></div>
+  <p class="src">Rankings de la tier list de lanzamiento de MMO Codex. Elige la que te divierta: Templar (el único tanque de verdad) y Cleric (el único que resucita) consiguen grupo más rápido.</p>
+</div></section>
+
+<!-- NIVELACIÓN -->
+<section id="level"><div class="wrap">
+  <div class="kicker">Fase 1</div>
+  <h2>Del nivel 1 al 45: la ruta rápida</h2>
+  <p class="lead">La regla de Kanon: solo la MSQ, <em>excepto</em> en dos muros de ascensión. Haz contenido secundario por el camino, porque de todas formas lo vas a terminar todo.</p>
+  <div class="steps">
+    <div class="step"><div><h3>Sigue la MSQ amarilla</h3><div class="muted">Icono amarillo = historia principal. Te lleva directo al 45. Marcadores verdes = misiones secundarias; iconos dorados = contenido para completar el mapa.</div></div></div>
+    <div class="step"><div><h3>Supera los muros del Ascension Gauge (~Nv 22 y ~Nv 32)</h3><div class="muted">La MSQ se detiene hasta que tu barra de ascensión llegue al 100%. La forma más rápida es combinar <b>5 sealed dungeons + misiones secundarias</b>, en el orden de la ruta mientras la MSQ pasa por cada zona. La comunidad tiene mapas de "speed route" para cada facción.</div></div></div>
+    <div class="step"><div><h3>Nv 22: Krao Cave, tu primera Expedition</h3><div class="muted">Escala según el tamaño del grupo, así que <b>hazla solo</b>. <b>No abras el cubo de recompensa al final.</b> Cuesta Odyle Energy, y esa energía rinde mucho más en mazmorras posteriores. (Si lo abres por accidente, no pasa nada grave.) En el Nv 22 también empieza a recargarse la Odyle Energy.</div></div></div>
+    <div class="step"><div><h3>Equípate con cabeza mientras subes</h3><div class="muted">Desmantela todo el equipo que no sea mejora para obtener <b>Enhance Stones</b>. Solo mejora tu <b>arma y guarda</b>. Si la subes a +5 y luego la disuelves, recuperas los materiales.</div></div></div>
+    <div class="step"><div><h3>Aprende habilidades y el tablero Daevanion sobre la marcha</h3><div class="muted">Los puntos de habilidad salen de sealed dungeons, strongholds y plumas. En el tablero Daevanion, toma primero los <b>nodos de las esquinas</b>, luego los umbrales y después el centro.</div></div></div>
+  </div>
+  <div class="tip">Truco min-max (Kanon + Grobs): el día 1, lleva <b>todos tus alts al Nv 22</b> (la misión de Krao Cave) antes de subir a tu main. Cada personaje recarga su propia Odyle Energy solo a partir del 22, así que cuanto antes los dejes ahí, más energía gratis acumulas.</div>
+
+  <h3 style="margin:30px 0 12px">Contenido horizontal: complétalo todo al 45</h3>
+  <div class="grid g4">
+    <div class="card"><span class="tag t-gold">Misiones secundarias</span><div class="small muted">Pulsa <kbd>J</kbd> → pestaña Regional. Todas las misiones verdes.</div></div>
+    <div class="card"><span class="tag t-gold">Plumas</span><div class="small muted">Recógelas por el mapa y entrégalas en el <b>Monolith</b> de tu capital. Mejoran tu Revelation Amulet. El progreso se <b>sincroniza entre tus personajes</b>.</div></div>
+    <div class="card"><span class="tag t-gold">Sealed dungeons</span><div class="small muted"><kbd>M</kbd> → Exploration → Sealed Dungeon. Cada "?" del mapa. Haz también las del territorio enemigo.</div></div>
+    <div class="card"><span class="tag t-gold">Strongholds</span><div class="small muted"><kbd>M</kbd> → Exploration → Stronghold. Dan mejoras del <b>cinturón</b> y mucho poder.</div></div>
+  </div>
+  <div class="tip">Algunas misiones secundarias ("Space-Time Rift") te mandan a las tierras de la facción enemiga. Las grietas se abren <b>cada 3 horas</b> de tiempo real, duran aproximadamente una hora y solo dejan pasar a un número limitado de jugadores, así que entra rápido. Busca los portales en el mapa.</div>
+</div></section>
+
+<!-- MUNDO -->
+<section id="world"><div class="wrap">
+  <div class="kicker">Zonas reales del juego</div>
+  <h2>Dónde vas a hacer misiones</h2>
+  <p class="lead">Son sobrevuelos oficiales, dentro del motor del juego, de las zonas de lanzamiento. Los Elyos empiezan en <b>Verteron</b> y los Asmodians en <b>Altgard</b>. Los clips se reproducen al hacer scroll.</p>
+  <div class="grid g3" id="zones"></div>
+</div></section>
+
+<!-- ENERGÍA -->
+<section id="energy"><div class="wrap">
+  <div class="kicker">El verdadero juego</div>
+  <h2>Sistemas de energía y tickets: nunca llegues al tope</h2>
+  <p class="lead">La progresión de Aion 2 depende de recursos que se recargan. Mientras nada <b>llegue al tope</b>, estás jugando de forma eficiente, aunque solo entres cada pocos días.</p>
+  <div class="grid g2" id="energyGrid"></div>
+</div></section>
+
+<!-- CHECKLIST -->
+<section id="check"><div class="wrap">
+  <div class="kicker">Márcalas</div>
+  <h2>Checklist diario y semanal</h2>
+  <p class="lead">Esta es la lista completa de Grobs. <span class="tag t-main">Solo main</span> = compartido por servidor. <span class="tag t-alt">Cada pj</span> = vale la pena también en alts. Tus marcas se guardan en este navegador.</p>
+  <div class="grid g2">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px"><h3>Diario</h3><span class="progress" id="pD"></span><button class="btn" data-reset="d">Reiniciar diario</button></div>
+      <div class="chk" id="daily"></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px"><h3>Semanal <span class="muted small">(reinicio el miércoles)</span></h3><span class="progress" id="pW"></span><button class="btn" data-reset="w">Reiniciar semanal</button></div>
+      <div class="chk" id="weekly"></div>
+    </div>
+  </div>
+  <div class="tip"><b>Recompensas de las duty quests:</b> solo la recompensa de <b>más a la izquierda</b> está garantizada, y cuanto más a la izquierda esté una recompensa, más probable es. Haz reroll para que lo bueno quede a la izquierda. Prioridad: <b>Soul Crystals</b> (arcoíris › turquesa/amarillo) → <b>Hidden Cube Keys</b> → cualquier cosa que <b>brille en dorado</b> (objetos Unique).</div>
+</div></section>
+
+<!-- MAIN VS ALTS -->
+<section id="alts"><div class="wrap">
+  <div class="kicker">Estrategia de cuenta</div>
+  <h2>Qué es por servidor y qué es por personaje</h2>
+  <p class="lead">Esta división es la razón de ser de los alts. Todo lo que es por personaje se multiplica con cada alt que subes. Todo lo que es por servidor siempre debe ir a tu main.</p>
+  <div class="scroll"><table class="tbl" id="altTbl"></table></div>
+  <div class="tip">El ciclo de alts: deja cada alt en el Nv 22 → súbelo al 45 cuando la rutina de tu main ya esté limpia → en cada alt, haz Krao Cave / Draupnir con su Odyle, más Ascension Trial ×3, Nightmare, battlefields ×3 y Abyss Corridors. Completa el contenido horizontal en cada personaje; solo las plumas se sincronizan.</div>
+</div></section>
+
+<!-- MAZMORRAS -->
+<section id="dungeons"><div class="wrap">
+  <div class="kicker">Fase 2 · endgame</div>
+  <h2>Escalera de item level y progresión de mazmorras</h2>
+  <p class="lead">El objetivo de tu main en la semana 1 es <b>1,400 de item level</b>. Ahí es cuando Vakron Sky Island se vuelve farmeable. La MSQ sola te deja en unos 1,000–1,200, y el contenido horizontal cubre el resto.</p>
+  <div class="ladder" id="ladder"></div>
+
+  <h3 style="margin:34px 0 12px">Mazmorras de lanzamiento, con botín real</h3>
+  <div class="grid g3" id="dgGrid"></div>
+  <p class="src">Los nombres de jefes, costos de Odyle, tamaños de grupo y el botín vienen de la base de datos de Aion 2 de questlog.gg (datos del cliente global). Las imágenes de escenario son material oficial de NCSOFT y Steam; son ilustrativas, no de la mazmorra específica. Los nombres de objetos y mazmorras se dejan en inglés, como aparecen en el cliente global en inglés.</p>
+</div></section>
+
+<!-- SISTEMAS DE PODER -->
+<section id="power"><div class="wrap">
+  <div class="kicker">De dónde sale el poder de combate</div>
+  <h2>Sistemas de poder en los que invertir</h2>
+  <p class="lead">El equipo es solo una de varias vías de progresión. Los min-maxers empiezan todas en la semana 1, porque las lentas (como Pantheon) castigan empezar tarde.</p>
+  <div class="grid g3" id="powerGrid"></div>
+</div></section>
+
+<!-- SEMANA 1 -->
+<section id="week1"><div class="wrap">
+  <div class="kicker">La "semana 1 perfecta" de Grobs</div>
+  <h2>Plan de lanzamiento día por día</h2>
+  <p class="lead">El contenido semanal se reinicia el <b>miércoles</b> (supuesto, porque así funciona en KR/TW). El acceso anticipado tiene 7 días completos antes del primer reinicio. Quienes empiezan el lunes con el free-to-play solo tienen <b>2 días</b>, así que las prioridades cambian.</p>
+  <div class="tabs"><button class="on" data-tl="ea">Acceso anticipado (30 sep)</button><button data-tl="f2p">Free-to-play (5 oct)</button></div>
+  <div class="tl on" id="tl-ea"></div>
+  <div class="tl" id="tl-f2p"></div>
+</div></section>
+
+<!-- ABISMO -->
+<section id="abyss"><div class="wrap">
+  <div class="kicker">Guerra de facciones</div>
+  <h2>Abismo y PvP, de forma eficiente</h2>
+  <div class="grid g2">
+    <div class="card pad0">
+      <div class="media"><video muted loop playsinline preload="metadata" class="lazyplay" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/extras/fb145482ea01038473b2e3e384c4406c.webm" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/extras/fb145482ea01038473b2e3e384c4406c.poster.avif"></video><div class="cap">Volar es la forma de pelear<small>Clip oficial de gameplay · Steam</small></div></div>
+      <div class="body">
+        <h3>Chaotic Lower Reshanta</h3>
+        <p class="small muted">La zona del Abismo en el lanzamiento. La prioridad es el equipo PvE; el PvP es opcional, pero da buenas recompensas. Los Abyss Points salen de bajas, corridors, pergaminos de mando PvP y Supply Requests.</p>
+        <div class="iconrow"><div class="ico"><img src="https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/ETC/Icon_abysspoint.webp" alt="" title="Abyss Points"></div><div class="ico"><img src="https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/ETC/Icon_Exploit_Medal_lv4_01.webp" alt="" title="Gold Medal of Merit"></div><div class="ico"><img src="https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/ETC/Icon_Exploit_Medal_lv1_02.webp" alt="" title="Platinum Medal of Merit"></div></div>
+      </div>
+    </div>
+    <div class="grid" style="gap:16px">
+      <div class="card"><span class="tag t-gold">Mié y sáb</span><h3>Artifact Siege → Abyss Corridors</h3><p class="small muted">Ambas facciones pelean por 3 artefactos. Cada artefacto que controla tu bando desbloquea un <b>Abyss Corridor</b>: 2 minutos para matar todo lo que puedas a cambio de Kinah y Abyss Points. Puedes hacer los corridors con tu main <i>y</i> tus alts hasta el siguiente asedio.</p></div>
+      <div class="card"><span class="tag t-alt">Cada pj</span><h3>Battlefields: 3 victorias por semana</h3><p class="small muted">Modo PvP balanceado. Las recompensas por victoria tienen un tope de 3 por personaje por semana.</p></div>
+      <div class="card"><span class="tag t-main">Main</span><h3>Pergaminos de mando PvP ×20</h3><p class="small muted">Cómpralos al command merchant de tu base del Abismo antes del reinicio semanal, acumúlalos y complétalos mientras farmeas el Abismo.</p></div>
+      <div class="card"><span class="tag t-green">Opcional</span><h3>Jefes de campo y Supply Requests</h3><p class="small muted"><kbd>M</kbd> → Exploration → Field Boss muestra los horarios de aparición; pásate cuando estés conectado. Todos reciben las mismas Supply Requests (diarias "Emergency", semanales y de temporada), así que los precios de los materiales pedidos se disparan. Entrégalas o <b>vende esos materiales</b> por Kinah.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ERRORES -->
+<section id="mistakes"><div class="wrap">
+  <div class="kicker">No hagas esto</div>
+  <h2>Errores comunes de min-max</h2>
+  <div class="grid g3" id="mistakeGrid"></div>
+</div></section>
+
+<!-- SHUGO -->
+<section style="padding-top:0;border:0"><div class="wrap">
+  <div class="grid g2">
+    <div class="card pad0"><div class="media"><video muted loop playsinline preload="metadata" class="lazyplay" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/extras/141080b1a0c1fb99b246778bed8ce999.webm" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/extras/141080b1a0c1fb99b246778bed8ce999.poster.avif"></video><div class="cap">Minijuegos del Shugo Festival<small>Clip oficial de gameplay · Steam</small></div></div></div>
+    <div class="card pad0"><div class="media"><video muted loop playsinline preload="metadata" class="lazyplay" src="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/extras/05ff38c9eb4b9fca4e1275039049c732.webm" poster="https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/extras/05ff38c9eb4b9fca4e1275039049c732.poster.avif"></video><div class="cap">Más de 200 mazmorras: solo, 5 jugadores y raids de 10<small>Clip oficial de gameplay · Steam</small></div></div></div>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <p><b style="color:var(--gold2)">Aviso:</b> esta guía se armó el 29 de septiembre de 2026, un día antes del acceso anticipado. Algunos números (topes de llaves, día de reinicio, contenido de la tienda de suscriptores) vienen de las versiones de Corea/Taiwán y del Launch Scale Test, así que pueden cambiar en global. Confía siempre en lo que muestre el juego.</p>
+  <p>Fuentes</p>
+  <ul>
+    <li>Kanon, <a href="https://www.youtube.com/watch?v=z5GruOss4F8">"Here's your Aion 2 Starter Launch Guide in 8 minutes"</a></li>
+    <li>Grobs, <a href="https://www.youtube.com/watch?v=hAl6c_LwE3M">"AION 2: Daily &amp; Weekly Checklist + Perfect Week 1 Plan"</a></li>
+    <li>Aragon, <a href="https://www.youtube.com/watch?v=ZaiTi1q-DSs">"Aion 2 – 10 Essential Beginner Tips You NEED To Know!"</a> (índice de capítulos)</li>
+    <li><a href="https://mein-mmo.de/en/aion-2-daily-weekly-checklist-perfect-start,1589979/">Mein-MMO: checklist diario y semanal</a> · <a href="https://mein-mmo.de/en/aion-2-equipment-guide-how-to-quickly-obtain-the-best-gear-in-pve,1586095/">Mein-MMO: guía de equipo PvE</a></li>
+    <li><a href="https://mmo-codex.com/articles/aion-2-beginner-guide/">MMO Codex: guía para principiantes</a> · <a href="https://mmo-codex.com/articles/aion-2-class-tier-list/">MMO Codex: tier list de clases</a></li>
+    <li><a href="https://aion2t.com/guides/start-guide-global">aion2t: guía de inicio global</a> · <a href="https://aion2hub.com/guides/aion-2-release-date">Aion2Hub: fecha de lanzamiento</a></li>
+    <li><a href="https://questlog.gg/aion-2/en/db/dungeons">Base de datos de Aion 2 en questlog.gg</a> (iconos de objetos, datos de mazmorras)</li>
+    <li>Multimedia: <a href="https://store.steampowered.com/app/3393110/AION_2/">AION 2 en Steam</a> · <a href="https://aion2.ncsoft.jp/en/teaser">Sitio teaser oficial global</a> (sobrevuelos de zonas). Todo el arte del juego © NCSOFT.</li>
+  </ul>
+</div></footer>
+
+<script>
+const C='https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/';
+const V='https://st.ncjapan.co.jp/ncjapan/ncsoft/aion2/official/teaser/phase1_Q9Dy6kpdkWTtrnWW/movies/';
+const S='https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3393110/';
+const ic=(p,alt,cls='')=>`<div class="ico ${cls}"><img loading="lazy" src="${C}${p}.webp" alt="" title="${alt}"></div>`;
+const $=id=>document.getElementById(id);
+
+/* cuentas regresivas */
+const targets=[['c1','2026-09-30T13:00:00Z'],['c2','2026-10-05T13:00:00Z'],['c3','2026-10-07T00:00:00Z']];
+function tick(){const now=Date.now();targets.forEach(([id,t])=>{let d=new Date(t)-now;const el=$(id);if(!el)return;if(d<=0){el.textContent=id==='c3'?'Ya pasó':'¡En vivo!';return;}const dd=Math.floor(d/864e5),hh=Math.floor(d/36e5)%24,mm=Math.floor(d/6e4)%60;el.textContent=`${dd}d ${hh}h ${mm}m`;});}
+tick();setInterval(tick,30000);
+
+/* tiers */
+const tiers=[['Templar','S','B','B','El único tanque de verdad; imprescindible en grupos'],['Cleric','S','B','B','El único que resucita; las colas más rápidas'],['Gladiator','A','A','S','Luchador indulgente con robo de vida; el cuerpo a cuerpo más seguro para subir'],['Sorcerer','A','A','A','El techo de daño más alto; exige buen posicionamiento'],['Ranger','A','B','B','Daño a distancia móvil y constante'],['Chanter','A','B','B','Buffs + curación secundaria; excelente segundo soporte'],['Assassin','B','S','B','Ventanas de burst; el rey del 1v1'],['Spiritmaster','B','C','S','Su mascota tanquea por ti; la nivelación en solitario más fácil']];
+$('tiers').innerHTML='<tr><th>Clase</th><th>PvE</th><th>PvP</th><th>Nivelar solo</th><th>Por qué</th></tr>'+tiers.map(t=>`<tr><td><b>${t[0]}</b></td><td><span class="tier ${t[1]}">${t[1]}</span></td><td><span class="tier ${t[2]}">${t[2]}</span></td><td><span class="tier ${t[3]}">${t[3]}</span></td><td class="muted">${t[4]}</td></tr>`).join('');
+
+/* zonas */
+const zones=[['world_l_1_fixed','Dawn Legion Base','Verteron · Elyos','Centro de mando oculto en Cantas Valley.'],['world_l_2_fixed','Cantas Valley','Verteron · Elyos','Antiguo centro de suministro de Odylium, ya casi agotado por la Dawn Legion.'],['world_l_3_fixed','Ellun River Marsh','Verteron · Elyos','Ruinas de la Barrier Tower, en manos de los Illusion Cavaliers.'],['world_l_5_fixed','Altamia Canyon','Verteron · Elyos','El Zumion Temple resurgido, vigilado por la Notos Legion.'],['world_r_1_fixed_30fps','Safe Haven','Altgard · Asmodian','Refugio de fugitivos que se salvó de los ataques Balaur.'],['world_r_2_fixed_30fps','Dredgion Crash Site','Altgard · Asmodian','Cañón corrompido por Drakana donde cayó un Dredgion.'],['world_r_3_fixed_30fps','Sanctum Outpost','Altgard · Asmodian','Bastión Balaur donde convierten a los Daeva en Fafnites.'],['world_r_5_fixed_30fps','Nornir Assembly','Altgard · Asmodian','Asentamiento de refugiados liderado por Urd, de las Tres Hermanas.'],['universe_1_fixed','The Fallen Aion Tower','Historia','Su caída partió el mundo y creó Reshanta.']];
+$('zones').innerHTML=zones.map(z=>`<div class="card pad0"><div class="media"><video muted loop playsinline preload="none" class="lazyplay" src="${V}${z[0]}.mp4#t=0.5"></video><div class="cap">${z[1]}<small>${z[2]}</small></div></div><div class="body small muted">${z[3]}</div></div>`).join('');
+
+/* energía */
+const energy=[
+ ['ETC/Icon_Item_Odenergy_A_001','Odyle Energy','Por personaje · se desbloquea en Nv 22','+15 cada 3 h (120/día) · tope 840','Sirve para abrir el cubo de recompensa tras los jefes de mazmorra (40 cada uno; ×2 con suscripción = 80). Es el recurso central de progresión. Recárgala con los crafteos semanales de Substance Morph: 4 por personaje + 16 por servidor.'],
+ ['ETC/Icon_Ticket_Entrance_BossChallenge_001','Tickets de Nightmare','Por personaje · se desbloquea en Nv 45','+2/día · tope 14','Desafíos de jefe 1v1 en solitario que sueltan las mejores estatuas de Pantheon. Morir no importa. Quédate al menos 2 por debajo del tope, y en la semana 1 deja que se llenen mientras te equipas para poder retar niveles más altos (Nv 10 si eres lo bastante fuerte).'],
+ ['ETC/Icon_Currency_Treasure_Key_Legend_004','Llaves del Shugo Festival','Por servidor · se desbloquea en Nv 13','+2/día · tope 14','Los minijuegos aparecen cada hora (arriba a la derecha). Una llave reclama el botín. Gástalas en tu main.'],
+ ['ETC/Icon_Ticket_Entrance_Awaken_001','Ascension Trial','Por personaje','3 entradas / semana','Mazmorra en solitario de 3 salas más un jefe. Las dificultades altas piden más item level (Normal ≈ 1,500 IL). <b>Morir puede costarte las recompensas.</b> Déjala para el final de la semana.'],
+ ['ETC/Icon_Ticket_Entrance_Dungeon_001','"Daily" Dungeons','Por servidor (solo main)','14 entradas / semana','No son diarias de verdad: son semanales. 90 segundos para matar todos los monstruos que puedas, con puntuación. Hazlas al final de la semana, cuando pegues más fuerte. La tienda de suscriptores vende tickets "Unknown Fissure" extra.'],
+ ['ETC/Icon_Item_Currency_Treasure_Key_A_s_001','Hidden Cube Keys','De duties y drops','—','Abren los cubos ocultos repartidos por el mundo abierto. Tómalas siempre que una duty te ofrezca una.']
+];
+$('energyGrid').innerHTML=energy.map(e=>`<div class="card res">${ic(e[0],e[1],'lg g41')}<div><h3>${e[1]}</h3><div><span class="tag t-gold">${e[2]}</span><span class="tag t-green">${e[3]}</span></div><div class="small muted">${e[4]}</div></div></div>`).join('');
+
+/* checklist */
+const daily=[['ETC/Icon_Item_Soulcrystal_All','5× Duty Quests','Main · <kbd>J</kbd> → Duties · se desbloquea en Nv 45'],['ETC/Icon_Currency_Treasure_Key_Legend_004','Shugo Festival (no llegues al tope de llaves)','Main · aparece cada hora'],['ETC/Icon_Ticket_Entrance_BossChallenge_001','Nightmare: mantén los tickets ≤ 12/14','Cada personaje'],['ETC/Icon_Item_Odenergy_A_001','Gasta la Odyle Energy en mazmorras (que no llegue a 840)','Cada personaje'],['ETC/Icon_abysspoint','Emergency Supply Requests (si conviene)','Opcional'],['ETC/Icon_Exploit_Medal_lv4_01','Revisa los horarios de jefes de campo','Opcional · <kbd>M</kbd> → Exploration']];
+const weekly=[['ETC/Icon_Ticket_Entrance_Dungeon_001','14× Daily Dungeons','Main (por servidor)'],['ETC/Icon_Ticket_Entrance_Awaken_001','3× Ascension Trial','Cada personaje'],['ETC/Icon_Exploit_Medal_lv1_02','3 victorias en Battlefield','Cada personaje'],['ETC/Icon_Coin_Guild','Compra 12 pergaminos de mando PvE','Main · command merchant de tu capital (p. ej. Dawn Legion Base)'],['ETC/Icon_abysspoint','Compra 20 pergaminos de mando PvP','Main · command merchant de tu base del Abismo'],['ETC/Icon_Item_Odenergy_A_001','Crafteos de Odyle en Substance Morph (4 + 16)','Main · 16 por servidor + 4 en cada personaje'],['ETC/Icon_Item_Soulcrystal_All','Tienda de suscriptores: Odyle, tickets Fissure, Soul Crystals','Main · Wind Breeze merchant → pestaña Special (suscriptores)'],['ETC/Icon_Exploit_Medal_lv2_01','Abyss Corridors tras el Artifact Siege (mié/sáb)','Cada personaje'],['ETC/Icon_Currency_Coin_GoldNonbinding','Supply Requests semanales','Opcional · revisa precios del mercado']];
+const tagFor=s=>/Cada/.test(s)?'<span class="tag t-alt">Cada pj</span>':/^Main/.test(s)?'<span class="tag t-main">Solo main</span>':'<span class="tag t-green">Opcional</span>';
+function load(){try{return JSON.parse(localStorage.getItem('a2chk_es')||'{}')}catch(e){return{}}}
+function save(o){try{localStorage.setItem('a2chk_es',JSON.stringify(o))}catch(e){}}
+let state=load();
+function render(){
+  [['daily',daily,'d','pD'],['weekly',weekly,'w','pW']].forEach(([id,list,p,pid])=>{
+    $(id).innerHTML=list.map((x,i)=>`<label><div class="ico"><img loading="lazy" src="${C}${x[0]}.webp" alt=""></div><input type="checkbox" data-k="${p}${i}" ${state[p+i]?'checked':''}><span class="txt">${x[1]}<small>${x[2]}</small></span>${tagFor(x[2])}</label>`).join('');
+    const done=list.filter((_,i)=>state[p+i]).length; $(pid).textContent=`${done}/${list.length}`;
+  });
+}
+document.addEventListener('change',e=>{const k=e.target.dataset&&e.target.dataset.k;if(!k)return;state[k]=e.target.checked;save(state);render();});
+document.querySelectorAll('[data-reset]').forEach(b=>b.onclick=()=>{const p=b.dataset.reset;Object.keys(state).forEach(k=>{if(k[0]===p)delete state[k]});save(state);render();});
+render();
+
+/* tabla de alts */
+const alts=[['Duty Quests (5/día)','Por servidor','Main'],['Daily Dungeons (14/semana)','Por servidor','Main'],['Llaves del Shugo Festival','Por servidor','Main'],['Pergaminos de mando PvE / PvP (12 / 20)','Por servidor','Main'],['Crafteos de Odyle: 16 de los 20','Por servidor','Main'],['Plumas → Monolith','Sincronizado','Once'],['Odyle Energy','Por personaje','Cada'],['Crafteos de Odyle: 4','Por personaje','Cada'],['Tickets de Nightmare','Por personaje','Cada'],['Ascension Trial (3/semana)','Por personaje','Cada'],['Victorias en Battlefield (3/semana)','Por personaje','Cada'],['Abyss Corridors','Por personaje','Cada'],['Misiones secundarias, sealed dungeons, strongholds','Por personaje','Cada']];
+$('altTbl').innerHTML='<tr><th>Sistema</th><th>Alcance</th><th>Hazlo en</th></tr>'+alts.map(a=>`<tr><td>${a[0]}</td><td class="muted">${a[1]}</td><td>${a[2]==='Main'?'<span class="tag t-main">Main</span>':a[2]==='Once'?'<span class="tag t-gold">Cualquier pj, una vez</span>':'<span class="tag t-alt">Cada pj</span>'}</td></tr>`).join('');
+
+/* escalera */
+const ladder=[['~1,000','Nv 45 · MSQ terminada',30,'Se desbloquean las Expeditions iniciales: <b>Krao Cave</b> y <b>Draupnir</b>. Deja a los alts aquí para farmear Odyle.'],['1,000–1,300','Contenido horizontal',45,'Completa todos los strongholds (cinturón), sealed dungeons y plumas (Revelation Amulet). Es el mayor salto de poder del juego.'],['1,300–1,600','Empieza la rutina',60,'Duties, Shugo Festival, grietas, pergaminos de mando. Sube la mejora del arma y la guarda.'],['1,400','Objetivo semana 1',55,'<b>Vakron Sky Island</b> se vuelve farmeable. Repítela una y otra vez para conseguir la armadura Vakron.'],['1,600–1,800','Abismo + Transcendence',75,'Prioriza los Abyss Points. Farmea las mazmorras Transcendence para cartas Arcana (las verdes valen ~40 IL cada una).'],['1,800–2,200','Vakron + Fire Temple',88,'Sube el equipo Vakron a +10. Fire Temple suelta armas y alas de Kromede.'],['2,200+','Nivel más difícil',100,'Abyssal Forge: Ludra (raid de 10 jugadores) y dificultades más altas.']];
+$('ladder').innerHTML=ladder.map(l=>`<div class="rung"><div class="il">${l[0]}<small>${l[1]}</small></div><div class="card"><div class="bar"><i style="width:${l[2]}%"></i></div><div class="small">${l[3]}</div></div></div>`).join('');
+
+/* mazmorras */
+const dgs=[
+ ['Krao Cave','Expedition · nivel 1','1–5 jugadores',40,'Enhanced Harcon · Neglected Gadioton · <b>Ultimate Berk</b>','Los Lepharists crearon aquí al constructo de guerra Berk, que enloqueció, usando el mineral repelente Krao.',[['Accessory/Icon_ACC_Ring_0066','Berk Ring'],['Accessory/Icon_ACC_NL_0066','Berk Necklace'],['Accessory/Icon_ACC_ER_0066','Berk Earrings'],['ETC/Icon_Enchant_Bless_Stone_003','Enhance Stone']],S+'a96f14cfe58c052192f5425a154f389069ddd7ca/ss_a96f14cfe58c052192f5425a154f389069ddd7ca.600x338.jpg','Hazla solo en el Nv 22 y no abras el cubo. Después, es el farmeo de los alts.'],
+ ['Draupnir','Expedition · Abismo','1–5 jugadores',40,'Phantasmal Lakshmi · Predator Saraswati · <b>Transcendent Bakarma</b>','Una fortaleza de la Bakarma Brigade que cayó al Abismo.',[['Armor/Icon_GM_0059_T05_Helmet','Bakarma Helm'],['Armor/Icon_GM_0059_T05_Gloves','Bakarma Gloves'],['Armor/Icon_GM_0059_T05_Cape','Bakarma Cloak']],S+'d377a394eff9e104aa8dcfa0547f03013172801a/ss_d377a394eff9e104aa8dcfa0547f03013172801a.600x338.jpg','Mazmorra de introducción a Conquest. La otra buena forma de gastar Odyle en alts.'],
+ ['Ferocious Horn Den','Expedition · Abismo','1–5 jugadores',40,'Watchdog Kwapo · Necromancer Duanka · <b>Ferocious Horn Nuakum</b>','Una guarida de la tribu Mau, deformada por el Fafnite. Ojo con las fases de orbes y tótems.',[['Armor/Icon_Equip_AR_L_Idris_01_Helmet','Nuakum Helm'],['Armor/Icon_Equip_AR_L_Idris_01_Gloves','Nuakum Gloves'],['Armor/Icon_Equip_AR_L_Idris_01_Cape','Nuakum Cloak']],S+'caa60f1a365dd7802a523b18c870bb31550fb2f5/ss_caa60f1a365dd7802a523b18c870bb31550fb2f5.600x338.jpg','Opción de armadura de nivel medio.'],
+ ['Vakron Sky Island','Expedition · Etheria','2–5 jugadores',40,'Thamon · Tiere · <b>Boulder Lord Vakron</b>','Una isla flotante mutada por la energía del Spirit Realm.',[['Armor/Icon_Equip_AR_L_0028_T05_Torso','Vakron Breastplate'],['Armor/Icon_Equip_AR_L_0028_T05_Helmet','Vakron Helm'],['Accessory/Icon_Weapon_Guarder_U_003','Vakron Guard']],S+'655135a8d7ddc32bff9f5cf067dab9737c10bccc/ss_655135a8d7ddc32bff9f5cf067dab9737c10bccc.600x338.jpg','<b>Objetivo principal de la semana 1 (1,400 IL).</b> Farméala para el set de armadura.'],
+ ['Fire Temple','Expedition · 30 Odyle','1–5 jugadores',30,'Red Spark Ignus · Black Smoke Murute · <b>Kromede\'s Desire</b>','Kromede, la Judicator caída, consumida por el Mirror of Desire.',[['Weapon/Icon_WP_GS_0056_T06','Kromede Claymore'],['Weapon/Icon_WP_BW_0056_T06','Kromede Longbow'],['Wing/Icon_WingB_014','Kromede Wings']],S+'50b3fefe4800488a7bbd483790676e7fb38b1b09/ss_50b3fefe4800488a7bbd483790676e7fb38b1b09.600x338.jpg','Camino de mejora de arma. Aprende las mecánicas del refrigerante y el Obelisk.'],
+ ['Abyssal Forge: Ludra','Raid','10 jugadores',40,'<b>Eternal Ludra</b>','Raid del Sanctuary, dos veces por semana. Poca prioridad para jugadores nuevos.',[['Weapon/Icon_WP_GS_0108_T06',"Ludra's Blade of Extinction"],['Weapon/Icon_WP_SW_0108_T06',"Ludra's Scale Sword"],['Weapon/Icon_WP_DA_0108_T06',"Ludra's Claw"]],S+'a2f4f44f1d3b0b68ae450f2d5f4a08877186d78e/ss_a2f4f44f1d3b0b68ae450f2d5f4a08877186d78e.600x338.jpg','Las mejores armas. Vuelve cuando tengas 2,000+ IL.']
+];
+$('dgGrid').innerHTML=dgs.map(d=>`<div class="card pad0 dg"><div class="media"><img loading="lazy" src="${d[7]}" alt=""><div class="cap">${d[0]}<small>${d[1]}</small></div></div><div class="body"><div class="meta"><span class="tag t-gold">${d[2]}</span><span class="tag t-green">${d[3]} Odyle / cubo</span></div><div class="small muted" style="margin-bottom:8px">${d[5]}</div><div class="bosses">Jefes: ${d[4]}</div><div class="iconrow">${d[6].map(x=>ic(x[0],x[1],'g41')).join('')}</div><div class="small" style="margin-top:10px">${d[8]}</div></div></div>`).join('');
+
+/* sistemas de poder */
+const power=[
+ [[['Accessory/Icon_Acc_Belt_C_022','Noble Belt'],['ETC/Icon_Item_Usable_EnchantScroll_Belt_001','Belt Enhance Scroll']],'Cinturón','Sale de los strongholds. <b>Súbelo al máximo antes de avanzar</b>, porque después no se puede intercambiar.'],
+ [[['ETC/Icon_Item_Craft_Conversion_Crystal_L_lv5_01','Revelation Amulet'],['ETC/Icon_Item_Usable_EnchantScroll_Amulet_001','Amulet Enhance Scroll']],'Revelation Amulet','Se mejora con plumas en el Monolith. Misma regla que el cinturón: termínalo pronto.'],
+ [[['ETC/Icon_Enchant_Bless_Stone_003','Enhance Stone'],['Weapon/Icon_WP_GS_0056_T06','Kromede Claymore']],'Mejora de equipo','Primero arma y guarda. Llévalas a +5 antes de avanzar. El crafteo por transferencia conserva el nivel de mejora.'],
+ [[['ETC/Icon_Item_Usable_Potion_Skillpoint_004','Daevanion Crystal'],['ETC/Icon_Item_Usable_Potion_Skillpoint_006','Daevanion Crystal: Ariel'],['ETC/Icon_Item_Usable_Potion_Skillpoint_007','Daevanion Crystal: Azphel']],'Tablero Daevanion','Esquinas → umbrales → centro. Las ramas de Ariel y Azphel se desbloquean más tarde. Los cristales salen de misiones secundarias, sealed dungeons, Nightmare y Ascension Trial.'],
+ [[['ETC/Icon_Arcana_Parchment_u_PveSet2','Arcana: Parchment of Vigor'],['ETC/Icon_Arcana_Grail_u_PveSet2','Arcana: Chalice of Vigor']],'Cartas Arcana','Colección de sets a largo plazo. Las sueltan las mazmorras Transcendence (las verdes ≈ 40 IL). Súbelas a nivel 5.'],
+ [[['ETC/Icon_StigmaShard','Stigma Shard'],['ETC/Icon_Usable_StigmaShard_Superior','Superior Stigma Shard']],'Habilidades y Stigmas','Las habilidades llegan a Nv 10 con fragmentos, y los nodos Daevanion las llevan a 12 y 16.'],
+ [[['ETC/Icon_Item_Soulcrystal_All','Soul Crystal'],['ETC/Icon_Item_Soulcrystal_Feral','Fera Soul Crystal'],['ETC/Icon_Item_Soulcrystal_Nature','Natura Soul Crystal']],'Mascotas / Genus','Soul Crystals de las duties y la tienda de suscriptores, más la mazmorra diaria Odylium Repository.'],
+ [[['Wing/Icon_WingA_005','Nightmare Wings'],['Wing/Icon_WingF_002','Odyle Wings'],['Wing/Icon_WingC_003','Conqueror Wings']],'Pantheon y colecciones','Estatuas, cuadros y artefactos de Nightmare, mazmorras y jefes del mundo. Es la vía más lenta, así que empieza pronto.'],
+ [[['ETC/Icon_Currency_Coin_GoldNonbinding','Kina'],['ETC/Icon_Currency_Coin_GoldBinding','Kina (Bound)'],['ETC/icon_battlepass','Daeva Pass Coin']],'Kinah y Daeva Pass','La Kinah de exploración está ligada (bound), pero la de las mazmorras Conquest se puede comerciar: otra razón para tener alts. Sube el Daeva Pass en cada personaje.']
+];
+$('powerGrid').innerHTML=power.map(p=>`<div class="card"><div class="iconrow" style="margin:0 0 12px">${p[0].map(x=>ic(x[0],x[1],'g41')).join('')}</div><h3>${p[1]}</h3><div class="small muted">${p[2]}</div></div>`).join('');
+
+/* semana 1 */
+const ea=[['Día 1','Mié 30 sep','<b>Todos los personajes → Nv 22</b> (empieza su recarga de Odyle). Luego lleva <b>tu main al 45</b>, lo que desbloquea la recarga de tickets de Nightmare y las duties. Haz tus primeras <b>5 duty quests</b>.'],['Días 2–6','Jue → Lun','Cada día: primero las 5 duties. <b>Prioridad 1:</b> sube los alts al 45 y luego completa todo el contenido secundario en tu main (MSQ, misiones verdes, cada "?" de sealed dungeon y stronghold, plumas) hasta llegar a <b>1,400 IL</b>. <b>Prioridad 2:</b> 3 victorias en battlefield, Shugo Festival, corridors y luego el contenido secundario de los alts. Tómate tu tiempo, no hay prisa.'],['Día 3–4+','al llegar a 1,400 IL','Empieza a farmear <b>Vakron Sky Island</b> con tu main. Los alts hacen Draupnir y Krao Cave con su Odyle.'],['Día 7','Mar 6 oct','Todo lo que se reinicia: Nightmare (tickets en 14/14; reta el nivel más alto que puedas), Ascension Trial ×3 (Normal con ~1,500 IL), las 14 daily dungeons, crafteos de Odyle, tienda de suscriptores y compra de pergaminos de mando. Gasta la Odyle antes de que llegue al tope.']];
+const f2p=[['Día 1','Lun 5 oct','Igual que en acceso anticipado: <b>todos los personajes → Nv 22</b>, main → 45, 5 duty quests.'],['Día 2','Mar 6 oct','<b>Prioridad 1:</b> Ascension Trial ×3 + las 14 daily dungeons, los crafteos de Odyle y la tienda de suscriptores (si te alcanza). <b>Prioridad 2:</b> 5 duties, compra los pergaminos de mando PvE/PvP, sube alts (para que hagan Ascension Trial y empiecen a recargar Nightmare). <b>Prioridad 3:</b> battlefields y luego empieza el contenido secundario en tu main.'],['Día 3+','Reinicio del mié 7 oct','Pasa al ritmo normal del acceso anticipado: contenido secundario → 1,400 IL → Vakron, y mantén toda la energía por debajo del tope.']];
+const dayHtml=a=>a.map(d=>`<div class="day"><div class="d">${d[0]}<small>${d[1]}</small></div><div class="small">${d[2]}</div></div>`).join('');
+$('tl-ea').innerHTML=dayHtml(ea);$('tl-f2p').innerHTML=dayHtml(f2p);
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));document.querySelectorAll('.tl').forEach(t=>t.classList.toggle('on',t.id==='tl-'+b.dataset.tl));});
+
+/* errores */
+const mist=[['Correr la MSQ y saltarte el contenido secundario','Igual vas a chocar con los muros de ascensión, y el contenido secundario es de donde salen los puntos Daevanion, los puntos de habilidad y el equipo.'],['Dejar que la energía llegue al tope','Odyle en 840 o Nightmare/Shugo en 14 es progresión perdida para siempre. No se recupera el fin de semana.'],['Abrir el cubo de Krao Cave mientras subes','Guarda esa Odyle para mazmorras con mejor botín.'],['Mejorar todas las piezas de equipo','Mientras subes solo valen la pena el arma y la guarda. Desmantela el resto para sacar Enhance Stones.'],['Hacer contenido por servidor con alts','Duties, daily dungeons y llaves Shugo se comparten por servidor. Gástalos siempre en tu main.'],['Hacer Ascension Trial y Nightmare el día 1','Espera a estar más fuerte al final de la semana para niveles más altos y mejores recompensas. Solo no te pierdas el reinicio.'],['Olvidar comprar los pergaminos semanales','Los pergaminos de mando solo hay que <i>comprarlos</i> antes del reinicio. Acumúlalos y complétalos después.'],['Empezar tarde con Pantheon','Es la vía de progresión más lenta. Empieza la colección en la semana 1.'],['Abandonar a los alts tras una semana','Su Odyle, Nightmare y trials por personaje solo rinden si los sigues usando.']];
+$('mistakeGrid').innerHTML=mist.map(m=>`<div class="card"><h3 style="font-family:Inter;font-size:15px;color:var(--crim)">✕ ${m[0]}</h3><div class="small muted" style="margin-top:6px">${m[1]}</div></div>`).join('');
+
+/* reproducir videos solo cuando se ven */
+const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play&&v.play().catch(()=>{})}else{v.pause&&v.pause()}}),{threshold:.35});
+document.querySelectorAll('video.lazyplay').forEach(v=>io.observe(v));
+</script>
+</body>
+</html>
