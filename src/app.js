@@ -159,6 +159,7 @@ function header(){
   document.body.classList.toggle('home',S.view==='home');
   $('contSeg').innerHTML=contentSeg();$('modeNote').innerHTML=modeNote();
   $('tabs').innerHTML=tabsFor(C).map(t=>`<button class="tab ${t===S.tab?'on':''}" data-t="${t}">${u('t_'+t)}</button>`).join('');
+  {const w=$('tabs'),on=w.querySelector('.tab.on');if(on)w.scrollLeft=on.offsetLeft-(w.clientWidth-on.clientWidth)/2}
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+S.tab));
   $('ctlbar').classList.toggle('show',['skills','daevanion','macro','leveling'].includes(S.tab));
   $('tLv').textContent=u('lv');$('tCr').textContent=u('cr');
