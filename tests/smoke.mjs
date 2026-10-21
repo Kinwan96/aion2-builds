@@ -17,8 +17,18 @@ await page.waitForTimeout(500);
 const problems = [];
 for (const width of [1280, 375]) {
   await page.setViewportSize({ width, height: 800 });
+  // Home screen: class grid, timers with real numbers, no overflow.
+  for (const lang of ['en', 'es']) for (const region of ['global', 'krtw']) {
+    const h = await page.evaluate(([l, r]) => { S.view = 'home'; S.lang = l; S.region = r; renderAll();
+      const t = document.getElementById('tmRows');
+      return { cards: document.querySelectorAll('.ccard').length, timers: t ? t.querySelectorAll('.tmr').length : 0,
+        txt: t ? t.textContent : '', w: document.documentElement.scrollWidth }; }, [lang, region]);
+    if (h.cards !== ORDER.length) problems.push(`home/${lang}: ${h.cards} class cards`);
+    if (h.timers !== 3 || /NaN|undefined|Invalid/.test(h.txt)) problems.push(`home/${lang}/${region}: broken timers "${h.txt.slice(0, 80)}"`);
+    if (h.w > width) problems.push(`home/${lang}/${region}: overflow ${h.w}px at ${width}px`);
+  }
   for (const cls of ORDER) for (const mode of ['simple', 'adv']) for (const lang of ['en', 'es']) {
-    const tabs = await page.evaluate(([c, m, l]) => { S.cls = c; S.mode = m; S.lang = l; S.tab = 'overview'; renderAll();
+    const tabs = await page.evaluate(([c, m, l]) => { S.view = 'class'; S.cls = c; S.mode = m; S.lang = l; S.tab = 'overview'; renderAll();
       return [...document.querySelectorAll('.tab')].map(t => t.dataset.t); }, [cls, mode, lang]);
     for (const tab of tabs) {
       const r = await page.evaluate(t => { S.tab = t; renderAll();
@@ -29,8 +39,22 @@ for (const width of [1280, 375]) {
     }
   }
 }
+// Router: a deep link opens the class tab, and back returns to the previous view.
+await page.evaluate(() => { location.hash = '#/'; });
+await page.waitForTimeout(100);
+await page.evaluate(() => { location.hash = '#/ranger/genus'; });
+await page.waitForTimeout(100);
+const deep = await page.evaluate(() => ({ v: S.view, c: S.cls, t: S.tab, on: document.querySelector('.panel.on')?.id }));
+if (deep.v !== 'class' || deep.c !== 'ranger' || deep.t !== 'genus' || deep.on !== 'p-genus') problems.push(`router: #/ranger/genus gave ${JSON.stringify(deep)}`);
+await page.goBack();
+await page.waitForTimeout(100);
+if (await page.evaluate(() => S.view) !== 'home') problems.push('router: back did not return home');
+await page.evaluate(() => { location.hash = '#/nope/x'; });
+await page.waitForTimeout(100);
+if (await page.evaluate(() => S.view) !== 'home') problems.push('router: unknown class did not fall back to home');
+
 await page.setViewportSize({ width: 1280, height: 900 });
-await page.evaluate(() => { S.cls = 'sorcerer'; S.mode = 'simple'; S.lang = 'en'; S.tab = 'overview'; renderAll(); });
+await page.evaluate(() => { S.view = 'class'; S.cls = 'sorcerer'; S.mode = 'simple'; S.lang = 'en'; S.tab = 'overview'; renderAll(); });
 await page.screenshot({ path: join(root, 'tests/last-run.png'), fullPage: true });
 await browser.close();
 

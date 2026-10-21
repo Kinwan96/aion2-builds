@@ -9,7 +9,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#090b12;--bg2:#0e1220;--card:#141826;--card2:#1a1f31;--line:#262c42;--line2:#323a56;--text:#e8eaf2;--muted:#959cb4;--dim:#6b7290;
---gold:#e3b766;--gold2:#f5d9a0;--acc:#e3b766;--ok:#5fd49a;--bad:#e2536b;--vio:#b48cff;--sky:#6fc3ff;--r:14px}
+--gold:#e3b766;--gold2:#f5d9a0;--acc:#e3b766;--ok:#5fd49a;--bad:#e2536b;--vio:#b48cff;--sky:#6fc3ff;--r:14px;
+/* item rarity frames (in-game grade colours) */
+--rar-common:#b6bcc6;--rar-green:#7bd36f;--rar-blue:#4ea8ff;--rar-gold:#f0c24e;--rar-orange:#ff8b3d;
+/* timer accents */
+--t-rift:#b48cff;--t-shugo:#f0c24e;--t-reset:#6fc3ff;
+/* elevation + spacing + motion */
+--e1:0 1px 0 rgba(255,255,255,.04) inset,0 6px 18px rgba(0,0,0,.28);
+--e2:0 1px 0 rgba(255,255,255,.06) inset,0 18px 48px rgba(0,0,0,.45);
+--s1:6px;--s2:12px;--s3:20px;--s4:32px;--s5:56px;
+--ease:cubic-bezier(.16,1,.3,1)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 *{box-sizing:border-box}html{scroll-behavior:smooth}
 body{margin:0;background:radial-gradient(1200px 600px at 70% -10%,color-mix(in srgb,var(--acc) 14%,transparent),transparent 60%),var(--bg);color:var(--text);font:14px/1.55 Inter,system-ui,sans-serif;min-height:100vh}
 a{color:var(--sky)}img{display:block;max-width:100%}
@@ -23,7 +33,10 @@ h3{font:700 14px Inter;color:#fff}
 /* top bar */
 .top{position:sticky;top:0;z-index:50;background:rgba(9,11,18,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;gap:10px;height:58px}
-.logo{font:700 16px Cinzel;color:var(--gold);white-space:nowrap;margin-right:auto;display:flex;align-items:center;gap:8px}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.top,#vClass,.vhome,footer{position:relative;z-index:1}.top{z-index:50}
+.logo{font:700 16px Cinzel;color:var(--gold);white-space:nowrap;margin-right:auto;display:flex;align-items:center;gap:8px;text-decoration:none}
+.logo .lmark{width:18px;height:18px;filter:drop-shadow(0 0 6px color-mix(in srgb,var(--gold) 60%,transparent))}
 .logo span{color:var(--muted);font:600 11px Inter;letter-spacing:.14em;text-transform:uppercase}
 .picker{position:relative}
 .pickbtn{display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line2);border-radius:12px;padding:5px 10px 5px 5px;cursor:pointer;min-width:170px}
@@ -232,23 +245,103 @@ footer{border-top:1px solid var(--line);padding:22px 0 40px;color:var(--muted);f
 body.adv .advonly{display:block}body.adv .simpleonly{display:none}
 body.adv .advonly.flex{display:flex}
 
+/* views */
+body.home #vClass,body:not(.home) #vHome{display:none}
+body.home #modeSeg{display:none}
+.vhome{overflow-x:clip}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.btn{text-decoration:none;display:inline-flex;align-items:center;gap:6px;transition:transform .2s var(--ease),background .2s}
+.btn:hover{background:color-mix(in srgb,var(--acc) 10%,transparent)}
+.btn.pri{background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1a1206;border-color:transparent;box-shadow:0 6px 24px color-mix(in srgb,var(--gold) 35%,transparent)}
+.btn.pri:hover{transform:translateY(-1px)}
+.btn:focus-visible,.ccard:focus-visible,.gcard2:focus-visible,.tab:focus-visible,.seg button:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
+
+/* ornament */
+.orn{display:flex;align-items:center;gap:12px;color:color-mix(in srgb,var(--gold) 70%,transparent);margin:var(--s4) 0 var(--s3)}
+.orn::before,.orn::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--gold) 45%,transparent))}
+.orn::after{transform:scaleX(-1)}
+.orn svg{width:64px;height:16px;flex:none}
+
+/* home hero */
+.hhero{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:var(--s4);align-items:center;padding:var(--s5) 0 var(--s3);position:relative}
+.hhero::before{content:"";position:absolute;inset:-40px -20vw 0;z-index:-1;pointer-events:none;
+ background:radial-gradient(600px 320px at 18% 30%,rgba(180,140,255,.14),transparent 70%),radial-gradient(520px 300px at 85% 40%,rgba(227,183,102,.12),transparent 70%),
+ repeating-linear-gradient(115deg,transparent 0 46px,rgba(255,255,255,.018) 46px 47px)}
+.hh-txt h1{font:700 clamp(30px,5vw,54px)/1.05 Cinzel,serif;margin:6px 0 14px;background:linear-gradient(180deg,#fff 30%,var(--gold2));-webkit-background-clip:text;background-clip:text;color:transparent;text-wrap:balance}
+.hh-txt p{color:#c9cdd8;font-size:15px;max-width:520px;margin:0}
+.hh-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:var(--s3)}
+.hh-cta .btn{padding:10px 16px;font-size:13.5px}
+
+/* timers */
+.tmcard{background:linear-gradient(180deg,rgba(26,31,49,.92),rgba(14,18,32,.92));border:1px solid var(--line2);border-radius:18px;padding:16px;box-shadow:var(--e2);backdrop-filter:blur(8px);position:relative}
+.tmcard::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(140deg,color-mix(in srgb,var(--gold) 60%,transparent),transparent 40%,transparent 70%,rgba(180,140,255,.5));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.tmhead{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.tmsel select{background:var(--card);color:var(--text);border:1px solid var(--line2);border-radius:9px;padding:5px 8px;font:600 12px Inter;max-width:200px}
+.tmr{display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 12px;margin-bottom:8px;border-radius:12px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--tc)}
+.tmr .tg{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;color:var(--tc);background:color-mix(in srgb,var(--tc) 14%,transparent);box-shadow:0 0 18px color-mix(in srgb,var(--tc) 25%,transparent) inset}
+.tmr .tg svg{width:24px;height:24px}
+.tmr .tt{min-width:0;display:flex;flex-direction:column;line-height:1.25}
+.tmr .tt b{font-size:13.5px}.tmr .tt span{font:700 10px Inter;letter-spacing:.08em;text-transform:uppercase;color:var(--tc)}
+.tmr .tt small{font-size:11.5px;color:var(--muted)}
+.tmr .tt em{font-style:normal;color:var(--ok);font-weight:800}
+.tmr .tc{font:700 18px Cinzel;color:#fff;white-space:nowrap;font-variant-numeric:tabular-nums}
+.tmr .tc small{font:600 10px Inter;color:var(--muted);margin:0 3px 0 1px}
+.tmr.live{border-color:color-mix(in srgb,var(--ok) 50%,transparent);border-left-color:var(--ok)}
+.tmr.live .tg{animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.08);box-shadow:0 0 24px color-mix(in srgb,var(--tc) 55%,transparent) inset}}
+
+/* class grid */
+.hsec{font-size:clamp(20px,2.4vw,26px);margin-bottom:var(--s2)}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:var(--s2)}
+.ccard{--cc:var(--gold);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:16px;text-decoration:none;color:var(--text);
+ background:linear-gradient(160deg,color-mix(in srgb,var(--cc) 16%,var(--card)) 0%,var(--card) 55%);border:1px solid color-mix(in srgb,var(--cc) 28%,var(--line));box-shadow:var(--e1);
+ transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s}
+.ccard:hover{transform:translateY(-4px);border-color:color-mix(in srgb,var(--cc) 65%,transparent);box-shadow:var(--e2),0 0 34px color-mix(in srgb,var(--cc) 22%,transparent)}
+.ccard .cbg{position:absolute;right:-34px;bottom:-34px;width:150px;height:150px;opacity:.09;filter:saturate(0) brightness(2);transform:rotate(-12deg);transition:transform .5s var(--ease),opacity .35s;pointer-events:none}
+.ccard:hover .cbg{opacity:.16;transform:rotate(-4deg) scale(1.06)}
+.ctop{display:flex;gap:12px;align-items:center}
+.cem{width:56px;height:56px;border-radius:14px;flex:none;padding:3px;background:conic-gradient(from 210deg,var(--cc),transparent 40%,var(--cc) 70%,transparent);box-shadow:0 0 22px color-mix(in srgb,var(--cc) 35%,transparent)}
+.cem img{width:100%;height:100%;border-radius:11px;background:var(--bg2)}
+.ccard h3{font:700 19px Cinzel,serif;color:#fff}
+.crole{font:700 10.5px Inter;letter-spacing:.1em;text-transform:uppercase;color:var(--cc)}
+.ccard p{margin:0;font-size:12.5px;color:#c3c8d6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.cfoot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;font-size:12px;color:var(--muted)}
+.ccard .diff i.on{background:var(--cc)}
+.cchips{display:flex;gap:5px;flex-wrap:wrap}
+.cchips span{font:700 10px Inter;letter-spacing:.05em;text-transform:uppercase;padding:2px 8px;border-radius:99px;border:1px dashed var(--line2);color:var(--dim)}
+.cchips span.on{border-style:solid;border-color:color-mix(in srgb,var(--cc) 50%,transparent);color:#fff;background:color-mix(in srgb,var(--cc) 14%,transparent)}
+
+/* guide cards */
+.ggrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:var(--s2);margin-bottom:var(--s4)}
+.gcard2{display:flex;gap:14px;align-items:flex-start;padding:16px;border-radius:16px;text-decoration:none;color:var(--text);background:var(--card);border:1px solid var(--line);transition:transform .3s var(--ease),border-color .3s}
+.gcard2:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--gold) 50%,transparent)}
+.gcard2 .gg{width:46px;height:46px;flex:none;border-radius:12px;display:grid;place-items:center;color:var(--gold2);background:radial-gradient(circle at 50% 30%,color-mix(in srgb,var(--gold) 25%,transparent),transparent 70%),var(--card2);border:1px solid color-mix(in srgb,var(--gold) 35%,var(--line))}
+.gcard2 .gg svg{width:26px;height:26px}
+.gcard2 h3{font:700 15px Cinzel,serif;color:var(--gold2)}
+.gcard2 p{margin:4px 0 6px;font-size:12.5px;color:var(--muted)}
+.gfor{font:700 11px Inter;color:var(--acc)}
+
+@media (max-width:860px){.hhero{grid-template-columns:1fr;padding-top:var(--s4)}}
 @media (max-width:860px){.dvwrap{grid-template-columns:1fr}.hero .row{grid-template-columns:64px 1fr}.hero .cls{width:64px;height:64px}.engine{grid-column:1/-1;max-width:none}}
 @media (max-width:640px){
  .wrap{padding:0 14px}.top .wrap{height:auto;flex-wrap:wrap;padding-top:8px;padding-bottom:8px;gap:8px}
  .logo{width:100%;margin:0}.pickbtn{min-width:0}.top{position:relative}.tabs{top:0}
  .pop{grid-template-columns:repeat(4,1fr);right:auto;left:0;width:calc(100vw - 28px)}
+ .tmr{grid-template-columns:34px minmax(0,1fr) auto;gap:9px;padding:9px 10px}.tmr .tg{width:34px;height:34px}.tmr .tc{font-size:15px}
  .ctl input[type=range]{width:110px}.hslot{width:60px}.hcell{width:50px;height:50px}
 }
 </style>
 </head>
 <body>
 <div class="top"><div class="wrap">
-  <div class="logo">AION 2 <span id="tTitle">Class Builds</span></div>
+  <a class="logo" href="#/"><svg class="lmark" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3z" fill="currentColor"/></svg>AION 2 <span id="tTitle">Class Builds</span></a>
   <div class="picker"><button class="pickbtn" id="pickBtn"></button><div class="pop" id="pop"></div></div>
   <div class="seg" id="modeSeg"><button data-m="simple"></button><button data-m="adv"></button></div>
   <div class="lang" id="langSw"><span>EN</span><div class="sw"></div><span>ES</span></div>
 </div></div>
 
+<main id="vHome" class="vhome"></main>
+<div id="vClass">
 <header class="hero"><div class="wrap"><div class="row">
   <img class="cls" id="hIcon" alt="" onerror="FB(this)">
   <div><h1 id="hName"></h1><p id="hSum"></p><div class="chips" id="hChips"></div></div>
@@ -274,12 +367,14 @@ body.adv .advonly.flex{display:flex}
   <section class="panel" id="p-genus"></section>
   <section class="panel" id="p-gear"></section>
 </div></main>
+</div>
 <footer><div class="wrap" id="foot"></div></footer>
 <div class="tipbox" id="tipbox"></div>
 <script>
 const DATA=/*DATA*/;
 const LAYOUT=/*LAYOUT*/;
 const BOARDS=/*BOARDS*/;
+const SHARED=/*SHARED*/;
 /*APP*/
 </script>
 </body>

@@ -52,7 +52,7 @@ const U={
  cdNone:['no cooldown','sin enfriamiento'],unlock:['unlocks Lv','se desbloquea Nv'],charge:['charge','carga'],
  skipWhy:['Low priority for this build.','Baja prioridad para esta build.']
 };
-let S={cls:'sorcerer',lang:'en',mode:'simple',tab:'overview',lv:45,cr:136,auto:true,board:'nezekan',load:0,preset:1,macro:'endgame'};
+let S={view:'home',cls:'sorcerer',lang:'en',mode:'simple',tab:'overview',lv:45,cr:136,auto:true,board:'nezekan',load:0,preset:1,macro:'endgame',region:'global'};
 try{Object.assign(S,JSON.parse(localStorage.getItem('a2builds')||'{}'))}catch(e){}
 const save=()=>{try{localStorage.setItem('a2builds',JSON.stringify(S))}catch(e){}};
 const L=()=>S.lang==='es'?1:0;
@@ -152,15 +152,17 @@ function header(){
   $('hSum').textContent=T(C.summary);
   $('hChips').innerHTML=`<span class="chip"><b>${u('weapon')}</b>${esc(T(C.weapon))}</span><span class="chip" style="display:flex;gap:6px;align-items:center"><b>${u('diff')}</b><span class="diff">${[1,2,3].map(i=>`<i class="${i<=(C.difficulty||2)?'on':''}"></i>`).join('')}</span></span>`;
   $('tEngine').textContent=u('engine');$('hEngine').textContent=T(C.engine);
-  const tabs=['overview',...(C.pro?['pro']:[]),'skills','stigmas','daevanion','macro','rotation','leveling','genus','gear'];
-  $('tabs').innerHTML=tabs.map(t=>`<button class="tab ${t===S.tab?'on':''}" data-t="${t}">${u('t_'+t)}</button>`).join('');
+  document.body.classList.toggle('home',S.view==='home');
+  $('tabs').innerHTML=tabsFor(C).map(t=>`<button class="tab ${t===S.tab?'on':''}" data-t="${t}">${u('t_'+t)}</button>`).join('');
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+S.tab));
   $('ctlbar').classList.toggle('show',['skills','daevanion','macro','leveling'].includes(S.tab));
   $('tLv').textContent=u('lv');$('tCr').textContent=u('cr');
   $('lvR').value=S.lv;$('lvO').textContent=S.lv;const cr=S.auto?crAt(S.lv):S.cr;$('crR').value=cr;$('crO').textContent=cr;
   $('crSeg').innerHTML=[136,316,365,570].map(v=>`<button data-c="${v}" class="${!S.auto&&S.cr===v?'on':''}">${v}</button>`).join('')+`<button data-c="auto" class="${S.auto?'on':''}">${u('auto')}</button>`;
-  $('foot').innerHTML=`<b style="color:var(--gold2)">${u('sources')}</b> · ${(C.sources||[]).map(s=>`<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')}<p>${u('foot')}</p>`;
+  $('foot').innerHTML=S.view==='home'?`<p>${u('foot')}</p>`:`<b style="color:var(--gold2)">${u('sources')}</b> · ${(C.sources||[]).map(s=>`<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')}<p>${u('foot')}</p>`;
 }
+/** Tabs shown for a class, in order. The router accepts only these. */
+const tabsFor=c=>['overview',...(c.pro?['pro']:[]),'skills','stigmas','daevanion','macro','rotation','leveling','genus','gear'];
 const ranked=t=>C.skills.filter(s=>s.t===t&&s.rank>0).sort((a,b)=>a.rank-b.rank);
 function eqSpecs(s,eff,end){const slots=eff>=16?3:eff>=12?2:eff>=8?1:0;const rk=(end?s.pickEnd:s.pickLev)||[];return {eq:rk.filter(i=>s.sp[i]&&eff>=s.sp[i][0]).slice(0,slots),slots}}
 function specRows(s,eff,end,onlyEq){const {eq}=eqSpecs(s,eff,end);return s.sp.map((sp,i)=>{const on=eq.includes(i),lock=eff<sp[0];if(onlyEq&&!on)return '';return `<div class="spec ${on?'eq':''} ${lock?'lock':''}"><span class="lv">${sp[0]}</span><span>${esc(S.lang==='es'&&sp[2]?sp[2]:sp[1])}</span><span class="st">${on?u('equipNow'):lock?u('locked'):''}</span></div>`}).join('')}
@@ -321,28 +323,13 @@ function pPro(){
   </div>`;
 }
 function renderAll(){
+  if(!DATA[S.cls])S.cls=ORDER[0];
   C=DATA[S.cls];SK={};C.skills.forEach(s=>SK[s.n]=s);
   if(!C.stigma.loadouts[S.load])S.load=0;
   buildBoards();SIM=simulate();P=curPlan();
-  if(S.tab==='pro'&&!C.pro)S.tab='overview';
-  header();pOverview();pPro();pSkills();pStigmas();pDaev();pMacro();pRotation();pLeveling();pGenus();pGear();save();
+  if(!tabsFor(C).includes(S.tab))S.tab='overview';
+  header();
+  if(S.view==='home'){pHome()}
+  else{stopTimers();pOverview();pPro();pSkills();pStigmas();pDaev();pMacro();pRotation();pLeveling();pGenus();pGear()}
+  syncHash(false);save();
 }
-/* events */
-document.addEventListener('click',e=>{
-  const t=e.target.closest('button,.lang');if(!t){$('pop').classList.remove('on');return}
-  if(t.id==='pickBtn'){$('pop').classList.toggle('on');return}
-  if(t.dataset.c&&t.closest('#pop')){S.cls=t.dataset.c;S.load=0;$('pop').classList.remove('on');renderAll();return}
-  $('pop').classList.remove('on');
-  if(t.dataset.m){S.mode=t.dataset.m;renderAll();return}
-  if(t.id==='langSw'){S.lang=S.lang==='en'?'es':'en';renderAll();return}
-  if(t.dataset.t){S.tab=t.dataset.t;header();{const tb=document.querySelector('.tabs');const y=tb.getBoundingClientRect().top+scrollY-(innerWidth>640?58:0);if(scrollY>y)window.scrollTo({top:y,behavior:'smooth'})};save();return}
-  if(t.closest('#crSeg')){if(t.dataset.c==='auto')S.auto=true;else{S.cr=+t.dataset.c;S.auto=false}renderAll();return}
-  if(t.closest('#loadSeg')){S.load=+t.dataset.l;pStigmas();save();return}
-  if(t.closest('#dvTabs')){S.board=t.dataset.b;pDaev();save();return}
-  if(t.closest('#presets')){S.preset=+t.dataset.p;renderAll();return}
-  if(t.closest('#macSeg')){S.macro=t.dataset.x;pMacro();save();return}
-  if(t.id==='copyBtn'){navigator.clipboard.writeText(`AION 2 ${T(C.name)} macro\n${window._macro}`).then(()=>$('copyMsg').textContent=u('copied')).catch(()=>{});return}
-});
-$('lvR').oninput=e=>{S.lv=+e.target.value;renderAll()};
-$('crR').oninput=e=>{S.cr=+e.target.value;S.auto=false;renderAll()};
-renderAll();

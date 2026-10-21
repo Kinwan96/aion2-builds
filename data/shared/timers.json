@@ -1,0 +1,17 @@
+{
+  "_notes": "All times UTC. Global = one schedule for NA/EU/SA/Asia servers. Rift: every 3 h from 00:00 UTC, open ~10 min. Shugo Festival: hourly at :00, 3 min to enter. Weekly reset: Wednesday 07:00 UTC. KR/TW: Rift from 23:00 UTC, reset Tuesday 20:00 UTC (Wed 05:00 KST). Sources: metabot.gg daily/weekly checklist, expcarry.com timers, playnews.gg reset guide (checked 2026-10-21).",
+  "regions": {
+    "global": {
+      "label": { "en": "Global (NA · EU · SA · Asia)", "es": "Global (NA · EU · SA · Asia)" },
+      "rift": { "every": 3, "offset": 0, "open": 10 },
+      "shugo": { "every": 1, "offset": 0, "open": 3 },
+      "reset": { "dow": 3, "hour": 7 }
+    },
+    "krtw": {
+      "label": { "en": "Korea · Taiwan", "es": "Corea · Taiwán" },
+      "rift": { "every": 3, "offset": 23, "open": 10 },
+      "shugo": { "every": 1, "offset": 0, "open": 3 },
+      "reset": { "dow": 2, "hour": 20 }
+    }
+  }
+}
