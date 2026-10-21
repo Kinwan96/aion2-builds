@@ -56,7 +56,7 @@ const U={
  cdNone:['no cooldown','sin enfriamiento'],unlock:['unlocks Lv','se desbloquea Nv'],charge:['charge','carga'],
  skipWhy:['Low priority for this build.','Baja prioridad para esta build.']
 };
-let S={view:'home',cls:'sorcerer',lang:'en',mode:'simple',tab:'overview',lv:45,cr:136,auto:true,board:'nezekan',load:0,preset:1,macro:'endgame',region:'global',arcSet:'vigor',arcG:41};
+let S={view:'home',cls:'sorcerer',lang:'en',mode:'simple',tab:'overview',lv:45,cr:136,auto:true,board:'nezekan',load:0,preset:1,macro:'endgame',region:'global',arcSet:'vigor',arcG:41,genW:'cogni'};
 try{Object.assign(S,JSON.parse(localStorage.getItem('a2builds')||'{}'))}catch(e){}
 const save=()=>{try{localStorage.setItem('a2builds',JSON.stringify(S))}catch(e){}};
 const L=()=>S.lang==='es'?1:0;
@@ -267,24 +267,6 @@ function pLeveling(){
   <div class="advonly"><div class="list">${row(cur,'cur',true)}${nx.map(r=>row(r,'',false)).join('')}</div>
   <details><summary>${u('full')}</summary><div class="list" style="margin-top:10px">${SIM.filter(r=>r.buys.length||r.nu.length||ms.some(x=>x[0]===r.L)).map(r=>row(r,r.L<S.lv?'done':r.L===S.lv?'cur':'',r.L===S.lv)).join('')}</div></details>
   <div class="card" style="margin-top:12px"><div class="kick">${u('tips')}</div><ol class="simple small">${tips.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div></div>`;
-}
-const GCOL={cogni:'#4ea8ff',fera:'#e2536b',natura:'#5fd49a',varian:'#f0c24e',special:'#b48cff'};
-function pGenus(){
-  const g=C.genus,gn=U.genusNames[L()].split(','),grades=U.grades[L()].split(','),gc=['#b6bcc6','#7bd36f','#4ea8ff','#f0c24e','#ff8b3d'];
-  const items=(arr,n)=>(arr||[]).slice(0,n).map(([en,es,r])=>`<div class="it"><span class="rkd r${Math.min(r||1,3)}">${r||1}</span>${esc(S.lang==='es'&&es?es:en)}</div>`).join('');
-  const N=S.mode==='simple'?2:4;
-  const s4=Object.keys(GCOL).map((k,i)=>`<div class="card gcard gen" style="--gc:${GCOL[k]}"><h3>${gn[i]}</h3>${items(g.s4[k],N)}</div>`).join('');
-  const bars=[[4,[50,45,5,0,0]],[7,[35,34,30,1,0]],[9,[25,25,39,10,1]],[10,[20,30,30,15,5]]];
-  $('p-genus').innerHTML=`<div class="ph"><div><h2>${u('t_genus')}</h2><p>${u('genP')}</p></div></div>
-  <div class="kick">${u('s4')}</div><div class="grid g5">${s4}</div>
-  <div class="grid g3" style="margin-top:12px">
-   <div class="card gen"><h3>${u('s15')}</h3>${items(g.s15,N)}</div>
-   <div class="card gen"><h3>${u('s369')}</h3>${items(g.s369,N)}</div>
-   <div class="card gen"><h3>${u('s278')}</h3>${items(g.s278,N)}</div></div>
-  <div class="note">${esc(T(g.notes))}</div>
-  <div class="grid g2 advonly" style="margin-top:4px"><div class="card"><div class="kick">${u('lockW')}</div>${bars.map(([lv,a])=>`<div class="tiny muted">Lv ${lv}</div><div class="grbar">${a.map((p,i)=>`<i style="width:${p}%;background:${gc[i]}"></i>`).join('')}</div>`).join('')}<div class="leg">${grades.map((x,i)=>`<span><i style="background:${gc[i]}"></i>${x}</span>`).join('')}</div></div>
-   <div class="card"><div class="small" style="color:#d6d9e6">${u('lockTxt')}</div><div class="note">${u('smiteN')}</div></div></div>
-  <div class="note simpleonly">${u('lockTxt')}</div>`;
 }
 function pGear(){
   $('p-gear').innerHTML=`<div class="ph"><div><h2>${u('t_gear')}</h2></div></div>

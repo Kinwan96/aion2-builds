@@ -39,6 +39,7 @@ document.addEventListener('click',e=>{
   if(t.closest('#loadSeg')){S.load=+t.dataset.l;pStigmas();save();return}
   if(t.closest('#dvTabs')){S.board=t.dataset.b;pDaev();save();return}
   if(t.closest('#presets')){S.preset=+t.dataset.p;renderAll();return}
+  if(t.dataset.genw){S.genW=t.dataset.genw;pGenus();save();return}
   if(t.dataset.arcset){S.arcSet=t.dataset.arcset;pArcana();save();return}
   if(t.dataset.arcg){S.arcG=+t.dataset.arcg;pArcana();save();return}
   if(t.closest('#macSeg')){S.macro=t.dataset.x;pMacro();save();return}
