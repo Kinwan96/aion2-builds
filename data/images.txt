@@ -277,3 +277,11 @@ img/tex/Icon_Arcana/Icon_Arcana_Card_Bell_u_PveSet2.webp https://cdn.questlog.gg
 img/tex/Icon_Arcana/Icon_Arcana_Card_Bell_u_DefenceSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Bell_u_DefenceSet2.webp
 img/tex/Icon_Arcana/Icon_Arcana_Card_Mirror_u_PveSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Mirror_u_PveSet2.webp
 img/tex/Icon_Arcana/Icon_Arcana_Card_Mirror_u_DefenceSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Mirror_u_DefenceSet2.webp
+img/tex/Item/Weapon/Icon_WP_GS_0038_T05.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/Weapon/Icon_WP_GS_0038_T05.webp
+img/tex/Item/Weapon/Icon_WP_SW_0038_T05.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/Weapon/Icon_WP_SW_0038_T05.webp
+img/tex/Item/Weapon/Icon_WP_DA_0038_T05.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/Weapon/Icon_WP_DA_0038_T05.webp
+img/tex/Item/Weapon/Icon_WP_BW_0038_T05.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/Weapon/Icon_WP_BW_0038_T05.webp
+img/tex/Item/Weapon/Icon_WP_MB_0038_T05.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/Weapon/Icon_WP_MB_0038_T05.webp
+img/tex/Item/Weapon/Icon_WP_OR_0038_T05.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/Weapon/Icon_WP_OR_0038_T05.webp
+img/tex/Item/Weapon/Icon_WP_MA_0038_T05.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/Weapon/Icon_WP_MA_0038_T05.webp
+img/tex/Item/Weapon/Icon_WP_ST_0038_T05.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Item/Weapon/Icon_WP_ST_0038_T05.webp

@@ -177,7 +177,7 @@ function specRows(s,eff,end,onlyEq){const {eq}=eqSpecs(s,eff,end);return s.sp.ma
 
 function pOverview(){
   const top=ranked('active').slice(0,6),pas=ranked('passive').slice(0,3),lo=C.stigma.loadouts[0];
-  $('p-overview').innerHTML=`
+  $('p-overview').innerHTML=`${glance()}
   <div class="grid g3">
    <div class="card hl"><div class="kick">${u('topSkills')}</div><div class="list">${top.map((s,i)=>`<div class="li">${ico(s.n,'sm g',i+1)}<div class="t"><b>${lab(s.n)}</b><span>${esc(T(s.tag))}</span></div></div>`).join('')}</div></div>
    <div class="card"><div class="kick">${u('mainStig')} · ${esc(T(lo.name))}</div><div class="list">${lo.skills.map((n,i)=>`<div class="li">${ico(n,'sm g')}<div class="t"><b>${lab(n)}</b><span>${u('slot')} ${i+1} · Lv ${[22,27,32,37][i]}</span></div></div>`).join('')}</div>
@@ -187,7 +187,8 @@ function pOverview(){
   <div class="grid g2" style="margin-top:12px">
    <div class="card"><div class="kick">${u('t_rotation')}</div><ol class="simple small">${(C.rotation[S.lang]||C.rotation.en).slice(0,5).map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div>
    <div class="card"><div class="kick">${u('stats')}</div>${statBars(5)}</div>
-  </div>`;
+  </div>
+  <div style="margin-top:12px">${patchCard()}</div>`;
 }
 function statBars(n){return (C.stats.order||[]).slice(0,n||9).map(s=>`<div class="statbar"><div class="lvlab"><span style="color:var(--text)">${esc(T(s))}</span></div><div class="lvbar"><i class="p" style="width:${s.w}%"></i></div></div>`).join('')}
 
@@ -271,10 +272,6 @@ function pLeveling(){
   <div class="advonly"><div class="list">${row(cur,'cur',true)}${nx.map(r=>row(r,'',false)).join('')}</div>
   <details><summary>${u('full')}</summary><div class="list" style="margin-top:10px">${SIM.filter(r=>r.buys.length||r.nu.length||ms.some(x=>x[0]===r.L)).map(r=>row(r,r.L<S.lv?'done':r.L===S.lv?'cur':'',r.L===S.lv)).join('')}</div></details>
   <div class="card" style="margin-top:12px"><div class="kick">${u('tips')}</div><ol class="simple small">${tips.map(x=>`<li>${esc(x)}</li>`).join('')}</ol></div></div>`;
-}
-function pGear(){
-  $('p-gear').innerHTML=`<div class="ph"><div><h2>${u('t_gear')}</h2></div></div>
-  <div class="grid g2"><div class="card"><div class="kick">${u('stats')}</div>${statBars()}</div><div class="card"><div class="kick">${u('gearN')}</div><div class="small" style="color:#d6d9e6">${esc(T(C.stats.notes))}</div><div class="kick" style="margin-top:14px">${u('krN')}</div><div class="small muted">${esc(T(C.kr))}</div></div></div>`;
 }
 function pPro(){
   const el=$('p-pro');if(!C.pro){el.innerHTML='';return}

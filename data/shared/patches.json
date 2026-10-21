@@ -1,0 +1,41 @@
+{
+  "_notes": "Global (NA/EU) patch notes, class changes only, summarised in our own words. Source: official notices on aion2.plaync.com/en-us/board/update (read 2026-10-21). 'fix' = bug fix; the builds on this site did not need to change.",
+  "checked": "2026-10-21",
+  "list": [
+    {
+      "date": "2026-10-21",
+      "title": { "en": "Expedition Hard mode and the Ariel board", "es": "Expedición en modo difícil y el tablero Ariel" },
+      "url": "https://aion2.plaync.com/en-us/board/update/view?articleId=6ad85be86cfe4756db5b8e92",
+      "classes": {
+        "sorcerer": [
+          { "skill": "Cold Storm", "type": "fix", "en": "Stacked Frostbite now deals its extra damage, Frostbite matches the skill level, and Specialty 1 no longer adds an extra Frostbite after the effect ends.", "es": "Congelación acumulada ya hace su daño extra, coincide con el nivel de la habilidad y la Especialidad 1 ya no aplica una Congelación extra al terminar el efecto." },
+          { "skill": "Fire Wall", "type": "fix", "en": "No longer deals extra damage to targets without Embers.", "es": "Ya no hace daño extra a objetivos sin Brasas." }
+        ],
+        "chanter": [
+          { "skill": "Spinning Strike", "type": "fix", "en": "Skill effects now display correctly.", "es": "Los efectos visuales ahora se muestran bien." }
+        ]
+      }
+    },
+    {
+      "date": "2026-10-14",
+      "title": { "en": "Halloween event and class fixes", "es": "Evento de Halloween y arreglos de clases" },
+      "url": "https://aion2.plaync.com/en-us/board/update/view?articleId=6acf20d007b77e214688a7ac",
+      "classes": {
+        "sorcerer": [
+          { "skill": "Fire Wall", "type": "fix", "en": "Bonus damage now works across height differences, and another player's stronger Embers no longer removes yours.", "es": "El daño extra ya funciona con diferencia de altura, y las Brasas más fuertes de otro jugador ya no quitan las tuyas." },
+          { "skill": "Cold Storm", "type": "fix", "en": "Bonus damage now works across height differences, and another player's stronger Frostbite no longer removes yours.", "es": "El daño extra ya funciona con diferencia de altura, y la Congelación más fuerte de otro jugador ya no quita la tuya." },
+          { "skill": "Bittercold Wind", "type": "fix", "en": "The Frost cooldown reduction now works across height differences.", "es": "La reducción de enfriamiento de Escarcha ya funciona con diferencia de altura." }
+        ],
+        "spiritmaster": [
+          { "skill": "Summon: Ancient Spirit", "type": "fix", "en": "Ancient Spirits summoned at skill level 15 or lower now use their skills properly.", "es": "Los Espíritus ancestrales invocados a nivel 15 o menos ya usan bien sus habilidades." }
+        ]
+      }
+    },
+    {
+      "date": "2026-10-07",
+      "title": { "en": "No class changes", "es": "Sin cambios de clase" },
+      "url": "https://aion2.plaync.com/en-us/board/update/view?articleId=6ac5e6e8d97eae18cc40e34e",
+      "classes": {}
+    }
+  ]
+}

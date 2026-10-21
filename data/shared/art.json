@@ -1,0 +1,13 @@
+{
+  "_notes": "Decorative item art per class (questlog.gg Texture paths, no extension). Weapons: the Tranquility series for each class weapon type, chosen only so every class shows the same tier of art; not a gear recommendation. Checked 2026-10-21.",
+  "weapons": {
+    "gladiator": "Item/Weapon/Icon_WP_GS_0038_T05",
+    "templar": "Item/Weapon/Icon_WP_SW_0038_T05",
+    "assassin": "Item/Weapon/Icon_WP_DA_0038_T05",
+    "ranger": "Item/Weapon/Icon_WP_BW_0038_T05",
+    "sorcerer": "Item/Weapon/Icon_WP_MB_0038_T05",
+    "spiritmaster": "Item/Weapon/Icon_WP_OR_0038_T05",
+    "cleric": "Item/Weapon/Icon_WP_MA_0038_T05",
+    "chanter": "Item/Weapon/Icon_WP_ST_0038_T05"
+  }
+}

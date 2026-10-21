@@ -17,8 +17,8 @@ Always run `npm test` after any change to `src/` or `data/`.
 | Path | What |
 |---|---|
 | `src/index.template.html` | Page shell + all CSS. It has the placeholders `/*DATA*/ /*LAYOUT*/ /*BOARDS*/ /*SHARED*/ /*APP*/` (each exactly once). |
-| `src/*.js` | App code (vanilla JS, no framework), joined in the order of `SRC` in `scripts/build.mjs`: `app.js` (core + class tabs), `home.js` (home screen, timers), `arcana.js` (Arcana tab), `genus.js` (Genus Insight wheel), `plan.js` (content switch + checklist), `main.js` (router, events, boot; always last). |
-| `data/shared/<name>.json` | Non-class data, available as `SHARED.<name>`. `timers.json`: UTC event schedules per server region. `arcana.json`: the 5 global card slots, card art, god-stats, grades, sets and each class's skill pool per slot (generated from questlog.gg data; pools list skill `ic` keys). |
+| `src/*.js` | App code (vanilla JS, no framework), joined in the order of `SRC` in `scripts/build.mjs`: `app.js` (core + class tabs), `home.js` (home screen, timers), `arcana.js` (Arcana tab), `genus.js` (Genus Insight wheel), `glance.js` (Build at a glance, patch changes, Gear tab), `plan.js` (content switch + checklist), `main.js` (router, events, boot; always last). |
+| `data/shared/<name>.json` | Non-class data, available as `SHARED.<name>`. `timers.json`: UTC event schedules per server region. `arcana.json`: the 5 global card slots, card art, god-stats, grades, sets and each class's skill pool per slot (generated from questlog.gg data; pools list skill `ic` keys). `patches.json`: global class changes from the official notices, summarised; update `checked` when you re-check. `art.json`: decorative weapon art per class. |
 | `data/classes/<id>.json` | One file per class. Its shape is documented in `docs/SCHEMA.md`. |
 | `data/layout.json` | Daevanion board layout: `[x, y, cost, statName\|null]` per node. It is shared by all classes. |
 | `data/boards.json` | Per class and board: the cost-2/3 skill node names in layout order (`"Name~InGameName"`). |

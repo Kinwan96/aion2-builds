@@ -76,7 +76,7 @@ function classCard(id){
    <div class="ctop"><div class="cem"><img src="${CI}${d.classIcon}.webp" alt="" onerror="FB(this)"></div>
     <div><h3>${esc(T(d.name))}</h3><div class="crole">${esc(T(d.role))}</div></div></div>
    <p>${esc(T(d.summary))}</p>
-   <div class="cfoot"><span class="cw">${esc(T(d.weapon))}</span><span class="diff">${[1,2,3].map(i=>`<i class="${i<=(d.difficulty||2)?'on':''}"></i>`).join('')}</span></div>
+   <div class="cfoot"><span class="cw">${weaponArt(id,'sm')}${esc(T(d.weapon))}</span><span class="diff">${[1,2,3].map(i=>`<i class="${i<=(d.difficulty||2)?'on':''}"></i>`).join('')}</span></div>
    <div class="cchips">${chips.map(([k,on])=>`<span class="${on?'on':''}">${u('c_'+k)}</span>`).join('')}</div>
   </a>`;
 }
