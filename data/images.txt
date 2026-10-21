@@ -267,3 +267,13 @@ img/skill/ICON_TE_SKILL_Passive_005.webp https://cdn.questlog.gg/aion-2/assets/G
 img/skill/ICON_TE_SKILL_Passive_007.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Skill/ICON_TE_SKILL_Passive_007.webp
 img/skill/ICON_TE_SKILL_Passive_008.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Skill/ICON_TE_SKILL_Passive_008.webp
 img/skill/ICON_TE_SKILL_Passive_010.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Skill/ICON_TE_SKILL_Passive_010.webp
+img/tex/Icon_Arcana/Icon_Arcana_Card_Grail_u_PveSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Grail_u_PveSet2.webp
+img/tex/Icon_Arcana/Icon_Arcana_Card_Grail_u_DefenceSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Grail_u_DefenceSet2.webp
+img/tex/Icon_Arcana/Icon_Arcana_Card_Parchment_u_PveSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Parchment_u_PveSet2.webp
+img/tex/Icon_Arcana/Icon_Arcana_Card_Parchment_u_DefenceSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Parchment_u_DefenceSet2.webp
+img/tex/Icon_Arcana/Icon_Arcana_Card_Compass_u_PveSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Compass_u_PveSet2.webp
+img/tex/Icon_Arcana/Icon_Arcana_Card_Compass_u_DefenceSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Compass_u_DefenceSet2.webp
+img/tex/Icon_Arcana/Icon_Arcana_Card_Bell_u_PveSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Bell_u_PveSet2.webp
+img/tex/Icon_Arcana/Icon_Arcana_Card_Bell_u_DefenceSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Bell_u_DefenceSet2.webp
+img/tex/Icon_Arcana/Icon_Arcana_Card_Mirror_u_PveSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Mirror_u_PveSet2.webp
+img/tex/Icon_Arcana/Icon_Arcana_Card_Mirror_u_DefenceSet2.webp https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon_Arcana/Icon_Arcana_Card_Mirror_u_DefenceSet2.webp

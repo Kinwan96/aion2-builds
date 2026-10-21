@@ -12,6 +12,7 @@ Object.assign(U,{
  localTz:['Shown in your local time.','En tu hora local.'],
  classes:['Classes','Clases'],guides:['Guides & tools','Guías y herramientas'],
  c_pve:['PvE','PvE'],c_pvp:['PvP','PvP'],c_lvl:['Leveling','Subir nivel'],
+ g_arc:['Which skill lines to keep on each of the 5 cards.','Qué líneas de habilidad conservar en cada una de las 5 cartas.'],
  g_genus:['Which stats to lock on each wheel, and when.','Qué stats bloquear en cada rueda, y cuándo.'],
  g_daev:['A planned route on the real boards for your crystals.','Una ruta en los tableros reales para tus cristales.'],
  g_macro:['Hotbar stacks and the in-game macro, step by step.','Pilas de la barra y el macro del juego, paso a paso.'],
@@ -79,8 +80,8 @@ function classCard(id){
    <div class="cchips">${chips.map(([k,on])=>`<span class="${on?'on':''}">${u('c_'+k)}</span>`).join('')}</div>
   </a>`;
 }
-function guideCard(tab,glyph,desc){
-  return `<a class="gcard2" href="#/${S.cls}/${tab}"><div class="gg">${GLYPH[glyph]}</div>
+function guideCard(tab,glyph,desc,art){
+  return `<a class="gcard2" href="#/${S.cls}/${tab}"><div class="gg">${art||GLYPH[glyph]}</div>
    <div><h3>${u('t_'+tab)}</h3><p>${u(desc)}</p><span class="gfor">${u('forCls')} ${esc(T(C.name))} →</span></div></a>`;
 }
 function pHome(){
@@ -98,7 +99,7 @@ function pHome(){
   <div class="cgrid">${ORDER.map(classCard).join('')}</div>
   ${ORN}
   <h2 class="hsec">${u('guides')}</h2>
-  <div class="ggrid">${guideCard('genus','genus','g_genus')}${guideCard('daevanion','daevanion','g_daev')}${guideCard('macro','macro','g_macro')}${guideCard('leveling','leveling','g_lvl')}</div>
+  <div class="ggrid">${guideCard('arcana','','g_arc',`<img src="${TX}${SHARED.arcana.iconBase}${SHARED.arcana.slots[0].vigor.icon}.webp" alt="" onerror="FB(this)">`)}${guideCard('genus','genus','g_genus')}${guideCard('daevanion','daevanion','g_daev')}${guideCard('macro','macro','g_macro')}${guideCard('leveling','leveling','g_lvl')}</div>
   </div>`;
   startTimers();
 }

@@ -35,6 +35,10 @@ for (const width of [1280, 375]) {
         const p = document.getElementById('p-' + t);
         return { kids: p ? p.querySelectorAll('*').length : -1, w: document.documentElement.scrollWidth }; }, tab);
       if (r.kids <= 0) problems.push(`${cls}/${mode}/${lang}/${tab}: empty panel`);
+      if (tab === 'arcana') {
+        const a = await page.evaluate(() => [...document.querySelectorAll('#p-arcana .arc')].map(c => c.querySelectorAll('.arc-line').length));
+        if (a.length !== 5 || a.some(n => n < 1)) problems.push(`${cls}/${mode}/${lang}/arcana: cards/lines ${JSON.stringify(a)}`);
+      }
       if (r.w > width) problems.push(`${cls}/${mode}/${lang}/${tab}: overflow ${r.w}px at ${width}px`);
     }
   }

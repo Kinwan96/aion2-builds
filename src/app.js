@@ -1,8 +1,12 @@
 const ORDER=['gladiator','templar','assassin','ranger','sorcerer','spiritmaster','cleric','chanter'];
 const KBR='https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Skill/';
 const CIR='https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/Icon/';
-const KB='img/skill/',CI='img/class/';
-window.FB=el=>{if(!el.dataset.r){el.dataset.r=1;el.src=el.src.replace(/^.*img\/skill\//,KBR).replace(/^.*img\/class\//,CIR)}else el.style.visibility='hidden'};
+const TEXR='https://cdn.questlog.gg/aion-2/assets/Game/UI/Resource/Texture/';
+const KB='img/skill/',CI='img/class/',TX='img/tex/';
+/* Broken local image -> remote copy -> hidden. img/tex/<path> mirrors questlog Texture/<path>. */
+window.FB=el=>{if(!el.dataset.r){el.dataset.r=1;el.src=el.src.replace(/^.*img\/skill\//,KBR).replace(/^.*img\/class\//,CIR).replace(/^.*img\/tex\//,TEXR)}else el.style.visibility='hidden'};
+/** Item/texture art in a rarity frame. path = questlog Texture path without extension. */
+const itm=(path,name,rar='gold',cls='')=>`<div class="itm r-${rar} ${cls}" title="${esc(name)}"><img loading="lazy" src="${TX}${path}.webp" alt="${esc(name)}" onerror="FB(this)"></div>`;
 const WK='https://img.wikily.gg/unsafe/w:96/';
 const SPRR={1:WK+'aHR0cHM6Ly9tZWRpYS53aWtpbHkuZ2cvZDllZjllMmItY2RiZi00M2NiLWE0MjMtMjk0N2U2OWQ1MzhkLzIwMjYtMDktMzAvM2I4OGY2MDMtOTczOC00OGY2LWI5OTgtMzRkOWM5ZGIyOGE0LXV0X2Z3aW5kb3dfZGFldmFuaW9uX25vZGVfY29tbW9uX3Nwcml0ZS5wbmc',
  2:WK+'aHR0cHM6Ly9tZWRpYS53aWtpbHkuZ2cvZDllZjllMmItY2RiZi00M2NiLWE0MjMtMjk0N2U2OWQ1MzhkLzIwMjYtMDktMzAvYTY5NDlhNWMtMGY5YS00M2VjLTg3MjMtMzYwMDRiZDQ2NzRiLXV0X2Z3aW5kb3dfZGFldmFuaW9uX25vZGVfcmFyZV9zcHJpdGUucG5n',
@@ -52,7 +56,7 @@ const U={
  cdNone:['no cooldown','sin enfriamiento'],unlock:['unlocks Lv','se desbloquea Nv'],charge:['charge','carga'],
  skipWhy:['Low priority for this build.','Baja prioridad para esta build.']
 };
-let S={view:'home',cls:'sorcerer',lang:'en',mode:'simple',tab:'overview',lv:45,cr:136,auto:true,board:'nezekan',load:0,preset:1,macro:'endgame',region:'global'};
+let S={view:'home',cls:'sorcerer',lang:'en',mode:'simple',tab:'overview',lv:45,cr:136,auto:true,board:'nezekan',load:0,preset:1,macro:'endgame',region:'global',arcSet:'vigor',arcG:41};
 try{Object.assign(S,JSON.parse(localStorage.getItem('a2builds')||'{}'))}catch(e){}
 const save=()=>{try{localStorage.setItem('a2builds',JSON.stringify(S))}catch(e){}};
 const L=()=>S.lang==='es'?1:0;
@@ -162,7 +166,7 @@ function header(){
   $('foot').innerHTML=S.view==='home'?`<p>${u('foot')}</p>`:`<b style="color:var(--gold2)">${u('sources')}</b> · ${(C.sources||[]).map(s=>`<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')}<p>${u('foot')}</p>`;
 }
 /** Tabs shown for a class, in order. The router accepts only these. */
-const tabsFor=c=>['overview',...(c.pro?['pro']:[]),'skills','stigmas','daevanion','macro','rotation','leveling','genus','gear'];
+const tabsFor=c=>['overview',...(c.pro?['pro']:[]),'skills','stigmas','arcana','daevanion','macro','rotation','leveling','genus','gear'];
 const ranked=t=>C.skills.filter(s=>s.t===t&&s.rank>0).sort((a,b)=>a.rank-b.rank);
 function eqSpecs(s,eff,end){const slots=eff>=16?3:eff>=12?2:eff>=8?1:0;const rk=(end?s.pickEnd:s.pickLev)||[];return {eq:rk.filter(i=>s.sp[i]&&eff>=s.sp[i][0]).slice(0,slots),slots}}
 function specRows(s,eff,end,onlyEq){const {eq}=eqSpecs(s,eff,end);return s.sp.map((sp,i)=>{const on=eq.includes(i),lock=eff<sp[0];if(onlyEq&&!on)return '';return `<div class="spec ${on?'eq':''} ${lock?'lock':''}"><span class="lv">${sp[0]}</span><span>${esc(S.lang==='es'&&sp[2]?sp[2]:sp[1])}</span><span class="st">${on?u('equipNow'):lock?u('locked'):''}</span></div>`}).join('')}
@@ -330,6 +334,6 @@ function renderAll(){
   if(!tabsFor(C).includes(S.tab))S.tab='overview';
   header();
   if(S.view==='home'){pHome()}
-  else{stopTimers();pOverview();pPro();pSkills();pStigmas();pDaev();pMacro();pRotation();pLeveling();pGenus();pGear()}
+  else{stopTimers();pOverview();pPro();pSkills();pStigmas();pArcana();pDaev();pMacro();pRotation();pLeveling();pGenus();pGear()}
   syncHash(false);save();
 }

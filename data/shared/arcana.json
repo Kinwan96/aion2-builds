@@ -1,0 +1,750 @@
+{
+ "_notes": "Generated from questlog.gg (database.getItems/getItem, characterBuilder.getItemSubStatSkills, database.getSkill), checked 2026-10-21. Global client has 5 slots; Libra/Key/Hourglass are KR/TW only. Pools list skill icon keys (match skills[].ic). Every random line caps at +4.",
+ "minLevel": 45,
+ "lineMax": 4,
+ "iconBase": "Icon_Arcana/",
+ "slots": [
+  {
+   "id": "grail",
+   "name": {
+    "en": "Chalice",
+    "es": "Cáliz"
+   },
+   "pool": "all",
+   "vigor": {
+    "stat": "time",
+    "icon": "Icon_Arcana_Card_Grail_u_PveSet2",
+    "name": {
+     "en": "Chalice of Vigor",
+     "es": "Cáliz de vitalidad"
+    }
+   },
+   "magic": {
+    "stat": "space",
+    "icon": "Icon_Arcana_Card_Grail_u_DefenceSet2",
+    "name": {
+     "en": "Chalice of Magic",
+     "es": "Cáliz de magia"
+    }
+   }
+  },
+  {
+   "id": "parchment",
+   "name": {
+    "en": "Parchment",
+    "es": "Pergamino"
+   },
+   "pool": "active",
+   "vigor": {
+    "stat": "life",
+    "icon": "Icon_Arcana_Card_Parchment_u_PveSet2",
+    "name": {
+     "en": "Parchment of Vigor",
+     "es": "Pergamino de vitalidad"
+    }
+   },
+   "magic": {
+    "stat": "destiny",
+    "icon": "Icon_Arcana_Card_Parchment_u_DefenceSet2",
+    "name": {
+     "en": "Parchment of Magic",
+     "es": "Pergamino de magia"
+    }
+   }
+  },
+  {
+   "id": "compass",
+   "name": {
+    "en": "Compass",
+    "es": "Brújula"
+   },
+   "pool": "active",
+   "vigor": {
+    "stat": "freedom",
+    "icon": "Icon_Arcana_Card_Compass_u_PveSet2",
+    "name": {
+     "en": "Compass of Vigor",
+     "es": "Brújula de vitalidad"
+    }
+   },
+   "magic": {
+    "stat": "death",
+    "icon": "Icon_Arcana_Card_Compass_u_DefenceSet2",
+    "name": {
+     "en": "Compass of Magic",
+     "es": "Brújula de magia"
+    }
+   }
+  },
+  {
+   "id": "bell",
+   "name": {
+    "en": "Bell",
+    "es": "Campana"
+   },
+   "pool": "passive",
+   "vigor": {
+    "stat": "justice",
+    "icon": "Icon_Arcana_Card_Bell_u_PveSet2",
+    "name": {
+     "en": "Bell of Vigor",
+     "es": "Campana de vitalidad"
+    }
+   },
+   "magic": {
+    "stat": "destruction",
+    "icon": "Icon_Arcana_Card_Bell_u_DefenceSet2",
+    "name": {
+     "en": "Bell of Magic",
+     "es": "Campana de magia"
+    }
+   }
+  },
+  {
+   "id": "mirror",
+   "name": {
+    "en": "Mirror",
+    "es": "Espejo"
+   },
+   "pool": "passive",
+   "vigor": {
+    "stat": "illusion",
+    "icon": "Icon_Arcana_Card_Mirror_u_PveSet2",
+    "name": {
+     "en": "Mirror of Vigor",
+     "es": "Espejo de vitalidad"
+    }
+   },
+   "magic": {
+    "stat": "wisdom",
+    "icon": "Icon_Arcana_Card_Mirror_u_DefenceSet2",
+    "name": {
+     "en": "Mirror of Magic",
+     "es": "Espejo de magia"
+    }
+   }
+  }
+ ],
+ "grades": [
+  {
+   "g": 11,
+   "lines": 1,
+   "stat": 8,
+   "ilvl": 20
+  },
+  {
+   "g": 21,
+   "lines": 2,
+   "stat": 12,
+   "ilvl": 40
+  },
+  {
+   "g": 31,
+   "lines": 3,
+   "stat": 16,
+   "ilvl": 60
+  },
+  {
+   "g": 41,
+   "lines": 4,
+   "stat": 20,
+   "ilvl": 80
+  }
+ ],
+ "sets": {
+  "vigor": {
+   "name": {
+    "en": "Primal Vigor",
+    "es": "Vitalidad primordial"
+   },
+   "bonus": [
+    {
+     "n": 2,
+     "en": "+60 PvE Attack when HP is 70% or more",
+     "es": "Aumento de Ataque JcE en 60 cuando los Puntos de Vida están al 70 % o más"
+    },
+    {
+     "n": 4,
+     "en": "+150 PvE Attack when HP is 70% or more",
+     "es": "Aumento de Ataque JcE en 150 cuando los Puntos de Vida están al 70% o más"
+    }
+   ]
+  },
+  "magic": {
+   "name": {
+    "en": "Magic Armor",
+    "es": "Armadura mágica"
+   },
+   "bonus": [
+    {
+     "n": 2,
+     "en": "Restores 1,500 MP when MP is 20% or less [Cooldown: 30s]",
+     "es": "Recupera 1500 Puntos de Maná cuando los Puntos de Maná están al 20 % o menos [Tiempo de Enfriamiento de 30 s]"
+    },
+    {
+     "n": 4,
+     "en": "+1,000 PvE Defense when MP is 50% or more",
+     "es": "Aumento de Defensa JcE en 1000 cuando los Puntos de Maná están al 50% o más"
+    }
+   ]
+  }
+ },
+ "stats": {
+  "time": {
+   "name": {
+    "en": "Time",
+    "es": "Tiempo"
+   },
+   "god": "Siel",
+   "fx": {
+    "en": "Combat Speed",
+    "es": "Velocidad de combate"
+   }
+  },
+  "space": {
+   "name": {
+    "en": "Space",
+    "es": "Espacio"
+   },
+   "god": "Israphel",
+   "fx": {
+    "en": "Move Speed, Block",
+    "es": "Velocidad de movimiento, Bloqueo"
+   }
+  },
+  "life": {
+   "name": {
+    "en": "Life",
+    "es": "Vida"
+   },
+   "god": "Yustiel",
+   "fx": {
+    "en": "Max HP, Recovery",
+    "es": "PV máx., Recuperación"
+   }
+  },
+  "destiny": {
+   "name": {
+    "en": "Destiny",
+    "es": "Destino"
+   },
+   "god": "Marchutan",
+   "fx": {
+    "en": "Max MP",
+    "es": "PM máx."
+   }
+  },
+  "freedom": {
+   "name": {
+    "en": "Freedom",
+    "es": "Libertad"
+   },
+   "god": "Vaizel",
+   "fx": {
+    "en": "Accuracy, Evasion",
+    "es": "Precisión, Evasión"
+   }
+  },
+  "death": {
+   "name": {
+    "en": "Death",
+    "es": "Muerte"
+   },
+   "god": "Triniel",
+   "fx": {
+    "en": "Critical Hit",
+    "es": "Golpe crítico"
+   }
+  },
+  "justice": {
+   "name": {
+    "en": "Justice",
+    "es": "Justicia"
+   },
+   "god": "Nezekan",
+   "fx": {
+    "en": "Defense",
+    "es": "Defensa"
+   }
+  },
+  "destruction": {
+   "name": {
+    "en": "Destruction",
+    "es": "Destrucción"
+   },
+   "god": "Zikel"
+  },
+  "illusion": {
+   "name": {
+    "en": "Illusion",
+    "es": "Fantasía"
+   },
+   "god": "Kaisinel",
+   "fx": {
+    "en": "Cooldown Reduction",
+    "es": "Reducción de enfriamiento"
+   }
+  },
+  "wisdom": {
+   "name": {
+    "en": "Wisdom",
+    "es": "Sabiduría"
+   },
+   "god": "Lumiel",
+   "fx": {
+    "en": "Lower MP cost",
+    "es": "Menor costo de PM"
+   }
+  }
+ },
+ "pools": {
+  "ranger": {
+   "grail": [
+    "ICON_RA_SKILL_002",
+    "ICON_RA_SKILL_001",
+    "ICON_RA_SKILL_005",
+    "ICON_RA_SKILL_007",
+    "ICON_RA_SKILL_008",
+    "ICON_RA_SKILL_031",
+    "ICON_RA_SKILL_011",
+    "ICON_RA_SKILL_013",
+    "ICON_RA_SKILL_017",
+    "ICON_CO_SKILL_002",
+    "ICON_RA_SKILL_033",
+    "ICON_RA_SKILL_034",
+    "ICON_RA_SKILL_Passive_004",
+    "ICON_RA_SKILL_Passive_003",
+    "ICON_RA_SKILL_Passive_006",
+    "ICON_RA_SKILL_Passive_001",
+    "ICON_RA_SKILL_Passive_011",
+    "ICON_RA_SKILL_Passive_012",
+    "ICON_RA_SKILL_Passive_008",
+    "ICON_RA_SKILL_Passive_013",
+    "ICON_AS_SKILL_Passive_009",
+    "ICON_RA_SKILL_Passive_007"
+   ],
+   "parchment": [
+    "ICON_RA_SKILL_001",
+    "ICON_RA_SKILL_005",
+    "ICON_RA_SKILL_008",
+    "ICON_RA_SKILL_013",
+    "ICON_RA_SKILL_017",
+    "ICON_RA_SKILL_034"
+   ],
+   "compass": [
+    "ICON_RA_SKILL_002",
+    "ICON_RA_SKILL_007",
+    "ICON_RA_SKILL_031",
+    "ICON_RA_SKILL_011",
+    "ICON_CO_SKILL_002",
+    "ICON_RA_SKILL_033"
+   ],
+   "bell": [
+    "ICON_RA_SKILL_Passive_004",
+    "ICON_RA_SKILL_Passive_006",
+    "ICON_RA_SKILL_Passive_011",
+    "ICON_RA_SKILL_Passive_008",
+    "ICON_AS_SKILL_Passive_009"
+   ],
+   "mirror": [
+    "ICON_RA_SKILL_Passive_003",
+    "ICON_RA_SKILL_Passive_001",
+    "ICON_RA_SKILL_Passive_012",
+    "ICON_RA_SKILL_Passive_013",
+    "ICON_RA_SKILL_Passive_007"
+   ]
+  },
+  "cleric": {
+   "grail": [
+    "ICON_CL_SKILL_001",
+    "ICON_CL_SKILL_004",
+    "ICON_CL_SKILL_006",
+    "ICON_CL_SKILL_007",
+    "ICON_CL_SKILL_008",
+    "ICON_CL_SKILL_009",
+    "ICON_CL_SKILL_010",
+    "ICON_CL_SKILL_012",
+    "ICON_CL_SKILL_015",
+    "ICON_CO_SKILL_002",
+    "ICON_CL_SKILL_035",
+    "ICON_CL_SKILL_037",
+    "ICON_CL_SKILL_Passive_001",
+    "ICON_CL_SKILL_Passive_002",
+    "ICON_CL_SKILL_Passive_012",
+    "ICON_CL_SKILL_Passive_003",
+    "ICON_CL_SKILL_Passive_011",
+    "ICON_CL_SKILL_Passive_005",
+    "ICON_CL_SKILL_Passive_006",
+    "ICON_CL_SKILL_Passive_008",
+    "ICON_GL_SKILL_Passive_009",
+    "ICON_CL_SKILL_Passive_007"
+   ],
+   "parchment": [
+    "ICON_CL_SKILL_001",
+    "ICON_CL_SKILL_006",
+    "ICON_CL_SKILL_007",
+    "ICON_CL_SKILL_008",
+    "ICON_CL_SKILL_012",
+    "ICON_CL_SKILL_035"
+   ],
+   "compass": [
+    "ICON_CL_SKILL_004",
+    "ICON_CL_SKILL_009",
+    "ICON_CL_SKILL_010",
+    "ICON_CL_SKILL_015",
+    "ICON_CO_SKILL_002",
+    "ICON_CL_SKILL_037"
+   ],
+   "bell": [
+    "ICON_CL_SKILL_Passive_001",
+    "ICON_CL_SKILL_Passive_012",
+    "ICON_CL_SKILL_Passive_011",
+    "ICON_CL_SKILL_Passive_006",
+    "ICON_GL_SKILL_Passive_009"
+   ],
+   "mirror": [
+    "ICON_CL_SKILL_Passive_002",
+    "ICON_CL_SKILL_Passive_003",
+    "ICON_CL_SKILL_Passive_005",
+    "ICON_CL_SKILL_Passive_008",
+    "ICON_CL_SKILL_Passive_007"
+   ]
+  },
+  "chanter": {
+   "grail": [
+    "ICON_CH_SKILL_001",
+    "ICON_CH_SKILL_004",
+    "ICON_CH_SKILL_006",
+    "ICON_CH_SKILL_008",
+    "ICON_CH_SKILL_009",
+    "ICON_CH_SKILL_010",
+    "ICON_CH_SKILL_013",
+    "ICON_CH_SKILL_015",
+    "ICON_CO_SKILL_002",
+    "ICON_CH_SKILL_021",
+    "ICON_CH_SKILL_029",
+    "ICON_CH_SKILL_030",
+    "ICON_CH_SKILL_Passive_012",
+    "ICON_CH_SKILL_Passive_002",
+    "ICON_CH_SKILL_Passive_001",
+    "ICON_CH_SKILL_Passive_011",
+    "ICON_GL_SKILL_Passive_005",
+    "ICON_GL_SKILL_Passive_006",
+    "ICON_CH_SKILL_Passive_007",
+    "ICON_CH_SKILL_Passive_010",
+    "ICON_GL_SKILL_Passive_009",
+    "ICON_CH_SKILL_Passive_008"
+   ],
+   "parchment": [
+    "ICON_CH_SKILL_001",
+    "ICON_CH_SKILL_008",
+    "ICON_CH_SKILL_009",
+    "ICON_CH_SKILL_010",
+    "ICON_CH_SKILL_015",
+    "ICON_CH_SKILL_029"
+   ],
+   "compass": [
+    "ICON_CH_SKILL_004",
+    "ICON_CH_SKILL_006",
+    "ICON_CH_SKILL_013",
+    "ICON_CO_SKILL_002",
+    "ICON_CH_SKILL_021",
+    "ICON_CH_SKILL_030"
+   ],
+   "bell": [
+    "ICON_CH_SKILL_Passive_012",
+    "ICON_CH_SKILL_Passive_001",
+    "ICON_GL_SKILL_Passive_005",
+    "ICON_CH_SKILL_Passive_007",
+    "ICON_GL_SKILL_Passive_009"
+   ],
+   "mirror": [
+    "ICON_CH_SKILL_Passive_002",
+    "ICON_CH_SKILL_Passive_011",
+    "ICON_GL_SKILL_Passive_006",
+    "ICON_CH_SKILL_Passive_010",
+    "ICON_CH_SKILL_Passive_008"
+   ]
+  },
+  "sorcerer": {
+   "grail": [
+    "ICON_SO_SKILL_001",
+    "ICON_SO_SKILL_004",
+    "ICON_SO_SKILL_005",
+    "ICON_SO_SKILL_006",
+    "ICON_SO_SKILL_009",
+    "ICON_SO_SKILL_011",
+    "ICON_SO_SKILL_015",
+    "ICON_SO_SKILL_020",
+    "ICON_SO_SKILL_022",
+    "ICON_CO_SKILL_002",
+    "ICON_SO_SKILL_025",
+    "ICON_SO_SKILL_028",
+    "ICON_SO_SKILL_Passive_002",
+    "ICON_SO_SKILL_Passive_006",
+    "ICON_SO_SKILL_Passive_003",
+    "ICON_SO_SKILL_Passive_004",
+    "ICON_SO_SKILL_Passive_005",
+    "ICON_SO_SKILL_Passive_001",
+    "ICON_SO_SKILL_038",
+    "ICON_SO_SKILL_Passive_007",
+    "ICON_AS_SKILL_Passive_009",
+    "ICON_SO_SKILL_Passive_008"
+   ],
+   "parchment": [
+    "ICON_SO_SKILL_004",
+    "ICON_SO_SKILL_005",
+    "ICON_SO_SKILL_006",
+    "ICON_SO_SKILL_020",
+    "ICON_SO_SKILL_022",
+    "ICON_SO_SKILL_028"
+   ],
+   "compass": [
+    "ICON_SO_SKILL_001",
+    "ICON_SO_SKILL_009",
+    "ICON_SO_SKILL_011",
+    "ICON_SO_SKILL_015",
+    "ICON_CO_SKILL_002",
+    "ICON_SO_SKILL_025"
+   ],
+   "bell": [
+    "ICON_SO_SKILL_Passive_002",
+    "ICON_SO_SKILL_Passive_003",
+    "ICON_SO_SKILL_Passive_005",
+    "ICON_SO_SKILL_038",
+    "ICON_AS_SKILL_Passive_009"
+   ],
+   "mirror": [
+    "ICON_SO_SKILL_Passive_006",
+    "ICON_SO_SKILL_Passive_004",
+    "ICON_SO_SKILL_Passive_001",
+    "ICON_SO_SKILL_Passive_007",
+    "ICON_SO_SKILL_Passive_008"
+   ]
+  },
+  "spiritmaster": {
+   "grail": [
+    "ICON_EL_SKILL_001",
+    "ICON_EL_SKILL_004",
+    "ICON_EL_SKILL_007",
+    "ICON_EL_SKILL_010",
+    "ICON_EL_SKILL_011",
+    "ICON_EL_SKILL_012",
+    "ICON_EL_SKILL_013",
+    "ICON_EL_SKILL_014",
+    "ICON_CO_SKILL_002",
+    "ICON_EL_SKILL_030",
+    "ICON_EL_SKILL_033",
+    "ICON_EL_SKILL_034",
+    "ICON_EL_SKILL_Passive_004",
+    "ICON_EL_SKILL_Passive_002",
+    "ICON_EL_SKILL_Passive_003",
+    "ICON_EL_SKILL_Passive_012",
+    "ICON_EL_SKILL_Passive_011",
+    "ICON_EL_SKILL_Passive_006",
+    "ICON_EL_SKILL_Passive_007",
+    "ICON_EL_SKILL_Passive_008",
+    "ICON_AS_SKILL_Passive_009",
+    "ICON_EL_SKILL_Passive_013"
+   ],
+   "parchment": [
+    "ICON_EL_SKILL_001",
+    "ICON_EL_SKILL_010",
+    "ICON_EL_SKILL_013",
+    "ICON_EL_SKILL_014",
+    "ICON_EL_SKILL_030",
+    "ICON_EL_SKILL_033"
+   ],
+   "compass": [
+    "ICON_EL_SKILL_004",
+    "ICON_EL_SKILL_007",
+    "ICON_EL_SKILL_011",
+    "ICON_EL_SKILL_012",
+    "ICON_CO_SKILL_002",
+    "ICON_EL_SKILL_034"
+   ],
+   "bell": [
+    "ICON_EL_SKILL_Passive_004",
+    "ICON_EL_SKILL_Passive_003",
+    "ICON_EL_SKILL_Passive_011",
+    "ICON_EL_SKILL_Passive_007",
+    "ICON_EL_SKILL_Passive_008"
+   ],
+   "mirror": [
+    "ICON_EL_SKILL_Passive_002",
+    "ICON_EL_SKILL_Passive_012",
+    "ICON_EL_SKILL_Passive_006",
+    "ICON_AS_SKILL_Passive_009",
+    "ICON_EL_SKILL_Passive_013"
+   ]
+  },
+  "gladiator": {
+   "parchment": [
+    "ICON_GL_SKILL_002",
+    "ICON_GL_SKILL_010",
+    "ICON_GL_SKILL_017",
+    "ICON_GL_SKILL_019",
+    "ICON_GL_SKILL_020",
+    "ICON_GL_SKILL_015"
+   ],
+   "compass": [
+    "ICON_GL_SKILL_001",
+    "ICON_GL_SKILL_005",
+    "ICON_CO_SKILL_002",
+    "ICON_TE_SKILL_034",
+    "ICON_GL_SKILL_028",
+    "ICON_GL_SKILL_036"
+   ],
+   "bell": [
+    "ICON_GL_SKILL_Passive_001",
+    "ICON_GL_SKILL_Passive_003",
+    "ICON_GL_SKILL_Passive_005",
+    "ICON_GL_SKILL_Passive_007",
+    "ICON_GL_SKILL_Passive_009"
+   ],
+   "grail": [
+    "ICON_GL_SKILL_001",
+    "ICON_GL_SKILL_002",
+    "ICON_GL_SKILL_005",
+    "ICON_GL_SKILL_010",
+    "ICON_GL_SKILL_017",
+    "ICON_GL_SKILL_019",
+    "ICON_GL_SKILL_020",
+    "ICON_CO_SKILL_002",
+    "ICON_TE_SKILL_034",
+    "ICON_GL_SKILL_028",
+    "ICON_GL_SKILL_015",
+    "ICON_GL_SKILL_036",
+    "ICON_GL_SKILL_Passive_001",
+    "ICON_GL_SKILL_Passive_002",
+    "ICON_GL_SKILL_Passive_003",
+    "ICON_GL_SKILL_Passive_004",
+    "ICON_GL_SKILL_Passive_005",
+    "ICON_GL_SKILL_Passive_006",
+    "ICON_GL_SKILL_Passive_007",
+    "ICON_GL_SKILL_Passive_008",
+    "ICON_GL_SKILL_Passive_009",
+    "ICON_GL_SKILL_Passive_010"
+   ],
+   "mirror": [
+    "ICON_GL_SKILL_Passive_002",
+    "ICON_GL_SKILL_Passive_004",
+    "ICON_GL_SKILL_Passive_006",
+    "ICON_GL_SKILL_Passive_008",
+    "ICON_GL_SKILL_Passive_010"
+   ]
+  },
+  "templar": {
+   "parchment": [
+    "ICON_TE_SKILL_001",
+    "ICON_TE_SKILL_009",
+    "ICON_TE_SKILL_013",
+    "ICON_TE_SKILL_004",
+    "ICON_TE_SKILL_025",
+    "ICON_TE_SKILL_028"
+   ],
+   "compass": [
+    "ICON_TE_SKILL_006",
+    "ICON_TE_SKILL_010",
+    "ICON_CO_SKILL_002",
+    "ICON_GL_SKILL_027",
+    "ICON_TE_SKILL_035",
+    "ICON_TE_SKILL_015"
+   ],
+   "bell": [
+    "ICON_TE_SKILL_Passive_001",
+    "ICON_TE_SKILL_Passive_003",
+    "ICON_TE_SKILL_Passive_005",
+    "ICON_TE_SKILL_Passive_007",
+    "ICON_TE_SKILL_Passive_008"
+   ],
+   "mirror": [
+    "ICON_TE_SKILL_Passive_002",
+    "ICON_TE_SKILL_Passive_004",
+    "ICON_GL_SKILL_Passive_006",
+    "ICON_GL_SKILL_Passive_009",
+    "ICON_TE_SKILL_Passive_010"
+   ],
+   "grail": [
+    "ICON_TE_SKILL_001",
+    "ICON_TE_SKILL_006",
+    "ICON_TE_SKILL_009",
+    "ICON_TE_SKILL_010",
+    "ICON_TE_SKILL_013",
+    "ICON_TE_SKILL_004",
+    "ICON_CO_SKILL_002",
+    "ICON_TE_SKILL_025",
+    "ICON_TE_SKILL_028",
+    "ICON_GL_SKILL_027",
+    "ICON_TE_SKILL_035",
+    "ICON_TE_SKILL_015",
+    "ICON_TE_SKILL_Passive_001",
+    "ICON_TE_SKILL_Passive_002",
+    "ICON_TE_SKILL_Passive_003",
+    "ICON_TE_SKILL_Passive_004",
+    "ICON_TE_SKILL_Passive_005",
+    "ICON_GL_SKILL_Passive_006",
+    "ICON_TE_SKILL_Passive_007",
+    "ICON_TE_SKILL_Passive_008",
+    "ICON_GL_SKILL_Passive_009",
+    "ICON_TE_SKILL_Passive_010"
+   ]
+  },
+  "assassin": {
+   "parchment": [
+    "ICON_AS_SKILL_001",
+    "ICON_AS_SKILL_007",
+    "ICON_AS_SKILL_013",
+    "ICON_AS_SKILL_019",
+    "ICON_AS_SKILL_020",
+    "ICON_AS_SKILL_035"
+   ],
+   "compass": [
+    "ICON_AS_SKILL_005",
+    "ICON_AS_SKILL_006",
+    "ICON_AS_SKILL_009",
+    "ICON_CO_SKILL_002",
+    "ICON_AS_SKILL_034",
+    "ICON_AS_SKILL_036"
+   ],
+   "bell": [
+    "ICON_AS_SKILL_Passive_001",
+    "ICON_AS_SKILL_Passive_003",
+    "ICON_AS_SKILL_Passive_006",
+    "ICON_AS_SKILL_Passive_007",
+    "ICON_AS_SKILL_Passive_009"
+   ],
+   "mirror": [
+    "ICON_AS_SKILL_Passive_002",
+    "ICON_AS_SKILL_Passive_004",
+    "ICON_AS_SKILL_Passive_011",
+    "ICON_AS_SKILL_Passive_008",
+    "ICON_AS_SKILL_Passive_010"
+   ],
+   "grail": [
+    "ICON_AS_SKILL_001",
+    "ICON_AS_SKILL_005",
+    "ICON_AS_SKILL_006",
+    "ICON_AS_SKILL_007",
+    "ICON_AS_SKILL_009",
+    "ICON_AS_SKILL_013",
+    "ICON_AS_SKILL_019",
+    "ICON_AS_SKILL_020",
+    "ICON_CO_SKILL_002",
+    "ICON_AS_SKILL_034",
+    "ICON_AS_SKILL_035",
+    "ICON_AS_SKILL_036",
+    "ICON_AS_SKILL_Passive_001",
+    "ICON_AS_SKILL_Passive_002",
+    "ICON_AS_SKILL_Passive_003",
+    "ICON_AS_SKILL_Passive_004",
+    "ICON_AS_SKILL_Passive_006",
+    "ICON_AS_SKILL_Passive_011",
+    "ICON_AS_SKILL_Passive_007",
+    "ICON_AS_SKILL_Passive_008",
+    "ICON_AS_SKILL_Passive_009",
+    "ICON_AS_SKILL_Passive_010"
+   ]
+  }
+ }
+}

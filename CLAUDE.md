@@ -17,8 +17,8 @@ Always run `npm test` after any change to `src/` or `data/`.
 | Path | What |
 |---|---|
 | `src/index.template.html` | Page shell + all CSS. It has the placeholders `/*DATA*/ /*LAYOUT*/ /*BOARDS*/ /*SHARED*/ /*APP*/` (each exactly once). |
-| `src/*.js` | App code (vanilla JS, no framework), joined in the order of `SRC` in `scripts/build.mjs`: `app.js` (core + class tabs), `home.js` (home screen, timers), `main.js` (router, events, boot; always last). |
-| `data/shared/<name>.json` | Non-class data, available as `SHARED.<name>` (e.g. `timers.json`: UTC event schedules per server region). |
+| `src/*.js` | App code (vanilla JS, no framework), joined in the order of `SRC` in `scripts/build.mjs`: `app.js` (core + class tabs), `home.js` (home screen, timers), `arcana.js` (Arcana tab), `main.js` (router, events, boot; always last). |
+| `data/shared/<name>.json` | Non-class data, available as `SHARED.<name>`. `timers.json`: UTC event schedules per server region. `arcana.json`: the 5 global card slots, card art, god-stats, grades, sets and each class's skill pool per slot (generated from questlog.gg data; pools list skill `ic` keys). |
 | `data/classes/<id>.json` | One file per class. Its shape is documented in `docs/SCHEMA.md`. |
 | `data/layout.json` | Daevanion board layout: `[x, y, cost, statName\|null]` per node. It is shared by all classes. |
 | `data/boards.json` | Per class and board: the cost-2/3 skill node names in layout order (`"Name~InGameName"`). |
@@ -57,7 +57,7 @@ Always run `npm test` after any change to `src/` or `data/`.
   - Charge skills (e.g. Hellfire) can't be macroed, because they fire uncharged.
 
 ## Gotchas
-- **Images:** `KB='img/skill/'` and `CI='img/class/'` point to local copies. `window.FB` swaps a broken local image to the remote URL (`KBR`/`CIR`), then hides it if that also fails. Every `<img>` uses `onerror="FB(this)"`.
+- **Images:** `KB='img/skill/'`, `CI='img/class/'` and `TX='img/tex/'` point to local copies. `img/tex/<path>` mirrors questlog's `Texture/<path>` (item and Arcana art); use `itm(path, name, rarity)` for framed item art. `window.FB` swaps a broken local image to the remote URL (`KBR`/`CIR`), then hides it if that also fails. Every `<img>` uses `onerror="FB(this)"`.
 - **Board sprites (`SPR`):** they load remote first, then local (`url(remote),url(local)`). Don't flip this: the local copies were corrupt once, and that caused white or black tiles. Also don't darken `.c1.on`, because the start node shares class `c1`.
 - **Class order:** it lives in both `scripts/classes.mjs` and the top of `src/app.js` (`ORDER`). Keep them in sync.
 - **Mobile:** test at 375px. Segmented controls need `flex-wrap`, and grids should use `minmax()`/`auto-fit`.
