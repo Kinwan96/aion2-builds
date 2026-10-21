@@ -89,7 +89,7 @@ function pHome(){
   $('vHome').innerHTML=`<div class="wrap">
   <section class="hhero">
    <div class="hh-txt"><div class="kick">${u('h_kick')}</div><h1>${u('h_title')}</h1><p>${u('h_sub')}</p>
-    <div class="hh-cta"><button class="btn pri" id="goClasses">${u('h_choose')}</button><a class="btn" href="#/${S.cls}/${S.tab}">${u('h_cont')} ${esc(T(C.name))} →</a></div></div>
+    <div class="hh-cta"><button class="btn pri" id="goClasses">${u('h_choose')}</button><a class="btn" href="#/${S.cls}/${S.tab}${S.content!=='pve'?'?c='+S.content:''}">${u('h_cont')} ${esc(T(C.name))} →</a></div></div>
    <aside class="tmcard"><div class="tmhead"><div class="kick">${u('timers')}</div>
      <label class="tmsel"><span class="sr">${u('server')}</span><select id="tmReg">${Object.entries(regs).map(([k,r])=>`<option value="${k}" ${k===S.region?'selected':''}>${esc(T(r.label))}</option>`).join('')}</select></label></div>
     <div id="tmRows">${timerRows()}</div><div class="tiny muted">${u('localTz')}</div></aside>

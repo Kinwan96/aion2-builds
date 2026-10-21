@@ -83,9 +83,15 @@ All player-facing text is bilingual: `{"en":"...","es":"..."}`. Spanish must be 
 
   "leveling": {"en":["3-5 short leveling tips"],"es":[...]},
   "kr": {"en":"1-2 sentences about what Korean players do differently / names used in KR guides","es":"..."},
-  "sources": [["title","url"], ...]
+  "sources": [["title","url"], ...],
+
+  // OPTIONAL. Only add with a named global PvP source (also add it to "sources").
+  // Without it, PvP mode shows the PvE build with a "no verified PvP build" banner.
+  "pvp": {"note":{"en":"1-2 sentences: what changes for PvP","es":"..."},"src":["title","url"]}
 }
 ```
+
+Arcana data is shared, not per class: `data/shared/arcana.json` (pools come from questlog game data; the tab ranks them by this file's `rank` values).
 
 ## GENUS_STATS (exact EN names available per slot, identical for all genera except slot 4)
 - Slots 1 & 5: Attack Bonus, Max Attack, Penetration, Critical Attack, Front Attack, Back Attack, PvE Attack, Boss Attack, HP, MP

@@ -17,7 +17,7 @@ Always run `npm test` after any change to `src/` or `data/`.
 | Path | What |
 |---|---|
 | `src/index.template.html` | Page shell + all CSS. It has the placeholders `/*DATA*/ /*LAYOUT*/ /*BOARDS*/ /*SHARED*/ /*APP*/` (each exactly once). |
-| `src/*.js` | App code (vanilla JS, no framework), joined in the order of `SRC` in `scripts/build.mjs`: `app.js` (core + class tabs), `home.js` (home screen, timers), `arcana.js` (Arcana tab), `genus.js` (Genus Insight wheel), `main.js` (router, events, boot; always last). |
+| `src/*.js` | App code (vanilla JS, no framework), joined in the order of `SRC` in `scripts/build.mjs`: `app.js` (core + class tabs), `home.js` (home screen, timers), `arcana.js` (Arcana tab), `genus.js` (Genus Insight wheel), `plan.js` (content switch + checklist), `main.js` (router, events, boot; always last). |
 | `data/shared/<name>.json` | Non-class data, available as `SHARED.<name>`. `timers.json`: UTC event schedules per server region. `arcana.json`: the 5 global card slots, card art, god-stats, grades, sets and each class's skill pool per slot (generated from questlog.gg data; pools list skill `ic` keys). |
 | `data/classes/<id>.json` | One file per class. Its shape is documented in `docs/SCHEMA.md`. |
 | `data/layout.json` | Daevanion board layout: `[x, y, cost, statName\|null]` per node. It is shared by all classes. |
@@ -30,8 +30,9 @@ Always run `npm test` after any change to `src/` or `data/`.
 | `.github/workflows/deploy.yml` | GitHub Pages workflow: builds, fetches images and publishes `site/` on every push to `main`. Repo: `Kinwan96/aion2-builds`. |
 
 ## How app.js works
-- **State:** `S` = `{view, cls, lang, mode, tab, lv, cr, auto, board, load, preset, macro, region}`. It is persisted in localStorage under `a2builds`.
-- **Routing:** the URL hash decides the view. `#/` is home; `#/<class>/<tab>` is a class tab. No hash means home. `readHash()`/`syncHash()` live in `main.js`, and `tabsFor(C)` is the list of valid tabs.
+- **State:** `S` = `{view, cls, lang, mode, tab, lv, cr, auto, board, load, preset, macro, region, arcSet, arcG, genW, content, done}`. It is persisted in localStorage under `a2builds`.
+  - `content` is `pve|pvp|lvl` (the PvE / PvP / Leveling switch). `done` = `{class: [checklist ids]}`.
+- **Routing:** the URL hash decides the view. `#/` is home; `#/<class>/<tab>` is a class tab; `?c=pvp` or `?c=lvl` sets the content mode. No hash means home. `readHash()`/`syncHash()` live in `main.js`, and `tabsFor(C)` is the list of valid tabs.
   - `C` is the current class data and `SK` maps skill name → skill.
 - **UI strings:** `U` is the UI dictionary. Each entry is `key: ['English', 'Español']`, read with `u('key')`.
   - Bilingual data fields are `{en, es}`, read with `T(obj)`.

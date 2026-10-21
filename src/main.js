@@ -1,11 +1,15 @@
 /* ---------- router: #/ = home, #/<class>/<tab> = class view ---------- */
 function readHash(){
-  const parts=location.hash.replace(/^#\/?/,'').split('?')[0].split('/').filter(Boolean);
+  const [path,query]=location.hash.replace(/^#\/?/,'').split('?');
+  const parts=path.split('/').filter(Boolean);
   if(!parts.length||!DATA[parts[0]])return {view:'home'};
-  const tab=tabsFor(DATA[parts[0]]).includes(parts[1])?parts[1]:'overview';
-  return {view:'class',cls:parts[0],tab};
+  const c=new URLSearchParams(query||'').get('c');
+  const content=CONTENT.includes(c)?c:'pve';
+  const valid=tabsFor(DATA[parts[0]],content);
+  const tab=valid.includes(parts[1])?parts[1]:valid[0];
+  return {view:'class',cls:parts[0],tab,content};
 }
-const hashOf=()=>S.view==='home'?'#/':`#/${S.cls}/${S.tab}`;
+const hashOf=()=>S.view==='home'?'#/':`#/${S.cls}/${S.tab}${S.content!=='pve'?'?c='+S.content:''}`;
 /** Write the current view into the URL. push=true adds a history entry (back button works). */
 function syncHash(push){const h=hashOf();if(location.hash!==h)history[push?'pushState':'replaceState'](null,'',h)}
 function scrollToTabs(){
@@ -15,7 +19,7 @@ function scrollToTabs(){
 }
 function applyRoute(){
   const r=readHash();
-  if(r.view==='class'&&S.view==='class'&&r.cls===S.cls){
+  if(r.view==='class'&&S.view==='class'&&r.cls===S.cls&&r.content===S.content){
     if(r.tab!==S.tab){S.tab=r.tab;header();save()}
     return;
   }
@@ -39,6 +43,8 @@ document.addEventListener('click',e=>{
   if(t.closest('#loadSeg')){S.load=+t.dataset.l;pStigmas();save();return}
   if(t.closest('#dvTabs')){S.board=t.dataset.b;pDaev();save();return}
   if(t.closest('#presets')){S.preset=+t.dataset.p;renderAll();return}
+  if(t.dataset.content){S.content=t.dataset.content;if(S.content==='lvl')S.tab='checklist';syncHash(true);renderAll();return}
+  if(t.id==='ckClear'){S.done={...(S.done||{}),[S.cls]:[]};pChecklist();save();return}
   if(t.dataset.genw){S.genW=t.dataset.genw;pGenus();save();return}
   if(t.dataset.arcset){S.arcSet=t.dataset.arcset;pArcana();save();return}
   if(t.dataset.arcg){S.arcG=+t.dataset.arcg;pArcana();save();return}
@@ -47,6 +53,7 @@ document.addEventListener('click',e=>{
 });
 document.addEventListener('change',e=>{
   if(e.target.id==='tmReg'){S.region=e.target.value;$('tmRows').innerHTML=timerRows();save()}
+  if(e.target.dataset.ck){toggleCheck(e.target.dataset.ck,e.target.checked)}
 });
 $('lvR').oninput=e=>{S.lv=+e.target.value;renderAll()};
 $('crR').oninput=e=>{S.cr=+e.target.value;S.auto=false;renderAll()};

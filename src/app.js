@@ -56,7 +56,7 @@ const U={
  cdNone:['no cooldown','sin enfriamiento'],unlock:['unlocks Lv','se desbloquea Nv'],charge:['charge','carga'],
  skipWhy:['Low priority for this build.','Baja prioridad para esta build.']
 };
-let S={view:'home',cls:'sorcerer',lang:'en',mode:'simple',tab:'overview',lv:45,cr:136,auto:true,board:'nezekan',load:0,preset:1,macro:'endgame',region:'global',arcSet:'vigor',arcG:41,genW:'cogni'};
+let S={view:'home',cls:'sorcerer',lang:'en',mode:'simple',tab:'overview',lv:45,cr:136,auto:true,board:'nezekan',load:0,preset:1,macro:'endgame',region:'global',arcSet:'vigor',arcG:41,genW:'cogni',content:'pve',done:{}};
 try{Object.assign(S,JSON.parse(localStorage.getItem('a2builds')||'{}'))}catch(e){}
 const save=()=>{try{localStorage.setItem('a2builds',JSON.stringify(S))}catch(e){}};
 const L=()=>S.lang==='es'?1:0;
@@ -157,6 +157,7 @@ function header(){
   $('hChips').innerHTML=`<span class="chip"><b>${u('weapon')}</b>${esc(T(C.weapon))}</span><span class="chip" style="display:flex;gap:6px;align-items:center"><b>${u('diff')}</b><span class="diff">${[1,2,3].map(i=>`<i class="${i<=(C.difficulty||2)?'on':''}"></i>`).join('')}</span></span>`;
   $('tEngine').textContent=u('engine');$('hEngine').textContent=T(C.engine);
   document.body.classList.toggle('home',S.view==='home');
+  $('contSeg').innerHTML=contentSeg();$('modeNote').innerHTML=modeNote();
   $('tabs').innerHTML=tabsFor(C).map(t=>`<button class="tab ${t===S.tab?'on':''}" data-t="${t}">${u('t_'+t)}</button>`).join('');
   document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id==='p-'+S.tab));
   $('ctlbar').classList.toggle('show',['skills','daevanion','macro','leveling'].includes(S.tab));
@@ -165,8 +166,11 @@ function header(){
   $('crSeg').innerHTML=[136,316,365,570].map(v=>`<button data-c="${v}" class="${!S.auto&&S.cr===v?'on':''}">${v}</button>`).join('')+`<button data-c="auto" class="${S.auto?'on':''}">${u('auto')}</button>`;
   $('foot').innerHTML=S.view==='home'?`<p>${u('foot')}</p>`:`<b style="color:var(--gold2)">${u('sources')}</b> · ${(C.sources||[]).map(s=>`<a href="${esc(s[1])}" target="_blank" rel="noopener">${esc(s[0])}</a>`).join(' · ')}<p>${u('foot')}</p>`;
 }
-/** Tabs shown for a class, in order. The router accepts only these. */
-const tabsFor=c=>['overview',...(c.pro?['pro']:[]),'skills','stigmas','arcana','daevanion','macro','rotation','leveling','genus','gear'];
+/** Tabs shown for a class, in order (Leveling mode puts the checklist first). The router accepts only these. */
+function tabsFor(c,content=S.content){
+  const base=['overview',...(c.pro?['pro']:[]),'skills','stigmas','arcana','daevanion','macro','rotation','leveling','genus','gear'];
+  return content==='lvl'?['checklist','leveling',...base.filter(t=>t!=='leveling')]:[...base,'checklist'];
+}
 const ranked=t=>C.skills.filter(s=>s.t===t&&s.rank>0).sort((a,b)=>a.rank-b.rank);
 function eqSpecs(s,eff,end){const slots=eff>=16?3:eff>=12?2:eff>=8?1:0;const rk=(end?s.pickEnd:s.pickLev)||[];return {eq:rk.filter(i=>s.sp[i]&&eff>=s.sp[i][0]).slice(0,slots),slots}}
 function specRows(s,eff,end,onlyEq){const {eq}=eqSpecs(s,eff,end);return s.sp.map((sp,i)=>{const on=eq.includes(i),lock=eff<sp[0];if(onlyEq&&!on)return '';return `<div class="spec ${on?'eq':''} ${lock?'lock':''}"><span class="lv">${sp[0]}</span><span>${esc(S.lang==='es'&&sp[2]?sp[2]:sp[1])}</span><span class="st">${on?u('equipNow'):lock?u('locked'):''}</span></div>`}).join('')}
@@ -316,6 +320,6 @@ function renderAll(){
   if(!tabsFor(C).includes(S.tab))S.tab='overview';
   header();
   if(S.view==='home'){pHome()}
-  else{stopTimers();pOverview();pPro();pSkills();pStigmas();pArcana();pDaev();pMacro();pRotation();pLeveling();pGenus();pGear()}
+  else{stopTimers();pOverview();pPro();pSkills();pStigmas();pArcana();pDaev();pMacro();pRotation();pLeveling();pGenus();pGear();pChecklist()}
   syncHash(false);save();
 }

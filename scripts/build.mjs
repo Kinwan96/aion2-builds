@@ -26,7 +26,7 @@ for (const f of readdirSync(join(root, 'data/shared')).filter(f => f.endsWith('.
 }
 
 // App code: core first, feature files next, main.js (events + boot) last.
-const SRC = ['app.js', 'home.js', 'arcana.js', 'genus.js', 'main.js'];
+const SRC = ['app.js', 'home.js', 'arcana.js', 'genus.js', 'plan.js', 'main.js'];
 const app = SRC.map(f => `/* ---- ${f} ---- */\n` + rd(`src/${f}`)).join('\n');
 
 // Use split/join (not String.replace) so "$" in the data is never treated as a pattern.
